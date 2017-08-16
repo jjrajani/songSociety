@@ -1,15 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
+const app = express();
+
+/* Models */
+require('./models/User');
+/* Connect mongoose to our MongoDB on mLab*/
+mongoose.connect(keys.mongoURI);
 
 /* Auth Services */
 require('./services/passportGoogle');
 require('./services/passportFacebook');
-
-/* Connect mongoose to our MongoDB on mLab*/
-mongoose.connect(keys.mongoURI);
-
-const app = express();
 
 /* Auth Routes */
 require('./routes/authGoogleRoutes')(app);
