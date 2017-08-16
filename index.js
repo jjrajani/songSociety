@@ -1,11 +1,19 @@
 const express = require('express');
-require('./services/passportGoogle'); // make sure services/passport file runs
-require('./services/passportFacebook'); // make sure services/passport file runs
+const mongoose = require('mongoose');
+const keys = require('./config/keys');
+
+/* Auth Services */
+require('./services/passportGoogle');
+require('./services/passportFacebook');
+
+/* Connect mongoose to our MongoDB on mLab*/
+mongoose.connect(keys.mongoURI);
 
 const app = express();
 
-require('./routes/authGoogleRoutes')(app); // add auth routes to app
-require('./routes/authFacebookRoutes')(app); // add auth routes to app
+/* Auth Routes */
+require('./routes/authGoogleRoutes')(app);
+require('./routes/authFacebookRoutes')(app);
 
 app.get('/', (req, res) => {
   res.send('Hello There');
