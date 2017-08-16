@@ -1,7 +1,10 @@
 const passport = require('passport');
 const FacebookStrategy = require('passport-facebook').Strategy;
+const mongoose = require('mongoose');
 
 const keys = require('../config/keys');
+
+const User = mongoose.model('users');
 
 passport.use(
   new FacebookStrategy(
@@ -11,9 +14,9 @@ passport.use(
       callbackURL: '/auth/facebook/callback'
     },
     (accessToken, refreshToken, profile, done) => {
-      console.log('facebook access token', accessToken);
-      console.log('facebook refreshToken', refreshToken);
-      console.log('facebook profile', profile);
+      new User({
+        facebookId: profile.id
+      }).save();
     }
   )
 );
