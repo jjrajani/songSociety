@@ -5,10 +5,17 @@ const keys = require('../config/keys');
 
 const User = mongoose.model('users');
 
+// creates cookie storing user info
 passport.serializeUser((user, done) => {
   // user.id here is NOT googleId or facebookId,
   // it is the database ID for this user record
   done(null, user.id);
+});
+// returns user from stored cookie info
+passport.deserializeUser((id, done) => {
+  User.findById(id).then(user => {
+    done(null, user);
+  });
 });
 
 passport.use(
