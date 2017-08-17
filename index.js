@@ -31,6 +31,7 @@ require('./services/passportFacebook');
 /* Auth Routes */
 require('./routes/authGoogleRoutes')(app);
 require('./routes/authFacebookRoutes')(app);
+require('./routes/currentUserRoutes')(app);
 
 app.get('/', (req, res) => {
   res.send('Hello There');

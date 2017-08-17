@@ -175,3 +175,30 @@ passport.deserializeUser((id, done) => {
       app.use(passport.initialize());
       app.use(passport.session());
       ```
+
+---
+
+##### 15. Test That Cookie is Working
+- Create a route to get the current user.
+  - Screen should display the logged in user id and profileId
+
+```
+app.get('/api/current_user', (req, res) => {
+  res.send(req.user);
+});
+```
+
+---
+
+##### Logout User
+- Loging out a user with Passport is super easy.
+- Create a new get route to logout.  Run req.logout().
+
+```
+/* Logout User */
+app.get('/api/logout', (req, res) => {
+  // .logout() method is built in and attached by passport
+  req.logout();
+  res.send(req.user);
+});
+```
