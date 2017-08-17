@@ -126,3 +126,52 @@ app.get(
   passport.authenticate('google')
 );
 ```
+
+---
+Next Steps Completed AFTER MongoDB Setup. Pick up at branch 7-serialize-user-passport
+---
+
+##### 12. Serialize User Info
+- Place function right before passport.use(new Strategy())
+```
+// creates cookie storing user info
+passport.serializeUser((user, done) => {
+  // user.id here is NOT googleId or facebookId,
+  // it is the database ID for this user record
+  done(null, user.id);
+});
+```
+---
+
+##### 13. Deserialize User Info
+- Place function before passport.use(new Strategy()) and after serializeUser
+```
+// returns user from stored cookie info
+passport.deserializeUser((id, done) => {
+  User.findById(id).then(user => {
+    done(null, user);
+  });
+});
+```
+---
+
+##### 14. Enable Cookie Session
+- Passport does not store cookies out of the box so we need a package like `npm cookie-session`.
+  - `npm install --save cookie-session`
+  - In index.js require cookieSession and passport
+    - ```
+      const cookieSession = require('cookie-session');
+      const passport = require('passport');
+      ```
+  - Right after app declaration, tell app and passport to use cookieSession (to make cookies)
+    - ```
+      app.use(
+        cookieSession({
+          maxAge: 30 * 24 * 60 * 60 * 1000,
+          // Hide keys in .gitignore config file
+          keys: [keys.cookieKey]
+        })
+      );
+      app.use(passport.initialize());
+      app.use(passport.session());
+      ```
