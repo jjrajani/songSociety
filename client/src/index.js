@@ -12,7 +12,7 @@ import reducers from './reducers';
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
-  <Provider sotre={store}>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root')
