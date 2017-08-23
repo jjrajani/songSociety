@@ -7,12 +7,18 @@ class Header extends Component {
     return (
       <nav>
         <div className="nav-wrapper">
-          <Link to="/" className="left brand-logo">
-            Emaily
-          </Link>
+          {this.renderLogo()}
           {this.renderLogin()}
         </div>
       </nav>
+    );
+  }
+
+  renderLogo() {
+    return (
+      <Link to={this.props.auth ? '/surveys' : '/'} className="left brand-logo">
+        Emaily
+      </Link>
     );
   }
 
@@ -21,25 +27,33 @@ class Header extends Component {
       case null:
         return;
       case false:
-        return (
-          <ul className="right">
-            <li>
-              <a href="/auth/google">Login With Google</a>
-            </li>
-            <li>
-              <a href="/auth/facebook">Login With Facebook</a>
-            </li>
-          </ul>
-        );
+        return this.renderLoginButtons();
       default:
-        return (
-          <ul className="right">
-            <li>
-              <a href="/api/logout">Logout</a>
-            </li>
-          </ul>
-        );
+        return this.renderLogoutButton();
     }
+  }
+
+  renderLoginButtons() {
+    return (
+      <ul className="right">
+        <li>
+          <a href="/auth/google">Login With Google</a>
+        </li>
+        <li>
+          <a href="/auth/facebook">Login With Facebook</a>
+        </li>
+      </ul>
+    );
+  }
+
+  renderLogoutButton() {
+    return (
+      <ul className="right">
+        <li>
+          <a href="/api/logout">Logout</a>
+        </li>
+      </ul>
+    );
   }
 }
 
