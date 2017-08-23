@@ -10,5 +10,11 @@ module.exports = app => {
   );
 
   /* Complete Facebook Auth Process */
-  app.get('/auth/facebook/callback', passport.authenticate('facebook'));
+  app.get(
+    '/auth/facebook/callback',
+    passport.authenticate('facebook'),
+    (req, res) => {
+      res.redirect('/surveys');
+    }
+  );
 };
