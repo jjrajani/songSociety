@@ -2,6 +2,16 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "//": "proxy allows frontend to work perfectly with backend without",
+  "//": "having to set url depending upon local host and production",
+  "proxy": {
+    "/auth/google": {
+      "target": "http://localhost:5000"
+    },
+    "/auth/facebook": {
+      "target": "http://localhost:5000"
+    }
+  },
   "devDependencies": {
     "react-scripts": "1.0.11"
   },
