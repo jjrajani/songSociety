@@ -27,23 +27,13 @@ passport.use(
       // proxy true makes http in redirect stay as https
       proxy: true
     },
-    (accessToken, refreshToken, profile, done) => {
-      User.findOne({ googleId: profile.id }).then(user => {
-        if (user) {
-          // we already have a record with given profileId
-          // console.log('User exists', user);
-          // call done to continue auth process, perhaps redirect to wherever...
-          // null === error object we could return if we liked, should something have gone wrong
-          // done function sends user to serializeUser
-          done(null, user);
-        } else {
-          // create user then send that user back
-          new User({ googleId: profile.id }).save().then(user => {
-            // done function sends user to serializeUser
-            done(null, user);
-          });
-        }
-      });
+    async (accessToken, refreshToken, profile, done) => {
+      const user = await User.findOne({ googleId: profile.id });
+
+      if (user) return done(null, user);
+
+      user = await new User({ googleId: profile.id }).save();
+      done(null, user);
     }
   )
 );

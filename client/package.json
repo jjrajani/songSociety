@@ -2,13 +2,11 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "//": "proxy allows frontend to work perfectly with backend without",
-  "//": "having to set url depending upon local host and production",
+  "//": "proxy reroutes url to the target url",
+  "//": "we do not need to specify for the produciton version because the client server will not exist.",
+  "//": "the client side gets bundled into the public folder and gets served through the express server",
   "proxy": {
-    "/auth/google": {
-      "target": "http://localhost:5000"
-    },
-    "/auth/facebook": {
+    "/auth/*": {
       "target": "http://localhost:5000"
     }
   },
