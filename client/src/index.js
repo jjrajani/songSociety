@@ -1,8 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import { App } from './components';
-import registerServiceWorker from './registerServiceWorker';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+import { App } from './components';
+
+const store = createStore(() => [], {}, applyMiddleware());
+
+ReactDOM.render(
+  <Provider sotre={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
