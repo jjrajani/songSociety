@@ -7,6 +7,6 @@ module.exports = app => {
   app.get('/api/logout', (req, res) => {
     // .logout() method is built in and attached by passport
     req.logout();
-    res.send(req.user);
+    res.redirect('/');
   });
 };
