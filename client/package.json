@@ -12,12 +12,13 @@
     }
   },
   "devDependencies": {
+    "node-sass-chokidar": "0.0.3",
     "react-scripts": "1.0.11"
   },
   "dependencies": {
     "axios": "^0.16.2",
     "materialize-css": "^0.100.1",
-    "node-sass-chokidar": "0.0.3",
+
     "npm-run-all": "^4.0.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
