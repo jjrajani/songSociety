@@ -3,14 +3,14 @@ const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const keys = require('./config/keys');
-
+const bodyParser = require('body-parser');
 /* Models */
 require('./models/User');
 /* Connect mongoose to our MongoDB on mLab*/
 mongoose.connect(keys.mongoURI);
 
 const app = express();
-
+app.use(bodyParser.json());
 // tell app to use cookie-session
 // maxAge read in milliseconds
 // so for 30 days...
@@ -32,6 +32,7 @@ require('./services/passportFacebook');
 require('./routes/authGoogleRoutes')(app);
 require('./routes/authFacebookRoutes')(app);
 require('./routes/currentUserRoutes')(app);
+require('./routes/billingRoutes')(app);
 
 app.get('/', (req, res) => {
   res.send('Hello There');

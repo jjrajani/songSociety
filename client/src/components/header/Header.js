@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import StripePay from '../stripe_pay/StripePay';
 
 class Header extends Component {
   render() {
@@ -29,7 +30,7 @@ class Header extends Component {
       case false:
         return this.renderLoginButtons();
       default:
-        return this.renderLogoutButton();
+        return this.renderLoggedIn();
     }
   }
 
@@ -46,9 +47,17 @@ class Header extends Component {
     );
   }
 
-  renderLogoutButton() {
+  renderLoggedIn() {
     return (
       <ul className="right">
+        <li>
+          <StripePay />
+        </li>
+        {this.props.auth.credits > 0
+          ? <li style={{ margin: '0px 10px' }}>
+              Credits: {this.props.auth.credits}
+            </li>
+          : null}
         <li>
           <a href="/api/logout">Logout</a>
         </li>
