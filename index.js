@@ -34,6 +34,17 @@ require('./routes/authFacebookRoutes')(app);
 require('./routes/currentUserRoutes')(app);
 require('./routes/billingRoutes')(app);
 
+if (process.env.NODE_ENV === 'production') {
+  // Express will server produciton assets
+  // like main.js or main.css
+  app.user(express.static('client/build'));
+  // Express will server index.html if doesn't
+  // recognize route
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'cliend', 'build', 'index.html'));
+  });
+}
 app.get('/', (req, res) => {
   res.send('Hello There');
 });
