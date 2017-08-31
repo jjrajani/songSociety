@@ -6,6 +6,7 @@ const keys = require('./config/keys');
 const bodyParser = require('body-parser');
 /* Models */
 require('./models/User');
+require('./models/Survey');
 /* Connect mongoose to our MongoDB on mLab*/
 mongoose.connect(keys.mongoURI);
 
