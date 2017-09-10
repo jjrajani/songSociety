@@ -34,6 +34,7 @@ require('./routes/authGoogleRoutes')(app);
 require('./routes/authFacebookRoutes')(app);
 require('./routes/currentUserRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
   // Express will server produciton assets
