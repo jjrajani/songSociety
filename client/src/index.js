@@ -18,3 +18,14 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
+// import axios from 'axios';
+// window.axios = axios;
+//
+// in cunjunction with importing axios and setting window.axios = axios
+// Use these commented lines to test email client works
+// const survey = {
+//   title: 'My Title', subject: 'My Subject', recipients: 'jjrajani@gmail.com', body: 'heres the body of the email'
+// }
+//
+// axios.post('/api/surveys', survey);
