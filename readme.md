@@ -10,7 +10,7 @@ This app allows users to create an account, purchase credits, create email surve
 
 ---
 
-##### To test the Live Site:
+#### To test the Live Site:
 
 * Create a user by logging in with Google or facebook.
 * Add credits
