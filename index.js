@@ -16,11 +16,11 @@ app.use(bodyParser.json());
 // maxAge read in milliseconds
 // so for 30 days...
 app.use(
-  cookieSession({
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-    // Hide keys in .gitignore config file
-    keys: [keys.cookieKey]
-  })
+    cookieSession({
+        maxAge: 30 * 24 * 60 * 60 * 1000,
+        // Hide keys in .gitignore config file
+        keys: [keys.cookieKey]
+    })
 );
 app.use(passport.initialize());
 app.use(passport.session());
@@ -37,18 +37,18 @@ require('./routes/billingRoutes')(app);
 require('./routes/surveyRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
-  // Express will server produciton assets
-  // like main.js or main.css
-  app.use(express.static('client/build'));
-  // Express will server index.html if doesn't
-  // recognize route
-  const path = require('path');
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
+    // Express will server produciton assets
+    // like main.js or main.css
+    app.use(express.static('client/build'));
+    // Express will server index.html if doesn't
+    // recognize route
+    const path = require('path');
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
 }
 app.get('/', (req, res) => {
-  res.send('Hello There');
+    res.send('Hello There');
 });
 
 /*
@@ -57,5 +57,5 @@ app.get('/', (req, res) => {
 */
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log('App Listening on PORT 5000');
+    console.log('App Listening on PORT 5000');
 });
