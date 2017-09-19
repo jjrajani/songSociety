@@ -1,4 +1,5 @@
 # Emaily
+
 ---
 
 #### An example Fullstack React Redux Express App.
@@ -7,7 +8,9 @@ This app allows users to create an account, purchase credits, create email surve
 
 [Live Site](https://node-react.herokuapp.com/)
 
-##### To test the site:
+---
+
+##### To test the Live Site:
 
 * Create a user by logging in with Google or facebook.
 * Add credits
@@ -16,3 +19,10 @@ This app allows users to create an account, purchase credits, create email surve
     * Use any three digit number for the CVC.
 
 * Once logged in and in posession of credits, fill out the survey form to see the app in action.
+
+---
+
+#### To run code locally
+* Clone this repo
+* run `npm install`
+* run `npm run dev`
