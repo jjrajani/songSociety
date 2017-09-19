@@ -14,4 +14,4 @@ This app allows users to create an account, purchase credits, create email surve
     * Use any date in the future as the expiration date.
     * Use any three digit number for the CVC.
 
-* Once logged in and in posession of credits, fill out a survey form to see the app in action.
+* Once logged in and in posession of credits, fill out the survey form to see the app in action.
