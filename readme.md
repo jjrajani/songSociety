@@ -12,9 +12,9 @@ This app allows users to create an account, purchase credits, create email surve
 
 #### To test the Live Site:
 
-* Create a user by logging in with Google or facebook.
+* Create a user by logging in with Google or Facebook.
 * Add credits
-    * Use credit card number 4242 4242 4242 4242
+    * Use credit card number 4242 4242 4242 4242.
     * Use any date in the future as the expiration date.
     * Use any three digit number for the CVC.
 
@@ -23,6 +23,6 @@ This app allows users to create an account, purchase credits, create email surve
 ---
 
 #### To run code locally
-* Clone this repo
-* run `npm install`
-* run `npm run dev`
+* `git clone https://github.com/jjrajani/Emaily.git`
+* `npm install`
+* `npm run dev`
