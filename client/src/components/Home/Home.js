@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LandingCarousel from '../components/LandingCarousel/LandingCarousel';
+import LandingCarousel from '../LandingCarousel/LandingCarousel';
 
 class Home extends Component {
     login() {

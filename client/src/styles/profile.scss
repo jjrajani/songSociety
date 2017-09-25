@@ -9,4 +9,12 @@
         margin-top: 25px;
         margin-bottom: 15px;
     }
+    .projects,
+    .friends {
+        .header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+    }
 }

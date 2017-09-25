@@ -5,7 +5,10 @@ const Friends = ({ profile }) => {
     const friends = profile.friends;
     return (
         <div className="friends">
-            <h3>Friends</h3>
+            <div className="header">
+                <h3>Friends</h3>
+                <p className="btn btn-info">Find Friends</p>
+            </div>
             <ul className="list">
                 {friends &&
                     Object.keys(friends).map(f => {

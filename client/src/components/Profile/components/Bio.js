@@ -1,4 +1,5 @@
 import React from 'react';
+import { Glyphicon } from 'react-bootstrap';
 
 const Bio = ({ profile }) =>
     <div className="col-xs-12 col-sm-3 bio">
@@ -20,7 +21,7 @@ const Bio = ({ profile }) =>
                 </p>
             </div>
         </div>
-        <div className="groups_wraper">
+        <div className="groups_wrapper">
             <h3>Groups</h3>
             <ul className="groups">
                 {profile.groups &&

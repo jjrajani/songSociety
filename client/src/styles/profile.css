@@ -7,3 +7,9 @@
 .profile .friends h3 {
   margin-top: 25px;
   margin-bottom: 15px; }
+
+.profile .projects .header,
+.profile .friends .header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between; }

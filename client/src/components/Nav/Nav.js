@@ -41,10 +41,7 @@ class MyNav extends Component {
             >
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <a
-                            className="logo"
-                            onClick={this.goTo.bind(this, 'home')}
-                        >
+                        <a className="logo" onClick={this.goTo.bind(this, '')}>
                             Song Society
                         </a>
                     </Navbar.Brand>
@@ -54,11 +51,11 @@ class MyNav extends Component {
                     <Nav pullRight onSelect={this.closeNav.bind(this)}>
                         <Button
                             className={
-                                location === '/home'
+                                location === '/'
                                     ? 'alive btn-margin'
                                     : 'btn-margin'
                             }
-                            onClick={this.goTo.bind(this, 'home')}
+                            onClick={this.goTo.bind(this, '')}
                         >
                             Home
                         </Button>

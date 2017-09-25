@@ -84,6 +84,12 @@ ul.nav button {
   margin-top: 25px;
   margin-bottom: 15px; }
 
+.profile .projects .header,
+.profile .friends .header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between; }
+
 .profile .bio .avatar_wrapper {
   display: flex;
   justify-content: center;
@@ -104,7 +110,7 @@ ul.nav button {
 
 .profile .bio h3 {
   font-size: 1.75rem;
-  margin-top: 0;
+  margin-top: 20px;
   color: #555; }
 
 .profile .bio .groups {

@@ -4,6 +4,7 @@ const keys = require('./config/keys');
 const bodyParser = require('body-parser');
 /* Models */
 require('./models/User');
+require('./models/Groups');
 /* Connect mongoose to our MongoDB on mLab*/
 mongoose.connect(keys.mongoURI);
 
@@ -15,6 +16,8 @@ app.use(bodyParser.json());
 
 /* Auth Routes */
 require('./routes/userRoutes')(app);
+require('./routes/groupsRoutes')(app);
+require('./routes/projectsRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));

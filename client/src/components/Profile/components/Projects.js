@@ -6,7 +6,10 @@ const Projects = ({ profile }) => {
 
     return (
         <div className="projects">
-            <h3>Projects</h3>
+            <div className="header">
+                <h3>Projects</h3>
+                <p className="btn btn-info">New Project</p>
+            </div>
             <ul className="list">
                 {projects &&
                     Object.keys(projects).map(p => {
