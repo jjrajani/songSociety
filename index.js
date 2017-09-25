@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const bodyParser = require('body-parser');
 /* Models */
-
+require('./models/User');
 /* Connect mongoose to our MongoDB on mLab*/
 mongoose.connect(keys.mongoURI);
 
@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 // require('./services/passportGoogle');
 
 /* Auth Routes */
-// require('./routes/authGoogleRoutes')(app);
+require('./routes/userRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));

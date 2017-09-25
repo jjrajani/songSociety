@@ -1,6 +1,7 @@
 import auth0 from 'auth0-js';
 import { AUTH_CONFIG } from './auth0-variables';
 import history from '../history';
+import axios from 'axios';
 
 export default class Auth {
     auth0 = new auth0.WebAuth({
@@ -31,6 +32,8 @@ export default class Auth {
         this.auth0.parseHash((err, authResult) => {
             if (authResult && authResult.accessToken && authResult.idToken) {
                 this.setSession(authResult);
+                console.log('handleAuth', authResult);
+                axios.post('/api/user', authResult.idTokenPayload);
                 history.replace('/home');
             } else if (err) {
                 history.replace('/home');
