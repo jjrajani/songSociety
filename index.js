@@ -1,40 +1,19 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const cookieSession = require('cookie-session');
-const passport = require('passport');
+// const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const bodyParser = require('body-parser');
 /* Models */
-require('./models/User');
-require('./models/Survey');
 /* Connect mongoose to our MongoDB on mLab*/
-mongoose.connect(keys.mongoURI);
+// mongoose.connect(keys.mongoURI);
 
 const app = express();
 app.use(bodyParser.json());
-// tell app to use cookie-session
-// maxAge read in milliseconds
-// so for 30 days...
-app.use(
-    cookieSession({
-        maxAge: 30 * 24 * 60 * 60 * 1000,
-        // Hide keys in .gitignore config file
-        keys: [keys.cookieKey]
-    })
-);
-app.use(passport.initialize());
-app.use(passport.session());
 
 /* Auth Services */
-require('./services/passportGoogle');
-require('./services/passportFacebook');
+// require('./services/passportGoogle');
 
 /* Auth Routes */
-require('./routes/authGoogleRoutes')(app);
-require('./routes/authFacebookRoutes')(app);
-require('./routes/currentUserRoutes')(app);
-require('./routes/billingRoutes')(app);
-require('./routes/surveyRoutes')(app);
+// require('./routes/authGoogleRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
     // Express will server produciton assets
