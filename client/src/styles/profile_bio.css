@@ -9,6 +9,8 @@
 
 .profile .bio .user_info {
   padding-left: 10px; }
+  .profile .bio .user_info p {
+    margin-right: 10px; }
 
 .profile .bio h1 {
   font-size: 2.5rem;

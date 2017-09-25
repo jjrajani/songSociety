@@ -1,2 +1,9 @@
 .profile .details {
   border: solid red 4px; }
+
+@media screen and (max-width: 768px) {
+  .profile .details {
+    padding: 0; }
+    .profile .details .projects,
+    .profile .details .friends {
+      margin: 0 15px; } }

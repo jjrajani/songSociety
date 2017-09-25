@@ -13,7 +13,11 @@ const Bio = ({ profile }) =>
                 <h3>
                     {profile.nickname}
                 </h3>
-                <p>lorem ipsum is the latin version to fill this crap </p>
+                <p>
+                    Bacon ipsum dolor amet drumstick veniam tail, minim ut
+                    consectetur sunt quis cupim dolore. Sunt eu tri-tip
+                    cupidatat aute boudin.
+                </p>
             </div>
         </div>
         <div className="groups_wraper">

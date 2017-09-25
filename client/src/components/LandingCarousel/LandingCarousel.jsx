@@ -32,7 +32,7 @@ const LandingCarousel = () =>
         <Carousel.Item animateIn={true}>
             <div className="carousel_img violin" />
             <Carousel.Caption>
-                <h3>Third slide label</h3>
+                <h3>Fourth slide label</h3>
                 <p>
                     Praesent commodo cursus magna, vel scelerisque nisl
                     consectetur.
