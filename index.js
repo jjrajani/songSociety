@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 /* Models */
 require('./models/User');
 require('./models/Groups');
+require('./models/Projects');
 /* Connect mongoose to our MongoDB on mLab*/
 mongoose.connect(keys.mongoURI);
 
