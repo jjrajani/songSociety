@@ -18,6 +18,26 @@ ul {
 .nav.navbar-nav.navbar-right {
   text-align: right; }
 
+.btn-margin {
+  margin: 7px 10px; }
+  .btn-margin:last-child {
+    margin-right: 0; }
+
+ul.nav button {
+  background-color: transparent;
+  color: #9d9d9d;
+  border-color: #9d9d9d; }
+  ul.nav button.alive, ul.nav button:focus {
+    border-color: red;
+    color: white;
+    background-color: transparent !important;
+    outline: 0 !important; }
+  ul.nav button:hover, ul.nav button:active {
+    background-color: red !important;
+    color: white !important;
+    border-color: red !important;
+    outline: 0 !important; }
+
 .carousel_img {
   height: 100vh; }
   .carousel_img.guitar {
@@ -159,7 +179,19 @@ ul {
     padding: 0; }
     .profile .details .projects,
     .profile .details .friends {
-      margin: 0 15px; } }
+      margin: 0 15px; }
+      .profile .details .projects .list .list_item,
+      .profile .details .friends .list .list_item {
+        flex-wrap: wrap;
+        display: flex; }
+        .profile .details .projects .list .list_item h5,
+        .profile .details .friends .list .list_item h5 {
+          white-space: nowrap;
+          width: 100%; }
+        .profile .details .projects .list .list_item p,
+        .profile .details .friends .list .list_item p {
+          width: 100%;
+          justify-content: flex-end; } }
 
 .profile .details .details_nav {
   display: flex;
@@ -181,3 +213,10 @@ ul {
       margin: 0 0 0 5px;
       color: #555;
       font-size: 1.2rem; }
+
+@media screen and (max-width: 768px) {
+  .profile .details .details_nav {
+    border-top: solid 1px #ccc;
+    padding-top: 10px;
+    justify-content: flex-end;
+    margin: 0 10px; } }

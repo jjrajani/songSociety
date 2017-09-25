@@ -8,3 +8,30 @@
 .nav.navbar-nav.navbar-right {
     text-align: right;
 }
+.btn-margin {
+    margin: 7px 10px;
+    &:last-child {
+        margin-right: 0;
+    }
+}
+ul.nav {
+    button {
+        background-color: transparent;
+        color: #9d9d9d;
+        border-color: #9d9d9d;
+        &.alive,
+        &:focus {
+            border-color: red;
+            color: white;
+            background-color: transparent !important;
+            outline: 0 !important;
+        }
+        &:hover,
+        &:active {
+            background-color: red !important;
+            color: white !important;
+            border-color: red !important;
+            outline: 0 !important;
+        }
+    }
+}

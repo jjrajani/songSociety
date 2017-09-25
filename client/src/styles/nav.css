@@ -6,3 +6,23 @@
 
 .nav.navbar-nav.navbar-right {
   text-align: right; }
+
+.btn-margin {
+  margin: 7px 10px; }
+  .btn-margin:last-child {
+    margin-right: 0; }
+
+ul.nav button {
+  background-color: transparent;
+  color: #9d9d9d;
+  border-color: #9d9d9d; }
+  ul.nav button.alive, ul.nav button:focus {
+    border-color: red;
+    color: white;
+    background-color: transparent !important;
+    outline: 0 !important; }
+  ul.nav button:hover, ul.nav button:active {
+    background-color: red !important;
+    color: white !important;
+    border-color: red !important;
+    outline: 0 !important; }

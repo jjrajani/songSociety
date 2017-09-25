@@ -26,5 +26,13 @@
                 }
             }
         }
+        @media screen and (max-width: 768px) {
+            .details_nav {
+                border-top: solid 1px #ccc;
+                padding-top: 10px;
+                justify-content: flex-end;
+                margin: 0 10px;
+            }
+        }
     }
 }

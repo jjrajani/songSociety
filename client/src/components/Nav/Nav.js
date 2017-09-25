@@ -8,7 +8,6 @@ class MyNav extends Component {
         this.state = {
             navExpanded: false
         };
-        console.log('PROPS', this.props);
     }
 
     setNavExpanded() {
@@ -20,6 +19,7 @@ class MyNav extends Component {
     }
     goTo(route) {
         this.props.history.replace(`/${route}`);
+        this.setState({ navExpanded: false });
     }
     logout() {
         this.props.auth.logout();
@@ -29,6 +29,7 @@ class MyNav extends Component {
     }
 
     render() {
+        const location = this.props.history.location.pathname;
         const isAuthenticated = this.props.auth.isAuthenticated();
         return (
             <Navbar
@@ -42,10 +43,7 @@ class MyNav extends Component {
                     <Navbar.Brand>
                         <a
                             className="logo"
-                            onClick={() => {
-                                this.closeNav();
-                                this.goTo.bind(this, 'home');
-                            }}
+                            onClick={this.goTo.bind(this, 'home')}
                         >
                             Song Society
                         </a>
@@ -55,31 +53,39 @@ class MyNav extends Component {
                 <Navbar.Collapse>
                     <Nav pullRight onSelect={this.closeNav.bind(this)}>
                         <Button
-                            bsStyle=""
-                            className="btn-margin"
+                            className={
+                                location === '/home'
+                                    ? 'alive btn-margin'
+                                    : 'btn-margin'
+                            }
                             onClick={this.goTo.bind(this, 'home')}
                         >
                             Home
                         </Button>
                         {isAuthenticated &&
                             <Button
-                                bsStyle=""
-                                className="btn-margin"
+                                className={
+                                    location === '/profile'
+                                        ? 'alive btn-margin'
+                                        : 'btn-margin'
+                                }
                                 onClick={this.goTo.bind(this, 'profile')}
                             >
                                 Profile
                             </Button>}
                         {isAuthenticated &&
                             <Button
-                                bsStyle=""
-                                className="btn-margin"
+                                className={
+                                    location === '/workspaces'
+                                        ? 'alive btn-margin'
+                                        : 'btn-margin'
+                                }
                                 onClick={this.goTo.bind(this, 'workspaces')}
                             >
                                 Workspaces
                             </Button>}
                         {isAuthenticated &&
                             <Button
-                                bsStyle=""
                                 className="btn-margin"
                                 onClick={this.logout.bind(this)}
                             >
@@ -87,7 +93,6 @@ class MyNav extends Component {
                             </Button>}
                         {!isAuthenticated &&
                             <Button
-                                bsStyle=""
                                 className="btn-margin"
                                 onClick={this.login.bind(this)}
                             >

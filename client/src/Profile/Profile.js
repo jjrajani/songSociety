@@ -24,7 +24,7 @@ class Profile extends Component {
     render() {
         const { profile } = this.state;
         return (
-            <div className="container-fluid main_content profile">
+            <div className="container main_content profile">
                 <div className="row">
                     <Bio profile={profile} />
                     <Details profile={profile} />

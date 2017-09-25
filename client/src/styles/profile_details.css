@@ -35,4 +35,16 @@
     padding: 0; }
     .profile .details .projects,
     .profile .details .friends {
-      margin: 0 15px; } }
+      margin: 0 15px; }
+      .profile .details .projects .list .list_item,
+      .profile .details .friends .list .list_item {
+        flex-wrap: wrap;
+        display: flex; }
+        .profile .details .projects .list .list_item h5,
+        .profile .details .friends .list .list_item h5 {
+          white-space: nowrap;
+          width: 100%; }
+        .profile .details .projects .list .list_item p,
+        .profile .details .friends .list .list_item p {
+          width: 100%;
+          justify-content: flex-end; } }

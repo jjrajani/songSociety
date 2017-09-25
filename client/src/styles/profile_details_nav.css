@@ -18,3 +18,10 @@
       margin: 0 0 0 5px;
       color: #555;
       font-size: 1.2rem; }
+
+@media screen and (max-width: 768px) {
+  .profile .details .details_nav {
+    border-top: solid 1px #ccc;
+    padding-top: 10px;
+    justify-content: flex-end;
+    margin: 0 10px; } }
