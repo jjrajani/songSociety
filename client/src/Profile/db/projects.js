@@ -25,7 +25,7 @@ const PROJECTS = {
         colaborators: 2
     },
     6: {
-        name: 'The Animal Play Day',
+        name: 'An Animal Play Day',
         renditions: 8,
         colaborators: 3
     },

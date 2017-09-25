@@ -1,16 +1,17 @@
 .profile {
     .bio {
-        border: solid orange 3px;
         .avatar_wrapper {
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 10%;
-            border: solid green 3px;
             img {
                 height: 100%;
                 width: 100%;
             }
+        }
+        .user_info {
+            padding-left: 10px;
         }
         h1 {
             font-size: 2.5rem;
@@ -27,10 +28,11 @@
             .group {
                 position: relative;
                 display: flex;
-                margin: 0 5px;
+                margin: 5px;
                 img {
                     width: 50px;
                     height: 50px;
+                    border-radius: 30%;
                 }
                 .group_name {
                     visibility: none;
@@ -50,6 +52,34 @@
                     display: inline-block;
                     white-space: nowrap;
                 }
+            }
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .bio {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            .top-left {
+                display: flex;
+            }
+            .avatar_wrapper {
+                width: 25%;
+                min-width: 150px;
+                padding: 10px;
+                margin-right: 0px;
+                img {
+                    height: auto;
+                }
+            }
+            .user_info {
+                width: 75%;
+                max-width: 75%;
+                margin-left: 0px;
+            }
+            .groups_wrapper {
+                width: 100%;
             }
         }
     }
