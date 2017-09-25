@@ -1,37 +1,37 @@
 import React, { Component } from 'react';
-import { Panel, ControlLabel, Glyphicon } from 'react-bootstrap';
-import './Profile.css';
+import * as db from './db';
+import Bio from './components/Bio';
+import Details from './components/Details';
 
 class Profile extends Component {
-  componentWillMount() {
-    this.setState({ profile: {} });
-    const { userProfile, getProfile } = this.props.auth;
-    if (!userProfile) {
-      getProfile((err, profile) => {
-        this.setState({ profile });
-      });
-    } else {
-      this.setState({ profile: userProfile });
+    componentWillMount() {
+        this.setState({ profile: {} });
+        const { userProfile, getProfile } = this.props.auth;
+        if (!userProfile) {
+            getProfile((err, profile) => {
+                profile['groups'] = db.GROUPS;
+                profile['projects'] = db.PROJECTS;
+                profile['friends'] = db.FRIENDS;
+                this.setState({ profile });
+            });
+        } else {
+            userProfile['groups'] = db.GROUPS;
+            userProfile['projects'] = db.PROJECTS;
+            userProfile['friends'] = db.FRIENDS;
+            this.setState({ profile: userProfile });
+        }
     }
-  }
-  render() {
-    const { profile } = this.state;
-    return (
-      <div className="container">
-        <div className="profile-area">
-          <h1>{profile.name}</h1>
-          <Panel header="Profile">
-            <img src={profile.picture} alt="profile" />
-            <div>
-              <ControlLabel><Glyphicon glyph="user" /> Nickname</ControlLabel>
-              <h3>{profile.nickname}</h3>
+    render() {
+        const { profile } = this.state;
+        return (
+            <div className="container-fluid main_content profile">
+                <div className="row">
+                    <Bio profile={profile} />
+                    <Details profile={profile} />
+                </div>
             </div>
-            <pre>{JSON.stringify(profile, null, 2)}</pre>
-          </Panel>
-        </div>
-      </div>
-    );
-  }
+        );
+    }
 }
 
 export default Profile;

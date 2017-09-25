@@ -1,0 +1,8 @@
+.profile .details .details_nav {
+  border: solid blue 4px;
+  display: flex;
+  align-items: center; }
+  .profile .details .details_nav p {
+    margin: 0;
+    border: solid purple 3px;
+    padding: 5px 10px; }

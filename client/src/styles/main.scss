@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.main_content {
+    margin-top: 50px;
+}
+
+@import 'nav.scss';
+@import 'home.scss';
+@import 'carousel.scss';
+@import 'profile.scss';
+@import 'profile_bio.scss';
+@import 'profile_details.scss';
+@import 'profile_details_nav.scss';

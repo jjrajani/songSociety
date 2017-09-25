@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box; }
+
+ul {
+  list-style: none;
+  padding: 0; }
+
+.main_content {
+  margin-top: 50px; }
+
+.nav.navbar.navbar-inverse {
+  margin-bottom: 0; }
+
+.logo.navbar-brand {
+  cursor: pointer; }
+
+.nav.navbar-nav.navbar-right {
+  text-align: right; }
+
+.carousel_img {
+  height: 100vh; }
+  .carousel_img.guitar {
+    background-image: url("../assets/guitar_sm.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; }
+  .carousel_img.jungle_mixer {
+    background-image: url("../assets/jungle_mixer_sm.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; }
+  .carousel_img.jam_session {
+    background-image: url("../assets/jam_session_sm.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; }
+  .carousel_img.violin {
+    background-image: url("../assets/violin_sm.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; }
+
+.carousel-caption {
+  bottom: 50% !important; }
+
+.profile .avatar {
+  border-radius: 20%;
+  height: 90px;
+  width: 90px; }
+
+.profile .bio {
+  border: solid orange 3px; }
+  .profile .bio .avatar_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10%;
+    border: solid green 3px; }
+    .profile .bio .avatar_wrapper img {
+      height: 100%;
+      width: 100%; }
+  .profile .bio h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem; }
+  .profile .bio h3 {
+    font-size: 1.75rem;
+    margin-top: 0;
+    color: #555; }
+  .profile .bio .groups {
+    display: flex;
+    flex-wrap: wrap; }
+    .profile .bio .groups .group {
+      position: relative;
+      display: flex;
+      margin: 0 5px; }
+      .profile .bio .groups .group img {
+        width: 50px;
+        height: 50px; }
+      .profile .bio .groups .group .group_name {
+        visibility: none;
+        display: none;
+        z-index: 100;
+        margin: 0;
+        padding: 2px 3px;
+        border-radius: 4px; }
+      .profile .bio .groups .group img:hover + .group_name {
+        background-color: #777;
+        color: white;
+        position: absolute;
+        bottom: 100%;
+        left: -50%;
+        visibility: visible;
+        display: inline-block;
+        white-space: nowrap; }
+
+.profile .details {
+  border: solid red 4px; }
+
+.profile .details .details_nav {
+  border: solid blue 4px;
+  display: flex;
+  align-items: center; }
+  .profile .details .details_nav p {
+    margin: 0;
+    border: solid purple 3px;
+    padding: 5px 10px; }
