@@ -6,7 +6,7 @@
     padding: 5px 10px;
     cursor: pointer; }
     .profile .details .details_nav p.active {
-      border-bottom: solid 2px red; }
+      border-bottom: solid 2px #dd0000; }
     .profile .details .details_nav p.inactive {
       color: #777; }
       .profile .details .details_nav p.inactive .count {

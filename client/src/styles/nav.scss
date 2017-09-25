@@ -1,3 +1,6 @@
+$red: rgb(221, 0, 0);
+$white: rgb(245, 245, 245);
+
 .nav.navbar.navbar-inverse {
     margin-bottom: 0;
 }
@@ -21,16 +24,16 @@ ul.nav {
         border-color: #9d9d9d;
         &.alive,
         &:focus {
-            border-color: red;
-            color: white;
+            border-color: $red;
+            color: $white;
             background-color: transparent !important;
             outline: 0 !important;
         }
         &:hover,
         &:active {
-            background-color: red !important;
-            color: white !important;
-            border-color: red !important;
+            background-color: $red !important;
+            color: $white !important;
+            border-color: $red !important;
             outline: 0 !important;
         }
     }

@@ -3,13 +3,19 @@
     color: #222;
 }
 
+#root {
+    background-color: rgb(251, 251, 251);
+    height: 100vh;
+    overflow: scroll;
+}
+
 ul {
     list-style: none;
     padding: 0;
 }
 
 .main_content {
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
 @import 'nav.scss';

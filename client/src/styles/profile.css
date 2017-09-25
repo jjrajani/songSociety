@@ -2,3 +2,8 @@
   border-radius: 20%;
   height: 90px;
   width: 90px; }
+
+.profile .projects h3,
+.profile .friends h3 {
+  margin-top: 25px;
+  margin-bottom: 15px; }
