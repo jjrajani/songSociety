@@ -1,8 +1,7 @@
 import auth0 from 'auth0-js';
 import { AUTH_CONFIG } from './auth0-variables';
 import history from '../history';
-console.log('AUTH_CONFIG', AUTH_CONFIG);
-console.log('process.env', process.env);
+
 export default class Auth {
     auth0 = new auth0.WebAuth({
         domain: AUTH_CONFIG.domain,

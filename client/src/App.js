@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Button } from 'react-bootstrap';
+import { Navbar, Button, Nav } from 'react-bootstrap';
 import './App.css';
 
 class App extends Component {
@@ -22,8 +22,10 @@ class App extends Component {
                 <Navbar fluid>
                     <Navbar.Header>
                         <Navbar.Brand>
-                            <a href="#">Auth0 - React</a>
+                            <a href="#">Song Society</a>
                         </Navbar.Brand>
+                    </Navbar.Header>
+                    <Nav pullRight>
                         <Button
                             bsStyle="primary"
                             className="btn-margin"
@@ -55,7 +57,7 @@ class App extends Component {
                             >
                                 Log Out
                             </Button>}
-                    </Navbar.Header>
+                    </Nav>
                 </Navbar>
                 <div className="container">
                     {this.props.children}
