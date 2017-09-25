@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect, Route, Router, Switch } from 'react-router-dom';
 import App from './App';
-import { Home, Profile, Workspaces, Login, Auth, Nav } from './components';
+import { Home, Profile, Workspace, Login, Auth, Nav } from './components';
 import history from './history';
 
 const auth = new Auth();
@@ -33,11 +33,11 @@ export const makeMainRoutes = () => {
                     />
                     <Route
                         exact
-                        path="/workspaces"
+                        path="/workspace"
                         render={props =>
                             !auth.isAuthenticated()
                                 ? <Redirect to="/home" />
-                                : <Workspaces auth={auth} {...props} />}
+                                : <Workspace auth={auth} {...props} />}
                     />
                     <Route
                         exact

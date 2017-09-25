@@ -73,13 +73,13 @@ class MyNav extends Component {
                         {isAuthenticated &&
                             <Button
                                 className={
-                                    location === '/workspaces'
+                                    location === '/workspace'
                                         ? 'alive btn-margin'
                                         : 'btn-margin'
                                 }
-                                onClick={this.goTo.bind(this, 'workspaces')}
+                                onClick={this.goTo.bind(this, 'workspace')}
                             >
-                                Workspaces
+                                Workspace
                             </Button>}
                         {isAuthenticated &&
                             <Button
