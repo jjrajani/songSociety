@@ -1,8 +1,9 @@
 import React from 'react';
+import { Glyphicon } from 'react-bootstrap';
 
 const Projects = ({ profile }) => {
     const projects = profile.projects;
-    console.log('PROJECTS', projects);
+
     return (
         <div className="projects">
             <h3>Projects</h3>
@@ -12,14 +13,15 @@ const Projects = ({ profile }) => {
                         const prj = projects[p];
                         return (
                             <li key={p} className="list_item">
+                                <h5 className="title">
+                                    <Glyphicon glyph="music" />
+                                    {prj.name}
+                                </h5>
                                 <p>
-                                    Title: {prj.name}
-                                </p>
-                                <p>
-                                    Renditions: {prj.renditions}
-                                </p>
-                                <p>
-                                    Colaborators: {prj.colaborators}
+                                    <span className="label">Renditions:</span>
+                                    {prj.renditions}
+                                    <span className="label">Colaborators:</span>
+                                    {prj.colaborators}
                                 </p>
                             </li>
                         );

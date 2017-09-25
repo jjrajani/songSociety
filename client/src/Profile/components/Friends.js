@@ -1,8 +1,8 @@
 import React from 'react';
+import { Glyphicon } from 'react-bootstrap';
 
 const Friends = ({ profile }) => {
     const friends = profile.friends;
-    console.log('FRIENDS', friends);
     return (
         <div className="friends">
             <h3>Friends</h3>
@@ -12,11 +12,15 @@ const Friends = ({ profile }) => {
                         const frnd = friends[f];
                         return (
                             <li key={f} className="list_item">
-                                <p>
+                                <h5>
+                                    <Glyphicon glyph="user" />
                                     {frnd.name}
-                                </p>
+                                </h5>
                                 <p>
-                                    Latest Project: {frnd.latestProject}
+                                    <span className="label">
+                                        Latest Project:
+                                    </span>
+                                    {frnd.latestProject}
                                 </p>
                             </li>
                         );

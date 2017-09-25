@@ -1,5 +1,34 @@
 .profile .details {
-  border: solid red 4px; }
+  margin: 20px 0 0 0; }
+  .profile .details .list .list_item {
+    border: solid #ccc 1px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 10px 0; }
+    .profile .details .list .list_item:hover {
+      background-color: #eee;
+      cursor: pointer; }
+    .profile .details .list .list_item .label {
+      color: #555;
+      font-size: 1.25rem; }
+    .profile .details .list .list_item h5 {
+      font-size: 1.75rem; }
+      .profile .details .list .list_item h5 .glyphicon {
+        font-size: 1.5rem;
+        margin: 0 8px 0 0; }
+    .profile .details .list .list_item p {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      margin: 0;
+      padding: 10px;
+      font-weight: 600;
+      font-size: 1.5rem; }
+    .profile .details .list .list_item .glyphicon-pencil {
+      margin-right: 10px; }
 
 @media screen and (max-width: 768px) {
   .profile .details {

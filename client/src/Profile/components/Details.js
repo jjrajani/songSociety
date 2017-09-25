@@ -27,6 +27,7 @@ class Details extends Component {
             <div className="col-xs-12 col-sm-9 details">
                 <DetailsNav
                     toggleView={this.toggleView}
+                    activeTab={this.state.pageView}
                     projectsCount={projectsCount}
                     friendsCount={friendsCount}
                 />
