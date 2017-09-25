@@ -4,7 +4,8 @@ import { Carousel } from 'react-bootstrap';
 const LandingCarousel = () =>
     <Carousel>
         <Carousel.Item animateIn={true}>
-            <div className="carousel_img guitar" />
+            <div className="carousel_img kid_song" />
+
             <Carousel.Caption>
                 <h3>First slide label</h3>
                 <p>
@@ -20,7 +21,8 @@ const LandingCarousel = () =>
             </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item animateIn={true}>
-            <div className="carousel_img jam_session" />
+            <div className="carousel_img guitar" />
+
             <Carousel.Caption>
                 <h3>Third slide label</h3>
                 <p>
@@ -33,6 +35,16 @@ const LandingCarousel = () =>
             <div className="carousel_img violin" />
             <Carousel.Caption>
                 <h3>Fourth slide label</h3>
+                <p>
+                    Praesent commodo cursus magna, vel scelerisque nisl
+                    consectetur.
+                </p>
+            </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item animateIn={true}>
+            <div className="carousel_img jam_session" />
+            <Carousel.Caption>
+                <h3>Fifth slide label</h3>
                 <p>
                     Praesent commodo cursus magna, vel scelerisque nisl
                     consectetur.

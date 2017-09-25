@@ -1,22 +1,27 @@
 .carousel_img {
   height: 100vh; }
   .carousel_img.guitar {
-    background-image: url("../assets/guitar_sm.jpg");
+    background-image: url("../assets/guitar.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center; }
   .carousel_img.jungle_mixer {
-    background-image: url("../assets/jungle_mixer_sm.jpg");
+    background-image: url("../assets/jungle_mixer.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center; }
   .carousel_img.jam_session {
-    background-image: url("../assets/jam_session_sm.jpg");
+    background-image: url("../assets/jam_session.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center; }
   .carousel_img.violin {
-    background-image: url("../assets/violin_sm.jpg");
+    background-image: url("../assets/violin.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; }
+  .carousel_img.kid_song {
+    background-image: url("../assets/kid_song.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center; }

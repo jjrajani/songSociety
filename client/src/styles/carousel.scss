@@ -1,25 +1,31 @@
 .carousel_img {
     height: 100vh;
     &.guitar {
-        background-image: url("../assets/guitar_sm.jpg");
+        background-image: url("../assets/guitar.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
     }
     &.jungle_mixer {
-        background-image: url("../assets/jungle_mixer_sm.jpg");
+        background-image: url("../assets/jungle_mixer.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
     }
     &.jam_session {
-        background-image: url("../assets/jam_session_sm.jpg");
+        background-image: url("../assets/jam_session.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
     }
     &.violin {
-        background-image: url("../assets/violin_sm.jpg");
+        background-image: url("../assets/violin.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    &.kid_song {
+        background-image: url("../assets/kid_song.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
