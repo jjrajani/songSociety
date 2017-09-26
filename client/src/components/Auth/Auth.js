@@ -34,9 +34,9 @@ export default class Auth {
                 this.setSession(authResult);
                 console.log('handleAuth', authResult);
                 axios.post('/api/user', authResult.idTokenPayload);
-                history.replace('/home');
+                history.replace('/');
             } else if (err) {
-                history.replace('/home');
+                history.replace('/');
                 console.log(err);
                 alert(
                     `Error: ${err.error}. Check the console for further details.`
@@ -82,7 +82,7 @@ export default class Auth {
         localStorage.removeItem('expires_at');
         this.userProfile = null;
         // navigate to the home route
-        history.replace('/home');
+        history.replace('/');
     }
 
     isAuthenticated() {

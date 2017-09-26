@@ -1,28 +1,28 @@
 {
-    "name": "email-application",
-    "version": "1.0.0",
-    "description": "email application, to send feedback emails",
-    "main": "index.js",
-    "//": " engines defined below for heroku to know which versions to use",
-    "engines": {
-        "node": "8.3.0",
-        "npm": "5.3.0"
-    },
-    "scripts": {
-        "start": "node index.js",
-        "server": "nodemon index.js",
-        "//": "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
-        "dev": "concurrently \"npm run server\" \"npm run client\"",
-        "client": "npm run start --prefix client",
-        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client --only=dev && npm install --prefix client && npm run build-prod --prefix client"
-    },
-    "author": "humdrum",
-    "license": "ISC",
-    "dependencies": {
-        "body-parser": "^1.17.2",
-        "concurrently": "^3.5.0",
-        "express": "^4.15.4",
-        "lodash": "^4.17.4",
-        "mongoose": "^4.11.13"
-    }
+  "name": "email-application",
+  "version": "1.0.0",
+  "description": "email application, to send feedback emails",
+  "main": "index.js",
+  "//": " engines defined below for heroku to know which versions to use",
+  "engines": {
+    "node": "8.3.0",
+    "npm": "5.3.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "//": "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "npm run start --prefix client",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client --only=dev && npm install --prefix client && npm run build-prod --prefix client"
+  },
+  "author": "humdrum",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "concurrently": "^3.5.0",
+    "express": "^4.15.4",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.11.13"
+  }
 }

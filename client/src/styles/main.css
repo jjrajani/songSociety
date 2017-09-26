@@ -2,6 +2,11 @@
   box-sizing: border-box;
   color: #222; }
 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; }
+
 #root {
   background-color: #fbfbfb;
   height: 100vh;

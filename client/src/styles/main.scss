@@ -1,21 +1,27 @@
 * {
-    box-sizing: border-box;
-    color: #222;
+  box-sizing: border-box;
+  color: #222;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
 
 #root {
-    background-color: rgb(251, 251, 251);
-    height: 100vh;
-    overflow: scroll;
+  background-color: rgb(251, 251, 251);
+  height: 100vh;
+  overflow: scroll;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .main_content {
-    margin-top: 60px;
+  margin-top: 60px;
 }
 
 @import 'nav.scss';
