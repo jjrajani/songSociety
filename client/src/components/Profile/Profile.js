@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as db from './db';
-import Bio from './components/Bio';
-import Details from './components/Details';
+import Bio from './Bio/Bio';
+import Details from './Details/Details';
 
 class Profile extends Component {
     componentWillMount() {

@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 import { Button, Navbar, Nav } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 
+const authLinks = [
+    {
+        location: '/profile',
+        text: 'Profile'
+    },
+    {
+        location: '/workspace',
+        text: 'Workspace'
+    }
+];
+
 class MyNav extends Component {
     constructor(props) {
         super(props);
@@ -10,7 +21,7 @@ class MyNav extends Component {
         };
     }
 
-    setNavExpanded() {
+    openNav() {
         this.setState({ navExpanded: !this.state.navExpanded });
     }
 
@@ -18,7 +29,7 @@ class MyNav extends Component {
         this.setState({ navExpanded: false });
     }
     goTo(route) {
-        this.props.history.replace(`/${route}`);
+        this.props.history.replace(`${route}`);
         this.setState({ navExpanded: false });
     }
     logout() {
@@ -33,7 +44,7 @@ class MyNav extends Component {
         const isAuthenticated = this.props.auth.isAuthenticated();
         return (
             <Navbar
-                onToggle={this.setNavExpanded.bind(this)}
+                onToggle={this.openNav.bind(this)}
                 expanded={this.state.navExpanded}
                 inverse
                 fixedTop
@@ -55,50 +66,44 @@ class MyNav extends Component {
                                     ? 'alive btn-margin'
                                     : 'btn-margin'
                             }
-                            onClick={this.goTo.bind(this, '')}
+                            onClick={this.goTo.bind(this, '/')}
                         >
                             Home
                         </Button>
-                        {isAuthenticated &&
-                            <Button
-                                className={
-                                    location === '/profile'
-                                        ? 'alive btn-margin'
-                                        : 'btn-margin'
-                                }
-                                onClick={this.goTo.bind(this, 'profile')}
-                            >
-                                Profile
-                            </Button>}
-                        {isAuthenticated &&
-                            <Button
-                                className={
-                                    location === '/workspace'
-                                        ? 'alive btn-margin'
-                                        : 'btn-margin'
-                                }
-                                onClick={this.goTo.bind(this, 'workspace')}
-                            >
-                                Workspace
-                            </Button>}
-                        {isAuthenticated &&
-                            <Button
-                                className="btn-margin"
-                                onClick={this.logout.bind(this)}
-                            >
-                                Log Out
-                            </Button>}
-                        {!isAuthenticated &&
-                            <Button
-                                className="btn-margin"
-                                onClick={this.login.bind(this)}
-                            >
-                                Log In
-                            </Button>}
+
+                        {authLinks.map((l, i) => {
+                            return (
+                                isAuthenticated &&
+                                <Button
+                                    key={i}
+                                    className={
+                                        location === l.location
+                                            ? 'alive btn-margin'
+                                            : 'btn-margin'
+                                    }
+                                    onClick={this.goTo.bind(this, l.location)}
+                                >
+                                    {l.text}
+                                </Button>
+                            );
+                        })}
+
+                        {this.renderLogin()}
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
         );
+    }
+
+    renderLogin() {
+        const isAuthenticated = this.props.auth.isAuthenticated();
+        return isAuthenticated
+            ? <Button className="btn-margin" onClick={this.logout.bind(this)}>
+                  Log Out
+              </Button>
+            : <Button className="btn-margin" onClick={this.login.bind(this)}>
+                  Log In
+              </Button>;
     }
 }
 

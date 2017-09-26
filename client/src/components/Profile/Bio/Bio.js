@@ -1,4 +1,5 @@
 import React from 'react';
+import Groups from './components/Groups';
 
 const Bio = ({ profile }) =>
     <div className="col-xs-12 col-sm-3 bio">
@@ -20,23 +21,7 @@ const Bio = ({ profile }) =>
                 </p>
             </div>
         </div>
-        <div className="groups_wrapper">
-            <h3>Groups</h3>
-            <ul className="groups">
-                {profile.groups &&
-                    Object.keys(profile.groups).map(k => {
-                        const group = profile.groups[k];
-                        return (
-                            <li key={group.name} className="group">
-                                <img alt={group.name} src={group.img} />
-                                <p className="group_name">
-                                    {group.name}
-                                </p>
-                            </li>
-                        );
-                    })}
-            </ul>
-        </div>
+        <Groups groups={profile.groups} />
     </div>;
 
 export default Bio;

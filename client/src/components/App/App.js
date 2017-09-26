@@ -1,15 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Nav } from '../';
 
-class App extends Component {
-    render() {
-        return (
-            <div>
-                <Nav auth={this.props.auth} />
-                {this.props.children}
-            </div>
-        );
-    }
-}
+const App = ({ auth, children }) =>
+    <div>
+        <Nav auth={auth} />
+        {children}
+    </div>;
 
 export default App;
