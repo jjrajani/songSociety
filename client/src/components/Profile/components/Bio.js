@@ -1,5 +1,4 @@
 import React from 'react';
-import { Glyphicon } from 'react-bootstrap';
 
 const Bio = ({ profile }) =>
     <div className="col-xs-12 col-sm-3 bio">
