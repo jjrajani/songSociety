@@ -20,3 +20,9 @@ export const logout = () => dispatch => {
     const newAuth = new Auth();
     dispatch({ type: 'LOGOUT', payload: newAuth });
 };
+
+export const getProfile = () => dispatch => {
+    auth.getProfile((err, profile) => {
+        dispatch({ type: t.GET_PROFILE, payload: { auth, profile } });
+    });
+};

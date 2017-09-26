@@ -8,7 +8,7 @@ import history from './history';
 import { Redirect, Route, Router, Switch } from 'react-router-dom';
 import { Home, Profile, Workspace, Login, Nav } from './components';
 
-const Routes = ({ auth, initAuth, handleAuthenticationParse }) => {
+const Routes = ({ auth, handleAuthenticationParse }) => {
     return (
         <Router history={history}>
             <div>
@@ -50,6 +50,5 @@ function mapStateToProps({ auth }) {
 }
 
 export default connect(mapStateToProps, {
-    initAuth: actions.authActions.initAuth,
     handleAuthenticationParse: actions.authActions.handleAuthenticationParse
 })(Routes);

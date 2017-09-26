@@ -1,5 +1,6 @@
 import React from 'react';
 import GroupList from './components/GroupList';
+import { connect } from 'react-redux';
 
 const Bio = ({ profile }) =>
     <div className="col-xs-12 col-sm-3 bio">
@@ -24,4 +25,8 @@ const Bio = ({ profile }) =>
         <GroupList groups={profile.groups} />
     </div>;
 
-export default Bio;
+function mapStateToProps({ profile }) {
+    return { profile };
+}
+
+export default connect(mapStateToProps)(Bio);

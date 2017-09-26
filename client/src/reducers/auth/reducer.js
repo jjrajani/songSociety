@@ -12,6 +12,8 @@ export default function(state = auth, action) {
         return action.payload;
     case t.LOGOUT:
         return action.payload;
+    case t.GET_PROFILE:
+        return action.payload.auth;
     default:
         return state;
     }

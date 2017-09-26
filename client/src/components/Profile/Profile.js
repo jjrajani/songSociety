@@ -1,32 +1,19 @@
 import React, { Component } from 'react';
-import * as db from './db';
 import Bio from './Bio/Bio';
 import Details from './Details/Details';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 
 class Profile extends Component {
-    componentWillMount() {
-        this.setState({ profile: {} });
-        const { userProfile, getProfile } = this.props.auth;
-        if (!userProfile) {
-            getProfile((err, profile) => {
-                profile['groups'] = db.GROUPS;
-                profile['projects'] = db.PROJECTS;
-                profile['friends'] = db.FRIENDS;
-                this.setState({ profile });
-            });
-        } else {
-            userProfile['groups'] = db.GROUPS;
-            userProfile['projects'] = db.PROJECTS;
-            userProfile['friends'] = db.FRIENDS;
-            this.setState({ profile: userProfile });
-        }
+    componentDidMount() {
+        this.props.getProfile(this.props.auth);
     }
     render() {
-        const { profile } = this.state;
+        const { profile } = this.props;
         return (
             <div className="container main_content profile">
                 <div className="row">
-                    <Bio profile={profile} />
+                    <Bio />
                     <Details profile={profile} />
                 </div>
             </div>
@@ -34,4 +21,10 @@ class Profile extends Component {
     }
 }
 
-export default Profile;
+function mapStateToProps({ auth, profile }) {
+    return { auth, profile };
+}
+
+export default connect(mapStateToProps, {
+    getProfile: actions.authActions.getProfile
+})(Profile);
