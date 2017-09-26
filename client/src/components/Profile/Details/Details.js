@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DetailsNav from './DetailsNav';
-import Projects from './Projects';
-import Friends from './Friends';
+import Projects from '../Projects/Projects';
+import Friends from '../Friends/Friends';
 
 class Details extends Component {
     constructor(props) {

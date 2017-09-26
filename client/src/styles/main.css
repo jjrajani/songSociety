@@ -48,6 +48,19 @@ ul.nav button {
     border-color: #dd0000 !important;
     outline: 0 !important; }
 
+#login {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white; }
+
 .carousel_img {
   height: 100vh; }
   .carousel_img.guitar {
