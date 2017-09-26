@@ -1,5 +1,5 @@
 import React from 'react';
-import Groups from './components/Groups';
+import GroupList from './components/GroupList';
 
 const Bio = ({ profile }) =>
     <div className="col-xs-12 col-sm-3 bio">
@@ -21,7 +21,7 @@ const Bio = ({ profile }) =>
                 </p>
             </div>
         </div>
-        <Groups groups={profile.groups} />
+        <GroupList groups={profile.groups} />
     </div>;
 
 export default Bio;

@@ -1,7 +1,7 @@
 import React from 'react';
 import GroupItem from './GroupItem';
 
-const Groups = ({ groups }) =>
+const GroupList = ({ groups }) =>
     <div className="groups_wrapper">
         <h3>Groups</h3>
         <ul className="groups">
@@ -13,4 +13,4 @@ const Groups = ({ groups }) =>
         </ul>
     </div>;
 
-export default Groups;
+export default GroupList;
