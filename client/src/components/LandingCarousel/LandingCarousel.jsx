@@ -10,7 +10,7 @@ const LandingCarousel = () =>
                     <div className={`carousel_img ${s.img}`} />
                     <Carousel.Caption>
                         <h3>
-                            {s.captionHader}
+                            {s.captionHeader}
                         </h3>
                         <p>
                             {s.captionBlurb}
