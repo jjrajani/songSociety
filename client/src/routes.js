@@ -24,7 +24,7 @@ export const makeMainRoutes = () => {
                         path="/profile"
                         render={props =>
                             !auth.isAuthenticated()
-                                ? <Redirect to="/home" />
+                                ? <Redirect to="/" />
                                 : <Profile auth={auth} {...props} />}
                     />
                     <Route
@@ -32,7 +32,7 @@ export const makeMainRoutes = () => {
                         path="/workspace"
                         render={props =>
                             !auth.isAuthenticated()
-                                ? <Redirect to="/home" />
+                                ? <Redirect to="/" />
                                 : <Workspace auth={auth} {...props} />}
                     />
                     <Route

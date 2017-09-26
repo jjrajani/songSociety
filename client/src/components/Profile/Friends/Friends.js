@@ -1,5 +1,4 @@
 import React from 'react';
-import { Glyphicon } from 'react-bootstrap';
 import FriendList from './components/FriendList';
 
 const Friends = ({ profile }) => {

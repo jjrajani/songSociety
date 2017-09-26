@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Navbar, Nav } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
+import logo from '../../assets/logo.png';
 
 const authLinks = [
     {
@@ -46,6 +47,7 @@ class MyNav extends Component {
                 <Navbar.Header>
                     <Navbar.Brand>
                         <a className="logo" onClick={this.goTo.bind(this, '')}>
+                            <img src={logo} alt="Song Society Logo" />
                             Song Society
                         </a>
                     </Navbar.Brand>
@@ -72,6 +74,7 @@ class MyNav extends Component {
     }
 
     renderAuthLinks() {
+        const location = this.props.history.location.pathname;
         const isAuthenticated = this.props.auth.isAuthenticated();
         return isAuthenticated
             ? authLinks.map((l, i) => {

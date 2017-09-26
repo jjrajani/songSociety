@@ -6,6 +6,17 @@ $white: rgb(245, 245, 245);
 }
 .logo.navbar-brand {
     cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    // text-align: center;
+    // height: 100%;
+    // border: solid blue 3px;
+    color: white !important;
+    img {
+        width: 38px;
+        margin: 0 10px 0 5px;
+    }
 }
 
 .nav.navbar-nav.navbar-right {
