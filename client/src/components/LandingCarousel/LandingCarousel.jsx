@@ -4,8 +4,7 @@ import { Carousel } from 'react-bootstrap';
 const LandingCarousel = () =>
     <Carousel>
         <Carousel.Item animateIn={true}>
-            <div className="carousel_img kid_song" />
-
+            <div className="carousel_img guitar" />
             <Carousel.Caption>
                 <h3>First slide label</h3>
                 <p>
@@ -21,8 +20,7 @@ const LandingCarousel = () =>
             </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item animateIn={true}>
-            <div className="carousel_img guitar" />
-
+            <div className="carousel_img kid_song" />
             <Carousel.Caption>
                 <h3>Third slide label</h3>
                 <p>
