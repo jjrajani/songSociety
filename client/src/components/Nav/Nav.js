@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Button, Navbar, Nav } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 import logo from '../../assets/logo.png';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 
 const authLinks = [
     {
@@ -96,16 +98,23 @@ class MyNav extends Component {
     }
 
     renderLogin() {
-        const { login, logout } = { ...this.props.auth };
+        const { login, logout } = { ...this.props };
         const isAuthenticated = this.props.auth.isAuthenticated();
         return isAuthenticated
-            ? <Button className="btn-margin" onClick={logout.bind(this)}>
+            ? <Button className="btn-margin" onClick={logout}>
                   Log Out
               </Button>
-            : <Button className="btn-margin" onClick={login.bind(this)}>
+            : <Button className="btn-margin" onClick={login}>
                   Log In
               </Button>;
     }
 }
 
-export default withRouter(MyNav);
+function mapStateToProps({ auth }) {
+    return { auth };
+}
+
+export default connect(mapStateToProps, {
+    logout: actions.authActions.logout,
+    login: actions.authActions.login
+})(withRouter(MyNav));

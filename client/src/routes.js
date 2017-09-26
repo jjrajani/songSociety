@@ -1,22 +1,18 @@
 import React from 'react';
-import { Redirect, Route, Router, Switch } from 'react-router-dom';
-import { App, Home, Profile, Workspace, Login, Nav } from './components';
-import Auth from './Auth/Auth';
+// tools
+import { connect } from 'react-redux';
+// services
+import * as actions from './actions';
 import history from './history';
+//components
+import { Redirect, Route, Router, Switch } from 'react-router-dom';
+import { Home, Profile, Workspace, Login, Nav } from './components';
 
-const auth = new Auth();
-
-const handleAuthentication = (nextState, replace) => {
-    if (/access_token|id_token|error/.test(nextState.location.hash)) {
-        auth.handleAuthentication();
-    }
-};
-
-export const makeMainRoutes = () => {
+const Routes = ({ auth, initAuth, handleAuthenticationParse }) => {
     return (
-        <Router history={history} component={App}>
+        <Router history={history}>
             <div>
-                <Nav auth={auth} />
+                <Nav />
                 <Switch>
                     <Route exact path="/" render={props => <Home />} />
                     <Route
@@ -39,7 +35,7 @@ export const makeMainRoutes = () => {
                         exact
                         path="/login"
                         render={props => {
-                            handleAuthentication(props);
+                            handleAuthenticationParse(props);
                             return <Login {...props} />;
                         }}
                     />
@@ -48,3 +44,12 @@ export const makeMainRoutes = () => {
         </Router>
     );
 };
+
+function mapStateToProps({ auth }) {
+    return { auth };
+}
+
+export default connect(mapStateToProps, {
+    initAuth: actions.authActions.initAuth,
+    handleAuthenticationParse: actions.authActions.handleAuthenticationParse
+})(Routes);

@@ -3,7 +3,7 @@ import { AUTH_CONFIG } from './auth0-variables';
 import history from '../history';
 import axios from 'axios';
 
-export default class Auth {
+class Auth {
     auth0 = new auth0.WebAuth({
         domain: AUTH_CONFIG.domain,
         clientID: AUTH_CONFIG.clientId,
@@ -90,3 +90,6 @@ export default class Auth {
         return new Date().getTime() < expiresAt;
     }
 }
+const auth = new Auth();
+export { Auth };
+export default auth;
