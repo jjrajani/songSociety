@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../../actions';
 
-const DetailsNav = ({ togglePageView, activeTab }) =>
+const DetailsNav = ({ togglePageView, activeTab, projects, friends }) =>
     <div className="details_nav">
         <p
             className={activeTab === 'projects' ? 'active' : 'inactive'}
@@ -10,7 +10,7 @@ const DetailsNav = ({ togglePageView, activeTab }) =>
                 togglePageView('projects');
             }}
         >
-            Projects <span className="count">333333333</span>
+            Projects <span className="count">{projects.length}</span>
         </p>
         <p
             className={activeTab === 'friends' ? 'active' : 'inactive'}
@@ -18,12 +18,12 @@ const DetailsNav = ({ togglePageView, activeTab }) =>
                 togglePageView('friends');
             }}
         >
-            Friends <span className="count">333333333</span>
+            Friends <span className="count">{friends.length}</span>
         </p>
     </div>;
 
-function mapStateToProps({ profile }) {
-    return { activeTab: profile.pageView };
+function mapStateToProps({ profile, projects, friends }) {
+    return { activeTab: profile.pageView, projects, friends };
 }
 
 export default connect(mapStateToProps, {

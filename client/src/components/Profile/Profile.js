@@ -7,6 +7,8 @@ import * as actions from '../../actions';
 class Profile extends Component {
     componentDidMount() {
         this.props.getProfile(this.props.auth);
+        this.props.fetchProjects();
+        this.props.fetchFriends();
     }
     render() {
         return (
@@ -25,5 +27,7 @@ function mapStateToProps({ auth, profile }) {
 }
 
 export default connect(mapStateToProps, {
-    getProfile: actions.authActions.getProfile
+    getProfile: actions.authActions.getProfile,
+    fetchProjects: actions.projectsActions.fetchProjects,
+    fetchFriends: actions.friendsActions.fetchFriends
 })(Profile);
