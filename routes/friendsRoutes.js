@@ -10,7 +10,7 @@ module.exports = app => {
     // the DEMO way
     app.get('/api/friends', async (req, res) => {
         const friends = await Friend.find();
-        console.log('getting friends', friends);
+
         res.send(friends);
     });
 };

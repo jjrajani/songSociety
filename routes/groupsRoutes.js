@@ -10,7 +10,7 @@ module.exports = app => {
     // the DEMO way
     app.get('/api/groups', async (req, res) => {
         const groups = await Group.find();
-        console.log('getting groups');
+
         res.send(groups);
     });
 };

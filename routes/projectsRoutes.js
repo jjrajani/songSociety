@@ -14,7 +14,6 @@ module.exports = app => {
     // The DEMO way
     app.get('/api/projects', async (req, res) => {
         const projects = await Project.find();
-        console.log('getting projects');
         res.send(projects);
     });
 };
