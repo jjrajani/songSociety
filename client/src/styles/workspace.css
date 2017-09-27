@@ -1,0 +1,42 @@
+.dark_theme {
+  background-color: #444; }
+
+.light_theme,
+.dark_them {
+  background-color: #444; }
+  .light_theme p,
+  .light_theme h1,
+  .light_theme h2,
+  .light_theme h3,
+  .light_theme h4,
+  .light_theme h5,
+  .light_theme h6,
+  .light_theme span,
+  .dark_them p,
+  .dark_them h1,
+  .dark_them h2,
+  .dark_them h3,
+  .dark_them h4,
+  .dark_them h5,
+  .dark_them h6,
+  .dark_them span {
+    color: #eee !important; }
+  .light_theme .count,
+  .dark_them .count {
+    color: #222 !important;
+    font-weight: 400 !important; }
+  .light_theme h3,
+  .dark_them h3 {
+    font-weight: 400 !important;
+    letter-spacing: 0.08rem; }
+  .light_theme h5.title,
+  .dark_them h5.title {
+    font-weight: 400 !important; }
+  .light_theme .list_item:hover,
+  .dark_them .list_item:hover {
+    background-color: #333 !important; }
+  .light_theme .glyphicon-user,
+  .light_theme .glyphicon-music,
+  .dark_them .glyphicon-user,
+  .dark_them .glyphicon-music {
+    color: #111 !important; }

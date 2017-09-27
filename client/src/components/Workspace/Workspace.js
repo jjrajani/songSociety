@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
+// Tools
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
+import { withRouter } from 'react-router-dom';
+// Components
+import WorkspaceNav from '../WorkspaceNav/WorkspaceNav';
 
 class Workspaces extends Component {
     componentWillMount() {
-        this.setState({ profile: {} });
-        const { userProfile, getProfile } = this.props.auth;
-        if (!userProfile) {
-            getProfile((err, profile) => {
-                this.setState({ profile });
-            });
-        } else {
-            this.setState({ profile: userProfile });
-        }
+        this.props.getProfile();
     }
     render() {
-        // const { profile } = this.state;
-        return <div className="container main_content">workspaces</div>;
+        return (
+            <div className="container main_content workspace">
+                <WorkspaceNav />workspaces
+            </div>
+        );
     }
 }
 
-export default Workspaces;
+function mapStateToProps({ profile }) {
+    return { profile };
+}
+
+export default connect(mapStateToProps, {
+    getProfile: actions.authActions.getProfile
+})(withRouter(Workspaces));

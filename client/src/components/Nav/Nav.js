@@ -14,6 +14,13 @@ const authLinks = [
         text: 'Profile'
     },
     {
+        location: '/workspace/new',
+        text: 'Workspace'
+    }
+];
+
+const noAuthLinks = [
+    {
         location: '/workspace',
         text: 'Workspace'
     }
@@ -55,6 +62,7 @@ class MyNav extends Component {
                         >
                             Home
                         </Button>
+                        {this.renderNoAuthLinks()}
                         {this.renderAuthLinks()}
                         <LoginButtons />
                     </Nav>
@@ -69,6 +77,33 @@ class MyNav extends Component {
         const isAuthenticated = this.props.auth.isAuthenticated();
         return isAuthenticated
             ? authLinks.map((l, i) => {
+                  return (
+                      <Button
+                          key={i}
+                          className={
+                              location === l.location
+                                  ? 'alive btn-margin'
+                                  : 'btn-margin'
+                          }
+                          onClick={this.props.goTo.bind(
+                              this,
+                              l.location,
+                              history
+                          )}
+                      >
+                          {l.text}
+                      </Button>
+                  );
+              })
+            : null;
+    }
+
+    renderNoAuthLinks() {
+        const location = this.props.history.location.pathname;
+        const { history } = this.props;
+        const isAuthenticated = this.props.auth.isAuthenticated();
+        return !isAuthenticated
+            ? noAuthLinks.map((l, i) => {
                   return (
                       <Button
                           key={i}

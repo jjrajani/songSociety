@@ -3,5 +3,6 @@ import Profile from './Profile/Profile';
 import Workspace from './Workspace/Workspace';
 import Login from './Login/Login';
 import Nav from './Nav/Nav';
+import WorkspaceNav from './WorkspaceNav/WorkspaceNav';
 
-export { Home, Profile, Workspace, Login, Nav };
+export { Home, Profile, Workspace, Login, Nav, WorkspaceNav };

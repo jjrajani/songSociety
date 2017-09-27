@@ -1,6 +1,8 @@
 * {
     box-sizing: border-box;
     color: #222;
+    letter-spacing: 0.07rem;
+    font-weight: 300 !important;
 }
 
 body {
@@ -20,8 +22,16 @@ ul {
     padding: 0;
 }
 
+p {
+    margin: 0 !important;
+}
+
 .main_content {
-    margin-top: 60px;
+    padding-top: 55px;
+    min-height: 100vh;
+    &.workspace {
+        margin-top: 60px;
+    }
 }
 
 @import 'nav.scss';
@@ -32,3 +42,5 @@ ul {
 @import 'profile_bio.scss';
 @import 'profile_details.scss';
 @import 'profile_details_nav.scss';
+@import 'workspace.scss';
+@import 'workspace_nav.scss';

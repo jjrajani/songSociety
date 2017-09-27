@@ -1,0 +1,40 @@
+$red: rgb(221, 0, 0);
+.dark_theme {
+    background-color: #444;
+    p {
+        // color: red !important;
+    }
+}
+
+.light_theme,
+.dark_them {
+    background-color: #444;
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    span {
+        color: #eee !important;
+    }
+    .count {
+        color: #222 !important;
+        font-weight: 400 !important;
+    }
+    h3 {
+        font-weight: 400 !important;
+        letter-spacing: 0.08rem;
+    }
+    h5.title {
+        font-weight: 400 !important;
+    }
+    .list_item:hover {
+        background-color: #333 !important;
+    }
+    .glyphicon-user,
+    .glyphicon-music {
+        color: #111 !important;
+    }
+}

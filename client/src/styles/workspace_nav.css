@@ -1,0 +1,50 @@
+.workspace_nav {
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  top: 51px;
+  left: 0;
+  border-top: solid 1px #9d9d9d;
+  background-color: #222; }
+  .workspace_nav .container {
+    display: flex;
+    align-items: center;
+    height: 100%; }
+    .workspace_nav .container .workspace_utils_wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      width: 100%; }
+    .workspace_nav .container .util_buttons_wrapper {
+      display: flex;
+      align-items: center; }
+  .workspace_nav p,
+  .workspace_nav input {
+    color: white;
+    border: none;
+    padding: 3px 12px;
+    width: 172px;
+    letter-spacing: 0.08rem; }
+  .workspace_nav p {
+    border-bottom: solid 1px #dd0000; }
+  .workspace_nav input {
+    outline: 0;
+    background-color: #222;
+    border-bottom: solid 1px #8c8c8c; }
+  .workspace_nav .glyphicon-cloud-upload,
+  .workspace_nav .glyphicon-trash,
+  .workspace_nav .glyphicon-user,
+  .workspace_nav .glyphicon-cd,
+  .workspace_nav .glyphicon-download-alt {
+    color: white !important;
+    cursor: pointer;
+    font-size: 1.75rem;
+    margin-left: 15px; }
+  .workspace_nav .glyphicon-cloud-upload:hover,
+  .workspace_nav .glyphicon-user:hover,
+  .workspace_nav .glyphicon-cd:hover,
+  .workspace_nav .glyphicon-download-alt:hover {
+    color: #3371d6 !important; }
+  .workspace_nav .glyphicon-trash:hover {
+    color: #dd0000 !important; }
