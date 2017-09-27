@@ -1,6 +1,5 @@
-// import axios from 'axios';
 import t from './types';
-// Auth to reset auth on logout
+// Auth to create new auth instance on logout
 import auth, { Auth } from '../../Auth/Auth';
 
 export const handleAuthenticationParse = (nextState, replace) => dispatch => {

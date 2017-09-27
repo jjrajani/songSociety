@@ -1,9 +1,13 @@
 import t from './types';
-import * as db from '../db';
+import axios from 'axios';
 import _ from 'lodash';
 
-export const fetchGroups = userId => dispatch => {
-    const groups = _.values(db.GROUPS);
+export const fetchGroups = userId => async dispatch => {
+    // the RIGHT way
+    // const res = await axios.get(`/api/${userId}/groups`);
+    // dispatch({ type: t.FETCH_GROUPS, payload: res.data });
+    // the DEMO way
+    const res = await axios.get(`/api/groups`);
 
-    dispatch({ type: t.FETCH_GROUPS, payload: groups });
+    dispatch({ type: t.FETCH_GROUPS, payload: res.data });
 };

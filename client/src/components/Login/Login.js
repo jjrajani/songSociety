@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 import loading from './loading.svg';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 
-const Login = () =>
-    <div id="login">
-        <img src={loading} alt="loading" />
-    </div>;
+class Login extends Component {
+    componentDidMount() {
+        console.log(this.props.auth);
+        this.props.getProfile();
+    }
+    render() {
+        return (
+            <div id="login">
+                <img src={loading} alt="loading" />
+            </div>
+        );
+    }
+}
 
-export default Login;
+function mapStateToProps({ auth }) {
+    return { auth };
+}
+
+export default connect(mapStateToProps, {
+    getProfile: actions.authActions.getProfile
+})(Login);

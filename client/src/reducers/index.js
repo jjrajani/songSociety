@@ -3,10 +3,14 @@ import { combineReducers } from 'redux';
 import authReducer from './auth/reducer';
 import profileReducer from './profile/reducer';
 import groupsReducer from './groups/reducer';
+import projectsReducer from './projects/reducer';
+import friendsReducer from './friends/reducer';
 
 export default combineReducers({
     auth: authReducer,
     profile: profileReducer,
-    groups: groupsReducer
+    groups: groupsReducer,
+    projects: projectsReducer,
+    friends: friendsReducer
     // form: reduxForm,
 });

@@ -1,10 +1,9 @@
-// import t from './types';
+import t from './types';
 
-// export const getProfile = auth => dispatch => {
-//     console.log('get profile');
-//     auth.getProfile((err, profile) => {
-//         console.log('profile', profile);
-//         dispatch({ type: t.GET_PROFILE, payload: { auth, profile } });
-//     });
-//     console.log('looking for userProfile', auth);
-// };
+export const togglePageView = page => dispatch => {
+    dispatch({ type: t.TOGGLE_PAGE_VIEW, payload: page });
+};
+
+export const setUserId = id => dispatch => {
+    dispatch({ type: t.SET_USER_ID, payload: id });
+};

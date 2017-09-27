@@ -9,12 +9,11 @@ class Profile extends Component {
         this.props.getProfile(this.props.auth);
     }
     render() {
-        const { profile } = this.props;
         return (
             <div className="container main_content profile">
                 <div className="row">
                     <Bio />
-                    <Details profile={profile} />
+                    <Details />
                 </div>
             </div>
         );

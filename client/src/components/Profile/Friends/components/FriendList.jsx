@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 import FriendItem from './FriendItem';
+import { connect } from 'react-redux';
+import * as actions from '../../../../actions';
 
-const FriendList = ({ friends }) =>
-    <ul className="list">
-        {friends &&
-            Object.keys(friends).map(f => {
-                const frnd = friends[f];
-                return <FriendItem key={f} friend={frnd} />;
-            })}
-    </ul>;
+class FriendList extends Component {
+    componentDidMount() {
+        this.props.fetchFriends();
+    }
 
-export default FriendList;
+    render() {
+        const { friends } = this.props;
+        return (
+            <ul className="list">
+                {Object.keys(friends).map(f => {
+                    const frnd = friends[f];
+                    return <FriendItem key={f} friend={frnd} />;
+                })}
+            </ul>
+        );
+    }
+}
+
+function mapStateToProps({ friends }) {
+    return { friends };
+}
+
+export default connect(mapStateToProps, {
+    fetchFriends: actions.friendsActions.fetchFriends
+})(FriendList);
