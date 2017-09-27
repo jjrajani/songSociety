@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import { Button, Navbar, Nav } from 'react-bootstrap';
+// Tools
 import { withRouter } from 'react-router-dom';
-import logo from '../../assets/logo.png';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+// Components
+import { Button, Navbar, Nav } from 'react-bootstrap';
+import LoginButtons from './components/LoginButtons';
+import logo from '../../assets/logo.png';
 
 const authLinks = [
     {
@@ -17,38 +20,23 @@ const authLinks = [
 ];
 
 class MyNav extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            navExpanded: false
-        };
-    }
-
-    openNav() {
-        this.setState({ navExpanded: !this.state.navExpanded });
-    }
-
-    closeNav() {
-        this.setState({ navExpanded: false });
-    }
-    goTo(route) {
-        this.props.history.replace(`${route}`);
-        this.setState({ navExpanded: false });
-    }
-
     render() {
         const location = this.props.history.location.pathname;
+        const { history } = this.props;
         return (
             <Navbar
-                onToggle={this.openNav.bind(this)}
-                expanded={this.state.navExpanded}
+                onToggle={this.props.toggleNav}
+                expanded={this.props.navExpanded}
                 inverse
                 fixedTop
                 className="nav"
             >
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <a className="logo" onClick={this.goTo.bind(this, '')}>
+                        <a
+                            className="logo"
+                            onClick={this.props.goTo.bind(this, '', history)}
+                        >
                             <img src={logo} alt="Song Society Logo" />
                             Song Society
                         </a>
@@ -56,19 +44,19 @@ class MyNav extends Component {
                     <Navbar.Toggle />
                 </Navbar.Header>
                 <Navbar.Collapse>
-                    <Nav pullRight onSelect={this.closeNav.bind(this)}>
+                    <Nav pullRight onSelect={this.props.closeNav}>
                         <Button
                             className={
                                 location === '/'
                                     ? 'alive btn-margin'
                                     : 'btn-margin'
                             }
-                            onClick={this.goTo.bind(this, '/')}
+                            onClick={this.props.goTo.bind(this, '/', history)}
                         >
                             Home
                         </Button>
                         {this.renderAuthLinks()}
-                        {this.renderLogin()}
+                        <LoginButtons />
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
@@ -77,6 +65,7 @@ class MyNav extends Component {
 
     renderAuthLinks() {
         const location = this.props.history.location.pathname;
+        const { history } = this.props;
         const isAuthenticated = this.props.auth.isAuthenticated();
         return isAuthenticated
             ? authLinks.map((l, i) => {
@@ -88,7 +77,11 @@ class MyNav extends Component {
                                   ? 'alive btn-margin'
                                   : 'btn-margin'
                           }
-                          onClick={this.goTo.bind(this, l.location)}
+                          onClick={this.props.goTo.bind(
+                              this,
+                              l.location,
+                              history
+                          )}
                       >
                           {l.text}
                       </Button>
@@ -96,25 +89,15 @@ class MyNav extends Component {
               })
             : null;
     }
-
-    renderLogin() {
-        const { login, logout } = { ...this.props };
-        const isAuthenticated = this.props.auth.isAuthenticated();
-        return isAuthenticated
-            ? <Button className="btn-margin" onClick={logout}>
-                  Log Out
-              </Button>
-            : <Button className="btn-margin" onClick={login}>
-                  Log In
-              </Button>;
-    }
 }
 
-function mapStateToProps({ auth }) {
-    return { auth };
+function mapStateToProps({ auth, navExpanded }) {
+    return { auth, navExpanded };
 }
 
 export default connect(mapStateToProps, {
-    logout: actions.authActions.logout,
-    login: actions.authActions.login
+    openNav: actions.navActions.openNav,
+    closeNav: actions.navActions.closeNav,
+    toggleNav: actions.navActions.toggleNav,
+    goTo: actions.navActions.goTo
 })(withRouter(MyNav));
