@@ -3,13 +3,13 @@ const mongoose = require('mongoose');
 const Friend = mongoose.model('friends');
 
 module.exports = app => {
-    // the RIGHT way
-    // app.get('/api/:userId/friends', (req, res) => {
-    //     res.send('getting user friends for:', req.params.userId);
-    // });
-    // the DEMO way
-    app.get('/api/friends', async (req, res) => {
-        const friends = await Friend.find();
+    const DEMO_USER_ID = 'google-oauth2|112112280522876375272';
+    app.get('/api/:userId/friends', async (req, res) => {
+        const friends = await Friend.find(
+            {
+                // relations.contains(?): DEMO_USER_ID
+            }
+        );
 
         res.send(friends);
     });

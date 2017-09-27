@@ -4,10 +4,9 @@ import _ from 'lodash';
 
 export const fetchFriends = userId => async dispatch => {
     // the RIGHT way
-    // const res = await axios.get(`/api/${userId}/friends`);
-    // dispatch({ type: t.FETCH_FRIENDS, payload: res.data });
+    const res = await axios.get(`/api/${userId}/friends`);
     // the DEMO way
-    const res = await axios.get(`/api/friends`);
+    // const res = await axios.get(`/api/friends`);
 
     dispatch({ type: t.FETCH_FRIENDS, payload: res.data });
 };

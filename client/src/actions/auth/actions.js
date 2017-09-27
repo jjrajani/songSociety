@@ -21,7 +21,14 @@ export const logout = () => dispatch => {
 };
 
 export const getProfile = () => dispatch => {
-    auth.getProfile((err, profile) => {
-        dispatch({ type: t.GET_PROFILE, payload: { auth, profile } });
+    return new Promise((res, rej) => {
+        auth.getProfile((err, profile) => {
+            if (!err) {
+                dispatch({ type: t.GET_PROFILE, payload: { auth, profile } });
+                res(profile);
+            } else {
+                rej(err);
+            }
+        });
     });
 };

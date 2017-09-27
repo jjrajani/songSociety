@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ProjectItem from './ProjectItem';
 import { connect } from 'react-redux';
 
