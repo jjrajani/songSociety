@@ -14,7 +14,7 @@ function withClickEvent(WrappedComponent) {
             }
         }
         componentWillUnmount() {
-            window.removeEventListener('click', false);
+            window.removeEventListener('click', toggleTitleEditListner);
         }
         render() {
             return <WrappedComponent {...this.props} />;

@@ -11,13 +11,9 @@ import { Home, Profile, Workspace, Login, Nav } from './components';
 class Routes extends Component {
     render() {
         const { auth, handleAuthenticationParse } = this.props;
-        const isWorkspaceRoute =
-            this.props.pathname.split('/').indexOf('workspace') !== -1;
         return (
             <Router history={history}>
-                <div
-                    className={isWorkspaceRoute ? 'dark_theme' : 'light_theme'}
-                >
+                <div className={'dark_theme light_theme'}>
                     <Nav />
                     <Switch>
                         <Route exact path="/" render={props => <Home />} />
@@ -59,7 +55,7 @@ class Routes extends Component {
 }
 
 function mapStateToProps({ auth }) {
-    return { auth, pathname: history.location.pathname };
+    return { auth };
 }
 
 export default connect(mapStateToProps, {
