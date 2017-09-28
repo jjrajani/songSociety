@@ -19,16 +19,21 @@
   .btn-margin:last-child {
     margin-right: 0; }
 
+ul.nav a,
 ul.nav button {
   background-color: transparent;
   color: #9d9d9d;
   border-color: #9d9d9d; }
-  ul.nav button.alive, ul.nav button:focus {
+  ul.nav a.alive, ul.nav a:focus,
+  ul.nav button.alive,
+  ul.nav button:focus {
     border-color: #dd0000;
     color: whitesmoke;
     background-color: transparent !important;
     outline: 0 !important; }
-  ul.nav button:hover, ul.nav button:active {
+  ul.nav a:hover, ul.nav a:active,
+  ul.nav button:hover,
+  ul.nav button:active {
     background-color: #dd0000 !important;
     color: whitesmoke !important;
     border-color: #dd0000 !important;

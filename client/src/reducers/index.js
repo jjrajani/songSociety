@@ -10,7 +10,7 @@ import workspaceReducer from './workspace/reducer';
 
 export default combineReducers({
     auth: authReducer,
-    navExpanded: navReducer,
+    nav: navReducer,
     profile: profileReducer,
     groups: groupsReducer,
     projects: projectsReducer,

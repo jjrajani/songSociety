@@ -12,7 +12,6 @@ export const toggleNav = () => dispatch => {
     dispatch({ type: t.TOGGLE_NAV, payload: null });
 };
 
-export const goTo = (route, history) => dispatch => {
-    dispatch({ type: t.CLOSE_NAV, payload: false });
-    history.replace(route);
+export const toggleActiveTab = route => dispatch => {
+    dispatch({ type: t.TOGGLE_ACTIVE_TAB, payload: route });
 };
