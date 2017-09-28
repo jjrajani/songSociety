@@ -1,6 +1,7 @@
+require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
-const keys = require('./config/keys');
+//const keys = require('./config/keys');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 /* Models */
@@ -9,7 +10,7 @@ require('./models/Groups');
 require('./models/Projects');
 require('./models/Friends');
 /* Connect mongoose to our MongoDB on mLab*/
-mongoose.connect(keys.mongoURI);
+mongoose.connect(process.env.MONGO_URI);
 
 const app = express();
 app.use(bodyParser.json());
@@ -30,11 +31,10 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
 }
-app.get('/', (req, res) => {
-    res.send('Hello There');
-});
 
-const PORT = process.env.PORT || 5000;
+app.use(express.static('client/build'));
+
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log('App Listening on PORT 5000');
+    console.log('App Listening on PORT 3000');
 });
