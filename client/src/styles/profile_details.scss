@@ -1,42 +1,6 @@
 .profile {
     .details {
         margin: 20px 0 0 0;
-        .list {
-            .list_item {
-                border: solid #ccc 1px;
-                border-radius: 4px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 10px;
-                margin: 10px 0;
-                &:hover {
-                    background-color: #eee;
-                    cursor: pointer;
-                }
-                .label {
-                    color: #555;
-                    font-size: 1.25rem;
-                }
-                h5 {
-                    font-size: 1.75rem;
-                    display: flex;
-                    .glyphicon {
-                        font-size: 1.9rem;
-                        margin: 0 12px 0 0;
-                    }
-                }
-                p {
-                    display: flex;
-                    justify-content: flex-start;
-                    align-items: flex-end;
-                    margin: 0;
-                    padding: 10px;
-                    font-weight: 600;
-                    font-size: 1.5rem;
-                }
-            }
-        }
     }
     @media screen and (max-width: 768px) {
         .details {

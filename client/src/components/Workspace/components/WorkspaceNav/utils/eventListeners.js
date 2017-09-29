@@ -1,4 +1,4 @@
-import { store } from '../../../redux_store';
+import { store } from '../../../../../redux_store';
 
 export var toggleTitleEditListner = e => {
     const clickedWorkspaceTitle =
