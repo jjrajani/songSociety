@@ -5,11 +5,11 @@ const User = mongoose.model('users');
 module.exports = app => {
     // POST create or update user
     app.post('/api/user', async (req, res) => {
-        const userExists = User.find({ authId: req.body.sub });
+        const userExists = await User.find({ authId: req.body.sub });
         if (userExists.length) {
             res.send(userExists[0]);
         } else {
-            let user = {
+            let user = new User({
                 paid: false,
                 authId: req.body.sub,
                 website: 'Add your website.',
@@ -20,14 +20,10 @@ module.exports = app => {
                 email: 'Add your email',
                 friends: ['i have no friends yet'],
                 latestProject: ''
-            };
-            user = await User.update(
-                user,
-                { authId: req.body.sub },
-                { upsert: true }
-            ).exec((err, docs) => {
+            });
+            await user.save((err, doc) => {
                 if (!err) {
-                    res.send(docs);
+                    res.send(doc);
                 } else {
                     res.send(err);
                 }

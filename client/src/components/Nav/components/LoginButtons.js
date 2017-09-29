@@ -20,8 +20,8 @@ const LoginButtons = ({ auth, login, logout, closeNav, nav }) => {
           </Button>;
 };
 
-function mapStateToProps({ auth, nav }) {
-    return { auth, nav };
+function mapStateToProps({ auth, nav, profile }) {
+    return { auth, nav, profile };
 }
 
 export default connect(mapStateToProps, {
