@@ -21,6 +21,11 @@ ul {
 p {
   margin: 0 !important; }
 
+a {
+  text-decoration: none !important; }
+  a:hover {
+    text-decoration: none !important; }
+
 .main_content {
   padding-top: 55px;
   min-height: 100vh; }
@@ -413,6 +418,18 @@ ul.nav button {
   align-items: center;
   padding: 10px;
   margin: 10px 0; }
+  .list .list_item li {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center; }
+    .list .list_item li .buttons {
+      align-self: flex-start; }
+    .list .list_item li .info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 95%; }
   .list .list_item:hover {
     background-color: #eee;
     cursor: pointer; }

@@ -12,7 +12,7 @@ import {
     Workspace,
     Login,
     Nav,
-    Users,
+    Artists,
     FriendProfile
 } from './components';
 
@@ -27,7 +27,7 @@ class Routes extends Component {
                         <Route exact path="/" render={props => <Home />} />
                         <Route
                             exact
-                            path="/profile"
+                            path="/my_profile"
                             render={props =>
                                 !auth.isAuthenticated()
                                     ? <Redirect to="/" />
@@ -43,11 +43,13 @@ class Routes extends Component {
                         />
                         <Route
                             exact
-                            path="/find_friends"
-                            render={props =>
-                                !auth.isAuthenticated()
-                                    ? <Redirect to="/" />
-                                    : <Users />}
+                            path="/artist/:friendId"
+                            render={props => <FriendProfile />}
+                        />
+                        <Route
+                            exact
+                            path="/artists"
+                            render={props => <Artists />}
                         />
                         <Route
                             exact

@@ -10,8 +10,12 @@ import logo from '../../assets/logo.png';
 
 const authLinks = [
     {
-        location: '/profile',
+        location: '/my_profile',
         text: 'Profile'
+    },
+    {
+        location: '/artists',
+        text: 'Artists'
     },
     {
         location: '/workspace/new',
@@ -20,6 +24,10 @@ const authLinks = [
 ];
 
 const noAuthLinks = [
+    {
+        location: '/artists',
+        text: 'Artists'
+    },
     {
         location: '/workspace',
         text: 'Workspace'

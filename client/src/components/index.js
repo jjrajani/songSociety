@@ -4,7 +4,7 @@ import Workspace from './Workspace/Workspace';
 import Login from './Login/Login';
 import Nav from './Nav/Nav';
 import WorkspaceNav from './WorkspaceNav/WorkspaceNav';
-import Users from './Users/Users';
+import Artists from './Artists/Artists';
 import FriendProfile from './FriendProfile/FriendProfile';
 
 export {
@@ -14,6 +14,6 @@ export {
     Login,
     Nav,
     WorkspaceNav,
-    Users,
+    Artists,
     FriendProfile
 };

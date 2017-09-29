@@ -1,10 +1,8 @@
 import React from 'react';
 // Components
-import { Glyphicon } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const FriendItem = ({ friend }) => {
-    console.log('friend', friend);
     return (
         <Link to={`/friend/${friend._id}`}>
             <li className="list_item">

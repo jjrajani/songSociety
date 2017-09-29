@@ -1,6 +1,5 @@
 import React from 'react';
 import ProjectList from './components/ProjectList';
-import { Link } from 'react-router-dom';
 
 const Projects = () => {
     return (
@@ -14,7 +13,3 @@ const Projects = () => {
 };
 
 export default Projects;
-// Light Blue Button for if Light Theme
-// <Link className="btn btn-info" to="/workspace/new">
-//     New Project
-// </Link>

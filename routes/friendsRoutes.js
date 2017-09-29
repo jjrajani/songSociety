@@ -6,12 +6,10 @@ const User = mongoose.model('users');
 module.exports = app => {
     app.get('/api/:userId/friends', async (req, res) => {
         const user = await User.findOne({ authId: req.params.userId });
-        console.log('usre to get friends for', req.params.userId);
         const friends = await User.find(
             { authId: { $in: user.friends } },
             (err, docs) => {
                 if (!err) {
-                    console.log('found friends', docs);
                     res.status(200).send(docs);
                 } else {
                     res.status(400).send(err);
@@ -21,8 +19,6 @@ module.exports = app => {
     });
 
     app.post('/api/:userId/add_friend/:friendUserId', async (req, res) => {
-        // console.log('adding friend to user body', req.body);
-        // console.log('adding friend to user params', req.params);
         let user = await User.findOne({ authId: req.params.userId });
         if (user.friends.indexOf(req.params.friendUserId) === -1) {
             user.friends.push(req.params.friendUserId);
@@ -39,7 +35,6 @@ module.exports = app => {
     });
 
     app.get('/api/friend/:friendId', async (req, res) => {
-        console.log('getting friend profile', req.params.friendId);
         const friend = await User.findById(
             { _id: req.params.friendId },
             (err, doc) => {

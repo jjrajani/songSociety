@@ -12,9 +12,6 @@ class FriendProfile extends Component {
         const friendId = this.props.match.params.friendId;
         this.props.fetchProfile(friendId).then(res => {
             const { authId } = this.props.friend;
-            console.log(
-                'fetched profile : there should not be (real) groups or projects for friends yet'
-            );
             this.props.fetchGroups(authId);
             this.props.fetchFriends(authId);
             this.props.fetchProjects(authId);

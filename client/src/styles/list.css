@@ -6,6 +6,18 @@
   align-items: center;
   padding: 10px;
   margin: 10px 0; }
+  .list .list_item li {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center; }
+    .list .list_item li .buttons {
+      align-self: flex-start; }
+    .list .list_item li .info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 95%; }
   .list .list_item:hover {
     background-color: #eee;
     cursor: pointer; }

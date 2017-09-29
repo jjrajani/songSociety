@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import UserList from './components/UserList';
+import ArtistList from './components/ArtistList';
 
 class Users extends Component {
     componentDidMount() {
@@ -10,13 +10,12 @@ class Users extends Component {
     }
 
     render() {
-        console.log('users', this.props.users);
         return (
             <div className="container main_content users">
                 <div className="header">
                     <h3>Artists</h3>
                 </div>
-                <UserList />
+                <ArtistList />
             </div>
         );
     }

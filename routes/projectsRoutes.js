@@ -7,7 +7,6 @@ module.exports = app => {
         const projects = await Project.find({
             user: req.params.userId
         });
-        console.log('projects');
         res.send(projects);
     });
 

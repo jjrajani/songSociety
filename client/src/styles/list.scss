@@ -7,6 +7,21 @@
         align-items: center;
         padding: 10px;
         margin: 10px 0;
+        li {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            .buttons {
+                align-self: flex-start;
+            }
+            .info {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 95%;
+            }
+        }
         &:hover {
             background-color: #eee;
             cursor: pointer;

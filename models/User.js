@@ -13,8 +13,8 @@ const userSchema = new Schema(
         img: String,
         email: String,
         nickname: String,
-        friends: [String]
-
+        friends: [String],
+        latestProject: String
         // facebook
         // twitter
     },

@@ -26,6 +26,13 @@ p {
     margin: 0 !important;
 }
 
+a {
+    text-decoration: none !important;
+    &:hover {
+        text-decoration: none !important;
+    }
+}
+
 .main_content {
     padding-top: 55px;
     min-height: 100vh;

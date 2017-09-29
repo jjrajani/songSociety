@@ -3,7 +3,6 @@ import FriendItem from './FriendItem';
 import { connect } from 'react-redux';
 
 const FriendList = ({ friends }) => {
-    console.log('friends', friends);
     return (
         <ul className="list">
             {friends.list.map((friend, i) => {

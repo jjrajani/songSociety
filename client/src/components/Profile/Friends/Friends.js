@@ -7,7 +7,7 @@ const Friends = () =>
     <div className="friends">
         <div className="header">
             <h3>Friends</h3>
-            <Link className="btn btn-danger" to="/find_friends">
+            <Link className="btn btn-danger" to="/artists">
                 Find Friends
             </Link>
         </div>
