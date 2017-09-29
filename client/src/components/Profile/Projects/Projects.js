@@ -2,7 +2,7 @@ import React from 'react';
 import ProjectList from './components/ProjectList';
 import { Link } from 'react-router-dom';
 
-const Projects = ({ profile }) => {
+const Projects = () => {
     return (
         <div className="projects">
             <div className="header">

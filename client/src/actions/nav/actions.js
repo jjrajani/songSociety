@@ -1,9 +1,5 @@
 import t from './types';
 
-export const openNav = () => dispatch => {
-    dispatch({ type: t.OPEN_NAV, payload: true });
-};
-
 export const closeNav = () => dispatch => {
     dispatch({ type: t.CLOSE_NAV, payload: false });
 };

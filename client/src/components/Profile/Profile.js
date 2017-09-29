@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
-import Bio from './Bio/Bio';
-import Details from './Details/Details';
+// Tools
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import { withRouter } from 'react-router-dom';
+// Components
+import Bio from './Bio/Bio';
+import Details from './Details/Details';
 
 class Profile extends Component {
     componentDidMount() {
-        this.props.getProfile(this.props.auth).then(res => {
+        this.props.getProfile().then(res => {
             const userId = res.sub;
-            this.props.fetchProjects(userId);
-            this.props.fetchFriends(userId);
+            this.props.fetchProfile(userId);
             this.props.fetchGroups(userId);
+            this.props.fetchFriends(userId);
+            this.props.fetchProjects(userId);
         });
     }
     render() {
@@ -31,7 +35,8 @@ function mapStateToProps({ auth, profile }) {
 
 export default connect(mapStateToProps, {
     getProfile: actions.authActions.getProfile,
+    fetchProfile: actions.profileActions.fetchProfile,
     fetchGroups: actions.groupsActions.fetchGroups,
     fetchProjects: actions.projectsActions.fetchProjects,
     fetchFriends: actions.friendsActions.fetchFriends
-})(Profile);
+})(withRouter(Profile));

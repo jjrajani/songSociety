@@ -27,7 +27,12 @@ const noAuthLinks = [
 ];
 
 class MyNav extends Component {
-    myGoTo(route) {
+    componentDidMount() {
+        let route = this.props.history.location.pathname;
+        route = route === '/login' ? '/' : route;
+        this.props.toggleActiveTab(route);
+    }
+    goTo(route) {
         const { history } = this.props;
         this.props.toggleActiveTab(route);
         this.props.closeNav();
@@ -47,7 +52,7 @@ class MyNav extends Component {
             >
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <a className="logo" onClick={() => this.myGoTo('')}>
+                        <a className="logo" onClick={() => this.goTo('')}>
                             <img src={logo} alt="Song Society Logo" />
                             Song Society
                         </a>
@@ -58,11 +63,11 @@ class MyNav extends Component {
                     <Nav pullRight onSelect={this.props.closeNav}>
                         <Button
                             className={
-                                activeTab === 'home'
+                                activeTab === '/'
                                     ? 'alive btn-margin btn btn-default'
                                     : 'btn-margin btn btn-default'
                             }
-                            onClick={() => this.myGoTo('/')}
+                            onClick={() => this.goTo('/')}
                         >
                             Home
                         </Button>
@@ -88,7 +93,7 @@ class MyNav extends Component {
                                   ? 'alive btn-margin btn btn-default'
                                   : 'btn-margin btn btn-default'
                           }
-                          onClick={() => this.myGoTo(l.location)}
+                          onClick={() => this.goTo(l.location)}
                       >
                           {l.text}
                       </Button>
@@ -110,7 +115,7 @@ class MyNav extends Component {
                                   ? 'alive btn-margin btn btn-default'
                                   : 'btn-margin btn btn-default'
                           }
-                          onClick={() => this.myGoTo(l.location)}
+                          onClick={() => this.goTo(l.location)}
                       >
                           {l.text}
                       </Button>
@@ -125,7 +130,6 @@ function mapStateToProps({ auth, nav }) {
 }
 
 export default connect(mapStateToProps, {
-    openNav: actions.navActions.openNav,
     closeNav: actions.navActions.closeNav,
     toggleNav: actions.navActions.toggleNav,
     toggleActiveTab: actions.navActions.toggleActiveTab

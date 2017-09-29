@@ -6,7 +6,15 @@ import * as actions from './actions';
 import history from './history';
 //components
 import { Redirect, Route, Router, Switch } from 'react-router-dom';
-import { Home, Profile, Workspace, Login, Nav } from './components';
+import {
+    Home,
+    Profile,
+    Workspace,
+    Login,
+    Nav,
+    Users,
+    FriendProfile
+} from './components';
 
 class Routes extends Component {
     render() {
@@ -23,7 +31,23 @@ class Routes extends Component {
                             render={props =>
                                 !auth.isAuthenticated()
                                     ? <Redirect to="/" />
-                                    : <Profile auth={auth} {...props} />}
+                                    : <Profile />}
+                        />
+                        <Route
+                            exact
+                            path="/friend/:friendId"
+                            render={props =>
+                                !auth.isAuthenticated()
+                                    ? <Redirect to="/" />
+                                    : <FriendProfile />}
+                        />
+                        <Route
+                            exact
+                            path="/find_friends"
+                            render={props =>
+                                !auth.isAuthenticated()
+                                    ? <Redirect to="/" />
+                                    : <Users />}
                         />
                         <Route
                             exact

@@ -1,3 +1,4 @@
+// images and captions for landing carousel
 export default [
     {
         img: 'guitar',

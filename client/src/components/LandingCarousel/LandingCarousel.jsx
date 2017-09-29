@@ -1,9 +1,10 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
+// images and captions for carousel
 import slides from './slides';
 
 const LandingCarousel = () =>
-    <Carousel>
+    <Carousel pauseOnHover={false}>
         {slides.map((s, i) => {
             return (
                 <Carousel.Item animateIn={true} key={i}>

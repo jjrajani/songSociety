@@ -3,14 +3,55 @@ const mongoose = require('mongoose');
 const User = mongoose.model('users');
 
 module.exports = app => {
-    app.post('/api/user', (req, res) => {
-        User.update(
-            {
-                authId: req.body.sub
-            },
+    // POST create or update user
+    app.post('/api/user', async (req, res) => {
+        // const userExists = User.find({ authId: req.body.sub });
+        // if (userExists.length) {
+        // res.send(userExists[0]);
+        // } else {
+        let user = {
+            paid: false,
+            authId: req.body.sub,
+            website: 'Add your website.',
+            description: 'Add a bio.',
+            name: req.body.name,
+            nickname: req.body.nickname,
+            img: req.body.picture,
+            email: 'Add your email',
+            friends: ['i have no friends yet'],
+            latestProject: ''
+        };
+        console.log('updating user', user);
+        user = await User.update(
+            user,
             { authId: req.body.sub },
             { upsert: true }
-        ).exec();
-        res.send('creating or updating user');
+        ).exec((err, docs) => {
+            if (!err) {
+                console.log('updated user', docs);
+                res.send(docs);
+            } else {
+                console.log('there was and error updating user', err);
+                res.send(err);
+            }
+        });
+        // }
+    });
+    // GET list of users
+    app.get('/api/users', async (req, res) => {
+        const users = await User.find(
+            {
+                // relations.contains(?): DEMO_USER_ID
+            }
+        );
+
+        res.send(users);
+    });
+    // GET a single user
+    app.get('/api/user/:id', async (req, res) => {
+        const user = await User.find({
+            authId: req.params.id
+        });
+        res.send(user[0]);
     });
 };
