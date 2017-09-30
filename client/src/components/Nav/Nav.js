@@ -33,6 +33,9 @@ class MyNav extends Component {
         this.props.toggleActiveTab(route);
     }
     goTo(route) {
+        if (route === '/workspace/new') {
+            this.props.resetWorkspace();
+        }
         const { history } = this.props;
         this.props.toggleActiveTab(route);
         this.props.closeNav();
@@ -82,23 +85,16 @@ class MyNav extends Component {
     }
 
     renderWorkspaceButton() {
-        let linkTo = '/workspace';
+        const isAuthenticated = this.props.auth.isAuthenticated();
         const { activeTab } = this.props.nav;
-        const pathLength = this.props.history.location.pathname.split('/')
-            .length;
-        if (pathLength === 2) {
-            // is stranger
-        } else if (pathLength === 3 && pathLength[2] === 'new') {
-            // is new
+        let linkTo = '/workspace';
+        if (isAuthenticated) {
             linkTo = '/workspace/new';
-        } else {
-            // is existing
-            linkTo = this.props.history.location.pathname;
         }
         return (
             <Button
                 className={
-                    activeTab === linkTo
+                    activeTab.includes('workspace')
                         ? 'alive btn-margin btn btn-default'
                         : 'btn-margin btn btn-default'
                 }
@@ -161,5 +157,6 @@ function mapStateToProps({ auth, nav, profile }) {
 export default connect(mapStateToProps, {
     closeNav: actions.navActions.closeNav,
     toggleNav: actions.navActions.toggleNav,
-    toggleActiveTab: actions.navActions.toggleActiveTab
+    toggleActiveTab: actions.navActions.toggleActiveTab,
+    resetWorkspace: actions.workspaceActions.resetWorkspace
 })(withRouter(MyNav));

@@ -31,3 +31,7 @@ export const fetchWorkspace = id => async dispatch => {
 
     dispatch({ type: t.FETCH_WORKSPACE, payload: workspace.data });
 };
+
+export const resetWorkspace = () => dispatch => {
+    dispatch({ type: t.RESET_WORKSPACE, payload: {} });
+};

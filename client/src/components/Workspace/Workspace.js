@@ -19,6 +19,7 @@ class Workspaces extends Component {
     componentWillMount() {
         this.props.getProfile();
     }
+
     playAudio() {
         let player = document.getElementById('workspace_audio_player');
         player.play();

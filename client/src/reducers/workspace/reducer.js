@@ -30,6 +30,11 @@ export default function(
                 ...state,
                 project: action.payload
             };
+        case t.RESET_WORKSPACE:
+            return {
+                ...state,
+                project: { name: 'Undefined', collaborators: [] }
+            };
         case t.TOGGLE_WORKSPACE_PAGE_VIEW:
             return {
                 ...state,
