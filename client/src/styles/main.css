@@ -257,6 +257,47 @@ ul.nav button {
     justify-content: flex-end;
     margin: 0 10px; } }
 
+.workspace .audio_wrapper {
+  position: relative; }
+
+.workspace .audio_nav .play_button {
+  border: solid white 3px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 55px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  cursor: pointer; }
+  .workspace .audio_nav .play_button .glyphicon-play {
+    font-size: 3rem;
+    margin-left: 5px;
+    margin-bottom: 3px; }
+
+.workspace .audio_nav .pause_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  left: 67px;
+  top: 29px;
+  cursor: pointer; }
+  .workspace .audio_nav .pause_button .glyphicon-pause {
+    font-size: 3rem; }
+
+.workspace canvas {
+  width: 100%; }
+
+.workspace .audio_trackbar {
+  width: 100%;
+  height: 11px;
+  border: solid 1px #aaa; }
+
 .dark_theme {
   background-color: #444; }
 
@@ -302,6 +343,7 @@ ul.nav button {
 
 .workspace_nav {
   position: fixed;
+  z-index: 1000;
   height: 57px;
   width: 100%;
   top: 51px;
@@ -428,3 +470,12 @@ ul.nav button {
     padding: 10px;
     font-weight: 600;
     font-size: 1.5rem; }
+
+.comments_list_wrapper .list .list_item {
+  align-items: flex-start;
+  border: solid green 3px; }
+  .comments_list_wrapper .list .list_item p {
+    padding-top: 0 !important; }
+  .comments_list_wrapper .list .list_item img {
+    width: 60px;
+    border-radius: 20%; }

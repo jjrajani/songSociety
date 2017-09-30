@@ -23,6 +23,7 @@ app.use(cors());
 
 /* Auth Routes */
 require('./routes/userRoutes')(app);
+require('./routes/commentsRoutes')(app);
 require('./routes/groupsRoutes')(app);
 require('./routes/projectsRoutes')(app);
 require('./routes/friendsRoutes')(app);

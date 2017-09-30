@@ -6,6 +6,7 @@ import * as friendsActions from './friends/actions';
 import * as projectsActions from './projects/actions';
 import * as workspaceActions from './workspace/actions';
 import * as usersActions from './users/actions';
+import * as commentsActions from './comments/actions';
 
 export {
     authActions,
@@ -15,5 +16,6 @@ export {
     friendsActions,
     projectsActions,
     workspaceActions,
-    usersActions
+    usersActions,
+    commentsActions
 };

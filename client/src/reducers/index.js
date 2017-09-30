@@ -8,6 +8,7 @@ import friendsReducer from './friends/reducer';
 import navReducer from './nav/reducer';
 import workspaceReducer from './workspace/reducer';
 import usersReducer from './users/reducer';
+import commentsReducer from './comments/reducer';
 
 export default combineReducers({
     auth: authReducer,
@@ -17,6 +18,7 @@ export default combineReducers({
     groups: groupsReducer,
     projects: projectsReducer,
     friends: friendsReducer,
-    workspace: workspaceReducer
+    workspace: workspaceReducer,
+    comments: commentsReducer
     // form: reduxForm,
 });

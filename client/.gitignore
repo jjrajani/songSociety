@@ -13,3 +13,4 @@ build
 .DS_Store
 npm-debug.log
 .auth0-variables.js
+secrets.js

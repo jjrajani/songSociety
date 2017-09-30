@@ -1,0 +1,15 @@
+.comments_list_wrapper {
+    .list {
+        .list_item {
+            align-items: flex-start;
+            border: solid green 3px;
+            p {
+                padding-top: 0 !important;
+            }
+            img {
+                width: 60px;
+                border-radius: 20%;
+            }
+        }
+    }
+}

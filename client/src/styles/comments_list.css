@@ -1,0 +1,8 @@
+.comments_list_wrapper .list .list_item {
+  align-items: flex-start;
+  border: solid green 3px; }
+  .comments_list_wrapper .list .list_item p {
+    padding-top: 0 !important; }
+  .comments_list_wrapper .list .list_item img {
+    width: 60px;
+    border-radius: 20%; }
