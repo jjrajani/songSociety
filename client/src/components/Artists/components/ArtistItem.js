@@ -25,7 +25,7 @@ const ArtistItem = ({ auth, user, profile, addFriend }) => {
                         <Glyphicon
                             glyph="plus"
                             onClick={e => {
-                                e.stopPropigation();
+                                e.stopPropagation();
                                 addFriend(profile.userId, user.authId);
                             }}
                         />

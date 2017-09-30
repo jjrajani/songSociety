@@ -2,6 +2,7 @@
     .audio_wrapper {
         // border: solid blue 3px;
         position: relative;
+        text-align: center;
     }
     .audio_nav {
         .play_button {
@@ -14,7 +15,7 @@
             height: 55px;
             position: absolute;
             left: 10px;
-            top: 10px;
+            top: 10%;
             cursor: pointer;
             .glyphicon-play {
                 font-size: 3rem;
@@ -29,8 +30,8 @@
             width: 35px;
             height: 35px;
             position: absolute;
-            left: 67px;
-            top: 29px;
+            left: 72px;
+            top: calc(10% + 20px);
             cursor: pointer;
             .glyphicon-pause {
                 font-size: 3rem;
@@ -39,12 +40,21 @@
     }
     canvas {
         width: 100%;
+        max-height: 275px;
+        // border: solid blue 3px;
     }
     .audio_trackbar {
         width: 100%;
+        max-width: 800px;
         height: 11px;
         border: solid 1px #aaa;
         // background-color: #aaa;
+    }
+    .details_nav {
+        margin-top: 10px;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        border-top: solid 1px #ccc;
     }
 }
 

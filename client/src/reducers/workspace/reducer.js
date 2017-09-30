@@ -1,7 +1,12 @@
 import t from '../../actions/workspace/types';
 
 export default function(
-    state = { editTitleMode: false, title: 'Untitled', currentAudio: null },
+    state = {
+        project: { name: 'Untitled', collaborators: [] },
+        editTitleMode: false,
+        currentAudio: null,
+        pageView: 'comments'
+    },
     action
 ) {
     switch (action.type) {
@@ -19,6 +24,21 @@ export default function(
             return {
                 ...state,
                 currentAudio: action.payload
+            };
+        case t.FETCH_WORKSPACE:
+            return {
+                ...state,
+                project: action.payload
+            };
+        case t.RESET_WORKSPACE:
+            return {
+                ...state,
+                project: { name: 'Undefined', collaborators: [] }
+            };
+        case t.TOGGLE_WORKSPACE_PAGE_VIEW:
+            return {
+                ...state,
+                pageView: action.payload
             };
         default:
             return state;

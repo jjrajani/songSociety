@@ -27,6 +27,8 @@ require('./routes/commentsRoutes')(app);
 require('./routes/groupsRoutes')(app);
 require('./routes/projectsRoutes')(app);
 require('./routes/friendsRoutes')(app);
+require('./routes/workspaceRoutes')(app);
+require('./routes/collaboratorsRoutes')(app);
 
 // if (process.env.NODE_ENV === 'production') {
 //     app.use(express.static('client/build'));

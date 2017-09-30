@@ -1,17 +1,17 @@
-.profile .details .details_nav {
+.details_nav {
   display: flex;
   align-items: center; }
-  .profile .details .details_nav p {
+  .details_nav p {
     margin: 0;
     padding: 5px 10px;
     cursor: pointer; }
-    .profile .details .details_nav p.active {
+    .details_nav p.active {
       border-bottom: solid 2px #dd0000; }
-    .profile .details .details_nav p.inactive {
+    .details_nav p.inactive {
       color: #777; }
-      .profile .details .details_nav p.inactive .count {
+      .details_nav p.inactive .count {
         color: #777; }
-    .profile .details .details_nav p .count {
+    .details_nav p .count {
       background-color: #dedede;
       padding: 1px 5px;
       border-radius: 40%;
@@ -20,7 +20,7 @@
       font-size: 1.2rem; }
 
 @media screen and (max-width: 768px) {
-  .profile .details .details_nav {
+  .details_nav {
     border-top: solid 1px #ccc;
     padding-top: 10px;
     justify-content: flex-end;

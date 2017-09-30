@@ -1,14 +1,50 @@
+$blue: rgb(51, 113, 214);
+
 .comments_list_wrapper {
     .list {
         .list_item {
+            justify-content: space-between;
             align-items: flex-start;
-            border: solid green 3px;
-            p {
-                padding-top: 0 !important;
+            cursor: default;
+            .left {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                width: 90%;
+                img {
+                    width: 60px;
+                    border-radius: 20%;
+                }
+                p {
+                    padding-top: 0 !important;
+                    width: calc(100% - 60px);
+                }
             }
-            img {
-                width: 60px;
-                border-radius: 20%;
+            .right {
+                width: 10%;
+                text-align: right;
+                .glyphicon-play {
+                    cursor: pointer;
+                    font-size: 1.5rem;
+                    border: solid white 1px;
+                    border-radius: 50%;
+                    padding: 3px;
+                    position: relative;
+                    height: 2.4rem;
+                    width: 2.4rem;
+                    &:before {
+                        position: absolute;
+                        left: 5px;
+                        top: 4px;
+                    }
+                    &:hover {
+                        color: $blue;
+                        border-color: $blue;
+                        &:before {
+                            color: $blue;
+                        }
+                    }
+                }
             }
         }
     }

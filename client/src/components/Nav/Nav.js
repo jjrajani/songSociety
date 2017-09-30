@@ -16,10 +16,6 @@ const authLinks = [
     {
         location: '/artists',
         text: 'Artists'
-    },
-    {
-        location: '/workspace/new',
-        text: 'Workspace'
     }
 ];
 
@@ -27,10 +23,6 @@ const noAuthLinks = [
     {
         location: '/artists',
         text: 'Artists'
-    },
-    {
-        location: '/workspace',
-        text: 'Workspace'
     }
 ];
 
@@ -41,6 +33,9 @@ class MyNav extends Component {
         this.props.toggleActiveTab(route);
     }
     goTo(route) {
+        if (route === '/workspace/new') {
+            this.props.resetWorkspace();
+        }
         const { history } = this.props;
         this.props.toggleActiveTab(route);
         this.props.closeNav();
@@ -81,10 +76,32 @@ class MyNav extends Component {
                         </Button>
                         {this.renderNoAuthLinks()}
                         {this.renderAuthLinks()}
+                        {this.renderWorkspaceButton()}
                         <LoginButtons />
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
+        );
+    }
+
+    renderWorkspaceButton() {
+        const isAuthenticated = this.props.auth.isAuthenticated();
+        const { activeTab } = this.props.nav;
+        let linkTo = '/workspace';
+        if (isAuthenticated) {
+            linkTo = '/workspace/new';
+        }
+        return (
+            <Button
+                className={
+                    activeTab.includes('workspace')
+                        ? 'alive btn-margin btn btn-default'
+                        : 'btn-margin btn btn-default'
+                }
+                onClick={() => this.goTo(linkTo)}
+            >
+                Workspace
+            </Button>
         );
     }
 
@@ -140,5 +157,6 @@ function mapStateToProps({ auth, nav, profile }) {
 export default connect(mapStateToProps, {
     closeNav: actions.navActions.closeNav,
     toggleNav: actions.navActions.toggleNav,
-    toggleActiveTab: actions.navActions.toggleActiveTab
+    toggleActiveTab: actions.navActions.toggleActiveTab,
+    resetWorkspace: actions.workspaceActions.resetWorkspace
 })(withRouter(MyNav));

@@ -1,35 +1,32 @@
 import React from 'react';
 // Tools
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 // Components
 import { Glyphicon } from 'react-bootstrap';
 
 const loggedInLinks = [
     {
-        title: 'Invite Collaborators',
-        glyph: 'user'
+        title: 'Save Track',
+        glyph: 'cloud-upload'
     },
     {
         title: 'Download Track',
         glyph: 'download-alt'
-    },
-    {
-        title: 'Delete Workspace',
-        glyph: 'trash'
     }
+    // ,
+    // {
+    //     title: 'Delete Workspace',
+    //     glyph: 'trash'
+    // }
 ];
 
-const UtilButtons = ({ history }) => {
-    const pathname = history.location.pathname.split('/');
-    const isLoggedIn = pathname.indexOf('new') === -1 && pathname.length > 2;
-    const isRegisteredUser = pathname.length > 2;
+const UtilButtons = ({ history, auth }) => {
+    const isLoggedIn = auth.isAuthenticated();
 
     return (
         <div className="util_buttons_wrapper">
-            <Glyphicon title="Record New Track" glyph="cd" />
-
-            {isRegisteredUser &&
-                <Glyphicon title="Save Workspace" glyph="cloud-upload" />}
+            {!isLoggedIn && <Glyphicon title="Record New Track" glyph="cd" />}
 
             {isLoggedIn &&
                 loggedInLinks.map((l, i) => {
@@ -41,4 +38,8 @@ const UtilButtons = ({ history }) => {
     );
 };
 
-export default withRouter(UtilButtons);
+function mapStateToProps({ auth }) {
+    return { auth };
+}
+
+export default connect(mapStateToProps)(withRouter(UtilButtons));

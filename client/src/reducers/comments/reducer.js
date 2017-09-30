@@ -13,7 +13,11 @@ export default function(state = { list: [], currentComment: {} }, action) {
                 return c;
             });
             return { ...state, list: newList };
-
+        case t.RESET_WORKSPACE:
+            return {
+                ...state,
+                list: []
+            };
         default:
             return state;
     }
