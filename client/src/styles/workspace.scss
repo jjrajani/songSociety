@@ -1,6 +1,50 @@
 .workspace {
+    .audio_wrapper {
+        // border: solid blue 3px;
+        position: relative;
+    }
+    .audio_nav {
+        .play_button {
+            border: solid white 3px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 55px;
+            height: 55px;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            cursor: pointer;
+            .glyphicon-play {
+                font-size: 3rem;
+                margin-left: 5px;
+                margin-bottom: 3px;
+            }
+        }
+        .pause_button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            left: 67px;
+            top: 29px;
+            cursor: pointer;
+            .glyphicon-pause {
+                font-size: 3rem;
+            }
+        }
+    }
     canvas {
         width: 100%;
+    }
+    .audio_trackbar {
+        width: 100%;
+        height: 11px;
+        border: solid 1px #aaa;
+        // background-color: #aaa;
     }
 }
 

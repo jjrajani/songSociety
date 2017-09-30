@@ -41,7 +41,6 @@ class AudioVisualizer extends Component {
                   : r < 255
                     ? (newColor = { r: r + 1, g: g, b: b })
                     : (newColor = { r: 255, g: 255, b: 230 });
-            console.log(newColor);
             return newColor;
         }
         function getNextColorDown(color) {
@@ -54,7 +53,6 @@ class AudioVisualizer extends Component {
                   : b < 0
                     ? (newColor = { r: r, g: g, b: b - 1 })
                     : (newColor = { r: 0, g: 0, b: 0 });
-            console.log(newColor);
             return newColor;
         }
 
@@ -80,6 +78,13 @@ class AudioVisualizer extends Component {
             if (framesRendered % 7 === 0) {
                 color = getNextColor(color);
             }
+            if (color === { r: 255, g: 255, b: 230 }) {
+                nextColorDirection = 'down';
+            }
+            if (color === { r: 0, g: 0, b: 0 }) {
+                nextColorDirection = 'up';
+            }
+
             ctx.fillStyle = `rgb(${color.r}, ${color.g}, ${color.b})`;
             // ctx.fillStyle = '#9933ff';
             let bars = 100;
