@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { withRouter } from 'react-router-dom';
 // Components
-import { WorkspaceNav, Comments, AudioPlayer } from './components';
+import { WorkspaceNav, Comments, AudioPlayer, Visualizer } from './components';
 
 class Workspaces extends Component {
     componentWillMount() {
@@ -15,6 +15,7 @@ class Workspaces extends Component {
             <div className="container main_content workspace">
                 <WorkspaceNav />
                 <AudioPlayer />
+                <Visualizer />
                 <Comments />
             </div>
         );

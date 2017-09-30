@@ -257,6 +257,9 @@ ul.nav button {
     justify-content: flex-end;
     margin: 0 10px; } }
 
+.workspace canvas {
+  width: 100%; }
+
 .dark_theme {
   background-color: #444; }
 
