@@ -16,10 +16,6 @@ const authLinks = [
     {
         location: '/artists',
         text: 'Artists'
-    },
-    {
-        location: '/workspace/new',
-        text: 'Workspace'
     }
 ];
 
@@ -27,10 +23,6 @@ const noAuthLinks = [
     {
         location: '/artists',
         text: 'Artists'
-    },
-    {
-        location: '/workspace',
-        text: 'Workspace'
     }
 ];
 
@@ -81,10 +73,39 @@ class MyNav extends Component {
                         </Button>
                         {this.renderNoAuthLinks()}
                         {this.renderAuthLinks()}
+                        {this.renderWorkspaceButton()}
                         <LoginButtons />
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
+        );
+    }
+
+    renderWorkspaceButton() {
+        let linkTo = '/workspace';
+        const { activeTab } = this.props.nav;
+        const pathLength = this.props.history.location.pathname.split('/')
+            .length;
+        if (pathLength === 2) {
+            // is stranger
+        } else if (pathLength === 3 && pathLength[2] === 'new') {
+            // is new
+            linkTo = '/workspace/new';
+        } else {
+            // is existing
+            linkTo = this.props.history.location.pathname;
+        }
+        return (
+            <Button
+                className={
+                    activeTab === linkTo
+                        ? 'alive btn-margin btn btn-default'
+                        : 'btn-margin btn btn-default'
+                }
+                onClick={() => this.goTo(linkTo)}
+            >
+                Workspace
+            </Button>
         );
     }
 

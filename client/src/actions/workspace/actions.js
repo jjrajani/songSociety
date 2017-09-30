@@ -1,5 +1,6 @@
 import * as secrets from '../../secrets';
 import t from './types';
+import axios from 'axios';
 
 export const editTitleOn = () => dispatch => {
     dispatch({ type: t.EDIT_TITLE_ON, payload: true });
@@ -19,4 +20,10 @@ export const playAudio = id => async dispatch => {
         });
         res('play damnit');
     });
+};
+
+export const fetchWorkspace = id => async dispatch => {
+    const workspace = await axios.get(`/api/workspace/${id}`);
+
+    dispatch({ type: t.FETCH_WORKSPACE, payload: workspace.data });
 };

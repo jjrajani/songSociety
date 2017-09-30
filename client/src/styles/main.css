@@ -258,7 +258,8 @@ ul.nav button {
     margin: 0 10px; } }
 
 .workspace .audio_wrapper {
-  position: relative; }
+  position: relative;
+  text-align: center; }
 
 .workspace .audio_nav .play_button {
   border: solid white 3px;
@@ -270,7 +271,7 @@ ul.nav button {
   height: 55px;
   position: absolute;
   left: 10px;
-  top: 10px;
+  top: 10%;
   cursor: pointer; }
   .workspace .audio_nav .play_button .glyphicon-play {
     font-size: 3rem;
@@ -285,16 +286,19 @@ ul.nav button {
   height: 35px;
   position: absolute;
   left: 67px;
-  top: 29px;
+  top: calc(10% + 20px);
   cursor: pointer; }
   .workspace .audio_nav .pause_button .glyphicon-pause {
     font-size: 3rem; }
 
 .workspace canvas {
-  width: 100%; }
+  width: 100%;
+  max-width: 800px;
+  max-height: 275px; }
 
 .workspace .audio_trackbar {
   width: 100%;
+  max-width: 800px;
   height: 11px;
   border: solid 1px #aaa; }
 

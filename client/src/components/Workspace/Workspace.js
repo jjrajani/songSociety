@@ -4,16 +4,18 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { withRouter } from 'react-router-dom';
 // Components
-import {
-    WorkspaceNav,
-    Comments,
-    AudioPlayer,
-    Visualizer,
-    AudioTrackBar
-} from './components';
+import { WorkspaceNav, Comments, AudioPlayer, Visualizer } from './components';
 import { Glyphicon } from 'react-bootstrap';
 
 class Workspaces extends Component {
+    componentDidMount() {
+        const pathLength = this.props.history.location.pathname.split('/')
+            .length;
+        if (pathLength > 2 && pathLength[2] !== 'new') {
+            const { workspaceId } = this.props.match.params;
+            this.props.fetchWorkspace(workspaceId);
+        }
+    }
     componentWillMount() {
         this.props.getProfile();
     }
@@ -46,7 +48,6 @@ class Workspaces extends Component {
                     </div>
                     <AudioPlayer />
                     <Visualizer />
-                    <AudioTrackBar />
                 </div>
                 <Comments />
             </div>
@@ -54,10 +55,11 @@ class Workspaces extends Component {
     }
 }
 
-function mapStateToProps({ profile }) {
-    return { profile };
+function mapStateToProps({ profile, workspace }) {
+    return { profile, workspace };
 }
 
 export default connect(mapStateToProps, {
-    getProfile: actions.authActions.getProfile
+    getProfile: actions.authActions.getProfile,
+    fetchWorkspace: actions.workspaceActions.fetchWorkspace
 })(withRouter(Workspaces));

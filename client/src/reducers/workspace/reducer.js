@@ -1,7 +1,11 @@
 import t from '../../actions/workspace/types';
 
 export default function(
-    state = { editTitleMode: false, title: 'Untitled', currentAudio: null },
+    state = {
+        project: { name: 'Untitled' },
+        editTitleMode: false,
+        currentAudio: null
+    },
     action
 ) {
     switch (action.type) {
@@ -19,6 +23,11 @@ export default function(
             return {
                 ...state,
                 currentAudio: action.payload
+            };
+        case t.FETCH_WORKSPACE:
+            return {
+                ...state,
+                project: action.payload
             };
         default:
             return state;

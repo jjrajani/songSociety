@@ -1,12 +1,20 @@
 import React from 'react';
+// Tools
+import { connect } from 'react-redux';
+import * as actions from '../../../../actions';
 // Components
 import { Link } from 'react-router-dom';
 import { Glyphicon } from 'react-bootstrap';
 // add on click to take you to project workspace
 
-const ProjectItem = ({ project }) => {
+const ProjectItem = ({ project, toggleActiveTab }) => {
     return (
-        <Link to={`/workspace/${project._id}`}>
+        <Link
+            onClick={() => {
+                toggleActiveTab(`/workspace/${project._id}`);
+            }}
+            to={`/workspace/${project._id}`}
+        >
             <li className="list_item">
                 <h5 className="title">
                     <Glyphicon glyph="music" />
@@ -23,4 +31,6 @@ const ProjectItem = ({ project }) => {
     );
 };
 
-export default ProjectItem;
+export default connect(null, {
+    toggleActiveTab: actions.navActions.toggleActiveTab
+})(ProjectItem);
