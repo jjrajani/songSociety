@@ -1,14 +1,23 @@
 import React from 'react';
-import GroupList from './components/GroupList';
+// Tools
 import { connect } from 'react-redux';
+// Components
+import GroupList from './components/GroupList';
 
 const Bio = ({ profile }) => {
-    const { avatar, name, nickname } = profile;
+    const {
+        img,
+        description,
+        name,
+        email,
+        website,
+        nickname
+    } = profile.profile;
     return (
         <div className="col-xs-12 col-sm-3 bio">
             <div className="top-left">
                 <div className="row avatar_wrapper">
-                    <img className="avatar" src={avatar} alt="profile pic" />
+                    <img className="avatar" src={img} alt="profile pic" />
                 </div>
                 <div className="row user_info">
                     <h1>
@@ -17,10 +26,14 @@ const Bio = ({ profile }) => {
                     <h3>
                         {nickname}
                     </h3>
+                    <h5>
+                        {email}
+                    </h5>
+                    <h5>
+                        {website}
+                    </h5>
                     <p>
-                        Bacon ipsum dolor amet drumstick veniam tail, minim ut
-                        consectetur sunt quis cupim dolore. Sunt eu tri-tip
-                        cupidatat aute boudin.
+                        {description}
                     </p>
                 </div>
             </div>

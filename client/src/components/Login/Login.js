@@ -1,5 +1,7 @@
+// import React from 'react';
 import React, { Component } from 'react';
 import loading from './loading.svg';
+// Tools
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { withRouter } from 'react-router-dom';
 // Components
-import WorkspaceNav from '../WorkspaceNav/WorkspaceNav';
+import { WorkspaceNav } from './components';
 
 class Workspaces extends Component {
     componentWillMount() {

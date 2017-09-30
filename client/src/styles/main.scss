@@ -26,6 +26,13 @@ p {
     margin: 0 !important;
 }
 
+a {
+    text-decoration: none !important;
+    &:hover {
+        text-decoration: none !important;
+    }
+}
+
 .main_content {
     padding-top: 55px;
     min-height: 100vh;
@@ -44,3 +51,5 @@ p {
 @import 'profile_details_nav.scss';
 @import 'workspace.scss';
 @import 'workspace_nav.scss';
+@import 'users.scss';
+@import 'list.scss';

@@ -1,14 +1,15 @@
-$red: rgb(221, 0, 0);
+$red: rgba(221, 0, 0, .5);
 // $blue: rgb(34, 77, 147);
 $blue: rgb(51, 113, 214);
 .workspace_nav {
     position: fixed;
-    height: 60px;
+    height: 57px;
     width: 100%;
     top: 51px;
     left: 0;
-    border-top: solid 1px #9d9d9d;
     background-color: #222;
+    border-bottom: solid 1px #101010;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1);
     .container {
         display: flex;
         align-items: center;
@@ -39,7 +40,7 @@ $blue: rgb(51, 113, 214);
     input {
         outline: 0;
         background-color: #222;
-        border-bottom: solid 1px #8c8c8c;
+        border-bottom: solid 1px rgba(255, 255, 255, .15);
     }
     .glyphicon-cloud-upload,
     .glyphicon-trash,

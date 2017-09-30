@@ -1,0 +1,45 @@
+.users {
+    .list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        .list_item {
+            img {
+                max-width: 100px;
+                border-radius: 20%;
+            }
+        }
+    }
+    // small screen
+    @media screen and (max-width: 767px) {
+        .list {
+            justify-content: center;
+        }
+        .list_item {
+            max-width: 600px;
+        }
+    }
+    // md screen
+    @media screen and (min-width: 767px) {
+        .list_item {
+            &:nth-child(2n - 1) {
+                margin-right: 2%;
+            }
+            width: 49%;
+        }
+    }
+    @media screen and (min-width: 991px) {
+        .list_item {
+            &:nth-child(2n - 1) {
+                margin-right: 0;
+            }
+            &:nth-child(3n + 1) {
+                margin-right: 2%;
+            }
+            &:nth-child(3n + 2) {
+                margin-right: 2%;
+            }
+            width: 32% !important;
+        }
+    }
+}

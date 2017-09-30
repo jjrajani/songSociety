@@ -1,0 +1,58 @@
+.list {
+    .list_item {
+        border: solid #ccc 1px;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        margin: 10px 0;
+        li {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            .buttons {
+                align-self: flex-start;
+            }
+            .info {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 95%;
+            }
+        }
+        &:hover {
+            background-color: #eee;
+            cursor: pointer;
+        }
+        .label {
+            color: #555;
+            font-size: 1.25rem;
+        }
+        h5 {
+            font-size: 1.75rem;
+            display: flex;
+            align-items: center;
+            .glyphicon {
+                font-size: 1.9rem;
+                margin: 0 12px 0 0;
+            }
+            img {
+                width: 70px;
+                height: 70px;
+                margin-right: 10px;
+                border-radius: 20%;
+            }
+        }
+        p {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            margin: 0;
+            padding: 10px;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+    }
+}

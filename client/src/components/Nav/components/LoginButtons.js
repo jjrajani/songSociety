@@ -5,7 +5,7 @@ import * as actions from '../../../actions';
 // Components
 import { Button } from 'react-bootstrap';
 
-const LoginButtons = ({ auth, login, logout, closeNav }) => {
+const LoginButtons = ({ auth, login, logout, closeNav, nav }) => {
     const myLogout = () => {
         closeNav();
         logout();
@@ -20,8 +20,8 @@ const LoginButtons = ({ auth, login, logout, closeNav }) => {
           </Button>;
 };
 
-function mapStateToProps({ auth }) {
-    return { auth };
+function mapStateToProps({ auth, nav, profile }) {
+    return { auth, nav, profile };
 }
 
 export default connect(mapStateToProps, {

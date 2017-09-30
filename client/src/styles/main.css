@@ -21,6 +21,11 @@ ul {
 p {
   margin: 0 !important; }
 
+a {
+  text-decoration: none !important; }
+  a:hover {
+    text-decoration: none !important; }
+
 .main_content {
   padding-top: 55px;
   min-height: 100vh; }
@@ -204,34 +209,6 @@ ul.nav button {
 
 .profile .details {
   margin: 20px 0 0 0; }
-  .profile .details .list .list_item {
-    border: solid #ccc 1px;
-    border-radius: 4px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    margin: 10px 0; }
-    .profile .details .list .list_item:hover {
-      background-color: #eee;
-      cursor: pointer; }
-    .profile .details .list .list_item .label {
-      color: #555;
-      font-size: 1.25rem; }
-    .profile .details .list .list_item h5 {
-      font-size: 1.75rem;
-      display: flex; }
-      .profile .details .list .list_item h5 .glyphicon {
-        font-size: 1.9rem;
-        margin: 0 12px 0 0; }
-    .profile .details .list .list_item p {
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-end;
-      margin: 0;
-      padding: 10px;
-      font-weight: 600;
-      font-size: 1.5rem; }
 
 @media screen and (max-width: 768px) {
   .profile .details {
@@ -325,12 +302,13 @@ ul.nav button {
 
 .workspace_nav {
   position: fixed;
-  height: 60px;
+  height: 57px;
   width: 100%;
   top: 51px;
   left: 0;
-  border-top: solid 1px #9d9d9d;
-  background-color: #222; }
+  background-color: #222;
+  border-bottom: solid 1px #101010;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1); }
   .workspace_nav .container {
     display: flex;
     align-items: center;
@@ -352,11 +330,11 @@ ul.nav button {
     width: 172px;
     letter-spacing: 0.08rem; }
   .workspace_nav p {
-    border-bottom: solid 1px #dd0000; }
+    border-bottom: solid 1px rgba(221, 0, 0, 0.5); }
   .workspace_nav input {
     outline: 0;
     background-color: #222;
-    border-bottom: solid 1px #8c8c8c; }
+    border-bottom: solid 1px rgba(255, 255, 255, 0.15); }
   .workspace_nav .glyphicon-cloud-upload,
   .workspace_nav .glyphicon-trash,
   .workspace_nav .glyphicon-user,
@@ -372,4 +350,81 @@ ul.nav button {
   .workspace_nav .glyphicon-download-alt:hover {
     color: #3371d6 !important; }
   .workspace_nav .glyphicon-trash:hover {
-    color: #dd0000 !important; }
+    color: rgba(221, 0, 0, 0.5) !important; }
+
+.users .list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; }
+  .users .list .list_item img {
+    max-width: 100px;
+    border-radius: 20%; }
+
+@media screen and (max-width: 767px) {
+  .users .list {
+    justify-content: center; }
+  .users .list_item {
+    max-width: 600px; } }
+
+@media screen and (min-width: 767px) {
+  .users .list_item {
+    width: 49%; }
+    .users .list_item:nth-child(2n - 1) {
+      margin-right: 2%; } }
+
+@media screen and (min-width: 991px) {
+  .users .list_item {
+    width: 32% !important; }
+    .users .list_item:nth-child(2n - 1) {
+      margin-right: 0; }
+    .users .list_item:nth-child(3n + 1) {
+      margin-right: 2%; }
+    .users .list_item:nth-child(3n + 2) {
+      margin-right: 2%; } }
+
+.list .list_item {
+  border: solid #ccc 1px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 0; }
+  .list .list_item li {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center; }
+    .list .list_item li .buttons {
+      align-self: flex-start; }
+    .list .list_item li .info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 95%; }
+  .list .list_item:hover {
+    background-color: #eee;
+    cursor: pointer; }
+  .list .list_item .label {
+    color: #555;
+    font-size: 1.25rem; }
+  .list .list_item h5 {
+    font-size: 1.75rem;
+    display: flex;
+    align-items: center; }
+    .list .list_item h5 .glyphicon {
+      font-size: 1.9rem;
+      margin: 0 12px 0 0; }
+    .list .list_item h5 img {
+      width: 70px;
+      height: 70px;
+      margin-right: 10px;
+      border-radius: 20%; }
+  .list .list_item p {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin: 0;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 1.5rem; }

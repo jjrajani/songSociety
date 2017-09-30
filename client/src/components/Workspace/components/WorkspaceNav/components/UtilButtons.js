@@ -27,8 +27,10 @@ const UtilButtons = ({ history }) => {
     return (
         <div className="util_buttons_wrapper">
             <Glyphicon title="Record New Track" glyph="cd" />
+
             {isRegisteredUser &&
                 <Glyphicon title="Save Workspace" glyph="cloud-upload" />}
+
             {isLoggedIn &&
                 loggedInLinks.map((l, i) => {
                     return (

@@ -10,6 +10,8 @@ require('./models/User');
 require('./models/Groups');
 require('./models/Projects');
 require('./models/Friends');
+require('./models/Comments');
+require('./models/Audio');
 /* Connect mongoose to our MongoDB on mLab*/
 mongoose.connect(process.env.MONGO_URI);
 
