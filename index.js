@@ -7,7 +7,7 @@ const cors = require('cors');
 require('./models/User');
 require('./models/Groups');
 require('./models/Projects');
-require('./models/Friends');
+require('./models/Followers');
 require('./models/Comments');
 require('./models/Audio');
 /* Connect mongoose to our MongoDB on mLab*/
@@ -24,7 +24,7 @@ require('./routes/userRoutes')(app);
 require('./routes/commentsRoutes')(app);
 require('./routes/groupsRoutes')(app);
 require('./routes/projectsRoutes')(app);
-require('./routes/friendsRoutes')(app);
+require('./routes/followersRoutes')(app);
 require('./routes/workspaceRoutes')(app);
 require('./routes/collaboratorsRoutes')(app);
 

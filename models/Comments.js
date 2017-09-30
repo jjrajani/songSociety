@@ -3,10 +3,10 @@ const { Schema } = mongoose;
 
 const commentSchema = new Schema(
     {
-        userId: String,
-        content: String,
-        audio: String,
-        workspaceId: String
+        userId: { type: String, default: '' },
+        content: { type: String, default: '' },
+        audio: { type: String, default: '' },
+        workspaceId: { type: String, default: '' }
     },
     { timestamps: { createdAt: 'created_at' } }
 );

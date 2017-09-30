@@ -18,7 +18,7 @@ module.exports = app => {
                 nickname: req.body.nickname,
                 img: req.body.picture,
                 email: 'Add your email',
-                friends: ['i have no friends yet'],
+                followers: ['i have no followers yet'],
                 latestProject: ''
             });
             await user.save((err, doc) => {

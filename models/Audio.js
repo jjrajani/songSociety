@@ -3,11 +3,11 @@ const { Schema } = mongoose;
 
 const audioSchema = new Schema(
     {
-        userId: String,
-        s3Name: String,
-        title: String,
+        userId: { type: String, default: '' },
+        s3Name: { type: String, default: '' },
+        title: { type: String, default: '' },
         img: String,
-        commentId: String
+        commentId: { type: String, default: '' }
     },
     { timestamps: { createdAt: 'created_at' } }
 );

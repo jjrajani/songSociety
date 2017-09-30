@@ -3,9 +3,9 @@ const { Schema } = mongoose;
 
 const groupSchema = new Schema(
     {
-        owner: String,
-        name: String,
-        img: String
+        owner: { type: String, default: '' },
+        name: { type: String, default: '' },
+        img: { type: String, default: '' }
     },
     { timestamps: { createdAt: 'created_at' } }
 );

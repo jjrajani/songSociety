@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const userSchema = new Schema(
     {
-        paid: Boolean,
+        paid: { type: Boolean, default: false },
         description: String,
         website: String,
         // init the following from google
@@ -13,7 +13,7 @@ const userSchema = new Schema(
         img: String,
         email: String,
         nickname: String,
-        friends: [String],
+        followers: { type: [String], default: [] },
         latestProject: String
         // facebook
         // twitter
