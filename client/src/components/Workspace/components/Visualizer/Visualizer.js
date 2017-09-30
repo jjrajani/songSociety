@@ -19,13 +19,18 @@ class AudioVisualizer extends Component {
         let color = {
             r: 0,
             g: 0,
-            b: 0
+            b: 1
         };
         let nextColorDirection = 'up';
 
         function getNextColor(color) {
-            nextColorDirection =
-                color === { r: 255, g: 255, b: 255 } ? 'down' : 'up';
+            // console.log(color === { r: 255, g: 255, b: 230 });
+            if (color.r === 255 && color.g === 255 && color.b === 230) {
+                nextColorDirection = 'down';
+            } else if (color.r === 0 && color.g === 0 && color.b === 0) {
+                nextColorDirection = 'up';
+            }
+            // console.log(nextColorDirection);
             return nextColorDirection === 'down'
                 ? getNextColorDown(color)
                 : getNextColorUp(color);
@@ -50,7 +55,7 @@ class AudioVisualizer extends Component {
                 ? (newColor = { r: r - 1, g: g, b: b })
                 : g > 0
                   ? (newColor = { r: r, g: g - 1, b: b })
-                  : b < 0
+                  : b > 0
                     ? (newColor = { r: r, g: g, b: b - 1 })
                     : (newColor = { r: 0, g: 0, b: 0 });
             return newColor;
@@ -78,12 +83,6 @@ class AudioVisualizer extends Component {
             if (framesRendered % 7 === 0) {
                 color = getNextColor(color);
             }
-            if (color === { r: 255, g: 255, b: 230 }) {
-                nextColorDirection = 'down';
-            }
-            if (color === { r: 0, g: 0, b: 0 }) {
-                nextColorDirection = 'up';
-            }
 
             ctx.fillStyle = `rgb(${color.r}, ${color.g}, ${color.b})`;
             // ctx.fillStyle = '#9933ff';
@@ -91,7 +90,7 @@ class AudioVisualizer extends Component {
             for (var i = 0; i < bars; i++) {
                 let bar_x = i * 5;
                 let bar_width = 4;
-                let bar_height = -(freqData[i] / 2.75);
+                let bar_height = -(freqData[i] / 2.85);
                 ctx.fillRect(bar_x, canvas.height, bar_width, bar_height);
             }
         }
