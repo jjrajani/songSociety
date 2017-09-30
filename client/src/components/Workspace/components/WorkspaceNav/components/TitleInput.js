@@ -15,7 +15,7 @@ const TitleInputComponent = fields => {
             id="title_input"
             className="title_input"
             name="title_input"
-            placeholder="Untitled"
+            value={fields.input.value}
             onChange={fields.input.onChange}
             autoComplete="off"
         />
@@ -23,12 +23,14 @@ const TitleInputComponent = fields => {
 };
 
 const TitleInput = ({
+    userId,
     workspace,
     form,
     fields,
     handleSubmit,
     submitTitleForm,
-    changeTitleForm
+    changeTitleForm,
+    initialValues
 }) => {
     const { name } = workspace.project;
     return (
@@ -42,11 +44,15 @@ const TitleInput = ({
             >
                 <form
                     id="title_input_form"
-                    onSubmit={handleSubmit(submitTitleForm)}
+                    onSubmit={handleSubmit(
+                        submitTitleForm.bind(this, workspace, userId)
+                    )}
                 >
                     <Field
                         type="text"
-                        name="title"
+                        name="title_input"
+                        id="title_input"
+                        value={name}
                         component={TitleInputComponent}
                         onChange={e => changeTitleForm(e.target.value, name)}
                     />
@@ -67,8 +73,13 @@ const TitleInput = ({
     );
 };
 
-function mapStateToProps({ workspace }) {
-    return { workspace };
+function mapStateToProps({ profile, workspace }) {
+    return {
+        userId: profile.userId,
+        workspace,
+        initialValues: { title_input: workspace.project.name },
+        enableReinitialize: true
+    };
 }
 
 export default connect(mapStateToProps, {

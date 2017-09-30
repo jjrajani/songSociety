@@ -36,8 +36,24 @@ export const resetWorkspace = () => dispatch => {
     dispatch({ type: t.RESET_WORKSPACE, payload: {} });
 };
 
-export const submitTitleForm = values => dispatch => {
-    dispatch({ type: t.SUBMIT_TITLE_FORM, payload: values.title });
+export const submitTitleForm = (workspace, userId) => async dispatch => {
+    if (workspace.project._id) {
+        const workspaceId = workspace.project._id;
+        const res = await axios.post(
+            `/api/workspace/${workspaceId}`,
+            workspace.project
+        );
+        dispatch({ type: t.SUBMIT_TITLE_FORM, payload: res.data });
+    } else {
+        console.log('workspace', workspace);
+        console.log('userId', userId);
+        const res = await axios.post(
+            `/api/new/workspace/${userId}`,
+            workspace.project
+        );
+
+        dispatch({ type: t.SUBMIT_TITLE_FORM, payload: res.data });
+    }
 };
 
 export const changeTitleForm = (value, prevValue) => dispatch => {

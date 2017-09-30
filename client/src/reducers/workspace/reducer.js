@@ -34,7 +34,7 @@ export default function(
         case t.RESET_WORKSPACE:
             return {
                 ...state,
-                project: { name: 'Undefined', collaborators: [] }
+                project: { name: 'Untitled', collaborators: [] }
             };
         case t.TOGGLE_WORKSPACE_PAGE_VIEW:
             return {
@@ -44,8 +44,8 @@ export default function(
         case t.SUBMIT_TITLE_FORM:
             return {
                 ...state,
-                isTouched: false,
-                project: { ...state.project, name: action.payload }
+                isTouched: false
+                // project: action.paylaod
             };
         case t.CHANGE_TITLE_FORM:
             return {

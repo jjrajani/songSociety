@@ -7,7 +7,6 @@ import { Glyphicon } from 'react-bootstrap';
 
 const UtilButtons = ({ history, auth, isChanged }) => {
     const isLoggedIn = auth.isAuthenticated();
-    // console.log('isTouched', isChanged);
     return (
         <div className="util_buttons_wrapper">
             {!isLoggedIn && <Glyphicon title="Record New Track" glyph="cd" />}
