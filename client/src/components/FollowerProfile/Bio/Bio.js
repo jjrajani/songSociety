@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 // Components
 import GroupList from './components/GroupList';
 
-const Bio = ({ friends }) => {
+const Bio = ({ followers }) => {
     const {
         img,
         description,
@@ -12,7 +12,7 @@ const Bio = ({ friends }) => {
         email,
         website,
         nickname
-    } = friends.currentFriend;
+    } = followers.currentFollower;
     return (
         <div className="col-xs-12 col-sm-3 bio">
             <div className="top-left">
@@ -42,8 +42,8 @@ const Bio = ({ friends }) => {
     );
 };
 
-function mapStateToProps({ friends }) {
-    return { friends };
+function mapStateToProps({ followers }) {
+    return { followers };
 }
 
 export default connect(mapStateToProps)(Bio);

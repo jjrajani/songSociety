@@ -1,8 +1,8 @@
-import t from '../../actions/friends/types';
+import t from '../../actions/followers/types';
 
-export default function(state = { list: [], currentFriend: {} }, action) {
+export default function(state = { list: [], currentFollower: {} }, action) {
     switch (action.type) {
-        case t.FETCH_FRIENDS:
+        case t.FETCH_FOLLOWERS:
             return { ...state, list: action.payload };
         case t.ADD_FRIEND:
             if (typeof action.payload !== 'string') {
@@ -13,7 +13,7 @@ export default function(state = { list: [], currentFriend: {} }, action) {
         case t.GET_FRIEND_PROFILE:
             return {
                 ...state,
-                currentFriend: action.payload
+                currentFollower: action.payload
             };
         default:
             return state;

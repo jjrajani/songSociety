@@ -6,7 +6,7 @@ import * as actions from '../../../actions';
 import { Glyphicon } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const ArtistItem = ({ auth, user, profile, addFriend }) => {
+const ArtistItem = ({ auth, user, profile, addFollower }) => {
     const isAuthenticated = auth.isAuthenticated();
     return (
         <Link
@@ -26,7 +26,7 @@ const ArtistItem = ({ auth, user, profile, addFriend }) => {
                             glyph="plus"
                             onClick={e => {
                                 e.stopPropagation();
-                                addFriend(profile.userId, user.authId);
+                                addFollower(profile.userId, user.authId);
                             }}
                         />
                     </div>}
@@ -40,5 +40,5 @@ function mapStateToProps({ auth, profile }) {
 }
 
 export default connect(mapStateToProps, {
-    addFriend: actions.friendsActions.addFriend
+    addFollower: actions.followersActions.addFollower
 })(ArtistItem);

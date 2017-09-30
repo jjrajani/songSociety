@@ -7,13 +7,13 @@ import { withRouter } from 'react-router-dom';
 import Bio from './Bio/Bio';
 import Details from './Details/Details';
 
-class FriendProfile extends Component {
+class FollowerProfile extends Component {
     componentDidMount() {
-        const friendId = this.props.match.params.friendId;
-        this.props.fetchProfile(friendId).then(res => {
-            const { authId } = this.props.friend;
+        const followerId = this.props.match.params.followerId;
+        this.props.fetchProfile(followerId).then(res => {
+            const { authId } = this.props.follower;
             this.props.fetchGroups(authId);
-            this.props.fetchFriends(authId);
+            this.props.fetchFollowers(authId);
             this.props.fetchProjects(authId);
         });
     }
@@ -28,12 +28,12 @@ class FriendProfile extends Component {
         );
     }
 }
-function mapStateToProps({ friends }) {
-    return { friend: friends.currentFriend };
+function mapStateToProps({ followers }) {
+    return { follower: followers.currentFollower };
 }
 export default connect(mapStateToProps, {
-    fetchProfile: actions.friendsActions.fetchProfile,
+    fetchProfile: actions.followersActions.fetchProfile,
     fetchGroups: actions.groupsActions.fetchGroups,
     fetchProjects: actions.projectsActions.fetchProjects,
-    fetchFriends: actions.friendsActions.fetchFriends
-})(withRouter(FriendProfile));
+    fetchFollowers: actions.followersActions.fetchFollowers
+})(withRouter(FollowerProfile));

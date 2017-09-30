@@ -13,7 +13,7 @@ class Profile extends Component {
             const userId = res.sub;
             this.props.fetchProfile(userId);
             this.props.fetchGroups(userId);
-            this.props.fetchFriends(userId);
+            this.props.fetchFollowers(userId);
             this.props.fetchProjects(userId);
         });
     }
@@ -38,5 +38,5 @@ export default connect(mapStateToProps, {
     fetchProfile: actions.profileActions.fetchProfile,
     fetchGroups: actions.groupsActions.fetchGroups,
     fetchProjects: actions.projectsActions.fetchProjects,
-    fetchFriends: actions.friendsActions.fetchFriends
+    fetchFollowers: actions.followersActions.fetchFollowers
 })(withRouter(Profile));

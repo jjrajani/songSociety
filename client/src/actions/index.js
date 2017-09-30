@@ -2,7 +2,7 @@ import * as authActions from './auth/actions';
 import * as navActions from './nav/actions';
 import * as profileActions from './profile/actions';
 import * as groupsActions from './groups/actions';
-import * as friendsActions from './friends/actions';
+import * as followersActions from './followers/actions';
 import * as projectsActions from './projects/actions';
 import * as workspaceActions from './workspace/actions';
 import * as usersActions from './users/actions';
@@ -14,7 +14,7 @@ export {
     navActions,
     profileActions,
     groupsActions,
-    friendsActions,
+    followersActions,
     projectsActions,
     workspaceActions,
     usersActions,

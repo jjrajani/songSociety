@@ -4,7 +4,7 @@ import authReducer from './auth/reducer';
 import profileReducer from './profile/reducer';
 import groupsReducer from './groups/reducer';
 import projectsReducer from './projects/reducer';
-import friendsReducer from './friends/reducer';
+import followersReducer from './followers/reducer';
 import navReducer from './nav/reducer';
 import workspaceReducer from './workspace/reducer';
 import usersReducer from './users/reducer';
@@ -18,7 +18,7 @@ export default combineReducers({
     profile: profileReducer,
     groups: groupsReducer,
     projects: projectsReducer,
-    friends: friendsReducer,
+    followers: followersReducer,
     workspace: workspaceReducer,
     comments: commentsReducer,
     collaborators: collaboratorsReducer,

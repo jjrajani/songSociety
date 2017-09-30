@@ -10,10 +10,10 @@ import _ from 'lodash';
 
 export const addCollaborator = (
     workspaceId,
-    friendUserId
+    followerUserId
 ) => async dispatch => {
     const res = await axios.post(
-        `/api/collaborators/${workspaceId}/${friendUserId}`
+        `/api/collaborators/${workspaceId}/${followerUserId}`
     );
 
     dispatch({ type: t.ADD_COLLABORATOR, payload: res.data });
@@ -21,10 +21,10 @@ export const addCollaborator = (
 
 export const removeCollaborator = (
     workspaceId,
-    friendUserId
+    followerUserId
 ) => async dispatch => {
     const res = await axios.delete(
-        `/api/collaborators/${workspaceId}/${friendUserId}`
+        `/api/collaborators/${workspaceId}/${followerUserId}`
     );
 
     dispatch({ type: t.REMOVE_COLLABORATOR, payload: res.data });
@@ -34,8 +34,8 @@ export const togglePageView = page => dispatch => {
     dispatch({ type: t.TOGGLE_PAGE_VIEW, payload: page });
 };
 //
-// export const fetchProfile = friendId => async dispatch => {
-//     const friend = await axios.get(`/api/friend/${friendId}`);
+// export const fetchProfile = followerId => async dispatch => {
+//     const follower = await axios.get(`/api/follower/${followerId}`);
 //
-//     dispatch({ type: t.GET_FRIEND_PROFILE, payload: friend.data });
+//     dispatch({ type: t.GET_FRIEND_PROFILE, payload: follower.data });
 // };

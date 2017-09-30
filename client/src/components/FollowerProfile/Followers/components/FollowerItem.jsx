@@ -2,24 +2,24 @@ import React from 'react';
 // Components
 import { Link } from 'react-router-dom';
 
-const FriendItem = ({ friend }) => {
+const FollowerItem = ({ follower }) => {
     return (
-        <Link to={`/friend/${friend._id}`}>
+        <Link to={`/follower/${follower.authId}`}>
             <li className="list_item">
                 <h5 className="title">
                     <img
-                        src={friend.img}
-                        alt={`${friend.nickname}'s avatar'`}
+                        src={follower.img}
+                        alt={`${follower.nickname}'s avatar'`}
                     />
-                    {friend.name}
+                    {follower.name}
                 </h5>
                 <p>
                     <span className="label">Latest Project:</span>
-                    {friend.latestProject}
+                    {follower.latestProject}
                 </p>
             </li>
         </Link>
     );
 };
 
-export default FriendItem;
+export default FollowerItem;

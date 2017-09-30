@@ -1,17 +1,17 @@
 import React from 'react';
 // Components
-import FriendList from './components/FriendList';
+import FollowerList from './components/FollowerList';
 import { Link } from 'react-router-dom';
 
-const Friends = () =>
-    <div className="friends">
+const Followers = () =>
+    <div className="followers">
         <div className="header">
-            <h3>Friends</h3>
+            <h3>Followers</h3>
             <Link className="btn btn-danger" to="/artists">
-                Find Friends
+                Browse Artists
             </Link>
         </div>
-        <FriendList />
+        <FollowerList />
     </div>;
 
-export default Friends;
+export default Followers;

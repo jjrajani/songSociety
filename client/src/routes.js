@@ -13,7 +13,7 @@ import {
     Login,
     Nav,
     Artists,
-    FriendProfile
+    FollowerProfile
 } from './components';
 
 class Routes extends Component {
@@ -35,16 +35,16 @@ class Routes extends Component {
                         />
                         <Route
                             exact
-                            path="/friend/:friendId"
+                            path="/follower/:followerId"
                             render={props =>
                                 !auth.isAuthenticated()
                                     ? <Redirect to="/" />
-                                    : <FriendProfile />}
+                                    : <FollowerProfile />}
                         />
                         <Route
                             exact
-                            path="/artist/:friendId"
-                            render={props => <FriendProfile />}
+                            path="/artist/:followerId"
+                            render={props => <FollowerProfile />}
                         />
                         <Route
                             exact

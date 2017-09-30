@@ -6,7 +6,7 @@ import ArtistList from './components/ArtistList';
 class Users extends Component {
     componentDidMount() {
         this.props.fetchUsers();
-        this.props.fetchFriends();
+        this.props.fetchFollowers();
     }
 
     render() {
@@ -21,11 +21,11 @@ class Users extends Component {
     }
 }
 
-function mapStateToProps({ users, friends }) {
-    return { users, friends };
+function mapStateToProps({ users, followers }) {
+    return { users, followers };
 }
 
 export default connect(mapStateToProps, {
     fetchUsers: actions.usersActions.fetchUsers,
-    fetchFriends: actions.friendsActions.fetchFriends
+    fetchFollowers: actions.followersActions.fetchFollowers
 })(Users);

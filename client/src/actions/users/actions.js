@@ -6,7 +6,7 @@ export const fetchUsers = () => async dispatch => {
     // the RIGHT way
     const res = await axios.get(`/api/users`);
     // the DEMO way
-    // const res = await axios.get(`/api/friends`);
+    // const res = await axios.get(`/api/followers`);
 
     dispatch({ type: t.FETCH_USERS, payload: res.data });
 };

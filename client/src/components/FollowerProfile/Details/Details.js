@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 // Components
 import DetailsNav from './DetailsNav';
 import Projects from '../Projects/Projects';
-import Friends from '../Friends/Friends';
+import Followers from '../Followers/Followers';
 
 const Details = ({ pageView }) =>
     <div className="col-xs-12 col-sm-9 details">
         <DetailsNav />
-        {pageView === 'projects' ? <Projects /> : <Friends />}
+        {pageView === 'projects' ? <Projects /> : <Followers />}
     </div>;
 
 function mapStateToProps({ profile }) {
