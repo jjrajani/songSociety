@@ -1,7 +1,7 @@
 import t from '../../actions/workspace/types';
 
 export default function(
-    state = { editTitleMode: false, title: 'Untitled' },
+    state = { editTitleMode: false, title: 'Untitled', currentAudio: null },
     action
 ) {
     switch (action.type) {
@@ -14,6 +14,11 @@ export default function(
             return {
                 ...state,
                 editTitleMode: false
+            };
+        case t.PLAY_AUDIO:
+            return {
+                ...state,
+                currentAudio: action.payload
             };
         default:
             return state;

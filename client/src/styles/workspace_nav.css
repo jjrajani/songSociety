@@ -1,5 +1,6 @@
 .workspace_nav {
   position: fixed;
+  z-index: 1000;
   height: 57px;
   width: 100%;
   top: 51px;

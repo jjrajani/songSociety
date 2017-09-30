@@ -3,6 +3,7 @@ $red: rgba(221, 0, 0, .5);
 $blue: rgb(51, 113, 214);
 .workspace_nav {
     position: fixed;
+    z-index: 1000;
     height: 57px;
     width: 100%;
     top: 51px;
