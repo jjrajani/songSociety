@@ -2,9 +2,10 @@ import t from '../../actions/workspace/types';
 
 export default function(
     state = {
-        project: { name: 'Untitled' },
+        project: { name: 'Untitled', collaborators: [] },
         editTitleMode: false,
-        currentAudio: null
+        currentAudio: null,
+        pageView: 'comments'
     },
     action
 ) {
@@ -28,6 +29,11 @@ export default function(
             return {
                 ...state,
                 project: action.payload
+            };
+        case t.TOGGLE_WORKSPACE_PAGE_VIEW:
+            return {
+                ...state,
+                pageView: action.payload
             };
         default:
             return state;

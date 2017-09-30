@@ -88,8 +88,8 @@ class AudioVisualizer extends Component {
             // ctx.fillStyle = '#9933ff';
             let bars = 100;
             for (var i = 0; i < bars; i++) {
-                let bar_x = i * 5;
-                let bar_width = 4;
+                let bar_x = i * 4;
+                let bar_width = 2.75;
                 let bar_height = -(freqData[i] / 2.85);
                 ctx.fillRect(bar_x, canvas.height, bar_width, bar_height);
             }

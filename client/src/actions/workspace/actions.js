@@ -2,6 +2,10 @@ import * as secrets from '../../secrets';
 import t from './types';
 import axios from 'axios';
 
+export const togglePageView = page => dispatch => {
+    dispatch({ type: t.TOGGLE_WORKSPACE_PAGE_VIEW, payload: page });
+};
+
 export const editTitleOn = () => dispatch => {
     dispatch({ type: t.EDIT_TITLE_ON, payload: true });
 };

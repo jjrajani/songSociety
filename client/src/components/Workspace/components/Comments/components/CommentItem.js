@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../../../../actions';
 // Components
+import { Glyphicon } from 'react-bootstrap';
 
 class CommentItem extends Component {
     playAudio(e) {
@@ -18,12 +19,19 @@ class CommentItem extends Component {
         const { comment } = this.props;
         return (
             <div className="list_item">
-                <img src={comment.img} alt="userImg" />
-                <p>
-                    {comment.content}
-                </p>
-                {comment.audio.length > 0 &&
-                    <p onClick={this.playAudio.bind(this)}>Play</p>}
+                <div className="left">
+                    <img src={comment.img} alt="userImg" />
+                    <p>
+                        {comment.content}
+                    </p>
+                </div>
+                <div className="right">
+                    {comment.audio.length > 0 &&
+                        <Glyphicon
+                            glyph="play"
+                            onClick={this.playAudio.bind(this)}
+                        />}
+                </div>
             </div>
         );
     }

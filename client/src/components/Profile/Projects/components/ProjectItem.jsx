@@ -23,8 +23,8 @@ const ProjectItem = ({ project, toggleActiveTab }) => {
                 <p>
                     <span className="label">Renditions:</span>
                     {project.renditions}
-                    <span className="label">Colaborators:</span>
-                    {project.colaborators.length}
+                    <span className="label">Collaborators:</span>
+                    {project.collaborators.length}
                 </p>
             </li>
         </Link>

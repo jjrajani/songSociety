@@ -9,6 +9,7 @@ import navReducer from './nav/reducer';
 import workspaceReducer from './workspace/reducer';
 import usersReducer from './users/reducer';
 import commentsReducer from './comments/reducer';
+import collaboratorsReducer from './collaborators/reducer';
 
 export default combineReducers({
     auth: authReducer,
@@ -19,6 +20,7 @@ export default combineReducers({
     projects: projectsReducer,
     friends: friendsReducer,
     workspace: workspaceReducer,
-    comments: commentsReducer
+    comments: commentsReducer,
+    collaborators: collaboratorsReducer
     // form: reduxForm,
 });

@@ -26,7 +26,7 @@
   width: 35px;
   height: 35px;
   position: absolute;
-  left: 67px;
+  left: 72px;
   top: calc(10% + 20px);
   cursor: pointer; }
   .workspace .audio_nav .pause_button .glyphicon-pause {
@@ -34,7 +34,6 @@
 
 .workspace canvas {
   width: 100%;
-  max-width: 800px;
   max-height: 275px; }
 
 .workspace .audio_trackbar {
@@ -42,6 +41,12 @@
   max-width: 800px;
   height: 11px;
   border: solid 1px #aaa; }
+
+.workspace .details_nav {
+  margin-top: 10px;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  border-top: solid 1px #ccc; }
 
 .dark_theme {
   background-color: #444; }
