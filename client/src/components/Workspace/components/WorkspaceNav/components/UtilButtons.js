@@ -1,10 +1,15 @@
 import React from 'react';
 // Tools
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 // Components
 import { Glyphicon } from 'react-bootstrap';
 
 const loggedInLinks = [
+    {
+        title: 'Save Track',
+        glyph: 'cloud-upload'
+    },
     {
         title: 'Download Track',
         glyph: 'download-alt'
@@ -16,9 +21,8 @@ const loggedInLinks = [
     // }
 ];
 
-const UtilButtons = ({ history }) => {
-    const pathname = history.location.pathname.split('/');
-    const isLoggedIn = pathname.indexOf('new') === -1 && pathname.length > 2;
+const UtilButtons = ({ history, auth }) => {
+    const isLoggedIn = auth.isAuthenticated();
 
     return (
         <div className="util_buttons_wrapper">
@@ -34,4 +38,8 @@ const UtilButtons = ({ history }) => {
     );
 };
 
-export default withRouter(UtilButtons);
+function mapStateToProps({ auth }) {
+    return { auth };
+}
+
+export default connect(mapStateToProps)(withRouter(UtilButtons));
