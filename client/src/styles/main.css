@@ -373,6 +373,12 @@ ul.nav button {
     .workspace_nav .container .util_buttons_wrapper {
       display: flex;
       align-items: center; }
+      .workspace_nav .container .util_buttons_wrapper button {
+        background-color: transparent;
+        outline: none;
+        border: none; }
+      .workspace_nav .container .util_buttons_wrapper button.highlight .glyphicon-cloud-upload {
+        color: yellow !important; }
   .workspace_nav p,
   .workspace_nav input {
     color: white;

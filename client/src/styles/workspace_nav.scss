@@ -25,6 +25,16 @@ $blue: rgb(51, 113, 214);
         .util_buttons_wrapper {
             display: flex;
             align-items: center;
+            button {
+                background-color: transparent;
+                outline: none;
+                border: none;
+            }
+            button.highlight {
+                .glyphicon-cloud-upload {
+                    color: yellow !important;
+                }
+            }
         }
     }
     p,

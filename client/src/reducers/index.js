@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-// import { reducer as reduxForm } from 'redux-form';
+import { reducer as reduxForm } from 'redux-form';
 import authReducer from './auth/reducer';
 import profileReducer from './profile/reducer';
 import groupsReducer from './groups/reducer';
@@ -21,6 +21,6 @@ export default combineReducers({
     friends: friendsReducer,
     workspace: workspaceReducer,
     comments: commentsReducer,
-    collaborators: collaboratorsReducer
-    // form: reduxForm,
+    collaborators: collaboratorsReducer,
+    form: reduxForm
 });

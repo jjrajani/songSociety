@@ -2,6 +2,7 @@ import { store } from '../../../../../redux_store';
 
 export var toggleTitleEditListner = e => {
     const clickedWorkspaceTitle =
+        e.target.attributes.class &&
         e.target.attributes.class.value
             .split(' ')
             .indexOf('workspace_title') !== -1;

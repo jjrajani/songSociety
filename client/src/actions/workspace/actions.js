@@ -35,3 +35,13 @@ export const fetchWorkspace = id => async dispatch => {
 export const resetWorkspace = () => dispatch => {
     dispatch({ type: t.RESET_WORKSPACE, payload: {} });
 };
+
+export const submitTitleForm = values => dispatch => {
+    dispatch({ type: t.SUBMIT_TITLE_FORM, payload: values.title });
+};
+
+export const changeTitleForm = (value, prevValue) => dispatch => {
+    if (value !== prevValue) {
+        dispatch({ type: t.CHANGE_TITLE_FORM, payload: value });
+    }
+};

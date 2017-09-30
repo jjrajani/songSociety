@@ -5,7 +5,8 @@ export default function(
         project: { name: 'Untitled', collaborators: [] },
         editTitleMode: false,
         currentAudio: null,
-        pageView: 'comments'
+        pageView: 'comments',
+        isTouched: false
     },
     action
 ) {
@@ -39,6 +40,18 @@ export default function(
             return {
                 ...state,
                 pageView: action.payload
+            };
+        case t.SUBMIT_TITLE_FORM:
+            return {
+                ...state,
+                isTouched: false,
+                project: { ...state.project, name: action.payload }
+            };
+        case t.CHANGE_TITLE_FORM:
+            return {
+                ...state,
+                isTouched: true,
+                project: { ...state.project, name: action.payload }
             };
         default:
             return state;

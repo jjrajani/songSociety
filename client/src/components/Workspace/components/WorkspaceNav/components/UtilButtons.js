@@ -5,41 +5,29 @@ import { connect } from 'react-redux';
 // Components
 import { Glyphicon } from 'react-bootstrap';
 
-const loggedInLinks = [
-    {
-        title: 'Save Track',
-        glyph: 'cloud-upload'
-    },
-    {
-        title: 'Download Track',
-        glyph: 'download-alt'
-    }
-    // ,
-    // {
-    //     title: 'Delete Workspace',
-    //     glyph: 'trash'
-    // }
-];
-
-const UtilButtons = ({ history, auth }) => {
+const UtilButtons = ({ history, auth, isChanged }) => {
     const isLoggedIn = auth.isAuthenticated();
-
+    // console.log('isTouched', isChanged);
     return (
         <div className="util_buttons_wrapper">
             {!isLoggedIn && <Glyphicon title="Record New Track" glyph="cd" />}
-
             {isLoggedIn &&
-                loggedInLinks.map((l, i) => {
-                    return (
-                        <Glyphicon key={i} title={l.title} glyph={l.glyph} />
-                    );
-                })}
+                <button
+                    type="submit"
+                    form="title_input_form"
+                    className={isChanged ? 'highlight' : ''}
+                >
+                    {isChanged === true && <span>Save changes</span>}
+                    <Glyphicon title="Save Track" glyph="cloud-upload" />
+                </button>}
+            {isLoggedIn &&
+                <Glyphicon title="Download Track" glyph="download-alt" />}
         </div>
     );
 };
 
-function mapStateToProps({ auth }) {
-    return { auth };
+function mapStateToProps({ auth, workspace }) {
+    return { auth, isChanged: workspace.isTouched };
 }
 
 export default connect(mapStateToProps)(withRouter(UtilButtons));
