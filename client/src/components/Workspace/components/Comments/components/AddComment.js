@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../../../../actions';
 import { withRouter } from 'react-router-dom';
-import FileInput from 'react-file-input';
 import aws from '../../../../../utils/aws';
 // Components
+import { Glyphicon } from 'react-bootstrap';
+import FileInput from 'react-file-input';
 
 class AddComment extends Component {
     constructor(props) {
@@ -22,8 +23,7 @@ class AddComment extends Component {
 
     handleClick(event) {
         const { workspaceId } = this.props.match.params;
-        let userId = this.props.getProfile().then(user => {
-            console.log(user);
+        this.props.getProfile().then(user => {
             this.props.addComment(
                 user.sub,
                 this.state.value,
@@ -34,7 +34,7 @@ class AddComment extends Component {
     }
 
     handleFileUpload(event) {
-        console.log('Selected file:', event.target.files[0]);
+        // console.log('Selected file:', event.target.files[0]);
         aws.upload('bob', event.target.files[0], this.props.getIdToken());
     }
 
@@ -55,21 +55,12 @@ class AddComment extends Component {
                 <input
                     type="file"
                     id="selectedFile"
-                    style={{
-                        position: 'absolute',
-                        top: '0px',
-                        left: '0px',
-                        opacity: 0,
-                        width: '100%',
-                        zIndex: 1
-                    }}
                     onChange={this.handleFileUpload}
+                    className="hidden"
                 />
-                <label
-                    htmlFor="selectedFile"
-                    className="glyphicon glyphicon-cloud-upload"
-                    style={{ color: 'white' }}
-                />
+                <label htmlFor="selectedFile">
+                    <Glyphicon glyph="cloud-upload" />
+                </label>
             </div>
         );
     }
