@@ -32,3 +32,7 @@ export const getProfile = () => dispatch => {
         });
     });
 };
+
+export const getIdToken = () => dispatch => {
+   return auth.getIdToken();
+}

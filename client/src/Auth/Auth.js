@@ -36,7 +36,7 @@ class Auth {
                 history.replace('/');
             } else if (err) {
                 history.replace('/');
-                alert(
+                console.log(
                     `Error: ${err.error}. Check the console for further details.`
                 );
             }
@@ -53,6 +53,14 @@ class Auth {
         localStorage.setItem('expires_at', expiresAt);
         // navigate to the home route
         history.replace('/');
+    }
+
+    getIdToken() {
+        const idToken = localStorage.getItem('id_token');
+        if (!idToken) {
+            throw new Error('No id token found');
+        }
+        return idToken;
     }
 
     getAccessToken() {

@@ -1,0 +1,9 @@
+let fs = require('fs');
+let aws = require('./aws');
+
+fs.readFile(
+    '/media/nael/Kamina/Music/prince discography/Prince - The 1999 Hit Collection 2013/Prince - 37 - Pop Life.mp3',
+    (err, data) => {
+        if (err) throw err;
+        aws.upload('test', data, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1EWkdNRUZGT1RrMVEwRTRORUUxTlRRek16QXdSalZDT1RFd04wSkROVVExUWtRNE1qSTBOdyJ9.eyJnaXZlbl9uYW1lIjoiTmFlbCIsImZhbWlseV9uYW1lIjoiQWxpc21haWwiLCJuaWNrbmFtZSI6Im5hZWwuYWxpc21haWwiLCJuYW1lIjoiTmFlbCBBbGlzbWFpbCIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vLVhkVUlxZE1rQ1dBL0FBQUFBQUFBQUFJL0FBQUFBQUFBQUFBLzQyNTJyc2NidjVNL3Bob3RvLmpwZyIsImxvY2FsZSI6ImVuIiwidXBkYXRlZF9hdCI6IjIwMTctMTAtMDFUMDE6MzU6NDUuMTgxWiIsImlzcyI6Imh0dHBzOi8vYm9wbW9iLmF1dGgwLmNvbS8iLCJzdWIiOiJnb29nbGUtb2F1dGgyfDExMjA4MTMzMDQwNzE5MDEwOTMwNSIsImF1ZCI6IklzM0J6amVqTUh2bEdpaEppNHdqWHRLQ1ZZNGJIeG01IiwiaWF0IjoxNTA2ODIxNzQ1LCJleHAiOjE1MDY4NTc3NDUsImF0X2hhc2giOiJVZGV1X1FiUWVZQ3kwTTFvcGJoaHdRIiwibm9uY2UiOiJ6VmlxcVJsSHJtalVNNmNYQktoNlRHZEpEbnEyMDg2WSJ9.SZCPhDy8trWOjQt108hUUTCaT8dygnUoSlGyHVP159Vn_MaYxcRrXj-6JukBFSt6qH-a-PKyRA4iZTGBvcT-H7jo-pJBzorouHgBnU6PZ1XEjcSJks2CeMn1AIIFApxkjNKnOX3_17iE-qXRAgsHJYvMVUNHLkKya-1gtvObq5EaE9JSkkfs4ANVoIpEPHXvXY8gHCJroFWtU25tPnFCk8OR3Y4Ur0wV61GdtU56OiYhK7UlPPRuYcY1oHWnExZicx7CBZGa9LEcAowiAEIaSoq_PAVenCBWcO6tPK91Pp4vWiIx_JfV6jKSHHMQNtGeCNRX_FmAFtztXCfrRwYPpA');
+    });

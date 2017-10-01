@@ -26,7 +26,7 @@ class CommentItem extends Component {
                     </p>
                 </div>
                 <div className="right">
-                    {comment.audio.length > 0 &&
+                    {comment.audio && comment.audio.length > 0 &&
                         <Glyphicon
                             glyph="play"
                             onClick={this.playAudio.bind(this)}

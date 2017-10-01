@@ -5,6 +5,7 @@ import * as actions from '../../../../actions';
 import { withRouter } from 'react-router-dom';
 // Components
 import CommentList from './components/CommentList';
+import AddComment from './components/AddComment';
 
 class Comments extends Component {
     componentDidMount() {
@@ -18,7 +19,7 @@ class Comments extends Component {
             <div className="comments_wrapper">
                 <div className="header">
                     <h3>Comments</h3>
-                    <p className="btn btn-danger">Add Comment</p>
+                    <AddComment />
                 </div>
                 <CommentList />
             </div>
