@@ -1,4 +1,4 @@
-# Song Society
+# The Labz
 
 ---
 

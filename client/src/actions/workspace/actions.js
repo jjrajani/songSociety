@@ -22,7 +22,7 @@ export const playAudio = id => async dispatch => {
                 Math.random() * 5700000
             ) + 1}/stream?client_id=${secrets.SOUND_CLOUD_CLINT_ID}`
         });
-        res('play damnit');
+        res('play');
     });
 };
 

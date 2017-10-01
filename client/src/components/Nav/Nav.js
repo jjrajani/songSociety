@@ -56,8 +56,8 @@ class MyNav extends Component {
                 <Navbar.Header>
                     <Navbar.Brand>
                         <a className="logo" onClick={() => this.goTo('')}>
-                            <img src={logo} alt="Song Society Logo" />
-                            Song Society
+                            <img src={logo} alt="The Labz Logo" />
+                            The Labz
                         </a>
                     </Navbar.Brand>
                     <Navbar.Toggle />
