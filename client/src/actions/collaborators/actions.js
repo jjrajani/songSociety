@@ -2,11 +2,16 @@ import t from './types';
 import axios from 'axios';
 import _ from 'lodash';
 
-// export const fetchCollaborators = workspaceId => async dispatch => {
-//     const res = await axios.get(`/api/collaborators/${workspaceId}`);
-//
-//     dispatch({ type: t.FETCH_COLLABORATORS, payload: res.data });
-// };
+export const inviteCollaborator = (
+    userId,
+    collaboratorId,
+    workspaceId
+) => dispatch => {
+    console.log('invite action');
+    console.log('userId', userId);
+    console.log('collaboratorId', collaboratorId);
+    console.log('workspaceId', workspaceId);
+};
 
 export const addCollaborator = (
     workspaceId,
@@ -33,9 +38,3 @@ export const removeCollaborator = (
 export const togglePageView = page => dispatch => {
     dispatch({ type: t.TOGGLE_PAGE_VIEW, payload: page });
 };
-//
-// export const fetchProfile = followerId => async dispatch => {
-//     const follower = await axios.get(`/api/follower/${followerId}`);
-//
-//     dispatch({ type: t.GET_FRIEND_PROFILE, payload: follower.data });
-// };

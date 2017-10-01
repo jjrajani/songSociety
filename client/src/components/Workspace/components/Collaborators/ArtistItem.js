@@ -11,10 +11,11 @@ const ArtistItem = ({
     user,
     workspace,
     collaborators,
-    addCollaborator,
+    inviteCollaborator,
     removeCollaborator
 }) => {
     const { userId } = profile;
+    console.log(profile.profile._id);
     return (
         userId !== user.authId &&
         <li className="col-xs-6 col-sm-4 col-lg-3 list_item">
@@ -24,7 +25,11 @@ const ArtistItem = ({
                         glyph="plus"
                         onClick={e => {
                             e.stopPropagation();
-                            addCollaborator(workspace.project._id, user.authId);
+                            inviteCollaborator(
+                                profile.profile._id,
+                                user._id,
+                                workspace.project._id
+                            );
                         }}
                     />
                 </div>}
@@ -45,6 +50,6 @@ function mapStateToProps({ profile, workspace, collaborators }) {
 }
 
 export default connect(mapStateToProps, {
-    addCollaborator: actions.collaboratorsActions.addCollaborator,
+    inviteCollaborator: actions.collaboratorsActions.inviteCollaborator,
     removeCollaborator: actions.collaboratorsActions.removeCollaborator
 })(ArtistItem);

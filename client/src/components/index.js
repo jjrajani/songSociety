@@ -5,5 +5,14 @@ import Login from './Login/Login';
 import Nav from './Nav/Nav';
 import Artists from './Artists/Artists';
 import FollowerProfile from './FollowerProfile/FollowerProfile';
-
-export { Home, Profile, Workspace, Login, Nav, Artists, FollowerProfile };
+import PendingInvites from './PendingInvites/PendingInvites';
+export {
+    Home,
+    Profile,
+    Workspace,
+    Login,
+    Nav,
+    Artists,
+    FollowerProfile,
+    PendingInvites
+};

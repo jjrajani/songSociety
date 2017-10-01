@@ -13,7 +13,8 @@ import {
     Login,
     Nav,
     Artists,
-    FollowerProfile
+    FollowerProfile,
+    PendingInvites
 } from './components';
 
 class Routes extends Component {
@@ -65,6 +66,14 @@ class Routes extends Component {
                             component={Workspace}
                         />
                         <Route exact path="/workspace" component={Workspace} />
+                        <Route
+                            exact
+                            path="/pending_invites"
+                            render={props =>
+                                !auth.isAuthenticated()
+                                    ? <Redirect to="/" />
+                                    : <PendingInvites />}
+                        />
                         <Route
                             exact
                             path="/login"

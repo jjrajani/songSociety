@@ -11,8 +11,36 @@
     width: 38px;
     margin: 0 10px 0 5px; }
 
+.nav .glyphicon {
+  height: 100%;
+  font-size: 2.25rem;
+  color: #dd0000 !important;
+  margin-top: 13px;
+  position: absolute;
+  cursor: pointer; }
+
+@media screen and (max-width: 767px) {
+  .navbar-header .glyphicon.collapsed {
+    position: absolute;
+    right: 70px; } }
+
+@media screen and (min-width: 768px) {
+  .navbar-header .glyphicon {
+    display: none;
+    visibility: hidden; } }
+
 .nav.navbar-nav.navbar-right {
-  text-align: right; }
+  text-align: right;
+  position: relative; }
+  @media screen and (max-width: 767px) {
+    .nav.navbar-nav.navbar-right .glyphicon.open {
+      display: none;
+      visibility: hidden; } }
+  @media screen and (min-width: 767px) {
+    .nav.navbar-nav.navbar-right .glyphicon.open {
+      display: inline;
+      visibility: visible;
+      left: -25px; } }
 
 .btn-margin {
   margin: 7px 10px; }

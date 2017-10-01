@@ -9,7 +9,10 @@ class Home extends Component {
     componentDidMount() {
         const isAuthenticated = this.props.auth.isAuthenticated();
         if (isAuthenticated) {
-            this.props.getProfile();
+            this.props.getProfile().then(res => {
+                const userId = res.sub;
+                this.props.fetchProfile(userId);
+            });
         }
     }
     render() {
@@ -26,5 +29,6 @@ function mapStateToProps({ auth }) {
 }
 
 export default connect(mapStateToProps, {
-    getProfile: actions.authActions.getProfile
+    getProfile: actions.authActions.getProfile,
+    fetchProfile: actions.profileActions.fetchProfile
 })(Home);
