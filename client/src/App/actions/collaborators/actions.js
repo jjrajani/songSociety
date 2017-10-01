@@ -4,13 +4,13 @@ import _ from 'lodash';
 
 export const inviteCollaborator = (
     userId,
-    collaboratorId,
-    workspaceId
-) => dispatch => {
-    console.log('invite action');
-    console.log('userId', userId);
-    console.log('collaboratorId', collaboratorId);
-    console.log('workspaceId', workspaceId);
+    workspaceId,
+    collaboratorId
+) => async dispatch => {
+    const res = await axios.post(
+        `/api/${userId}/${workspaceId}/collaborators/invite/${collaboratorId}`
+    );
+    return res;
 };
 
 export const addCollaborator = (

@@ -5,6 +5,16 @@ import * as actions from '../../../../actions';
 // Components
 import { Glyphicon } from 'react-bootstrap';
 
+function invited(inviteeId, invitedArray) {
+    console.log('invitee', inviteeId);
+    console.log('invited', invitedArray);
+    let invited = false;
+    invitedArray.forEach(invite => {
+        if (invite.collaboratorId === inviteeId) invited = true;
+    });
+    return invited;
+}
+
 const ArtistItem = ({
     active,
     profile,
@@ -15,24 +25,36 @@ const ArtistItem = ({
     removeCollaborator
 }) => {
     const { userId } = profile;
-    console.log(profile.profile._id);
     return (
         userId !== user.authId &&
         <li className="col-xs-6 col-sm-4 col-lg-3 list_item">
             {collaborators.indexOf(user.authId) === -1 &&
+                !invited(
+                    user._id,
+                    profile.profile.pendingOutGoingCollabInvites
+                ) &&
                 <div className="buttons">
                     <Glyphicon
                         glyph="plus"
                         onClick={e => {
                             e.stopPropagation();
                             inviteCollaborator(
-                                profile.profile._id,
-                                user._id,
-                                workspace.project._id
+                                profile.profile._id, // logged in user id
+                                workspace.project._id,
+                                user._id // collaborator to invite id
                             );
                         }}
                     />
                 </div>}
+            {collaborators.indexOf(user.authId) === -1 &&
+                invited(
+                    user._id,
+                    profile.profile.pendingOutGoingCollabInvites
+                ) &&
+                <div className="buttons">
+                    <Glyphicon glyph="check" />
+                </div>}
+
             <div className="info">
                 <div className="img_wrapper">
                     <img src={user.img} alt={`${user.nickname}'s avatar'`} />

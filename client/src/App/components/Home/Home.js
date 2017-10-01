@@ -24,8 +24,8 @@ class Home extends Component {
     }
 }
 
-function mapStateToProps({ auth }) {
-    return { auth };
+function mapStateToProps({ auth, profile }) {
+    return { auth, profile };
 }
 
 export default connect(mapStateToProps, {

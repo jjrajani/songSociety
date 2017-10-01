@@ -1,6 +1,6 @@
 import t from './types';
 // Auth to create new auth instance on logout
-import auth, { Auth } from '../../Auth/Auth';
+import auth, { Auth } from '../../../Auth/Auth';
 
 export const handleAuthenticationParse = (nextState, replace) => dispatch => {
     if (/access_token|id_token|error/.test(nextState.location.hash)) {
@@ -34,5 +34,5 @@ export const getProfile = () => dispatch => {
 };
 
 export const getIdToken = () => dispatch => {
-   return auth.getIdToken();
-}
+    return auth.getIdToken();
+};

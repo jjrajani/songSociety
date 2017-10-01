@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../../../../actions';
 import { withRouter } from 'react-router-dom';
-import aws from '../../../../../utils/aws';
+import aws from '../../../../../../utils/aws';
 // Components
 import { Glyphicon } from 'react-bootstrap';
 import FileInput from 'react-file-input';

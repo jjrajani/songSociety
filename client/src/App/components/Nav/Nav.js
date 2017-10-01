@@ -6,7 +6,7 @@ import * as actions from '../../actions';
 // Components
 import { Button, Navbar, Nav } from 'react-bootstrap';
 import LoginButtons from './components/LoginButtons';
-import logo from '../../assets/logo.png';
+import logo from '../../../assets/logo.png';
 import { Glyphicon } from 'react-bootstrap';
 
 const authLinks = [
@@ -46,8 +46,7 @@ class MyNav extends Component {
     render() {
         const { navExpanded, activeTab } = this.props.nav;
         const { toggleNav } = this.props;
-        const { pendingCollabInvites } = this.props.profile.profile;
-        console.log('pendingCollabInvites', pendingCollabInvites);
+        const { pendingIncomingCollabInvites } = this.props.profile.profile;
         return (
             <Navbar
                 onToggle={toggleNav}
@@ -63,7 +62,7 @@ class MyNav extends Component {
                             The Labz
                         </a>
                     </Navbar.Brand>
-                    {pendingCollabInvites &&
+                    {pendingIncomingCollabInvites &&
                         <Glyphicon
                             onClick={() => this.goTo('/pending_invites')}
                             glyph="envelope"
@@ -73,7 +72,7 @@ class MyNav extends Component {
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav pullRight onSelect={this.props.closeNav}>
-                        {pendingCollabInvites &&
+                        {pendingIncomingCollabInvites &&
                             <Glyphicon
                                 onClick={() => this.goTo('/pending_invites')}
                                 glyph="envelope"

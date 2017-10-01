@@ -1,6 +1,6 @@
 import t from '../../actions/auth/types';
 
-import auth from '../../Auth/Auth';
+import auth from '../../../Auth/Auth';
 
 export default function(state = auth, action) {
     switch (action.type) {

@@ -1,4 +1,4 @@
-import * as secrets from '../../secrets';
+import * as secrets from '../../../secrets';
 import t from './types';
 import axios from 'axios';
 

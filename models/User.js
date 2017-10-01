@@ -15,7 +15,24 @@ const userSchema = new Schema(
         nickname: String,
         followers: { type: [String], default: [] },
         latestProject: String,
-        pendingCollabInvites: { type: [String], default: [] } // put inviter _id here
+        pendingOutGoingCollabInvites: {
+            type: [
+                {
+                    collaboratorId: String,
+                    workspaceId: String
+                }
+            ],
+            default: []
+        }, // put colab to accept _id here
+        pendingIncomingCollabInvites: {
+            type: [
+                {
+                    userId: String,
+                    workspaceId: String
+                }
+            ],
+            default: []
+        } // put inviter _id here
         // facebook
         // twitter
     },

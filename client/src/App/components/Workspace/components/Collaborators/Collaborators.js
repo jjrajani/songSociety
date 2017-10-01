@@ -6,6 +6,13 @@ import * as actions from '../../../../actions';
 // Components
 import InviteCollaborators from './InviteCollaborators';
 import ActiveCollaborators from './ActiveCollaborators';
+import PendingCollaborators from './PendingCollaborators';
+
+const tabs = [
+    { text: 'Invite', route: 'invite' },
+    { text: 'Active', route: 'active' },
+    { text: 'Pending', route: 'pending' }
+];
 
 class Users extends Component {
     componentDidMount() {
@@ -20,29 +27,26 @@ class Users extends Component {
                     <h3>Collaborators</h3>
                 </div>
                 <div className="collaborators details_nav col-xs-12">
-                    <p
-                        className={
-                            activeTab === 'active' ? 'active' : 'inactive'
-                        }
-                        onClick={() => {
-                            togglePageView('active');
-                        }}
-                    >
-                        Active
-                    </p>
-                    <p
-                        className={
-                            activeTab === 'invite' ? 'active' : 'inactive'
-                        }
-                        onClick={() => {
-                            togglePageView('invite');
-                        }}
-                    >
-                        Invite
-                    </p>
+                    {tabs.map(t => {
+                        return (
+                            <p
+                                className={
+                                    activeTab === t.route
+                                        ? 'active'
+                                        : 'inactive'
+                                }
+                                onClick={() => {
+                                    togglePageView(t.route);
+                                }}
+                            >
+                                {t.text}
+                            </p>
+                        );
+                    })}
                 </div>
                 {activeTab === 'active' && <ActiveCollaborators />}
                 {activeTab === 'invite' && <InviteCollaborators />}
+                {activeTab === 'pending' && <PendingCollaborators />}
             </div>
         );
     }
