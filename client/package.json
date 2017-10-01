@@ -5,6 +5,7 @@
     "proxy": "http://localhost:5000",
     "dependencies": {
         "auth0-js": "^8.8.0",
+        "aws-sdk": "^2.125.0",
         "axios": "^0.16.2",
         "bootstrap": "^3.3.7",
         "history": "^4.6.1",

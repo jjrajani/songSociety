@@ -36,7 +36,7 @@ class Auth {
                 history.replace('/');
             } else if (err) {
                 history.replace('/');
-                alert(
+                console.log(
                     `Error: ${err.error}. Check the console for further details.`
                 );
             }
