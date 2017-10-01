@@ -1,0 +1,25 @@
+.add_comment_content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  max-width: 500px; }
+  .add_comment_content textarea {
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    width: 100%;
+    height: 100px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem; }
+  .add_comment_content label {
+    margin-left: 1rem; }
+    .add_comment_content label .glyphicon-cd {
+      font-size: 3rem;
+      cursor: pointer; }
+      .add_comment_content label .glyphicon-cd:hover {
+        color: #dd0000 !important; }
+  .add_comment_content .file_input,
+  .add_comment_content input[type="file"] {
+    visibility: hidden;
+    display: none; }

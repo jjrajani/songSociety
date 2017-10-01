@@ -33,6 +33,11 @@ a {
     }
 }
 
+.display_none {
+    visibility: hidden;
+    display: none;
+}
+
 .main_content {
     padding-top: 55px;
     min-height: 100vh;
@@ -54,3 +59,4 @@ a {
 @import 'users.scss';
 @import 'list.scss';
 @import 'comments_list.scss';
+@import 'add_comment.scss';

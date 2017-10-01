@@ -40,27 +40,36 @@ class AddComment extends Component {
 
     render() {
         return (
-            <div className="comments_wrapper">
-                <input
-                    type="text"
-                    value={this.state.value}
-                    onChange={this.handleChange}
-                />
-                <div onClick={this.handleClick}>Add Comment</div>
-                <FileInput
-                    name="myImage"
-                    accept=".png,.gif"
-                    onChange={this.handleFileUpload}
-                />
-                <input
-                    type="file"
-                    id="selectedFile"
-                    onChange={this.handleFileUpload}
-                    className="hidden"
-                />
-                <label htmlFor="selectedFile">
-                    <Glyphicon glyph="cloud-upload" />
-                </label>
+            <div className="add_comment_wrapper col-12">
+                <div className="add_comment_content">
+                    <textarea
+                        value={this.state.value}
+                        onChange={this.handleChange}
+                    />
+                    <div className="add_comment_button_wrapper">
+                        <p
+                            className="btn btn-danger add_comment"
+                            onClick={this.handleClick}
+                        >
+                            Add Comment
+                        </p>
+                    </div>
+                    <label htmlFor="selectedFile">
+                        <Glyphicon glyph="cd" title="Upload Track" />
+                    </label>
+                    <FileInput
+                        className="file_input"
+                        name="myImage"
+                        accept=".png,.gif"
+                        onChange={this.handleFileUpload}
+                    />
+                    <input
+                        type="file"
+                        id="selectedFile"
+                        onChange={this.handleFileUpload}
+                        className="display_none"
+                    />
+                </div>
             </div>
         );
     }
