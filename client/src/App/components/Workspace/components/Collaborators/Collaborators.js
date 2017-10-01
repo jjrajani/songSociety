@@ -9,8 +9,8 @@ import ActiveCollaborators from './ActiveCollaborators';
 import PendingCollaborators from './PendingCollaborators';
 
 const tabs = [
-    { text: 'Invite', route: 'invite' },
     { text: 'Active', route: 'active' },
+    { text: 'Invite', route: 'invite' },
     { text: 'Pending', route: 'pending' }
 ];
 
