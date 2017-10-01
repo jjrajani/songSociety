@@ -14,7 +14,7 @@ import {
     Nav,
     Artists,
     FollowerProfile,
-    PendingInvites
+    Invites
 } from './components';
 
 class Routes extends Component {
@@ -72,7 +72,7 @@ class Routes extends Component {
                             render={props =>
                                 !auth.isAuthenticated()
                                     ? <Redirect to="/" />
-                                    : <PendingInvites />}
+                                    : <Invites />}
                         />
                         <Route
                             exact

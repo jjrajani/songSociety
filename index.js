@@ -29,6 +29,7 @@ require('./routes/projectsRoutes')(app);
 require('./routes/followersRoutes')(app);
 require('./routes/workspaceRoutes')(app);
 require('./routes/collaboratorsRoutes')(app);
+require('./routes/inviteRoutes')(app);
 
 // if (process.env.NODE_ENV === 'production') {
 //     app.use(express.static('client/build'));

@@ -38,12 +38,12 @@ module.exports = app => {
                     }
                 }
             );
-            user.pendingOutGoingCollabInvites.push({
+            user.outGoingInvites.push({
                 collaboratorId,
                 workspaceId
             });
             user.save();
-            collaborator.pendingIncomingCollabInvites.push({
+            collaborator.incomingInvites.push({
                 userId,
                 workspaceId
             });

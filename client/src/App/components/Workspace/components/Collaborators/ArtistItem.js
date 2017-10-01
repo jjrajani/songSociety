@@ -31,7 +31,7 @@ const ArtistItem = ({
             {collaborators.indexOf(user.authId) === -1 &&
                 !invited(
                     user._id,
-                    profile.profile.pendingOutGoingCollabInvites
+                    profile.profile.outGoingInvites
                 ) &&
                 <div className="buttons">
                     <Glyphicon
@@ -49,7 +49,7 @@ const ArtistItem = ({
             {collaborators.indexOf(user.authId) === -1 &&
                 invited(
                     user._id,
-                    profile.profile.pendingOutGoingCollabInvites
+                    profile.profile.outGoingInvites
                 ) &&
                 <div className="buttons">
                     <Glyphicon glyph="check" />

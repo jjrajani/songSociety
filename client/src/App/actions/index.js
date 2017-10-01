@@ -8,6 +8,7 @@ import * as workspaceActions from './workspace/actions';
 import * as usersActions from './users/actions';
 import * as commentsActions from './comments/actions';
 import * as collaboratorsActions from './collaborators/actions';
+import * as invitesActions from './invites/actions';
 
 export {
     authActions,
@@ -19,5 +20,6 @@ export {
     workspaceActions,
     usersActions,
     commentsActions,
-    collaboratorsActions
+    collaboratorsActions,
+    invitesActions
 };

@@ -15,7 +15,7 @@ const userSchema = new Schema(
         nickname: String,
         followers: { type: [String], default: [] },
         latestProject: String,
-        pendingOutGoingCollabInvites: {
+        outGoingInvites: {
             type: [
                 {
                     collaboratorId: String,
@@ -24,7 +24,7 @@ const userSchema = new Schema(
             ],
             default: []
         }, // put colab to accept _id here
-        pendingIncomingCollabInvites: {
+        incomingInvites: {
             type: [
                 {
                     userId: String,

@@ -10,6 +10,7 @@ import workspaceReducer from './workspace/reducer';
 import usersReducer from './users/reducer';
 import commentsReducer from './comments/reducer';
 import collaboratorsReducer from './collaborators/reducer';
+import invitesReducer from './invites/reducer';
 
 export default combineReducers({
     auth: authReducer,
@@ -22,5 +23,6 @@ export default combineReducers({
     workspace: workspaceReducer,
     comments: commentsReducer,
     collaborators: collaboratorsReducer,
-    form: reduxForm
+    form: reduxForm,
+    invites: invitesReducer
 });

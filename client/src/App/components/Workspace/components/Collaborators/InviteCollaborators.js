@@ -24,7 +24,7 @@ function mapStateToProps({ collaborators, users, profile }) {
     return {
         collaborators: collaborators.list,
         users,
-        pendingInvites: profile.profile.pendingOutGoingCollabInvites
+        pendingInvites: profile.profile.outGoingInvites
     };
 }
 

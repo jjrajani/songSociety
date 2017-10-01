@@ -5,7 +5,7 @@ import Login from './Login/Login';
 import Nav from './Nav/Nav';
 import Artists from './Artists/Artists';
 import FollowerProfile from './FollowerProfile/FollowerProfile';
-import PendingInvites from './PendingInvites/PendingInvites';
+import Invites from './Invites/Invites';
 export {
     Home,
     Profile,
@@ -14,5 +14,5 @@ export {
     Nav,
     Artists,
     FollowerProfile,
-    PendingInvites
+    Invites
 };
