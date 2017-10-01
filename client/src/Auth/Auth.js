@@ -55,6 +55,14 @@ class Auth {
         history.replace('/');
     }
 
+    getIdToken() {
+        const idToken = localStorage.getItem('id_token');
+        if (!idToken) {
+            throw new Error('No id token found');
+        }
+        return idToken;
+    }
+
     getAccessToken() {
         const accessToken = localStorage.getItem('access_token');
         if (!accessToken) {
