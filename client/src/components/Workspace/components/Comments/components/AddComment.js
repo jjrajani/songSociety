@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../../../../actions';
 import { withRouter } from 'react-router-dom';
+import FileInput from 'react-file-input';
+import aws from '../../../../../utils/aws';
 // Components
 
 class AddComment extends Component {
@@ -11,15 +13,9 @@ class AddComment extends Component {
     this.state = { value: '' };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleFileUpload = this.handleFileUpload.bind(this);
 
   }
-
-  // componentDidMount() {
-  //     const { workspaceId } = this.props.match.params;
-  //     if (workspaceId !== 'new') {
-  //         
-  //     }
-  // }
 
   handleChange(event) {
     this.setState({ value: event.target.value });
@@ -33,6 +29,11 @@ class AddComment extends Component {
     });
   }
 
+  handleFileUpload(event) {
+    console.log('Selected file:', event.target.files[0]);
+    aws.upload("bob", event.target.files[0], this.props.getIdToken());
+  }
+
   render() {
 
     return (
@@ -40,6 +41,14 @@ class AddComment extends Component {
         <input type="text" value={this.state.value}
           onChange={this.handleChange} />
         <div onClick={this.handleClick}>Add Comment</div>
+        <FileInput name="myImage"
+          accept=".png,.gif"
+          onChange={this.handleFileUpload} />
+        <input type="file"
+          id="selectedFile"
+          style={{ position: 'absolute', top: '0px', left: '0px', opacity: 0, width: '100%', 'zIndex': 1 }}
+          onChange={this.handleFileUpload} />
+        <label htmlFor="selectedFile" className="glyphicon glyphicon-cloud-upload" style={{ color: 'white' }} />
       </div>
     );
   }
@@ -50,5 +59,6 @@ class AddComment extends Component {
 export default connect(null,
   {
     addComment: actions.commentsActions.addComment,
-    getProfile: actions.authActions.getProfile
+    getProfile: actions.authActions.getProfile,
+    getIdToken: actions.authActions.getIdToken
   })(withRouter(AddComment));
