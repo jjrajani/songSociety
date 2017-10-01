@@ -235,7 +235,8 @@ ul.nav button {
 
 .details_nav {
   display: flex;
-  align-items: center; }
+  align-items: center;
+  justify-content: flex-end; }
   .details_nav p {
     margin: 0;
     padding: 5px 10px;
@@ -253,6 +254,9 @@ ul.nav button {
       margin: 0 0 0 5px;
       color: #555;
       font-size: 1.2rem; }
+
+.profile .details_nav {
+  justify-content: flex-start; }
 
 @media screen and (max-width: 768px) {
   .details_nav {
@@ -552,3 +556,45 @@ ul.nav button {
   .add_comment_content input[type="file"] {
     visibility: hidden;
     display: none; }
+
+.collaborators.row .list {
+  margin-top: 20px; }
+  .collaborators.row .list .list_item {
+    margin-bottom: 20px !important; }
+    .collaborators.row .list .list_item h5 {
+      font-size: 1.5rem; }
+
+.collaborators.row .list_item,
+.collaborators.row .info {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; }
+
+.collaborators.row .list_item > .buttons {
+  width: 100%;
+  text-align: right; }
+
+.collaborators.row .img_wrapper {
+  width: 100%;
+  text-align: center;
+  margin-top: 5px; }
+
+.collaborators.row .info img {
+  border-radius: 20%;
+  width: 128px;
+  height: 128px; }
+
+@media screen and (max-width: 768px) {
+  .collaborators.row .list_item {
+    width: 46% !important;
+    margin: 0 2% !important; } }
+
+@media screen and (min-width: 768px) {
+  .collaborators.row .list_item {
+    width: 31% !important;
+    margin: 0 1% !important; } }
+
+@media screen and (min-width: 1200px) {
+  .collaborators.row .list_item {
+    width: 23% !important;
+    margin: 0 1% !important; } }

@@ -7,7 +7,7 @@ const InviteCollaborators = ({ collaborators, users }) => {
         return collaborators.indexOf(u.authId) === -1;
     });
     return (
-        <ul className="list row">
+        <ul className="list col-xs-12">
             {inactiveCollaborators.map((user, i) => {
                 return <ArtistItem key={i} user={user} active={false} />;
             })}

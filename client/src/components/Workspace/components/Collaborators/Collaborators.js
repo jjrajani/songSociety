@@ -15,11 +15,11 @@ class Users extends Component {
     render() {
         const { activeTab, togglePageView } = this.props;
         return (
-            <div className="container main_content users">
-                <div className="header">
-                    <h3>Artists</h3>
+            <div className="collaborators row">
+                <div className="header col-xs-12">
+                    <h3>Collaborators</h3>
                 </div>
-                <div className="collaborators_nav">
+                <div className="collaborators details_nav col-xs-12">
                     <p
                         className={
                             activeTab === 'active' ? 'active' : 'inactive'
@@ -28,7 +28,7 @@ class Users extends Component {
                             togglePageView('active');
                         }}
                     >
-                        Collaborators
+                        Active
                     </p>
                     <p
                         className={
@@ -38,7 +38,7 @@ class Users extends Component {
                             togglePageView('invite');
                         }}
                     >
-                        Invite Collaborators
+                        Invite
                     </p>
                 </div>
                 {activeTab === 'active' && <ActiveCollaborators />}

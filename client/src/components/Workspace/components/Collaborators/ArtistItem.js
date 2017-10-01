@@ -17,33 +17,24 @@ const ArtistItem = ({
     const { userId } = profile;
     return (
         userId !== user.authId &&
-        <li>
-            <div className="info">
-                <img src={user.img} alt={`${user.nickname}'s avatar'`} />
-                <h5>
-                    {user.nickname}
-                </h5>
-            </div>
-            <div className="buttons">
-                {collaborators.indexOf(user.authId) === -1 &&
+        <li className="col-xs-6 col-sm-4 col-lg-3 list_item">
+            {collaborators.indexOf(user.authId) === -1 &&
+                <div className="buttons">
                     <Glyphicon
                         glyph="plus"
                         onClick={e => {
                             e.stopPropagation();
                             addCollaborator(workspace.project._id, user.authId);
                         }}
-                    />}
-                {active === true &&
-                    <Glyphicon
-                        glyph="remove-circle"
-                        onClick={e => {
-                            e.stopPropagation();
-                            removeCollaborator(
-                                workspace.project._id,
-                                user.authId
-                            );
-                        }}
-                    />}
+                    />
+                </div>}
+            <div className="info">
+                <div className="img_wrapper">
+                    <img src={user.img} alt={`${user.nickname}'s avatar'`} />
+                </div>
+                <h5>
+                    {user.nickname}
+                </h5>
             </div>
         </li>
     );

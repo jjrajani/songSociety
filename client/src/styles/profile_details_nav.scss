@@ -8,6 +8,7 @@ $red: rgb(221, 0, 0);
 .details_nav {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     p {
         margin: 0;
         padding: 5px 10px;
@@ -29,6 +30,11 @@ $red: rgb(221, 0, 0);
             color: #555;
             font-size: 1.2rem;
         }
+    }
+}
+.profile {
+    .details_nav {
+        justify-content: flex-start;
     }
 }
 @media screen and (max-width: 768px) {
