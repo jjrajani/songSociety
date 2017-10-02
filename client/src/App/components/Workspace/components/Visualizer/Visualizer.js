@@ -79,19 +79,40 @@ class AudioVisualizer extends Component {
             let freqData = new Uint8Array(analyser.frequencyBinCount);
             requestAnimationFrame(renderFrame);
             analyser.getByteFrequencyData(freqData);
-            ctx.clearRect(5, 0, canvas.width, canvas.height);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
             if (framesRendered % 7 === 0) {
                 color = getNextColor(color);
             }
 
             ctx.fillStyle = `rgb(${color.r}, ${color.g}, ${color.b})`;
+            ctx.sRect = function(x, y, w, h) {
+                x = parseInt(x) + 0.5;
+                y = parseInt(y) + 0.5;
+
+                if (h < -60) {
+                    let redZone = h + 60;
+                    ctx.fillStyle = 'red';
+                    this.fillRect(x, y - 60, w, redZone);
+
+                    // this.fillRect(x, y + h, w, h - lessHeight);
+                    ctx.fillStyle = 'yellow';
+                    this.fillRect(x, y - 40, w, -20);
+
+                    ctx.fillStyle = 'green';
+                    this.fillRect(x, y, w, -40);
+                    // this.fillRect(x, y + h - lessHeight, w, h);
+                } else {
+                    ctx.fillStyle = `green`;
+                    this.fillRect(x, y, w, h);
+                }
+            };
             // ctx.fillStyle = '#9933ff';
-            let bars = 100;
+            let bars = 500;
             for (var i = 0; i < bars; i++) {
-                let bar_x = i * 4;
-                let bar_width = 2.75;
+                let bar_x = i * 3;
+                let bar_width = 1;
                 let bar_height = -(freqData[i] / 2.85);
-                ctx.fillRect(bar_x, canvas.height, bar_width, bar_height);
+                ctx.sRect(bar_x, canvas.height, bar_width, bar_height);
             }
         }
         renderFrame();

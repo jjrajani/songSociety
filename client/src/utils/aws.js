@@ -65,7 +65,7 @@ function upload(name, file, id_token) {
                 playButton.style.display = 'inline';
                 playButton.style.visibility = 'visible';
                 console.log(evt);
-                previewAudioPlayer.src = evt.Location;
+                previewAudioPlayer.src = `${evt.Location}`;
             }
         });
 }
@@ -73,3 +73,5 @@ function upload(name, file, id_token) {
 module.exports = {
     upload
 };
+
+//https://api.soundcloud.com/tracks/57809396/stream?client_id=9590faf7123e87d09a95c043faeec29e
