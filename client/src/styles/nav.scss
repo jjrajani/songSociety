@@ -9,18 +9,53 @@ $white: rgb(245, 245, 245);
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    // text-align: center;
-    // height: 100%;
-    // border: solid blue 3px;
     color: white !important;
     img {
         width: 38px;
         margin: 0 10px 0 5px;
     }
 }
+.nav {
+    .glyphicon {
+        height: 100%;
+        font-size: 2.25rem;
+        color: $red !important;
+        margin-top: 13px;
+        position: absolute;
+        cursor: pointer;
+    }
+}
+.navbar-header {
+    @media screen and (max-width: 767px) {
+        .glyphicon.collapsed {
+            position: absolute;
+            right: 70px;
+        }
+    }
+    @media screen and (min-width: 768px) {
+        .glyphicon {
+            display: none;
+            visibility: hidden;
+        }
+    }
+}
 
 .nav.navbar-nav.navbar-right {
     text-align: right;
+    position: relative;
+    @media screen and (max-width: 767px) {
+        .glyphicon.open {
+            display: none;
+            visibility: hidden;
+        }
+    }
+    @media screen and (min-width: 767px) {
+        .glyphicon.open {
+            display: inline;
+            visibility: visible;
+            left: -25px;
+        }
+    }
 }
 .btn-margin {
     margin: 7px 10px;
