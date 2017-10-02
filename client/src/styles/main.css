@@ -670,3 +670,28 @@ ul.nav button {
       margin-right: 2%; }
     .invites .list .list_item:nth-child(3n + 2) {
       margin-right: 2%; } }
+
+.upload_track_button {
+  display: flex;
+  align-items: center; }
+  .upload_track_button label {
+    margin: 0 0 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .upload_track_button #loading_wrapper {
+    display: none;
+    visibility: hidden;
+    border: solid #ccc 1px;
+    margin-left: 20px;
+    height: 8px;
+    width: 200px; }
+    .upload_track_button #loading_wrapper #status_bar {
+      width: 0px;
+      height: 100%;
+      background-color: #ccc; }
+  .upload_track_button #play_button {
+    margin-left: 20px;
+    font-size: 2.25rem;
+    display: none;
+    visibility: hidden; }

@@ -5,7 +5,7 @@ import * as actions from '../../../../../actions';
 import { withRouter } from 'react-router-dom';
 import aws from '../../../../../../utils/aws';
 // Components
-import { Glyphicon } from 'react-bootstrap';
+import UploadTrackButton from './UploadTrackButton';
 
 class AddComment extends Component {
     constructor(props) {
@@ -53,15 +53,16 @@ class AddComment extends Component {
                             Add Comment
                         </p>
                     </div>
-                    <label htmlFor="selectedFile">
-                        <Glyphicon glyph="cd" title="Upload Track" />
-                    </label>
+                    <UploadTrackButton />
                     <input
                         type="file"
                         id="selectedFile"
                         onChange={this.handleFileUpload}
                         className="display_none"
                     />
+                </div>
+                <div className="preview_audio_wrapper">
+                    <audio id="preview_audio" />
                 </div>
             </div>
         );
