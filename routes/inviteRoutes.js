@@ -5,81 +5,103 @@ const Project = mongoose.model('projects');
 
 module.exports = app => {
     app.get('/api/user/:userId/invites', async (req, res) => {
-        const user = await User.findById(req.params.userId);
-        let incoming = user.incomingInvites;
+        const invites = await User.findById(req.params.userId, 'invites');
 
-        let incomingUserIds = incoming.map(i => i.userId);
-        let incomingWorkspaceIds = incoming.map(i => i.workspaceId);
-        let incomingUsers = await User.find(
-            { _id: { $in: incomingUserIds } },
-            'nickname img _id',
-            (err, docs) => {
-                if (!err) {
-                    return docs;
-                } else {
-                    throw new Error(err);
-                }
-            }
-        );
-        let incomingWorkspaces = await Project.find(
-            {
-                _id: { $in: incomingWorkspaceIds }
-            },
-            '_id name user',
-            (err, docs) => {
-                if (!err) {
-                    return docs;
-                } else {
-                    throw new Error(err);
-                }
-            }
-        );
-        let incomingInvites = [];
-        for (let i = 0; i < incomingUsers.length; i++) {
-            incomingInvites.push({
-                user: incomingUsers[i],
-                workspace: incomingWorkspaces[i]
+        res.send(invites);
+    });
+
+    // Invite collaborator
+    app.post(
+        '/api/invite/:inviterId/:workspaceId/:inviteeId',
+        async (req, res) => {
+            const { inviterId, inviteeId, workspaceId } = req.params;
+
+            let inviter = await User.findById(
+                inviterId,
+                'nickname img _id invites'
+            );
+            let invited = await User.findById(
+                inviteeId,
+                'nickname img _id invites'
+            );
+            let workspace = await Project.findById(workspaceId, 'name _id');
+
+            inviter.invites.outgoing.push({
+                inviteeId: invited._id,
+                inviteeName: invited.nickname,
+                inviteeImg: invited.img,
+                workspace
             });
-        }
 
-        // OUTGOING
-        let outgoing = user.outGoingInvites;
-
-        let outGoingUserIds = outgoing.map(i => i.collaboratorId);
-        let outGoingWorkspaceIds = outgoing.map(i => i.workspaceId);
-        let outGoingUsers = await User.find(
-            { _id: { $in: outGoingUserIds } },
-            'nickname img _id',
-            (err, docs) => {
-                if (!err) {
-                    return docs;
-                } else {
-                    throw new Error(err);
-                }
-            }
-        );
-        let outGoingWorkspaces = await Project.find(
-            {
-                _id: { $in: outGoingWorkspaceIds }
-            },
-            '_id name user',
-            (err, docs) => {
-                if (!err) {
-                    return docs;
-                } else {
-                    throw new Error(err);
-                }
-            }
-        );
-        let outGoingInvites = [];
-        for (let i = 0; i < outGoingUsers.length; i++) {
-            outGoingInvites.push({
-                user: outGoingUsers[i],
-                workspace: outGoingWorkspaces[i]
+            invited.invites.incoming.push({
+                inviterId: inviter._id,
+                inviterName: inviter.nickname,
+                inviterImg: inviter.img,
+                workspace
             });
-        }
+            inviter.save();
+            invited.save();
 
-        let data = { incoming: incomingInvites, outgoing: outGoingInvites };
-        res.status(200).send(data);
+            res.send(inviter.invites);
+        }
+    );
+
+    // Accept Invite
+    app.post('/api/invites/accept/:userId', async (req, res) => {
+        const acceptingUser = await User.findById(req.params.userId);
+        const invitingUser = await User.findById(req.body.inviterId);
+        const invite = req.body;
+        const project = await Project.findById(invite.workspace._id);
+
+        // remove invite from incoming on acceptingUser
+        let newAcceptingUserIncomingInvites = acceptingUser.invites.incoming.filter(
+            i => {
+                return i.workspace._id != invite.workspace._id;
+            }
+        );
+        acceptingUser.invites.incoming = newAcceptingUserIncomingInvites;
+        acceptingUser.save();
+
+        // remove invite from outgoing on invitingUser
+        let newInvitingUserOutgoingInvites = invitingUser.invites.outgoing.filter(
+            i => {
+                return i.workspace._id != invite.workspace._id;
+            }
+        );
+        invitingUser.invites.outgoing = newInvitingUserOutgoingInvites;
+        invitingUser.save();
+
+        // add accpetingUser to collaborators array on workspace
+        project.collaborators.push(acceptingUser._id);
+        project.save();
+        res.send(invite.workspace._id);
+    });
+
+    // Decline Invite
+    app.post('/api/invites/decline/:userId', async (req, res) => {
+        const invite = req.body;
+        const declingingUser = await User.findById(req.params.userId);
+        const invitingUser = await User.findById(invite.inviterId);
+
+        const project = await Project.findById(invite.workspace._id);
+        // remove invite from incoming on acceptingUser
+        let newAcceptingUserIncomingInvites = declingingUser.invites.incoming.filter(
+            i => {
+                return i.workspace._id != invite.workspace._id;
+            }
+        );
+        declingingUser.invites.incoming = newAcceptingUserIncomingInvites;
+        declingingUser.save();
+
+        // remove invite from outgoing on invitingUser
+        let newInvitingUserOutgoingInvites = invitingUser.invites.outgoing.filter(
+            i => {
+                return i.workspace._id != invite.workspace._id;
+            }
+        );
+        invitingUser.invites.outgoing = newInvitingUserOutgoingInvites;
+        invitingUser.save();
+
+        res.send(invite.workspace._id);
     });
 };

@@ -2,12 +2,12 @@ import React from 'react';
 import ArtistItem from './ArtistItem';
 import { connect } from 'react-redux';
 
-const InviteCollaborators = ({ collaborators, users, pendingInvites }) => {
+const InviteCollaborators = ({ collaborators, users, outgoing }) => {
     const inactiveCollaborators = users.filter(u => {
         let isCollaborator = collaborators.indexOf(u.authId) !== -1;
         let isPending = false;
-        pendingInvites.forEach(i => {
-            if (i.collaboratorId === u._id) isPending = true;
+        outgoing.forEach(i => {
+            if (i.inviteeId === u._id) isPending = true;
         });
         return !isCollaborator && !isPending;
     });
@@ -24,7 +24,7 @@ function mapStateToProps({ collaborators, users, profile }) {
     return {
         collaborators: collaborators.list,
         users,
-        pendingInvites: profile.profile.outGoingInvites
+        outgoing: profile.profile.invites.outgoing
     };
 }
 

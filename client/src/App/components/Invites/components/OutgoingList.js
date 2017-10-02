@@ -1,11 +1,10 @@
 import React from 'react';
 // Tools
 import { connect } from 'react-redux';
-// import * as actions from '../../../actions';
-// components
-import InviteItem from './InviteItem';
+// Components
+import OutgoingItem from './OutgoingItem';
 
-const Outgoing = ({ invites }) => {
+const OutgoingList = ({ invites }) => {
     return (
         <div className="outgoing col-xs-12">
             <div className="header">
@@ -13,9 +12,7 @@ const Outgoing = ({ invites }) => {
             </div>
             <ul className="list">
                 {invites.map((invite, i) => {
-                    return (
-                        <InviteItem key={i} invite={invite} incoming={false} />
-                    );
+                    return <OutgoingItem key={i} invite={invite} />;
                 })}
             </ul>
         </div>
@@ -26,4 +23,4 @@ function mapStateToProps({ invites }) {
     return { invites: invites.outgoing };
 }
 
-export default connect(mapStateToProps)(Outgoing);
+export default connect(mapStateToProps)(OutgoingList);

@@ -1,0 +1,66 @@
+$red: rgba(221, 0, 0, .5);
+$blue: rgb(51, 113, 214);
+.invites {
+    .list {
+        .list_item {
+            position: relative;
+            padding: 20px 10px !important;
+            cursor: default;
+            &:hover {
+                background-color: transparent !important;
+            }
+            img {
+                width: 20%;
+                border-radius: 20%;
+            }
+            .buttons {
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                .glyphicon {
+                    font-size: 1.75rem;
+                    margin-left: 12px;
+                    cursor: pointer;
+                }
+                .glyphicon-check:hover {
+                    color: $blue !important;
+                }
+                .glyphicon-remove:hover {
+                    color: $red !important;
+                }
+            }
+        }
+        // small screen
+        @media screen and (max-width: 767px) {
+            .list {
+                justify-content: center;
+            }
+            .list_item {
+                max-width: 600px;
+            }
+        }
+        // md screen
+        @media screen and (min-width: 767px) {
+            .list_item {
+                &:nth-child(2n - 1) {
+                    margin-right: 2%;
+                }
+                width: 49%;
+            }
+        }
+        @media screen and (min-width: 991px) {
+            .list_item {
+                &:nth-child(2n - 1) {
+                    margin-right: 0;
+                }
+                &:nth-child(3n + 1) {
+                    margin-right: 2%;
+                }
+                &:nth-child(3n + 2) {
+                    margin-right: 2%;
+                }
+                width: 32% !important;
+            }
+        }
+    }
+}

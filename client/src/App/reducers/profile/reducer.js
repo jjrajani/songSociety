@@ -16,6 +16,18 @@ export default function(
             };
         case t.TOGGLE_PAGE_VIEW:
             return { ...state, pageView: action.payload };
+        case t.INVITE:
+            let newState = {
+                ...state,
+                profile: {
+                    ...state.profile,
+                    invites: {
+                        incoming: state.profile.invites.incoming,
+                        outgoing: action.payload
+                    }
+                }
+            };
+            return newState;
         default:
             return state;
     }

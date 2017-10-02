@@ -32,5 +32,5 @@ function mapStateToProps({ invites }) {
 }
 
 export default connect(mapStateToProps, {
-    togglePageView: actions.invitesActions.togglePageView
+    togglePageView: actions.inviteActions.togglePageView
 })(InvitesNav);

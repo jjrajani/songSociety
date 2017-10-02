@@ -2,17 +2,6 @@ import t from './types';
 import axios from 'axios';
 import _ from 'lodash';
 
-export const inviteCollaborator = (
-    userId,
-    workspaceId,
-    collaboratorId
-) => async dispatch => {
-    const res = await axios.post(
-        `/api/${userId}/${workspaceId}/collaborators/invite/${collaboratorId}`
-    );
-    return res;
-};
-
 export const addCollaborator = (
     workspaceId,
     followerUserId

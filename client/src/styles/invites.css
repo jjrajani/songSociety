@@ -1,0 +1,43 @@
+.invites .list .list_item {
+  position: relative;
+  padding: 20px 10px !important;
+  cursor: default; }
+  .invites .list .list_item:hover {
+    background-color: transparent !important; }
+  .invites .list .list_item img {
+    width: 20%;
+    border-radius: 20%; }
+  .invites .list .list_item .buttons {
+    position: absolute;
+    right: 10px;
+    top: 10px; }
+    .invites .list .list_item .buttons .glyphicon {
+      font-size: 1.75rem;
+      margin-left: 12px;
+      cursor: pointer; }
+    .invites .list .list_item .buttons .glyphicon-check:hover {
+      color: #3371d6 !important; }
+    .invites .list .list_item .buttons .glyphicon-remove:hover {
+      color: rgba(221, 0, 0, 0.5) !important; }
+
+@media screen and (max-width: 767px) {
+  .invites .list .list {
+    justify-content: center; }
+  .invites .list .list_item {
+    max-width: 600px; } }
+
+@media screen and (min-width: 767px) {
+  .invites .list .list_item {
+    width: 49%; }
+    .invites .list .list_item:nth-child(2n - 1) {
+      margin-right: 2%; } }
+
+@media screen and (min-width: 991px) {
+  .invites .list .list_item {
+    width: 32% !important; }
+    .invites .list .list_item:nth-child(2n - 1) {
+      margin-right: 0; }
+    .invites .list .list_item:nth-child(3n + 1) {
+      margin-right: 2%; }
+    .invites .list .list_item:nth-child(3n + 2) {
+      margin-right: 2%; } }

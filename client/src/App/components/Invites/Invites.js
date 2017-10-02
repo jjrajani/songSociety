@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 // Components
 import InvitesNav from './components/InvitesNav';
-import Incoming from './components/Incoming';
-import Outgoing from './components/Outgoing';
+import IncomingList from './components/IncomingList';
+import OutgoingList from './components/OutgoingList';
 
 class Invites extends Component {
     componentDidMount() {
@@ -13,13 +13,12 @@ class Invites extends Component {
         this.props.fetchInvites(profile._id);
     }
     render() {
-        console.log(this.props.invites);
         return (
-            <div className="container main_content pending_invites">
+            <div className="container main_content invites">
                 <InvitesNav />
                 <div className="row">
-                    {this.props.activeTab === 'incoming' && <Incoming />}
-                    {this.props.activeTab === 'outgoing' && <Outgoing />}
+                    {this.props.activeTab === 'incoming' && <IncomingList />}
+                    {this.props.activeTab === 'outgoing' && <OutgoingList />}
                 </div>
             </div>
         );
@@ -35,5 +34,5 @@ function mapStateToProps({ profile, invites, activeTab }) {
 }
 
 export default connect(mapStateToProps, {
-    fetchInvites: actions.invitesActions.fetchInvites
+    fetchInvites: actions.inviteActions.fetchInvites
 })(Invites);

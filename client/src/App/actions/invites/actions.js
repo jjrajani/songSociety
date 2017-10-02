@@ -12,17 +12,28 @@ export const togglePageView = page => dispatch => {
     dispatch({ type: t.TOGGLE_INVITES_VIEW, payload: page });
 };
 
-// export const acceptInvite = (userId, inviteId) => dispatch => {
-//     const res = axios.post(`/api/invites/accept/${inviteId}/${userId}`);
-//
-//     dispatch({ type: t.ACCEPT_INVITES, payload: inviteId });
-// };
-//
-// export const declineInvite = (userId, inviteId) => dispatch => {
-//     const res = axios.post(`/api/invites/decline/${inviteId}/${userId}`);
-//
-//     dispatch({ type: t.DECLINE_INVITES, payload: inviteId });
-// };
+export const inviteCollaborator = (
+    inviterId,
+    workspaceId,
+    inviteeId
+) => async dispatch => {
+    const res = await axios.post(
+        `/api/invite/${inviterId}/${workspaceId}/${inviteeId}`
+    );
+    dispatch({ type: t.INVITE, payload: res.data.outgoing });
+};
+
+export const acceptInvite = (invite, userId) => async dispatch => {
+    const res = await axios.post(`/api/invites/accept/${userId}`, invite);
+
+    dispatch({ type: t.ACCEPT_INVITE, payload: res.data });
+};
+
+export const declineInvite = (invite, userId) => async dispatch => {
+    const res = await axios.post(`/api/invites/decline/${userId}`, invite);
+    console.log('decline action', res.data);
+    dispatch({ type: t.DECLINE_INVITE, payload: res.data });
+};
 //
 // export const cancelInvite = () => dispatch => {
 //     const res = axios.post(`/api/cancel/${inviteId}`);

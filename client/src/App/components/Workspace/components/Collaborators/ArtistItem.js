@@ -6,11 +6,9 @@ import * as actions from '../../../../actions';
 import { Glyphicon } from 'react-bootstrap';
 
 function invited(inviteeId, invitedArray) {
-    console.log('invitee', inviteeId);
-    console.log('invited', invitedArray);
     let invited = false;
     invitedArray.forEach(invite => {
-        if (invite.collaboratorId === inviteeId) invited = true;
+        if (invite.inviteeId === inviteeId) invited = true;
     });
     return invited;
 }
@@ -29,10 +27,7 @@ const ArtistItem = ({
         userId !== user.authId &&
         <li className="col-xs-6 col-sm-4 col-lg-3 list_item">
             {collaborators.indexOf(user.authId) === -1 &&
-                !invited(
-                    user._id,
-                    profile.profile.outGoingInvites
-                ) &&
+                !invited(user._id, profile.profile.invites.outgoing) &&
                 <div className="buttons">
                     <Glyphicon
                         glyph="plus"
@@ -47,10 +42,7 @@ const ArtistItem = ({
                     />
                 </div>}
             {collaborators.indexOf(user.authId) === -1 &&
-                invited(
-                    user._id,
-                    profile.profile.outGoingInvites
-                ) &&
+                invited(user._id, profile.profile.invites.outgoing) &&
                 <div className="buttons">
                     <Glyphicon glyph="check" />
                 </div>}
@@ -72,6 +64,6 @@ function mapStateToProps({ profile, workspace, collaborators }) {
 }
 
 export default connect(mapStateToProps, {
-    inviteCollaborator: actions.collaboratorsActions.inviteCollaborator,
+    inviteCollaborator: actions.inviteActions.inviteCollaborator,
     removeCollaborator: actions.collaboratorsActions.removeCollaborator
 })(ArtistItem);

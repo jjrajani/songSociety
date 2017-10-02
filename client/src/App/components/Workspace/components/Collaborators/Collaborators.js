@@ -30,6 +30,7 @@ class Users extends Component {
                     {tabs.map(t => {
                         return (
                             <p
+                                key={t.route}
                                 className={
                                     activeTab === t.route
                                         ? 'active'
