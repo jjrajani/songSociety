@@ -6,7 +6,6 @@ import { withRouter } from 'react-router-dom';
 import aws from '../../../../../utils/aws';
 // Components
 import { Glyphicon } from 'react-bootstrap';
-import FileInput from 'react-file-input';
 
 class AddComment extends Component {
     constructor(props) {
@@ -57,12 +56,6 @@ class AddComment extends Component {
                     <label htmlFor="selectedFile">
                         <Glyphicon glyph="cd" title="Upload Track" />
                     </label>
-                    <FileInput
-                        className="file_input"
-                        name="myImage"
-                        accept=".png,.gif"
-                        onChange={this.handleFileUpload}
-                    />
                     <input
                         type="file"
                         id="selectedFile"

@@ -36,7 +36,7 @@ function upload(name, file, id_token) {
   });
 
 
-  s3.upload({
+  let managedUploader = s3.upload({
     Key: name,
     Body: file,
     ACL: 'public-read'
@@ -44,6 +44,10 @@ function upload(name, file, id_token) {
     if (err) {
       console.log('There was an error uploading your audio: ', err.message);
     }
+    console.log(data);
+  })
+  .on('httpUploadProgress', function(evt) {
+    console.log('Progress:', evt.loaded, '/', evt.total); 
   });
 }
 
