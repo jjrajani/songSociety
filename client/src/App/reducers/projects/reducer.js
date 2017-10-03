@@ -1,9 +1,13 @@
 import t from '../../actions/projects/types';
 
-export default function(state = [], action) {
+export default function(state = { myProjects: [], collabs: [] }, action) {
     switch (action.type) {
     case t.FETCH_PROJECTS:
-        return action.payload;
+        console.log('fetchProjects', action.payload);
+        return {
+            myProjects: action.payload.myProjects,
+            collabs: action.payload.collabs
+        };
     default:
         return state;
     }

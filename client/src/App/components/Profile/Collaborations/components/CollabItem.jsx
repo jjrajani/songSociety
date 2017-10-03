@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom';
 import { Glyphicon } from 'react-bootstrap';
 // add on click to take you to project workspace
 
-const ProjectItem = ({ project, toggleActiveTab }) => {
+const CollabItem = ({ project, toggleActiveTab }) => {
+    console.log('colab project', project);
     return (
         <Link
             onClick={() => {
@@ -33,4 +34,4 @@ const ProjectItem = ({ project, toggleActiveTab }) => {
 
 export default connect(null, {
     toggleActiveTab: actions.navActions.toggleActiveTab
-})(ProjectItem);
+})(CollabItem);

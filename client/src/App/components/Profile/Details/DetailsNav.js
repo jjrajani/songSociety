@@ -11,7 +11,17 @@ const DetailsNav = ({ togglePageView, activeTab, projects, followers }) =>
                 togglePageView('projects');
             }}
         >
-            Projects <span className="count">{projects.length}</span>
+            My Projects{' '}
+            <span className="count">{projects.myProjects.length}</span>
+        </p>
+        <p
+            className={activeTab === 'collabs' ? 'active' : 'inactive'}
+            onClick={() => {
+                togglePageView('collabs');
+            }}
+        >
+            Collaborations{' '}
+            <span className="count">{projects.collabs.length}</span>
         </p>
         <p
             className={activeTab === 'followers' ? 'active' : 'inactive'}

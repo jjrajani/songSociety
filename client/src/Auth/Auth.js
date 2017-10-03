@@ -72,19 +72,19 @@ class Auth {
     }
 
     getProfile(cb) {
-        const profile = localStorage.getItem('profile');
-        if (!profile) {
-            let accessToken = this.getAccessToken();
-            this.auth0.client.userInfo(accessToken, (err, profile) => {
-                if (profile) {
-                    localStorage.setItem('profile', profile);
-                    this.userProfile = profile;
-                }
-                cb(err, profile);
-            });
-        } else {
-            return profile;
-        }
+        // const profile = localStorage.getItem('profile');
+        // if (!profile) {
+        let accessToken = this.getAccessToken();
+        this.auth0.client.userInfo(accessToken, (err, profile) => {
+            if (profile) {
+                localStorage.setItem('profile', profile);
+                this.userProfile = profile;
+            }
+            cb(err, profile);
+        });
+        // } else {
+        // return profile;
+        // }
     }
 
     logout() {

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 const ProjectList = ({ profile, projects }) =>
     <ul className="list">
-        {projects.map((p, i) => {
+        {projects.myProjects.map((p, i) => {
             return <ProjectItem key={i} project={p} />;
         })}
     </ul>;
