@@ -85,6 +85,111 @@ class AudioVisualizer extends Component {
             }
 
             ctx.fillStyle = `rgb(${color.r}, ${color.g}, ${color.b})`;
+            ctx.sRectNew = function(
+                horizontalPacement,
+                verticalPlacement,
+                barWidth,
+                barHeight
+            ) {
+                barHeight = -barHeight;
+                let maxGreenHeight = 40;
+                let maxYellowHeight = 20;
+                let greenBottom = verticalPlacement;
+                let yellowBottom = verticalPlacement - maxGreenHeight;
+                let redBottom =
+                    verticalPlacement - maxGreenHeight - maxYellowHeight;
+
+                // green bar
+                // if max green height more than barheight
+                if (maxGreenHeight > barHeight) {
+                    ctx.fillStyle = 'green';
+                    this.fillRect(
+                        horizontalPacement,
+                        greenBottom,
+                        barWidth,
+                        barHeight
+                    );
+                } else {
+                    // if maxGreenHeight < barHeight
+                    ctx.fillStyle = 'green';
+                    this.fillRect(
+                        horizontalPacement,
+                        greenBottom,
+                        barWidth,
+                        maxGreenHeight
+                    );
+                }
+
+                //  Yellow Bar
+                //  if max yellow height more than bar height minus maxGreen bar
+                if (maxYellowHeight > barHeight - maxGreenHeight) {
+                    // draw remaining barHeight - maxGreenHeight
+                    ctx.fillStyle = 'yellow';
+                    this.fillRect(
+                        horizontalPacement,
+                        greenBottom,
+                        barWidth,
+                        maxGreenHeight
+                    );
+                }
+            };
+
+            // ctx.sRectNew = function(
+            //     horizontalPacement,
+            //     verticalPlacement,
+            //     barWidth,
+            //     barHeight
+            // ) {
+            //     let green = 40;
+            //     let greenBottom = verticalPlacement;
+            //     let yellow = 20;
+            //     let yellowBottom = verticalPlacement - green;
+            //     let redBottom = verticalPlacement - green - yellow;
+            //     // if barHeight less than max green
+            //     if (barHeight + green > 0) {
+            //         // draw only green bar
+            //         ctx.fillStyle = 'green';
+            //         this.fillRect(
+            //             horizontalPacement,
+            //             greenBottom,
+            //             barWidth,
+            //             barHeight
+            //         );
+            //         // if barHeight more than max green
+            //     } else if (barHeight + green < 0) {
+            //         // draw full green height
+            //         ctx.fillStyle = 'green';
+            //         this.fillRect(
+            //             horizontalPacement,
+            //             yellowBottom,
+            //             barWidth,
+            //             green
+            //         );
+            //         // remove green bar from total barHeight
+            //         let yellowHeight = barHeight + green;
+            //         // if barHeight less than green height + yellow height
+            //         if (yellowHeight + yellow > 0) {
+            //             // draw yellow bar remaining height moved up above green bar
+            //             ctx.fillStyle = 'yellow';
+            //             this.fillRect(
+            //                 horizontalPacement,
+            //                 yellowBottom,
+            //                 barWidth,
+            //                 afterGreenHeight
+            //             );
+            //             // if afterGreen and yellowHeight less than barHeight
+            //         } else if (yellowHeight + yellow < 0) {
+            //             ctx.fillStyle = 'yellow';
+            //             this.fillRect(
+            //                 horizontalPacement,
+            //                 yellowBottom,
+            //                 barWidth,
+            //                 afterGreenHeight + yellow
+            //             );
+            //         }
+            //     }
+            // };
+
             ctx.sRect = function(x, y, w, h) {
                 x = parseInt(x) + 0.5;
                 y = parseInt(y) + 0.5;
@@ -112,7 +217,8 @@ class AudioVisualizer extends Component {
                 let bar_x = i * 3;
                 let bar_width = 1;
                 let bar_height = -(freqData[i] / 2.85);
-                ctx.sRect(bar_x, canvas.height, bar_width, bar_height);
+                // ctx.sRect(bar_x, canvas.height, bar_width, bar_height);
+                ctx.sRectNew(bar_x, canvas.height, bar_width, bar_height);
             }
         }
         renderFrame();
