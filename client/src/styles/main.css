@@ -366,10 +366,21 @@ ul.nav button {
   bottom: 18px;
   left: 130px; }
 
-.workspace canvas {
+.workspace canvas#analyzer {
   width: 100%;
-  max-height: 220px;
+  height: 220px;
   margin-top: 55px; }
+
+.workspace #mini_visualizer {
+  width: 220px;
+  height: 30px;
+  position: absolute;
+  right: 0; }
+
+.workspace canvas#mini_canvas {
+  width: 100%;
+  height: 100%;
+  margin-top: 0; }
 
 .workspace .audio_trackbar {
   width: 100%;
@@ -606,7 +617,8 @@ ul.nav button {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  max-width: 500px; }
+  max-width: 500px;
+  position: relative; }
   .add_comment_content textarea {
     border: none;
     outline: none;
@@ -733,8 +745,36 @@ ul.nav button {
       width: 0px;
       height: 100%;
       background-color: #ccc; }
-  .upload_track_button #play_button {
-    margin-left: 20px;
-    font-size: 2.25rem;
-    display: none;
-    visibility: hidden; }
+
+#play_button {
+  margin-left: 12px;
+  padding-top: 3px;
+  margin-bottom: -3px;
+  font-size: 2.25rem;
+  display: none;
+  visibility: hidden;
+  cursor: pointer; }
+  #play_button span:hover {
+    color: rgba(221, 0, 0, 0.8) !important; }
+
+#pause_button {
+  margin-left: 12px;
+  padding-top: 3px;
+  margin-bottom: -3px;
+  font-size: 2.25rem;
+  display: none;
+  visibility: hidden;
+  cursor: pointer; }
+  #pause_button span:hover {
+    color: rgba(221, 0, 0, 0.8) !important; }
+
+#rewind_button {
+  margin-left: 12px;
+  padding-top: 3px;
+  margin-bottom: -3px;
+  font-size: 2.25rem;
+  display: none;
+  visibility: hidden;
+  cursor: pointer; }
+  #rewind_button span:hover {
+    color: rgba(221, 0, 0, 0.8) !important; }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 // Components
 import { Glyphicon } from 'react-bootstrap';
 
@@ -11,9 +11,9 @@ const UploadTrackButton = () =>
             <div id="status_bar" />
             <span id="progress_count" />
         </div>
-        <div id="play_button">
-            <Glyphicon glyph="play" title="Preview Track" />
-        </div>
     </div>;
 
 export default UploadTrackButton;
+// <div id="play_button">
+//     <Glyphicon glyph="play" title="Preview Track" />
+// </div>

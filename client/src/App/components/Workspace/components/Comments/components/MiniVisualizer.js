@@ -14,9 +14,9 @@ class AudioVisualizer extends Component {
     createVisualization() {
         let context = new AudioContext();
         let analyser = context.createAnalyser();
-        let canvas = this.refs.analyzerCanvas;
+        let canvas = this.refs.miniCanvas;
         let ctx = canvas.getContext('2d');
-        let audio = document.getElementById('workspace_audio_player');
+        let audio = document.getElementById('preview_audio');
         audio.crossOrigin = 'anonymous';
         let audioSrc = context.createMediaElementSource(audio);
         audioSrc.connect(analyser);
@@ -64,8 +64,8 @@ class AudioVisualizer extends Component {
     render() {
         return (
             <div className="App">
-                <div id="mp3_player">
-                    <canvas ref="analyzerCanvas" id="analyzer" />
+                <div id="mini_visualizer">
+                    <canvas ref="miniCanvas" id="mini_canvas" />
                 </div>
             </div>
         );

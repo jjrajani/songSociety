@@ -2,7 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  max-width: 500px; }
+  max-width: 500px;
+  position: relative; }
   .add_comment_content textarea {
     border: none;
     outline: none;
