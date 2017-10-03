@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 // Components
 import InvitesNav from './components/InvitesNav';
-import IncomingList from './components/IncomingList';
-import OutgoingList from './components/OutgoingList';
+import IncomingList from './components/Incoming/IncomingList';
+import OutgoingList from './components/Outgoing/OutgoingList';
 
 class Invites extends Component {
     componentDidMount() {

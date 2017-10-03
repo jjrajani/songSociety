@@ -1,5 +1,5 @@
 import React from 'react';
-import ArtistItem from './ArtistItem';
+import ArtistItem from '../ArtistItem';
 import { connect } from 'react-redux';
 
 const ActiveCollaborators = ({ collaborators, users }) => {

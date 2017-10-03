@@ -4,9 +4,9 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../../../actions';
 // Components
-import InviteCollaborators from './InviteCollaborators';
-import ActiveCollaborators from './ActiveCollaborators';
-import PendingCollaborators from './PendingCollaborators';
+import InviteCollaborators from './Invite/InviteCollaborators';
+import ActiveCollaborators from './Active/ActiveCollaborators';
+import PendingCollaborators from './Pending/PendingCollaborators';
 
 const tabs = [
     { text: 'Active', route: 'active' },
