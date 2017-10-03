@@ -2,35 +2,74 @@
   position: relative;
   text-align: center; }
 
+.workspace .audio_nav .glyphicon:hover,
+.workspace .audio_nav .play_button:hover {
+  color: rgba(221, 0, 0, 0.8) !important;
+  border-color: rgba(221, 0, 0, 0.8); }
+
+.workspace .audio_nav .play_button,
+.workspace .audio_nav .pause_button,
+.workspace .audio_nav .fast-rewind_button,
+.workspace .audio_nav .rewind_button,
+.workspace .audio_nav .restart_button,
+.workspace .audio_nav .forward_button,
+.workspace .audio_nav .fast-forward_button {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.7; }
+
+.workspace .audio_nav .fast-rewind_button,
+.workspace .audio_nav .rewind_button,
+.workspace .audio_nav .restart_button,
+.workspace .audio_nav .forward_button,
+.workspace .audio_nav .fast-forward_button {
+  font-size: 1.75rem; }
+
+.workspace .audio_nav .restart_button {
+  bottom: 18px;
+  left: 20px; }
+
+.workspace .audio_nav .fast-rewind_button {
+  bottom: 18px;
+  left: 45px; }
+
+.workspace .audio_nav .rewind_button {
+  bottom: 18px;
+  left: 67px; }
+
 .workspace .audio_nav .play_button {
   border: solid white 3px;
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 55px;
   height: 55px;
-  position: absolute;
-  left: 10px;
-  bottom: 10px;
-  cursor: pointer; }
+  left: 28px;
+  bottom: 40px; }
   .workspace .audio_nav .play_button .glyphicon-play {
     font-size: 3rem;
     margin-left: 5px;
-    margin-bottom: 3px; }
+    margin-bottom: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
 
 .workspace .audio_nav .pause_button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 35px;
   height: 35px;
-  position: absolute;
-  left: 72px;
-  bottom: 10px;
-  cursor: pointer; }
+  left: 80px;
+  bottom: 20px; }
   .workspace .audio_nav .pause_button .glyphicon-pause {
     font-size: 3rem; }
+
+.workspace .audio_nav .forward_button {
+  bottom: 18px;
+  left: 108px; }
+
+.workspace .audio_nav .fast-forward_button {
+  bottom: 18px;
+  left: 130px; }
 
 .workspace canvas {
   width: 100%;
@@ -72,6 +111,9 @@
   .dark_them h6,
   .dark_them span {
     color: #eee !important; }
+  .light_theme .glyphicon,
+  .dark_them .glyphicon {
+    color: #eee; }
   .light_theme .count,
   .dark_them .count {
     color: #222 !important;
