@@ -79,146 +79,39 @@ class AudioVisualizer extends Component {
             let freqData = new Uint8Array(analyser.frequencyBinCount);
             requestAnimationFrame(renderFrame);
             analyser.getByteFrequencyData(freqData);
+
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             if (framesRendered % 7 === 0) {
                 color = getNextColor(color);
             }
 
             ctx.fillStyle = `rgb(${color.r}, ${color.g}, ${color.b})`;
-            ctx.sRectNew = function(
-                horizontalPacement,
-                verticalPlacement,
-                barWidth,
-                barHeight
-            ) {
-                barHeight = -barHeight;
-                let maxGreenHeight = 40;
-                let maxYellowHeight = 20;
-                let greenBottom = verticalPlacement;
-                let yellowBottom = verticalPlacement - maxGreenHeight;
-                let redBottom =
-                    verticalPlacement - maxGreenHeight - maxYellowHeight;
-
-                // green bar
-                // if max green height more than barheight
-                if (maxGreenHeight > barHeight) {
-                    ctx.fillStyle = 'green';
-                    this.fillRect(
-                        horizontalPacement,
-                        greenBottom,
-                        barWidth,
-                        barHeight
-                    );
-                } else {
-                    // if maxGreenHeight < barHeight
-                    ctx.fillStyle = 'green';
-                    this.fillRect(
-                        horizontalPacement,
-                        greenBottom,
-                        barWidth,
-                        maxGreenHeight
-                    );
-                }
-
-                //  Yellow Bar
-                //  if max yellow height more than bar height minus maxGreen bar
-                if (maxYellowHeight > barHeight - maxGreenHeight) {
-                    // draw remaining barHeight - maxGreenHeight
-                    ctx.fillStyle = 'yellow';
-                    this.fillRect(
-                        horizontalPacement,
-                        greenBottom,
-                        barWidth,
-                        maxGreenHeight
-                    );
-                }
-            };
-
-            // ctx.sRectNew = function(
-            //     horizontalPacement,
-            //     verticalPlacement,
-            //     barWidth,
-            //     barHeight
-            // ) {
-            //     let green = 40;
-            //     let greenBottom = verticalPlacement;
-            //     let yellow = 20;
-            //     let yellowBottom = verticalPlacement - green;
-            //     let redBottom = verticalPlacement - green - yellow;
-            //     // if barHeight less than max green
-            //     if (barHeight + green > 0) {
-            //         // draw only green bar
-            //         ctx.fillStyle = 'green';
-            //         this.fillRect(
-            //             horizontalPacement,
-            //             greenBottom,
-            //             barWidth,
-            //             barHeight
-            //         );
-            //         // if barHeight more than max green
-            //     } else if (barHeight + green < 0) {
-            //         // draw full green height
-            //         ctx.fillStyle = 'green';
-            //         this.fillRect(
-            //             horizontalPacement,
-            //             yellowBottom,
-            //             barWidth,
-            //             green
-            //         );
-            //         // remove green bar from total barHeight
-            //         let yellowHeight = barHeight + green;
-            //         // if barHeight less than green height + yellow height
-            //         if (yellowHeight + yellow > 0) {
-            //             // draw yellow bar remaining height moved up above green bar
-            //             ctx.fillStyle = 'yellow';
-            //             this.fillRect(
-            //                 horizontalPacement,
-            //                 yellowBottom,
-            //                 barWidth,
-            //                 afterGreenHeight
-            //             );
-            //             // if afterGreen and yellowHeight less than barHeight
-            //         } else if (yellowHeight + yellow < 0) {
-            //             ctx.fillStyle = 'yellow';
-            //             this.fillRect(
-            //                 horizontalPacement,
-            //                 yellowBottom,
-            //                 barWidth,
-            //                 afterGreenHeight + yellow
-            //             );
-            //         }
-            //     }
-            // };
 
             ctx.sRect = function(x, y, w, h) {
                 x = parseInt(x) + 0.5;
                 y = parseInt(y) + 0.5;
+                const height = canvas.height;
+                const barHeight = h;
 
-                if (h < -60) {
-                    let redZone = h + 60;
-                    ctx.fillStyle = 'red';
-                    this.fillRect(x, y - 60, w, redZone);
+                var gradient = ctx.createLinearGradient(0, 0, 0, height);
+                gradient.addColorStop(0, 'red');
+                gradient.addColorStop(0.2, 'yellow');
+                gradient.addColorStop(0.5, 'yellow');
+                gradient.addColorStop(0.6, 'green');
+                ctx.fillStyle = gradient;
+                ctx.setTransform(1, 0, 0, 1, 0, 0);
+                ctx.fillRect(x, height, w, barHeight / height * 100);
 
-                    // this.fillRect(x, y + h, w, h - lessHeight);
-                    ctx.fillStyle = 'yellow';
-                    this.fillRect(x, y - 40, w, -20);
-
-                    ctx.fillStyle = 'green';
-                    this.fillRect(x, y, w, -40);
-                    // this.fillRect(x, y + h - lessHeight, w, h);
-                } else {
-                    ctx.fillStyle = `green`;
-                    this.fillRect(x, y, w, h);
-                }
+                // this.fillRect(x, y, w, h);
             };
             // ctx.fillStyle = '#9933ff';
-            let bars = 500;
+            let bars = 100;
             for (var i = 0; i < bars; i++) {
                 let bar_x = i * 3;
                 let bar_width = 1;
-                let bar_height = -(freqData[i] / 2.85);
+                let bar_height = -freqData[i];
                 // ctx.sRect(bar_x, canvas.height, bar_width, bar_height);
-                ctx.sRectNew(bar_x, canvas.height, bar_width, bar_height);
+                ctx.sRect(bar_x, canvas.height, bar_width, bar_height);
             }
         }
         renderFrame();

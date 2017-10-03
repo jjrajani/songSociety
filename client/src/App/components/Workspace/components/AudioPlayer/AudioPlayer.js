@@ -15,7 +15,7 @@ class AudioPlayer extends Component {
             <div className="player">
                 <audio
                     id="workspace_audio_player"
-                    src="https://api.soundcloud.com/tracks/57809396/stream?client_id=9590faf7123e87d09a95c043faeec29e"
+                    src="https://api.soundcloud.com/tracks/184774366/stream?client_id=9590faf7123e87d09a95c043faeec29e"
                     type="audio/mp3"
                 />
             </div>
