@@ -1,7 +1,12 @@
 import t from '../../actions/comments/types';
 
 export default function(
-    state = { list: [], currentComment: {}, currentAudio: '' },
+    state = {
+        list: [],
+        newComment: { content: '', audio: '' },
+        currentComment: {},
+        currentAudio: ''
+    },
     action
 ) {
     switch (action.type) {
@@ -27,6 +32,17 @@ export default function(
                 ...state,
                 currentAudio: action.payload
             };
+        }
+        case t.UPDATE_NEW_COMMENT: {
+            let newState = {
+                ...state,
+                newComment: {
+                    ...state.newComment,
+                    [action.payload.key]: action.payload.value
+                }
+            };
+            console.log('sadf', newState);
+            return newState;
         }
         default:
             return state;

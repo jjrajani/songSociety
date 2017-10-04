@@ -7,11 +7,12 @@ import { withRouter } from 'react-router-dom';
 import { WorkspaceNav, AudioPlayer, Details, Visualizer } from './components';
 import { Glyphicon } from 'react-bootstrap';
 // HOC
-import withAudioControls from './withAudioControls/withAudioControls';
+import workspaceAudioButtons from './AudioControls/workspaceAudioButtons';
 
-// WIth Audio Controls carries glyph buttons
-// and audio player control functions (and extends Component)
-class Workspaces extends withAudioControls {
+// With audioButtons carries glyph buttons
+// and extends from audioControl functions
+// and extends Component
+class Workspaces extends workspaceAudioButtons {
     componentDidMount() {
         const { workspaceId } = this.props.match.params;
         if (workspaceId && workspaceId !== 'new') {
@@ -36,7 +37,10 @@ class Workspaces extends withAudioControls {
                                 >
                                     <Glyphicon
                                         glyph={control.glyph}
-                                        onClick={control.onClick}
+                                        onClick={() =>
+                                            control.onClick(
+                                                'workspace_audio_player'
+                                            )}
                                         title={control.title}
                                     />
                                 </div>

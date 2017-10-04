@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../../../../actions';
 import { withRouter } from 'react-router-dom';
 import aws from '../../../../../../utils/aws';
-import randomString from 'randomstring';
+// import randomString from 'randomstring';
 import ls from 'local-storage';
 // Components
 import UploadTrackButton from './UploadTrackButton';
@@ -12,35 +12,20 @@ import { Glyphicon } from 'react-bootstrap';
 import Visualizer from '../../Visualizer/Visualizer';
 // Components
 import { AudioPlayer } from '../../';
+import AddCommentForm from './AddCommentForm';
+// HOC
+import addCommentAudioButtons from '../../../AudioControls/addCommentAudioButtons';
 
-class AddComment extends Component {
+// With audioButtons carries glyph buttons
+// and extends from audioControl functions
+// and extends Component
+class AddComment extends addCommentAudioButtons {
     constructor(props) {
         super(props);
         this.state = { value: '' };
         this.handleChange = this.handleChange.bind(this);
-        this.handleClick = this.handleClick.bind(this);
-        this.handleFileUpload = this.handleFileUpload.bind(this);
-
-        this.controlGlyphs = [
-            {
-                glyph: 'play',
-                title: 'Preview Track',
-                glyph_wrapper_id: 'play_button',
-                onClick: () => this.previewAudio()
-            },
-            {
-                glyph: 'pause',
-                title: 'Pause Preview',
-                glyph_wrapper_id: 'pause_button',
-                onClick: () => this.pausePreviewAudio()
-            },
-            {
-                glyph: 'backward',
-                title: 'Rewind Preview',
-                glyph_wrapper_id: 'rewind_button',
-                onClick: () => this.restartPreviewAudio()
-            }
-        ];
+        this.addComment = this.addComment.bind(this);
+        // this.handleFileUpload = this.handleFileUpload.bind(this);
     }
 
     componentDidMount() {
@@ -51,84 +36,63 @@ class AddComment extends Component {
         this.setState({ value: event.target.value });
     }
 
-    handleClick(event) {
+    addComment(event) {
         const { workspaceId } = this.props.match.params;
-        this.props.getProfile().then(user => {
+        if (this.props.profile.profile._id) {
             this.props.addComment(
-                user.sub,
+                this.props.profile.profile._id,
                 this.state.value,
                 null,
                 workspaceId
             );
-        });
+        } else {
+            this.props.getProfile().then(user => {
+                this.props.fetchProfile(user.sub).then(profile => {
+                    this.props.addComment(
+                        this.props.profile.profile._id,
+                        this.state.value,
+                        null,
+                        workspaceId
+                    );
+                });
+            });
+        }
     }
 
-    handleFileUpload(event) {
-        const file = event.target.files[0];
-        const fileType = file.type.split('/')[1];
-        const title = `${randomString.generate(32)}.${fileType}`;
-        console.log('title', title);
-        let src = URL.createObjectURL(file);
-        this.props.updateAudioSource(src);
-
-        this.controlGlyphs.forEach(c => {
-            let button = document.getElementById(c.glyph_wrapper_id);
-            button.style.display = 'inline';
-            button.style.visibility = 'visible';
-        });
-    }
+    // handleFileUpload(event) {
+    //     const file = event.target.files[0];
+    //     const fileType = file.type.split('/')[1];
+    //     const title = `${randomString.generate(32)}.${fileType}`;
+    //     console.log('title', title);
+    //     let src = URL.createObjectURL(file);
+    //     this.props.updateNewComment(event.targe.name, src);
+    //
+    //     this.controlGlyphs.forEach(c => {
+    //         let button = document.getElementById(c.glyph_wrapper_id);
+    //         button.style.display = 'inline';
+    //         button.style.visibility = 'visible';
+    //     });
+    // }
 
     uploadFile(title, file) {
         aws.upload(title, event.target.files[0], this.props.getIdToken());
     }
 
-    previewAudio = () => {
-        let audio = document.getElementById('preview_audio');
-        // this.refs.preview_audio;
-        audio.play();
-    };
-
-    pausePreviewAudio = () => {
-        let audio = document.getElementById('preview_audio');
-        audio.pause();
-    };
-
-    restartPreviewAudio = () => {
-        let audio = document.getElementById('preview_audio');
-        audio.currentTime = 0;
-    };
     render() {
         return (
             <div className="add_comment_wrapper col-12">
                 <div className="add_comment_content">
-                    <textarea
-                        value={this.state.value}
-                        onChange={this.handleChange}
-                    />
-                    <div className="add_comment_button_wrapper">
-                        <p
-                            className="btn btn-danger add_comment"
-                            onClick={this.handleClick}
-                        >
-                            Add Comment
-                        </p>
-                    </div>
-                    <UploadTrackButton />
-                    <input
-                        type="file"
-                        id="selectedFile"
-                        onChange={this.handleFileUpload}
-                        className="display_none"
-                        accept="audio/*"
-                    />
+                    <AddCommentForm />
 
+                    <UploadTrackButton />
                     {this.controlGlyphs.map((control, i) => {
                         return (
                             <div key={i} id={control.glyph_wrapper_id}>
                                 <Glyphicon
                                     glyph={control.glyph}
                                     title={control.title}
-                                    onClick={control.onClick}
+                                    onClick={() =>
+                                        control.onClick('preview_audio')}
                                 />
                             </div>
                         );
@@ -139,7 +103,6 @@ class AddComment extends Component {
                         canvasWrapperId={'mini_visualizer'}
                     />
                 </div>
-                // Make Audio Player reuseable
                 <AudioPlayer
                     currentAudio={this.props.currentAudio}
                     audioWrapperClassName="preview_audio_wrapper"
@@ -150,13 +113,15 @@ class AddComment extends Component {
     }
 }
 // <MiniVisualizer />
-function mapStateToProps({ comments }) {
-    return { currentAudio: comments.currentAudio };
+function mapStateToProps({ comments, profile }) {
+    return { currentAudio: comments.currentAudio, profile };
 }
 
 export default connect(mapStateToProps, {
     addComment: actions.commentsActions.addComment,
     getProfile: actions.authActions.getProfile,
-    getIdToken: actions.authActions.getIdToken,
+    fetchProfile: actions.profileActions.fetchProfile,
+    // getIdToken: actions.authActions.getIdToken,
+    updateNewComment: actions.commentsActions.updateNewComment,
     updateAudioSource: actions.commentsActions.updateAudioSource
 })(withRouter(AddComment));
