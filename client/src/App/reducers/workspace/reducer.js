@@ -4,7 +4,8 @@ export default function(
     state = {
         project: { name: 'Untitled', collaborators: [] },
         editTitleMode: false,
-        currentAudio: null,
+        currentAudio:
+            'https://api.soundcloud.com/tracks/184774366/stream?client_id=9590faf7123e87d09a95c043faeec29e',
         pageView: 'comments',
         isTouched: false
     },

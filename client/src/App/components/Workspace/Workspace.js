@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 // Tools
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
@@ -10,7 +10,7 @@ import { Glyphicon } from 'react-bootstrap';
 import withAudioControls from './withAudioControls/withAudioControls';
 
 // WIth Audio Controls carries glyph buttons
-// and audio player control functions
+// and audio player control functions (and extends Component)
 class Workspaces extends withAudioControls {
     componentDidMount() {
         const { workspaceId } = this.props.match.params;
@@ -43,11 +43,15 @@ class Workspaces extends withAudioControls {
                             );
                         })}
                     </div>
-                    <AudioPlayer />
+                    <AudioPlayer
+                        currentAudio={this.props.workspace.currentAudio}
+                        audioWrapperClassName="player"
+                        audioPlayerId="workspace_audio_player"
+                    />
                     <Visualizer
-                        audioPlayer={'workspace_audio_player'}
-                        canvasId={'analyzer'}
-                        canvasWrapperId={'mp3_player'}
+                        audioPlayer="workspace_audio_player"
+                        canvasId="analyzer"
+                        canvasWrapperId="mp3_player"
                     />
                 </div>
                 <Details />
