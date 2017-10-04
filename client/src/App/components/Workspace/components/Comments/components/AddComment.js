@@ -11,6 +11,7 @@ import ls from 'local-storage';
 import UploadTrackButton from './UploadTrackButton';
 import { Glyphicon } from 'react-bootstrap';
 import MiniVisualizer from './MiniVisualizer';
+import Visualizer from '../../Visualizer/Visualizer';
 
 class AddComment extends Component {
     constructor(props) {
@@ -19,6 +20,27 @@ class AddComment extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.handleFileUpload = this.handleFileUpload.bind(this);
+
+        this.controlGlyphs = [
+            {
+                glyph: 'play',
+                title: 'Preview Track',
+                glyph_wrapper_id: 'play_button',
+                onClick: () => this.previewAudio()
+            },
+            {
+                glyph: 'pause',
+                title: 'Pause Preview',
+                glyph_wrapper_id: 'pause_button',
+                onClick: () => this.pausePreviewAudio()
+            },
+            {
+                glyph: 'backward',
+                title: 'Rewind Preview',
+                glyph_wrapper_id: 'rewind_button',
+                onClick: () => this.restartPreviewAudio()
+            }
+        ];
     }
 
     componentDidMount() {
@@ -47,9 +69,9 @@ class AddComment extends Component {
         const title = `${randomString.generate(32)}.${fileType}`;
         let audio = this.refs.preview_audio;
         audio.src = URL.createObjectURL(file);
-        let buttons = ['play_button', 'pause_button', 'rewind_button'];
-        buttons.forEach(b => {
-            let button = document.getElementById(b);
+
+        this.controlGlyphs.forEach(c => {
+            let button = document.getElementById(c.glyph_wrapper_id);
             button.style.display = 'inline';
             button.style.visibility = 'visible';
         });
@@ -97,28 +119,23 @@ class AddComment extends Component {
                         className="display_none"
                         accept="audio/*"
                     />
-                    <div id="play_button">
-                        <Glyphicon
-                            glyph="play"
-                            title="Preview Track"
-                            onClick={this.previewAudio}
-                        />
-                    </div>
-                    <div id="pause_button">
-                        <Glyphicon
-                            glyph="pause"
-                            title="Pause Preview"
-                            onClick={this.pausePreviewAudio}
-                        />
-                    </div>
-                    <div id="rewind_button">
-                        <Glyphicon
-                            glyph="backward"
-                            title="Rewind Preview"
-                            onClick={this.restartPreviewAudio}
-                        />
-                    </div>
-                    <MiniVisualizer />
+
+                    {this.controlGlyphs.map((control, i) => {
+                        return (
+                            <div key={i} id={control.glyph_wrapper_id}>
+                                <Glyphicon
+                                    glyph={control.glyph}
+                                    title={control.title}
+                                    onClick={control.onClick}
+                                />
+                            </div>
+                        );
+                    })}
+                    <Visualizer
+                        audioPlayer={'preview_audio'}
+                        canvasId={'mini_canvas'}
+                        canvasWrapperId={'mini_visualizer'}
+                    />
                 </div>
                 <div className="preview_audio_wrapper">
                     <audio id="preview_audio" ref="preview_audio" />
@@ -127,6 +144,7 @@ class AddComment extends Component {
         );
     }
 }
+// <MiniVisualizer />
 
 export default connect(null, {
     addComment: actions.commentsActions.addComment,

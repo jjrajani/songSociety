@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class AudioVisualizer extends Component {
+class Visualizer extends Component {
     constructor(props) {
         super(props);
         this.createVisualization = this.createVisualization.bind(this);
@@ -11,20 +11,34 @@ class AudioVisualizer extends Component {
     }
     componentWillUnmount() {}
 
-    createVisualization() {
-        let context = new AudioContext();
-        let analyser = context.createAnalyser();
-        let canvas = this.refs.analyzerCanvas;
-        let ctx = canvas.getContext('2d');
-        let audio = document.getElementById('workspace_audio_player');
+    createAudio() {
+        let audio = document.getElementById(this.props.audioPlayer);
         audio.crossOrigin = 'anonymous';
-        let audioSrc = context.createMediaElementSource(audio);
+        return audio;
+    }
+
+    connectAudio(audioSrc, context, analyser) {
         audioSrc.connect(analyser);
         audioSrc.connect(context.destination);
         analyser.connect(context.destination);
-        this.audioSrc = audioSrc;
-        this.analyser = analyser;
-        this.context = context;
+    }
+
+    createVisualization() {
+        let context = new AudioContext();
+        let analyser = context.createAnalyser();
+        let canvasRef = this.props.canvasId;
+        let canvas = this.refs[canvasRef];
+        let ctx = canvas.getContext('2d');
+
+        let audio = this.createAudio();
+        // let audio = document.getElementById(this.props.audioPlayer);
+        // audio.crossOrigin = 'anonymous';
+        let audioSrc = context.createMediaElementSource(audio);
+
+        this.connectAudio(audioSrc, context, analyser);
+        // audioSrc.connect(analyser);
+        // audioSrc.connect(context.destination);
+        // analyser.connect(context.destination);
 
         function renderFrame() {
             let freqData = new Uint8Array(analyser.frequencyBinCount);
@@ -64,12 +78,15 @@ class AudioVisualizer extends Component {
     render() {
         return (
             <div className="App">
-                <div id="mp3_player">
-                    <canvas ref="analyzerCanvas" id="analyzer" />
+                <div id={this.props.canvasWrapperId}>
+                    <canvas
+                        ref={this.props.canvasId}
+                        id={this.props.canvasId}
+                    />
                 </div>
             </div>
         );
     }
 }
 
-export default AudioVisualizer;
+export default Visualizer;

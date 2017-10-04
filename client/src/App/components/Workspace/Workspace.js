@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { withRouter } from 'react-router-dom';
 // Components
-import { WorkspaceNav, AudioPlayer, Visualizer, Details } from './components';
+import { WorkspaceNav, AudioPlayer, Details, Visualizer } from './components';
+
 import { Glyphicon } from 'react-bootstrap';
 
 class Workspaces extends Component {
@@ -118,7 +119,11 @@ class Workspaces extends Component {
                         </div>
                     </div>
                     <AudioPlayer />
-                    <Visualizer />
+                    <Visualizer
+                        audioPlayer={'workspace_audio_player'}
+                        canvasId={'analyzer'}
+                        canvasWrapperId={'mp3_player'}
+                    />
                 </div>
                 <Details />
             </div>
