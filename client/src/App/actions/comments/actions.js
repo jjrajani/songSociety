@@ -11,29 +11,42 @@ export const fetchComments = workspaceId => async dispatch => {
 };
 
 export const addComment = (
+    userId,
+    workspaceId,
     values
-    // userId,
     // content,
     // audio,
     // workspaceId
 ) => async dispatch => {
-    // e.preventDefault();
-    console.log('addComment', values);
-    // const file = form.registeredFields.selected_file[0];
-    // const fileType = file.type.split('/')[1];
-    // const title = `${randomString.generate(32)}.${fileType}`;
-    // const idToken = auth.getIdToken();
-    // let awsUpload = await aws.upload(title, file, idToken);
-    // console.log('awsUpload', awsUpload);
+    let textContent = values.content ? values.content : '';
+    if (values.selected_file) {
+        const file = values.selected_file[0];
+        const fileType = file.type.split('/')[1];
+        const title = `${randomString.generate(32)}.${fileType}`;
+        const idToken = auth.getIdToken();
+        const awsUpload = await aws.upload(title, file, idToken);
+        // audioLink can be used to stream and download file
+        const audioLink = `http://d2lv3jhuthznxw.cloudfront.net/${awsUpload.Key}`;
+        const comment = {
+            userId,
+            content: textContent,
+            audio: audioLink,
+            workspaceId
+        };
 
-    // await axios.post(`/api/${workspaceId}/comments`, {
-    //     userId: userId,
-    //     content: content,
-    //     audio: audio,
-    //     workspaceId: workspaceId
-    // });
-    // let comments = await axios.get(`/api/${workspaceId}/comments`);
-    // dispatch({ type: t.FETCH_COMMENTS, payload: comments.data });
+        let posted = await axios.post(`/api/${workspaceId}/comments`, comment);
+
+        dispatch({ type: t.ADD_COMMENT, payload: posted.data });
+    } else {
+        const comment = {
+            userId,
+            content: textContent,
+            audio: '',
+            workspaceId
+        };
+        let posted = await axios.post(`/api/${workspaceId}/comments`, comment);
+        dispatch({ type: t.ADD_COMMENT, payload: posted.data });
+    }
 };
 
 export const updateNewComment = (key, value) => dispatch => {
@@ -43,6 +56,7 @@ export const updateNewComment = (key, value) => dispatch => {
     });
 };
 
-export const updateAudioSource = src => dispatch => {
-    dispatch({ type: t.UPDATE_COMMENTS_CURRENT_AUDIO, payload: src });
+export const updateAudioSource = comment => dispatch => {
+    let audioSrc = `${comment.audio}`;
+    dispatch({ type: t.UPDATE_COMMENTS_CURRENT_AUDIO, payload: audioSrc });
 };

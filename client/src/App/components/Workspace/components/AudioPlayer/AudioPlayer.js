@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class AudioPlayer extends Component {
     componentDidMount() {
-        let player = document.getElementById('workspace_audio_player');
+        let player = document.getElementById(this.props.audioPlayerId);
         player.pause();
         player.currentTime = 0;
     }

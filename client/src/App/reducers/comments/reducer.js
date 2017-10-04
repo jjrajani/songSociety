@@ -27,22 +27,26 @@ export default function(
                 list: []
             };
         case t.UPDATE_COMMENTS_CURRENT_AUDIO: {
-            console.log('update source', action.payload);
+            console.log('update audio src', action.payload);
             return {
                 ...state,
                 currentAudio: action.payload
             };
         }
         case t.UPDATE_NEW_COMMENT: {
-            let newState = {
+            return {
                 ...state,
                 newComment: {
                     ...state.newComment,
                     [action.payload.key]: action.payload.value
                 }
             };
-            console.log('sadf', newState);
-            return newState;
+        }
+        case t.ADD_COMMENT: {
+            return {
+                ...state,
+                list: [action.payload, ...state.list]
+            };
         }
         default:
             return state;
