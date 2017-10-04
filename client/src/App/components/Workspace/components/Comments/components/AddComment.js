@@ -10,6 +10,8 @@ import ls from 'local-storage';
 import UploadTrackButton from './UploadTrackButton';
 import { Glyphicon } from 'react-bootstrap';
 import Visualizer from '../../Visualizer/Visualizer';
+// Components
+import { AudioPlayer } from '../../';
 
 class AddComment extends Component {
     constructor(props) {
@@ -66,8 +68,8 @@ class AddComment extends Component {
         const fileType = file.type.split('/')[1];
         const title = `${randomString.generate(32)}.${fileType}`;
         console.log('title', title);
-        let audio = this.refs.preview_audio;
-        audio.src = URL.createObjectURL(file);
+        let src = URL.createObjectURL(file);
+        this.props.updateAudioSource(src);
 
         this.controlGlyphs.forEach(c => {
             let button = document.getElementById(c.glyph_wrapper_id);
@@ -81,17 +83,18 @@ class AddComment extends Component {
     }
 
     previewAudio = () => {
-        let audio = this.refs.preview_audio;
+        let audio = document.getElementById('preview_audio');
+        // this.refs.preview_audio;
         audio.play();
     };
 
     pausePreviewAudio = () => {
-        let audio = this.refs.preview_audio;
+        let audio = document.getElementById('preview_audio');
         audio.pause();
     };
 
     restartPreviewAudio = () => {
-        let audio = this.refs.preview_audio;
+        let audio = document.getElementById('preview_audio');
         audio.currentTime = 0;
     };
     render() {
@@ -136,18 +139,24 @@ class AddComment extends Component {
                         canvasWrapperId={'mini_visualizer'}
                     />
                 </div>
-                // Make Audio Playe reuseable
-                <div className="preview_audio_wrapper">
-                    <audio id="preview_audio" ref="preview_audio" />
-                </div>
+                // Make Audio Player reuseable
+                <AudioPlayer
+                    currentAudio={this.props.currentAudio}
+                    audioWrapperClassName="preview_audio_wrapper"
+                    audioPlayerId="preview_audio"
+                />
             </div>
         );
     }
 }
 // <MiniVisualizer />
+function mapStateToProps({ comments }) {
+    return { currentAudio: comments.currentAudio };
+}
 
-export default connect(null, {
+export default connect(mapStateToProps, {
     addComment: actions.commentsActions.addComment,
     getProfile: actions.authActions.getProfile,
-    getIdToken: actions.authActions.getIdToken
+    getIdToken: actions.authActions.getIdToken,
+    updateAudioSource: actions.commentsActions.updateAudioSource
 })(withRouter(AddComment));

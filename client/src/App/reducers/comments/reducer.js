@@ -1,6 +1,9 @@
 import t from '../../actions/comments/types';
 
-export default function(state = { list: [], currentComment: {} }, action) {
+export default function(
+    state = { list: [], currentComment: {}, currentAudio: '' },
+    action
+) {
     switch (action.type) {
         case t.FETCH_COMMENTS:
             return { ...state, list: action.payload };
@@ -18,6 +21,13 @@ export default function(state = { list: [], currentComment: {} }, action) {
                 ...state,
                 list: []
             };
+        case t.UPDATE_COMMENTS_CURRENT_AUDIO: {
+            console.log('update source', action.payload);
+            return {
+                ...state,
+                currentAudio: action.payload
+            };
+        }
         default:
             return state;
     }
