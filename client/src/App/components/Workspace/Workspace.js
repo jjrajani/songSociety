@@ -5,118 +5,43 @@ import * as actions from '../../actions';
 import { withRouter } from 'react-router-dom';
 // Components
 import { WorkspaceNav, AudioPlayer, Details, Visualizer } from './components';
-
 import { Glyphicon } from 'react-bootstrap';
+// HOC
+import withAudioControls from './withAudioControls/withAudioControls';
 
-class Workspaces extends Component {
+// WIth Audio Controls carries glyph buttons
+// and audio player control functions
+class Workspaces extends withAudioControls {
     componentDidMount() {
-        const pathLength = this.props.history.location.pathname.split('/')
-            .length;
-        if (pathLength > 2 && pathLength[2] !== 'new') {
-            const { workspaceId } = this.props.match.params;
+        const { workspaceId } = this.props.match.params;
+        if (workspaceId && workspaceId !== 'new') {
             this.props.fetchWorkspace(workspaceId);
         }
-        console.log('this', this);
     }
     componentWillMount() {
         this.props.getProfile();
     }
 
-    playAudio() {
-        let player = document.getElementById('workspace_audio_player');
-        player.play();
-    }
-    pauseAudio() {
-        let player = document.getElementById('workspace_audio_player');
-        player.pause();
-    }
-    restartAudio() {
-        let player = document.getElementById('workspace_audio_player');
-        player.currentTime = 0;
-    }
-    rewindAudio() {
-        let player = document.getElementById('workspace_audio_player');
-        if (!player.paused) {
-            let newTime = player.currentTime - 5;
-            player.currentTime = newTime < 0 ? 0 : newTime;
-        }
-    }
-    fastRewindAudio() {
-        let player = document.getElementById('workspace_audio_player');
-        if (!player.paused) {
-            let newTime = player.currentTime - 15;
-            player.currentTime = newTime < 0 ? 0 : newTime;
-        }
-    }
-    forwardAudio() {
-        let player = document.getElementById('workspace_audio_player');
-        if (!player.paused) {
-            let newTime = player.currentTime + 5;
-            player.currentTime = newTime < 0 ? 0 : newTime;
-        }
-    }
-    fastForwardAudio() {
-        let player = document.getElementById('workspace_audio_player');
-        if (!player.paused) {
-            let newTime = player.currentTime + 15;
-            player.currentTime = newTime < 0 ? 0 : newTime;
-        }
-    }
     render() {
         return (
             <div className="container main_content workspace">
                 <WorkspaceNav />
                 <div className="audio_wrapper">
                     <div className="audio_nav">
-                        <div className="play_button">
-                            <Glyphicon
-                                glyph="play"
-                                onClick={this.playAudio.bind(this)}
-                                title="Play"
-                            />
-                        </div>
-                        <div className="pause_button">
-                            <Glyphicon
-                                glyph="pause"
-                                onClick={this.pauseAudio.bind(this)}
-                                title="Pause"
-                            />
-                        </div>
-                        <div className="fast-rewind_button">
-                            <Glyphicon
-                                glyph="fast-backward"
-                                onClick={this.fastRewindAudio.bind(this)}
-                                title="Rewind"
-                            />
-                        </div>
-                        <div className="rewind_button">
-                            <Glyphicon
-                                glyph="step-backward"
-                                onClick={this.rewindAudio.bind(this)}
-                                title="Step Back"
-                            />
-                        </div>
-                        <div className="restart_button">
-                            <Glyphicon
-                                glyph="backward"
-                                onClick={this.restartAudio.bind(this)}
-                                title="Restart"
-                            />
-                        </div>
-                        <div className="forward_button">
-                            <Glyphicon
-                                glyph="step-forward"
-                                onClick={this.forwardAudio.bind(this)}
-                                title="Step Forward"
-                            />
-                        </div>
-                        <div className="fast-forward_button">
-                            <Glyphicon
-                                glyph="fast-forward"
-                                onClick={this.fastForwardAudio.bind(this)}
-                                title="Fast Forward"
-                            />
-                        </div>
+                        {this.controlGlyphs.map((control, i) => {
+                            return (
+                                <div
+                                    key={i}
+                                    className={control.glyph_wrapper_class}
+                                >
+                                    <Glyphicon
+                                        glyph={control.glyph}
+                                        onClick={control.onClick}
+                                        title={control.title}
+                                    />
+                                </div>
+                            );
+                        })}
                     </div>
                     <AudioPlayer />
                     <Visualizer

@@ -9,7 +9,6 @@ class Visualizer extends Component {
     componentDidMount() {
         this.createVisualization();
     }
-    componentWillUnmount() {}
 
     createAudio() {
         let audio = document.getElementById(this.props.audioPlayer);
@@ -29,16 +28,10 @@ class Visualizer extends Component {
         let canvasRef = this.props.canvasId;
         let canvas = this.refs[canvasRef];
         let ctx = canvas.getContext('2d');
-
         let audio = this.createAudio();
-        // let audio = document.getElementById(this.props.audioPlayer);
-        // audio.crossOrigin = 'anonymous';
         let audioSrc = context.createMediaElementSource(audio);
 
         this.connectAudio(audioSrc, context, analyser);
-        // audioSrc.connect(analyser);
-        // audioSrc.connect(context.destination);
-        // analyser.connect(context.destination);
 
         function renderFrame() {
             let freqData = new Uint8Array(analyser.frequencyBinCount);
@@ -48,8 +41,8 @@ class Visualizer extends Component {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             ctx.sRect = function(x, y, w, h) {
-                x = parseInt(x) + 0.5;
-                y = parseInt(y) + 0.5;
+                x = parseInt(x, 10) + 0.5;
+                y = parseInt(y, 10) + 0.5;
                 const height = canvas.height;
                 const barHeight = h;
 

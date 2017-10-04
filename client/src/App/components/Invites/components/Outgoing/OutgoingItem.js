@@ -6,7 +6,7 @@ const OutgoingInvite = ({ invite }) =>
         <div className="buttons">
             <Glyphicon glyph="remove" title="Cancel Invite" />
         </div>
-        <img src={invite.inviteeImg} />
+        <img src={invite.inviteeImg} alt={`${invite.inviteeName}'s avatar'`} />
 
         <p>
             Your invitation to {invite.inviteeName} to colaborate with you on {' '}

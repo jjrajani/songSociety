@@ -33,7 +33,8 @@ function upload(name, file, id_token) {
         params: { Bucket: albumBucketName }
     });
 
-    let managedUploader = s3
+    // let managedUploader =
+    s3
         .upload(
         {
             Key: name,

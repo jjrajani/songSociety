@@ -10,7 +10,7 @@ class AudioPlayer extends Component {
     }
 
     render() {
-        const { currentAudio } = this.props;
+        // const { currentAudio } = this.props;
         return (
             <div className="player">
                 <audio

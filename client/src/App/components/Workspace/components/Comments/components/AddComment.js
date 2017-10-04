@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 // Tools
 import { connect } from 'react-redux';
 import * as actions from '../../../../../actions';
@@ -10,7 +9,6 @@ import ls from 'local-storage';
 // Components
 import UploadTrackButton from './UploadTrackButton';
 import { Glyphicon } from 'react-bootstrap';
-import MiniVisualizer from './MiniVisualizer';
 import Visualizer from '../../Visualizer/Visualizer';
 
 class AddComment extends Component {
@@ -67,6 +65,7 @@ class AddComment extends Component {
         const file = event.target.files[0];
         const fileType = file.type.split('/')[1];
         const title = `${randomString.generate(32)}.${fileType}`;
+        console.log('title', title);
         let audio = this.refs.preview_audio;
         audio.src = URL.createObjectURL(file);
 
@@ -137,6 +136,7 @@ class AddComment extends Component {
                         canvasWrapperId={'mini_visualizer'}
                     />
                 </div>
+                // Make Audio Playe reuseable
                 <div className="preview_audio_wrapper">
                     <audio id="preview_audio" ref="preview_audio" />
                 </div>

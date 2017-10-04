@@ -1,6 +1,5 @@
 import React from 'react';
 import CollaborationsList from './components/CollaborationsList';
-import { Link } from 'react-router-dom';
 
 const Collaborations = () => {
     return (
