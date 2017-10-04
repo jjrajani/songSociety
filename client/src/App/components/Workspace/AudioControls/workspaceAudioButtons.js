@@ -1,4 +1,3 @@
-import { Component } from 'react';
 import withAudioControls from './withAudioControls';
 
 class workspaceAudioButtons extends withAudioControls {
@@ -33,13 +32,6 @@ class workspaceAudioButtons extends withAudioControls {
                 glyph_wrapper_class: 'rewind_button',
                 onClick: workspace_audio_player =>
                     this.rewindAudio(workspace_audio_player)
-            },
-            {
-                glyph: 'backward',
-                title: 'Restart',
-                glyph_wrapper_class: 'restart_button',
-                onClick: workspace_audio_player =>
-                    this.restartAudio(workspace_audio_player)
             },
             {
                 glyph: 'backward',

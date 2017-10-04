@@ -6,6 +6,9 @@
     display: flex;
     justify-content: center;
     align-items: center; }
+    .upload_track_button label span {
+      font-size: 2.75rem;
+      padding-bottom: 2px; }
   .upload_track_button #loading_wrapper {
     display: none;
     visibility: hidden;
@@ -17,36 +20,3 @@
       width: 0px;
       height: 100%;
       background-color: #ccc; }
-
-#play_button {
-  margin-left: 12px;
-  padding-top: 3px;
-  margin-bottom: -3px;
-  font-size: 2.25rem;
-  display: none;
-  visibility: hidden;
-  cursor: pointer; }
-  #play_button span:hover {
-    color: rgba(221, 0, 0, 0.8) !important; }
-
-#pause_button {
-  margin-left: 12px;
-  padding-top: 3px;
-  margin-bottom: -3px;
-  font-size: 2.25rem;
-  display: none;
-  visibility: hidden;
-  cursor: pointer; }
-  #pause_button span:hover {
-    color: rgba(221, 0, 0, 0.8) !important; }
-
-#rewind_button {
-  margin-left: 12px;
-  padding-top: 3px;
-  margin-bottom: -3px;
-  font-size: 2.25rem;
-  display: none;
-  visibility: hidden;
-  cursor: pointer; }
-  #rewind_button span:hover {
-    color: rgba(221, 0, 0, 0.8) !important; }

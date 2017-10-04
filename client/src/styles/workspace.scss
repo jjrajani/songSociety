@@ -1,112 +1,93 @@
 $red: rgba(221, 0, 0, .8);
-// $red: rgb(221, 0, 0);
 
 .workspace {
     .audio_wrapper {
-        // border: solid blue 3px;
         position: relative;
         text-align: center;
-    }
-    .audio_nav {
-        .glyphicon:hover,
-        .play_button:hover {
-            color: $red !important;
-            border-color: $red;
-        }
-        .play_button,
-        .pause_button,
-        .fast-rewind_button,
-        .rewind_button,
-        .restart_button,
-        .forward_button,
-        .fast-forward_button {
-            display: flex;
-            justify-content: center;
-            position: absolute;
-            align-items: center;
-            cursor: pointer;
-            opacity: 0.7;
-        }
-        .fast-rewind_button,
-        .rewind_button,
-        .restart_button,
-        .forward_button,
-        .fast-forward_button {
-            font-size: 1.75rem;
-        }
-        .restart_button {
-            bottom: 18px;
-            left: 20px;
-        }
-        .fast-rewind_button {
-            bottom: 18px;
-            left: 45px;
-        }
-        .rewind_button {
-            bottom: 18px;
-            left: 67px;
-        }
-        .play_button {
-            border: solid white 3px;
-            border-radius: 50%;
-            width: 55px;
-            height: 55px;
-            // left: 90px;
-            // bottom: 12px;
-            left: 28px;
-            bottom: 40px;
-            .glyphicon-play {
-                font-size: 3rem;
-                margin-left: 5px;
-                margin-bottom: 3px;
+        > .audio_nav {
+            .glyphicon:hover,
+            .play_button:hover {
+                color: $red !important;
+                border-color: $red;
+            }
+            .play_button,
+            .pause_button,
+            .fast-rewind_button,
+            .rewind_button,
+            .restart_button,
+            .forward_button,
+            .fast-forward_button {
                 display: flex;
                 justify-content: center;
+                position: absolute;
                 align-items: center;
+                cursor: pointer;
+                opacity: 0.7;
             }
-        }
-        .pause_button {
-            width: 35px;
-            height: 35px;
-            left: 80px;
-            bottom: 20px;
-            // left: 147px;
-            // bottom: 12px;
-            .glyphicon-pause {
-                font-size: 3rem;
+            .fast-rewind_button,
+            .rewind_button,
+            .restart_button,
+            .forward_button,
+            .fast-forward_button {
+                font-size: 1.75rem;
             }
-        }
-        .forward_button {
-            bottom: 18px;
-            left: 108px;
-        }
-        .fast-forward_button {
-            bottom: 18px;
-            left: 130px;
+            .restart_button {
+                bottom: 18px;
+                left: 20px;
+            }
+            .fast-rewind_button {
+                bottom: 18px;
+                left: 45px;
+            }
+            .rewind_button {
+                bottom: 18px;
+                left: 67px;
+            }
+            .play_button {
+                border: solid white 3px;
+                border-radius: 50%;
+                width: 55px;
+                height: 55px;
+                left: 28px;
+                bottom: 40px;
+                .glyphicon-play {
+                    font-size: 3rem;
+                    margin-left: 5px;
+                    margin-bottom: 3px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+            .pause_button {
+                width: 35px;
+                height: 35px;
+                left: 80px;
+                bottom: 20px;
+                .glyphicon-pause {
+                    font-size: 3rem;
+                }
+            }
+            .forward_button {
+                bottom: 18px;
+                left: 108px;
+            }
+            .fast-forward_button {
+                bottom: 18px;
+                left: 130px;
+            }
         }
     }
     canvas#analyzer {
         width: 100%;
         height: 220px;
         margin-top: 55px;
-        // border: solid blue 3px;
-    }
-    #mini_visualizer {
-        width: 220px;
-        height: 30px;
-        position: absolute;
-        right: 0;
-    }
-    canvas#mini_canvas {
-        width: 100%;
-        height: 100%;
-        margin-top: 0;
     }
     .audio_trackbar {
         width: 100%;
         max-width: 800px;
         height: 11px;
         border: solid 1px #aaa;
-        // background-color: #aaa;
     }
     .details_nav {
         margin-top: 10px;
@@ -118,9 +99,6 @@ $red: rgba(221, 0, 0, .8);
 
 .dark_theme {
     background-color: #444;
-    p {
-        // color: red !important;
-    }
 }
 
 .light_theme,

@@ -5,7 +5,7 @@ import * as actions from '../../actions';
 import { withRouter } from 'react-router-dom';
 // Components
 import { WorkspaceNav, AudioPlayer, Details, Visualizer } from './components';
-import { Glyphicon } from 'react-bootstrap';
+import AudioControlButtons from './AudioControls/AudioControlButtons';
 // HOC
 import workspaceAudioButtons from './AudioControls/workspaceAudioButtons';
 
@@ -28,25 +28,10 @@ class Workspaces extends workspaceAudioButtons {
             <div className="container main_content workspace">
                 <WorkspaceNav />
                 <div className="audio_wrapper">
-                    <div className="audio_nav">
-                        {this.controlGlyphs.map((control, i) => {
-                            return (
-                                <div
-                                    key={i}
-                                    className={control.glyph_wrapper_class}
-                                >
-                                    <Glyphicon
-                                        glyph={control.glyph}
-                                        onClick={() =>
-                                            control.onClick(
-                                                'workspace_audio_player'
-                                            )}
-                                        title={control.title}
-                                    />
-                                </div>
-                            );
-                        })}
-                    </div>
+                    <AudioControlButtons
+                        buttons={this.controlGlyphs}
+                        audioSrcId={'workspace_audio_player'}
+                    />
                     <AudioPlayer
                         currentAudio={this.props.workspace.currentAudio}
                         audioWrapperClassName="player"

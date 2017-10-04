@@ -3,11 +3,16 @@ $red: rgba(221, 0, 0, 0.8);
 .upload_track_button {
     display: flex;
     align-items: center;
+    // border: solid green 3px;
     label {
         margin: 0 0 0 10px;
         display: flex;
         justify-content: center;
         align-items: center;
+        span {
+            font-size: 2.75rem;
+            padding-bottom: 2px;
+        }
     }
     #loading_wrapper {
         display: none;
@@ -21,43 +26,5 @@ $red: rgba(221, 0, 0, 0.8);
             height: 100%;
             background-color: #ccc;
         }
-    }
-}
-#play_button {
-    margin-left: 12px;
-    padding-top: 3px;
-    margin-bottom: -3px;
-    font-size: 2.25rem;
-    display: none;
-    visibility: hidden;
-    cursor: pointer;
-    span:hover {
-        color: $red !important;
-    }
-}
-
-#pause_button {
-    margin-left: 12px;
-    padding-top: 3px;
-    margin-bottom: -3px;
-    font-size: 2.25rem;
-    display: none;
-    visibility: hidden;
-    cursor: pointer;
-    span:hover {
-        color: $red !important;
-    }
-}
-
-#rewind_button {
-    margin-left: 12px;
-    padding-top: 3px;
-    margin-bottom: -3px;
-    font-size: 2.25rem;
-    display: none;
-    visibility: hidden;
-    cursor: pointer;
-    span:hover {
-        color: $red !important;
     }
 }

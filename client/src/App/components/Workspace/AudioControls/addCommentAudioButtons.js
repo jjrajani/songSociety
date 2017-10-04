@@ -1,4 +1,3 @@
-import { Component } from 'react';
 import withAudioControls from './withAudioControls';
 
 class addCommentAudioButtons extends withAudioControls {
@@ -26,6 +25,14 @@ class addCommentAudioButtons extends withAudioControls {
             }
         ];
     }
+
+    showAudioControls = () => {
+        this.controlGlyphs.forEach(g => {
+            let button = document.getElementById(g.glyph_wrapper_id);
+            button.style.display = 'inline';
+            button.style.visibility = 'visible';
+        });
+    };
 }
 
 export default addCommentAudioButtons;

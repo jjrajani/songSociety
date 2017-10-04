@@ -11,19 +11,20 @@ export const fetchComments = workspaceId => async dispatch => {
 };
 
 export const addComment = (
-    form
+    values
     // userId,
     // content,
     // audio,
     // workspaceId
 ) => async dispatch => {
-    console.log('addComment', form);
-    const file = form.values.selected_file[0];
-    const fileType = file.type.split('/')[1];
-    const title = `${randomString.generate(32)}.${fileType}`;
-    const idToken = auth.getIdToken();
-    let awsUpload = await aws.upload(title, file, idToken);
-    console.log('awsUpload', awsUpload);
+    // e.preventDefault();
+    console.log('addComment', values);
+    // const file = form.registeredFields.selected_file[0];
+    // const fileType = file.type.split('/')[1];
+    // const title = `${randomString.generate(32)}.${fileType}`;
+    // const idToken = auth.getIdToken();
+    // let awsUpload = await aws.upload(title, file, idToken);
+    // console.log('awsUpload', awsUpload);
 
     // await axios.post(`/api/${workspaceId}/comments`, {
     //     userId: userId,

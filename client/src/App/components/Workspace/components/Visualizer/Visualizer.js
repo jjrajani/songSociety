@@ -70,13 +70,8 @@ class Visualizer extends Component {
 
     render() {
         return (
-            <div className="App">
-                <div id={this.props.canvasWrapperId}>
-                    <canvas
-                        ref={this.props.canvasId}
-                        id={this.props.canvasId}
-                    />
-                </div>
+            <div id={this.props.canvasWrapperId}>
+                <canvas ref={this.props.canvasId} id={this.props.canvasId} />
             </div>
         );
     }

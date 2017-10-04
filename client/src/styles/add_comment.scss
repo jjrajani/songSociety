@@ -6,29 +6,117 @@ $red: rgb(221, 0, 0);
     justify-content: flex-start;
     max-width: 500px;
     position: relative;
-    textarea {
-        border: none;
-        outline: none;
-        background-color: rgba(255, 255, 255, 0.8);
-        cursor: pointer;
+    #add_comment_form {
         width: 100%;
-        height: 100px;
-        padding: 1rem 1.5rem;
-        margin-bottom: 2rem;
-    }
-    label {
-        margin-left: 1rem;
-        .glyphicon-cd {
-            font-size: 3rem;
+        textarea {
+            border: none;
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.8);
             cursor: pointer;
-            &:hover {
-                color: $red !important;
+            width: 100%;
+            height: 100px;
+            padding: 1rem 1.5rem;
+        }
+        label {
+            margin-left: 1rem;
+            .glyphicon-cd {
+                font-size: 3rem;
+                cursor: pointer;
+                &:hover {
+                    color: $red !important;
+                }
             }
         }
+        .file_input,
+        input[type="file"] {
+            visibility: hidden;
+            display: none;
+        }
+        .invalid_warning {
+            height: 2rem;
+            margin-bottom: 5px;
+            margin-left: 5px;
+            color: #ccc;
+        }
+        .invalid_warning_hidden {
+            height: 2rem;
+            margin-bottom: 5px;
+        }
     }
-    .file_input,
-    input[type="file"] {
-        visibility: hidden;
-        display: none;
+    .submit_form_button {
+        display: flex;
+        align-items: center;
+        width: 35%;
+        min-width: 173px;
+    }
+    .preview_audio_controls_wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 44px;
+        width: 64%;
+        .audio_nav {
+            width: 35%;
+            min-width: 108px;
+            #play_button {
+                padding-top: 3px;
+                margin-bottom: -3px;
+                font-size: 2.25rem;
+                display: none;
+                visibility: hidden;
+                cursor: pointer;
+                span:hover {
+                    color: $red !important;
+                }
+            }
+            #pause_button {
+                margin-left: 12px;
+                padding-top: 3px;
+                margin-bottom: -3px;
+                font-size: 2.25rem;
+                display: none;
+                visibility: hidden;
+                cursor: pointer;
+                span:hover {
+                    color: $red !important;
+                }
+            }
+
+            #rewind_button {
+                margin-left: 12px;
+                padding-top: 3px;
+                margin-bottom: -3px;
+                font-size: 2.25rem;
+                display: none;
+                visibility: hidden;
+                cursor: pointer;
+                span:hover {
+                    color: $red !important;
+                }
+            }
+        }
+        #mini_visualizer {
+            height: 100%;
+            width: 65%;
+        }
+        canvas#mini_canvas {
+            width: 100%;
+            height: 100%;
+            margin-top: 0;
+        }
+    }
+    @media screen and (max-width: 547px) {
+        .preview_audio_controls_wrapper {
+            margin-top: 10px;
+            width: 100%;
+            .audio_nav {
+                width: 26%;
+                min-width: 105px;
+            }
+            #mini_visualizer {
+                min-width: 74%;
+                width: 100%;
+            }
+        }
     }
 }
