@@ -30,13 +30,9 @@ module.exports = app => {
             });
         }
     });
-    // GET list of users
+    // GET All users
     app.get('/api/users', async (req, res) => {
-        const users = await User.find(
-            {
-                // relations.contains(?): DEMO_USER_ID
-            }
-        );
+        const users = await User.find();
 
         res.send(users);
     });

@@ -4,13 +4,14 @@ const User = mongoose.model('users');
 const Project = mongoose.model('projects');
 
 module.exports = app => {
+    // GET Invites
     app.get('/api/user/:userId/invites', async (req, res) => {
         const invites = await User.findById(req.params.userId, 'invites');
 
         res.send(invites);
     });
 
-    // Invite collaborator
+    // POST Invite collaborator
     app.post(
         '/api/invite/:inviterId/:workspaceId/:inviteeId',
         async (req, res) => {
@@ -46,7 +47,7 @@ module.exports = app => {
         }
     );
 
-    // Accept Invite
+    // POST Accept Invite
     app.post('/api/invites/accept/:userId', async (req, res) => {
         const acceptingUser = await User.findById(req.params.userId);
         const invitingUser = await User.findById(req.body.inviterId);
@@ -77,7 +78,7 @@ module.exports = app => {
         res.send(invite.workspace._id);
     });
 
-    // Decline Invite
+    // POST Decline Invite
     app.post('/api/invites/decline/:userId', async (req, res) => {
         const invite = req.body;
         const declingingUser = await User.findById(req.params.userId);

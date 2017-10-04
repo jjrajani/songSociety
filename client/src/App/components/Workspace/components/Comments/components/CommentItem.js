@@ -6,8 +6,17 @@ class CommentItem extends Component {
     playAudio(comment) {
         const player = document.getElementById('comment_audio_player');
         player.crossOrigin = 'anonymous';
-        player.src = comment.audio;
+        if (player.src !== comment.audio) {
+            player.src = comment.audio;
+        }
+        player.play();
+    }
+    pauseAudio() {
+        const player = document.getElementById('comment_audio_player');
         player.pause();
+    }
+    restartAudio() {
+        const player = document.getElementById('comment_audio_player');
         player.currentTime = 0;
         player.play();
     }
@@ -27,6 +36,18 @@ class CommentItem extends Component {
                         <Glyphicon
                             glyph="play"
                             onClick={this.playAudio.bind(this, comment)}
+                        />}
+                    {comment.audio &&
+                        comment.audio.length > 0 &&
+                        <Glyphicon
+                            glyph="pause"
+                            onClick={this.pauseAudio.bind(this, comment)}
+                        />}
+                    {comment.audio &&
+                        comment.audio.length > 0 &&
+                        <Glyphicon
+                            glyph="backward"
+                            onClick={this.restartAudio.bind(this, comment)}
                         />}
                 </div>
             </div>

@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 
+// FOLLOWER Refers to a person the logged in user is following.
+// Probably needs a name change
 const Follower = mongoose.model('followers');
 const User = mongoose.model('users');
 
 module.exports = app => {
+    // GET Followers
     app.get('/api/:userId/followers', async (req, res) => {
         const user = await User.findOne({ authId: req.params.userId });
         const followers = await User.find(
@@ -17,7 +20,7 @@ module.exports = app => {
             }
         );
     });
-
+    // POST Follower
     app.post('/api/:userId/add_follower/:followerUserId', async (req, res) => {
         let user = await User.findOne({ authId: req.params.userId });
         if (user.followers.indexOf(req.params.followerUserId) === -1) {
@@ -33,7 +36,7 @@ module.exports = app => {
             res.send('this person is already your follower');
         }
     });
-
+    // GET Follower Profile
     app.get('/api/follower/:followerId', async (req, res) => {
         const follower = await User.findById(
             { _id: req.params.followerId },
