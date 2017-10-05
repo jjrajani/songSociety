@@ -1,36 +1,39 @@
 .comments_list_wrapper .list .list_item {
-  justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: wrap;
   cursor: default; }
-  .comments_list_wrapper .list .list_item .left {
+  .comments_list_wrapper .list .list_item .text_wrapper {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    width: 90%; }
-    .comments_list_wrapper .list .list_item .left img {
+    width: 100%; }
+    .comments_list_wrapper .list .list_item .text_wrapper img {
       width: 60px;
       border-radius: 20%; }
-    .comments_list_wrapper .list .list_item .left p {
+    .comments_list_wrapper .list .list_item .text_wrapper p {
       padding-top: 0 !important;
       width: calc(100% - 60px); }
-  .comments_list_wrapper .list .list_item .right {
-    width: 10%;
-    text-align: right; }
-    .comments_list_wrapper .list .list_item .right .glyphicon-play {
+  .comments_list_wrapper .list .list_item .audio_wrapper {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center; }
+    .comments_list_wrapper .list .list_item .audio_wrapper > div:nth-child(2) {
+      width: 100%;
+      height: 100%;
+      padding-top: 10px; }
+      .comments_list_wrapper .list .list_item .audio_wrapper > div:nth-child(2) canvas {
+        width: 100%;
+        height: 100%; }
+    .comments_list_wrapper .list .list_item .audio_wrapper .audio_nav {
+      width: 75px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      height: 100%; }
+    .comments_list_wrapper .list .list_item .audio_wrapper #play_button,
+    .comments_list_wrapper .list .list_item .audio_wrapper #pause_button,
+    .comments_list_wrapper .list .list_item .audio_wrapper #rewind_button {
       cursor: pointer;
       font-size: 1.5rem;
-      border: solid white 1px;
-      border-radius: 50%;
-      padding: 3px;
-      position: relative;
-      height: 2.4rem;
-      width: 2.4rem; }
-      .comments_list_wrapper .list .list_item .right .glyphicon-play:before {
-        position: absolute;
-        left: 5px;
-        top: 4px; }
-      .comments_list_wrapper .list .list_item .right .glyphicon-play:hover {
-        color: #3371d6;
-        border-color: #3371d6; }
-        .comments_list_wrapper .list .list_item .right .glyphicon-play:hover:before {
-          color: #3371d6; }
+      margin-left: 6px; }

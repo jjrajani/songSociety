@@ -14,19 +14,14 @@ class CommentItem extends commentItemAudioButtons {
     render() {
         const { comment, i } = this.props;
         return (
-            <div className="list_item col-xs-12 col-sm-8">
-                <div className="left">
+            <div className="list_item col-xs-12 col-md-8">
+                <div className="text_wrapper">
                     <img src={comment.userImg} alt="userImg" />
                     <p>
                         {comment.content}
                     </p>
                 </div>
-                <div className="right">
-                    <AudioControlButtons
-                        buttons={this.controlGlyphs}
-                        audioSrcId={`comment_audio_player_${i}`}
-                        src={comment.audio}
-                    />
+                <div className="audio_wrapper">
                     <AudioPlayer
                         audioWrapperClassName={`comment_player_${i}`}
                         audioPlayerId={`comment_audio_player_${i}`}
@@ -35,6 +30,11 @@ class CommentItem extends commentItemAudioButtons {
                         audioPlayer={`comment_audio_player_${i}`}
                         canvasId={`comment_item_canvas_${i}`}
                         canvasWrapperId={`comment_item_canvas_wrapper_${i}`}
+                    />
+                    <AudioControlButtons
+                        buttons={this.controlGlyphs}
+                        audioSrcId={`comment_audio_player_${i}`}
+                        src={comment.audio}
                     />
                 </div>
             </div>
