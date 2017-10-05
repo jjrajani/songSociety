@@ -13,10 +13,7 @@ const AudioControlButtons = ({ buttons, audioSrcId, src }) =>
                     {src &&
                         <Glyphicon
                             glyph={control.glyph}
-                            onClick={() => {
-                                console.log('click', src);
-                                control.onClick(audioSrcId, src);
-                            }}
+                            onClick={() => control.onClick(audioSrcId, src)}
                             title={control.title}
                         />}
                     {!src &&

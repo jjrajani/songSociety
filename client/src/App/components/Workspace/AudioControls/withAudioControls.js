@@ -14,7 +14,9 @@ class withAudioControls extends Component {
 
     playWithSource(workspace_audio_player, src) {
         let player = document.getElementById(workspace_audio_player);
-        player.src = src;
+        if (player.src !== src) {
+            player.src = src;
+        }
         player.play();
     }
 
