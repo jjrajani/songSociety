@@ -4,10 +4,17 @@ class Visualizer extends Component {
     constructor(props) {
         super(props);
         this.createVisualization = this.createVisualization.bind(this);
+        this.contexts = [];
     }
 
     componentDidMount() {
         this.createVisualization();
+    }
+
+    componentWillUnmount() {
+        this.contexts.forEach(c => {
+            c.close();
+        });
     }
 
     createAudio() {
@@ -24,6 +31,7 @@ class Visualizer extends Component {
 
     createVisualization() {
         let context = new AudioContext();
+        this.contexts.push(context);
         let analyser = context.createAnalyser();
         let canvasRef = this.props.canvasId;
         let canvas = this.refs[canvasRef];

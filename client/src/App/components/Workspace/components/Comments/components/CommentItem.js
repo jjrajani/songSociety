@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import * as actions from '../../../../../actions';
 // Components
 import AudioControlButtons from '../../../AudioControls/AudioControlButtons';
-import Visualizer from '../../Visualizer/Visualizer';
 import AudioPlayer from '../../AudioPlayer/AudioPlayer';
 
 // HOC
@@ -25,11 +24,6 @@ class CommentItem extends commentItemAudioButtons {
                     <AudioPlayer
                         audioWrapperClassName={`comment_player_${i}`}
                         audioPlayerId={`comment_audio_player_${i}`}
-                    />
-                    <Visualizer
-                        audioPlayer={`comment_audio_player_${i}`}
-                        canvasId={`comment_item_canvas_${i}`}
-                        canvasWrapperId={`comment_item_canvas_wrapper_${i}`}
                     />
                     <AudioControlButtons
                         buttons={this.controlGlyphs}
