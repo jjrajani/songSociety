@@ -31,12 +31,19 @@ class TrackBar extends Component {
     };
 
     updateAudioCurrentTime = position => {
-        this.player.pause();
-        let { duration } = this.player;
-        let currentPosition = duration / 100 * position;
+        if (this.player.paused === true) {
+            let { duration } = this.player;
+            let currentPosition = duration / 100 * position;
 
-        this.player.currentTime = currentPosition;
-        this.player.play();
+            this.player.currentTime = currentPosition;
+        } else {
+            this.player.pause();
+            let { duration } = this.player;
+            let currentPosition = duration / 100 * position;
+
+            this.player.currentTime = currentPosition;
+            this.player.play();
+        }
     };
 
     mousedown = e => {
