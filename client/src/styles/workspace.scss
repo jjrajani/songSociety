@@ -6,17 +6,13 @@ $red: rgba(221, 0, 0, .8);
         text-align: center;
         > .audio_nav {
             .glyphicon:hover,
-            .play_button:hover {
+            .play_button:hover,
+            .pause_button:hover {
                 color: $red !important;
-                border-color: $red;
             }
             .play_button,
             .pause_button,
-            .fast-rewind_button,
-            .rewind_button,
-            .restart_button,
-            .forward_button,
-            .fast-forward_button {
+            .restart_button {
                 display: flex;
                 justify-content: center;
                 position: absolute;
@@ -24,33 +20,16 @@ $red: rgba(221, 0, 0, .8);
                 cursor: pointer;
                 opacity: 0.7;
             }
-            .fast-rewind_button,
-            .rewind_button,
-            .restart_button,
-            .forward_button,
-            .fast-forward_button {
-                font-size: 1.75rem;
-            }
-            .restart_button {
-                bottom: 18px;
-                left: 20px;
-            }
-            .fast-rewind_button {
-                bottom: 18px;
-                left: 45px;
-            }
-            .rewind_button {
-                bottom: 18px;
-                left: 67px;
-            }
-            .play_button {
+            .play_button,
+            .pause_button {
                 border: solid white 3px;
                 border-radius: 50%;
                 width: 55px;
                 height: 55px;
-                left: 28px;
-                bottom: 40px;
-                .glyphicon-play {
+                left: 10px;
+                bottom: 30px;
+                .glyphicon-play,
+                .glyphicon-pause {
                     font-size: 3rem;
                     margin-left: 5px;
                     margin-bottom: 3px;
@@ -59,22 +38,33 @@ $red: rgba(221, 0, 0, .8);
                     align-items: center;
                 }
             }
-            .pause_button {
-                width: 35px;
-                height: 35px;
-                left: 80px;
-                bottom: 20px;
-                .glyphicon-pause {
-                    font-size: 3rem;
+            .restart_button {
+                bottom: 35px;
+                font-size: 2rem;
+                left: 65px;
+            }
+        }
+        .track_bar_wrapper {
+            position: absolute;
+            bottom: 16px;
+            width: 95%;
+            left: 2.5%;
+            height: 3px;
+            background-color: #eee;
+            opacity: 0.7;
+            .track_bar {
+                background-color: #eee;
+                position: relative;
+                width: 100%;
+                height: 3px;
+                .seeker {
+                    position: absolute;
+                    bottom: -5.5px;
+                    height: 15px;
+                    width: 15px;
+                    border-radius: 50%;
+                    background-color: #eee;
                 }
-            }
-            .forward_button {
-                bottom: 18px;
-                left: 108px;
-            }
-            .fast-forward_button {
-                bottom: 18px;
-                left: 130px;
             }
         }
     }

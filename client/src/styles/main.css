@@ -299,64 +299,60 @@ ul.nav button {
   position: relative;
   text-align: center; }
   .workspace .audio_wrapper > .audio_nav .glyphicon:hover,
-  .workspace .audio_wrapper > .audio_nav .play_button:hover {
-    color: rgba(221, 0, 0, 0.8) !important;
-    border-color: rgba(221, 0, 0, 0.8); }
+  .workspace .audio_wrapper > .audio_nav .play_button:hover,
+  .workspace .audio_wrapper > .audio_nav .pause_button:hover {
+    color: rgba(221, 0, 0, 0.8) !important; }
   .workspace .audio_wrapper > .audio_nav .play_button,
   .workspace .audio_wrapper > .audio_nav .pause_button,
-  .workspace .audio_wrapper > .audio_nav .fast-rewind_button,
-  .workspace .audio_wrapper > .audio_nav .rewind_button,
-  .workspace .audio_wrapper > .audio_nav .restart_button,
-  .workspace .audio_wrapper > .audio_nav .forward_button,
-  .workspace .audio_wrapper > .audio_nav .fast-forward_button {
+  .workspace .audio_wrapper > .audio_nav .restart_button {
     display: flex;
     justify-content: center;
     position: absolute;
     align-items: center;
     cursor: pointer;
     opacity: 0.7; }
-  .workspace .audio_wrapper > .audio_nav .fast-rewind_button,
-  .workspace .audio_wrapper > .audio_nav .rewind_button,
-  .workspace .audio_wrapper > .audio_nav .restart_button,
-  .workspace .audio_wrapper > .audio_nav .forward_button,
-  .workspace .audio_wrapper > .audio_nav .fast-forward_button {
-    font-size: 1.75rem; }
-  .workspace .audio_wrapper > .audio_nav .restart_button {
-    bottom: 18px;
-    left: 20px; }
-  .workspace .audio_wrapper > .audio_nav .fast-rewind_button {
-    bottom: 18px;
-    left: 45px; }
-  .workspace .audio_wrapper > .audio_nav .rewind_button {
-    bottom: 18px;
-    left: 67px; }
-  .workspace .audio_wrapper > .audio_nav .play_button {
+  .workspace .audio_wrapper > .audio_nav .play_button,
+  .workspace .audio_wrapper > .audio_nav .pause_button {
     border: solid white 3px;
     border-radius: 50%;
     width: 55px;
     height: 55px;
-    left: 28px;
-    bottom: 40px; }
-    .workspace .audio_wrapper > .audio_nav .play_button .glyphicon-play {
+    left: 10px;
+    bottom: 30px; }
+    .workspace .audio_wrapper > .audio_nav .play_button .glyphicon-play,
+    .workspace .audio_wrapper > .audio_nav .play_button .glyphicon-pause,
+    .workspace .audio_wrapper > .audio_nav .pause_button .glyphicon-play,
+    .workspace .audio_wrapper > .audio_nav .pause_button .glyphicon-pause {
       font-size: 3rem;
       margin-left: 5px;
       margin-bottom: 3px;
       display: flex;
       justify-content: center;
       align-items: center; }
-  .workspace .audio_wrapper > .audio_nav .pause_button {
-    width: 35px;
-    height: 35px;
-    left: 80px;
-    bottom: 20px; }
-    .workspace .audio_wrapper > .audio_nav .pause_button .glyphicon-pause {
-      font-size: 3rem; }
-  .workspace .audio_wrapper > .audio_nav .forward_button {
-    bottom: 18px;
-    left: 108px; }
-  .workspace .audio_wrapper > .audio_nav .fast-forward_button {
-    bottom: 18px;
-    left: 130px; }
+  .workspace .audio_wrapper > .audio_nav .restart_button {
+    bottom: 35px;
+    font-size: 2rem;
+    left: 65px; }
+  .workspace .audio_wrapper .track_bar_wrapper {
+    position: absolute;
+    bottom: 16px;
+    width: 95%;
+    left: 2.5%;
+    height: 3px;
+    background-color: #eee;
+    opacity: 0.7; }
+    .workspace .audio_wrapper .track_bar_wrapper .track_bar {
+      background-color: #eee;
+      position: relative;
+      width: 100%;
+      height: 3px; }
+      .workspace .audio_wrapper .track_bar_wrapper .track_bar .seeker {
+        position: absolute;
+        bottom: -5.5px;
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        background-color: #eee; }
 
 .workspace canvas#analyzer {
   width: 100%;
@@ -656,7 +652,6 @@ ul.nav button {
         .add_comment_content .preview_audio_controls_wrapper .audio_nav #play_button span:hover {
           color: #dd0000 !important; }
       .add_comment_content .preview_audio_controls_wrapper .audio_nav #pause_button {
-        margin-left: 12px;
         padding-top: 3px;
         margin-bottom: -3px;
         font-size: 2.25rem;
@@ -665,7 +660,7 @@ ul.nav button {
         cursor: pointer; }
         .add_comment_content .preview_audio_controls_wrapper .audio_nav #pause_button span:hover {
           color: #dd0000 !important; }
-      .add_comment_content .preview_audio_controls_wrapper .audio_nav #rewind_button {
+      .add_comment_content .preview_audio_controls_wrapper .audio_nav #restart_button {
         margin-left: 12px;
         padding-top: 3px;
         margin-bottom: -3px;
@@ -673,7 +668,7 @@ ul.nav button {
         display: none;
         visibility: hidden;
         cursor: pointer; }
-        .add_comment_content .preview_audio_controls_wrapper .audio_nav #rewind_button span:hover {
+        .add_comment_content .preview_audio_controls_wrapper .audio_nav #restart_button span:hover {
           color: #dd0000 !important; }
     .add_comment_content .preview_audio_controls_wrapper #mini_visualizer {
       height: 100%;

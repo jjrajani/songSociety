@@ -14,7 +14,6 @@ class commentItemAudioButtons extends withAudioControls {
                     this.playWithSource(audioPlayerId, src);
                 },
                 applyIsPlayingStyle: isPlaying => {
-                    console.log('swith style');
                     this.applyIsPlayingStyles(isPlaying, this.controlGlyphs[0]);
                 }
             },
@@ -25,7 +24,6 @@ class commentItemAudioButtons extends withAudioControls {
                 glyph_wrapper_class: 'pause_button',
                 onClick: audioPlayerId => this.pauseAudio(audioPlayerId),
                 applyIsPlayingStyle: isPlaying => {
-                    console.log('swith style');
                     this.applyIsPlayingStyles(isPlaying, this.controlGlyphs[1]);
                 }
             },

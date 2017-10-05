@@ -21,6 +21,16 @@ class addCommentAudioButtons extends withAudioControls {
                 onClick: audioPlayerId => this.pauseAudio(audioPlayerId),
                 applyIsPlayingStyle: isPlaying =>
                     this.applyIsPlayingStyles(isPlaying, this.controlGlyphs[1])
+            },
+            {
+                glyph: 'backward',
+                title: 'Restart',
+                glyph_wrapper_id: 'restart_button',
+                onClick: workspace_audio_player =>
+                    this.restartAudio(workspace_audio_player),
+                applyIsPlayingStyle: () => {
+                    return;
+                }
             }
         ];
     }

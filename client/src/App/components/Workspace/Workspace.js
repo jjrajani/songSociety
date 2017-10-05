@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 // Components
 import { WorkspaceNav, AudioPlayer, Details, Visualizer } from './components';
 import AudioControlButtons from './AudioControls/AudioControlButtons';
+import TrackBar from './AudioControls/TrackBar';
 // HOC
 import workspaceAudioButtons from './AudioControls/workspaceAudioButtons';
 
@@ -43,6 +44,7 @@ class Workspaces extends workspaceAudioButtons {
                         canvasId="analyzer"
                         canvasWrapperId="mp3_player"
                     />
+                    <TrackBar audioPlayerId="workspace_audio_player" />
                 </div>
                 <Details />
             </div>
