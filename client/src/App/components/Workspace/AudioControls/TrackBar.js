@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
 class TrackBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      seeker
+    }
+  }
     componentDidMount() {
         let player = document.getElementById(this.props.audioPlayerId);
         player.addEventListener('durationchange', this.setupSeekbar);
@@ -22,7 +28,7 @@ class TrackBar extends Component {
     render() {
         return (
             <div className="track_bar_wrapper">
-                <div className="track_bar">
+                <div className="track_bar" onMouseDown={}>
                     <div className="seeker" onMouseDown={this.seek} />
                 </div>
             </div>
