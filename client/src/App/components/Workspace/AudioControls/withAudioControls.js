@@ -12,6 +12,12 @@ class withAudioControls extends Component {
         this.fastForwardAudio = this.fastForwardAudio.bind(this);
     }
 
+    playWithSource(workspace_audio_player, src) {
+        let player = document.getElementById(workspace_audio_player);
+        player.src = src;
+        player.play();
+    }
+
     playAudio(workspace_audio_player) {
         let player = document.getElementById(workspace_audio_player);
         player.play();
