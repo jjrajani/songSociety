@@ -1,7 +1,6 @@
 import React from 'react';
 // Tools
 import { connect } from 'react-redux';
-import * as actions from '../../../../../actions';
 import { withRouter } from 'react-router-dom';
 // Components
 import Visualizer from '../../Visualizer/Visualizer';

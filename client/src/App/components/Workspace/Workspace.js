@@ -44,7 +44,10 @@ class Workspaces extends workspaceAudioButtons {
                         canvasId="analyzer"
                         canvasWrapperId="mp3_player"
                     />
-                    <TrackBar audioPlayerId="workspace_audio_player" />
+                    <TrackBar
+                        audioPlayerId="workspace_audio_player"
+                        trackBarWrapperId="workspace_track_bar"
+                    />
                 </div>
                 <Details />
             </div>

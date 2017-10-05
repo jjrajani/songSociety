@@ -1,7 +1,4 @@
 import React from 'react';
-// Tools
-import { connect } from 'react-redux';
-import * as actions from '../../../../../actions';
 // Components
 import AudioControlButtons from '../../../AudioControls/AudioControlButtons';
 import AudioPlayer from '../../AudioPlayer/AudioPlayer';

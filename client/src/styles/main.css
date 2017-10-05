@@ -333,26 +333,6 @@ ul.nav button {
     bottom: 35px;
     font-size: 2rem;
     left: 65px; }
-  .workspace .audio_wrapper .track_bar_wrapper {
-    position: absolute;
-    bottom: 16px;
-    width: 95%;
-    left: 2.5%;
-    height: 3px;
-    background-color: #eee;
-    opacity: 0.7; }
-    .workspace .audio_wrapper .track_bar_wrapper .track_bar {
-      background-color: #eee;
-      position: relative;
-      width: 100%;
-      height: 3px; }
-      .workspace .audio_wrapper .track_bar_wrapper .track_bar .seeker {
-        position: absolute;
-        bottom: -5.5px;
-        height: 15px;
-        width: 15px;
-        border-radius: 50%;
-        background-color: #eee; }
 
 .workspace canvas#analyzer {
   width: 100%;
@@ -796,3 +776,24 @@ ul.nav button {
       width: 0px;
       height: 100%;
       background-color: #ccc; }
+
+.track_bar_wrapper {
+  position: absolute;
+  bottom: 6px;
+  width: 95%;
+  left: 2.5%;
+  height: 3px;
+  padding: 10px 0;
+  opacity: 0.7; }
+  .track_bar_wrapper .track_bar {
+    background-color: #eee;
+    position: relative;
+    width: 100%;
+    height: 3px; }
+    .track_bar_wrapper .track_bar .track_ball {
+      position: absolute;
+      bottom: -5.5px;
+      height: 15px;
+      width: 15px;
+      border-radius: 50%;
+      background-color: #eee; }
