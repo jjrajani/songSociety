@@ -330,9 +330,9 @@ ul.nav button {
       justify-content: center;
       align-items: center; }
   .workspace .audio_wrapper > .audio_nav .restart_button {
-    bottom: 35px;
+    bottom: 23px;
     font-size: 2rem;
-    left: 65px; }
+    left: 58px; }
 
 .workspace canvas#analyzer {
   width: 100%;
