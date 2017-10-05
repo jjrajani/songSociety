@@ -10,14 +10,7 @@ export const fetchComments = workspaceId => async dispatch => {
     dispatch({ type: t.FETCH_COMMENTS, payload: comments.data });
 };
 
-export const addComment = (
-    userId,
-    workspaceId,
-    values
-    // content,
-    // audio,
-    // workspaceId
-) => async dispatch => {
+export const addComment = (userId, workspaceId, values) => async dispatch => {
     let textContent = values.content ? values.content : '';
     if (values.selected_file) {
         const file = values.selected_file[0];

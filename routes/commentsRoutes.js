@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const Comment = mongoose.model('comments');
+const Project = mongoose.model('projects');
 const User = mongoose.model('users');
 
 module.exports = app => {
@@ -10,8 +11,17 @@ module.exports = app => {
         const comments = await Comment.find({
             workspaceId: req.params.workspaceId
         });
-
-        res.send(comments);
+        const project = await Project.findById(req.params.workspaceId);
+        const { currentAudio } = project;
+        let orderedComments = comments.reduce((a, b) => {
+            if (b.audio === currentAudio) {
+                a.unshift(b);
+            } else {
+                a.push(b);
+            }
+            return a;
+        }, []);
+        res.send(orderedComments);
     });
     // POST new comment to workspace
     app.post('/api/:workspaceId/comments', async (req, res) => {
