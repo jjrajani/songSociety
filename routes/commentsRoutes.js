@@ -37,4 +37,12 @@ module.exports = app => {
 
         res.status(200).send(comment);
     });
+    // POST Promote Comment
+    app.post('/api/comments/promote/:workspaceId/audio', async (req, res) => {
+        const project = await Project.findById(req.params.workspaceId);
+        project.currentAudio = req.body.audio;
+        project.save();
+
+        res.status(200).send(project);
+    });
 };

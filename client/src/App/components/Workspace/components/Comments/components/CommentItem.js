@@ -12,7 +12,7 @@ import commentItemAudioButtons from '../../../AudioControls/commentItemAudioButt
 
 class CommentItem extends commentItemAudioButtons {
     render() {
-        const { comment, i, currentAudio } = this.props;
+        const { comment, i, currentAudio, workspace } = this.props;
         return (
             <div className="list_item col-xs-12 col-md-8">
                 <div className="text_wrapper">
@@ -24,7 +24,10 @@ class CommentItem extends commentItemAudioButtons {
                         <div className="utils">
                             <Glyphicon
                                 onClick={() =>
-                                    this.props.promoteAudio(comment.audio)}
+                                    this.props.promoteAudio(
+                                        workspace.project._id,
+                                        comment.audio
+                                    )}
                                 className={
                                     comment.audio === currentAudio &&
                                     currentAudio !== ''
@@ -63,7 +66,9 @@ class CommentItem extends commentItemAudioButtons {
         );
     }
 }
-
-export default connect(null, {
+function mapStateToProps({ workspace }) {
+    return { workspace };
+}
+export default connect(mapStateToProps, {
     promoteAudio: actions.workspaceActions.promoteAudio
 })(CommentItem);

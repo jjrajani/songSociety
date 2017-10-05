@@ -47,6 +47,12 @@ export default function(
                 isTouched: true,
                 project: { ...state.project, name: action.payload }
             };
+        case t.PROMOTE_AUDIO: {
+            return {
+                ...state,
+                project: action.payload
+            };
+        }
         default:
             return state;
     }

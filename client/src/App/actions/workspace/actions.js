@@ -2,8 +2,13 @@ import * as secrets from '../../../secrets';
 import t from './types';
 import axios from 'axios';
 
-export const promoteAudio = audio => dispatch => {
-    console.log('promote audio', audio);
+export const promoteAudio = (workspaceId, audio) => async dispatch => {
+    const workspace = await axios.post(
+        `/api/comments/promote/${workspaceId}/audio`,
+        { audio }
+    );
+
+    dispatch({ type: t.PROMOTE_AUDIO, payload: workspace.data });
 };
 
 export const togglePageView = page => dispatch => {

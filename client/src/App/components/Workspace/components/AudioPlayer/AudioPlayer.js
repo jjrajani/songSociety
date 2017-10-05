@@ -15,7 +15,12 @@ class AudioPlayer extends Component {
         } = this.props;
         return (
             <div className={audioWrapperClassName}>
-                <audio id={audioPlayerId} src={currentAudio} type="audio/mp3" />
+                <audio
+                    id={audioPlayerId}
+                    src={currentAudio}
+                    type="audio/mp3"
+                    crossOrigin="anonymous"
+                />
             </div>
         );
     }
