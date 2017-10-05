@@ -35,7 +35,7 @@ class Workspaces extends workspaceAudioButtons {
                         isPlaying={this.state.isPlaying}
                     />
                     <AudioPlayer
-                        currentAudio={this.props.workspace.currentAudio}
+                        currentAudio={this.props.workspace.project.currentAudio}
                         audioWrapperClassName="player"
                         audioPlayerId="workspace_audio_player"
                     />

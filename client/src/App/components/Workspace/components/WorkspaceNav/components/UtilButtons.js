@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 // Components
 import { Glyphicon } from 'react-bootstrap';
 
-const UtilButtons = ({ history, auth, isChanged }) => {
+const UtilButtons = ({ history, auth, workspace, isChanged }) => {
     const isLoggedIn = auth.isAuthenticated();
     return (
         <div className="util_buttons_wrapper">
@@ -19,13 +19,15 @@ const UtilButtons = ({ history, auth, isChanged }) => {
                     <Glyphicon title="Save Track" glyph="cloud-upload" />
                 </button>}
             {isLoggedIn &&
-                <Glyphicon title="Download Track" glyph="download-alt" />}
+                <a href={workspace.project.currentAudio}>
+                    <Glyphicon title="Download Track" glyph="download-alt" />
+                </a>}
         </div>
     );
 };
 
 function mapStateToProps({ auth, workspace }) {
-    return { auth, isChanged: workspace.isTouched };
+    return { auth, isChanged: workspace.isTouched, workspace };
 }
 
 export default connect(mapStateToProps)(withRouter(UtilButtons));

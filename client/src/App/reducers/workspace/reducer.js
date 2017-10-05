@@ -4,8 +4,6 @@ export default function(
     state = {
         project: { name: 'Untitled', collaborators: [] },
         editTitleMode: false,
-        currentAudio:
-            'https://api.soundcloud.com/tracks/184774366/stream?client_id=9590faf7123e87d09a95c043faeec29e',
         pageView: 'comments',
         isTouched: false
     },
@@ -21,11 +19,6 @@ export default function(
             return {
                 ...state,
                 editTitleMode: false
-            };
-        case t.PLAY_AUDIO:
-            return {
-                ...state,
-                currentAudio: action.payload
             };
         case t.FETCH_WORKSPACE:
             return {

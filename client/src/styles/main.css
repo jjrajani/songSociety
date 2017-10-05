@@ -537,6 +537,8 @@ ul.nav button {
   align-items: flex-start;
   flex-wrap: wrap;
   cursor: default; }
+  .comments_list_wrapper .list .list_item:hover {
+    background-color: transparent !important; }
   .comments_list_wrapper .list .list_item .text_wrapper {
     display: flex;
     justify-content: space-between;
@@ -547,31 +549,44 @@ ul.nav button {
       border-radius: 20%; }
     .comments_list_wrapper .list .list_item .text_wrapper p {
       padding-top: 0 !important;
-      width: calc(100% - 60px); }
+      width: calc(100% - 140px); }
+    .comments_list_wrapper .list .list_item .text_wrapper .utils {
+      width: 50px;
+      display: flex;
+      justify-content: space-between; }
+      .comments_list_wrapper .list .list_item .text_wrapper .utils .promoted {
+        color: orange !important; }
+      .comments_list_wrapper .list .list_item .text_wrapper .utils .glyphicon-pushpin:hover {
+        color: orange !important; }
+      .comments_list_wrapper .list .list_item .text_wrapper .utils .glyphicon {
+        font-size: 2rem;
+        cursor: pointer; }
   .comments_list_wrapper .list .list_item .audio_wrapper {
     width: 100%;
-    height: 60px;
+    height: 30px;
+    margin-top: 10px;
     display: flex;
     align-items: center; }
-    .comments_list_wrapper .list .list_item .audio_wrapper > div:nth-child(2) {
-      width: 100%;
-      height: 100%;
-      padding-top: 10px; }
-      .comments_list_wrapper .list .list_item .audio_wrapper > div:nth-child(2) canvas {
-        width: 100%;
-        height: 100%; }
     .comments_list_wrapper .list .list_item .audio_wrapper .audio_nav {
-      width: 75px;
+      width: 40px;
       display: flex;
       justify-content: flex-end;
       align-items: center;
       height: 100%; }
-    .comments_list_wrapper .list .list_item .audio_wrapper #play_button,
-    .comments_list_wrapper .list .list_item .audio_wrapper #pause_button,
-    .comments_list_wrapper .list .list_item .audio_wrapper #rewind_button {
+    .comments_list_wrapper .list .list_item .audio_wrapper #comment_item_play_button,
+    .comments_list_wrapper .list .list_item .audio_wrapper #comment_item_pause_button {
+      position: static;
       cursor: pointer;
-      font-size: 1.5rem;
-      margin-left: 6px; }
+      margin-left: 0px;
+      border-radius: 0;
+      border: none; }
+      .comments_list_wrapper .list .list_item .audio_wrapper #comment_item_play_button .glyphicon,
+      .comments_list_wrapper .list .list_item .audio_wrapper #comment_item_pause_button .glyphicon {
+        font-size: 2rem !important; }
+    .comments_list_wrapper .list .list_item .audio_wrapper .track_bar_wrapper {
+      width: calc(100% - 50px);
+      margin-left: 30px;
+      top: 5px; }
 
 .add_comment_content {
   display: flex;
