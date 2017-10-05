@@ -57,8 +57,8 @@ class Visualizer extends Component {
                 var gradient = ctx.createLinearGradient(0, 0, 0, height);
                 gradient.addColorStop(0, 'red');
                 gradient.addColorStop(0.25, 'yellow');
-                gradient.addColorStop(0.5, 'yellow');
-                gradient.addColorStop(0.6, 'green');
+                gradient.addColorStop(0.65, 'yellow');
+                gradient.addColorStop(0.75, 'green');
                 ctx.fillStyle = gradient;
                 ctx.setTransform(1, 0, 0, 1, 0, 0);
 

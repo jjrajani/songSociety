@@ -8,7 +8,10 @@
     align-items: center; }
     .upload_track_button label span {
       font-size: 2.75rem;
-      padding-bottom: 2px; }
+      padding-bottom: 2px;
+      cursor: pointer; }
+      .upload_track_button label span:hover {
+        color: rgba(221, 0, 0, 0.8) !important; }
   .upload_track_button #loading_wrapper {
     display: none;
     visibility: hidden;

@@ -21,16 +21,6 @@ class addCommentAudioButtons extends withAudioControls {
                 onClick: audioPlayerId => this.pauseAudio(audioPlayerId),
                 applyIsPlayingStyle: isPlaying =>
                     this.applyIsPlayingStyles(isPlaying, this.controlGlyphs[1])
-            },
-            {
-                glyph: 'backward',
-                title: 'Restart',
-                glyph_wrapper_id: 'restart_button',
-                onClick: workspace_audio_player =>
-                    this.restartAudio(workspace_audio_player),
-                applyIsPlayingStyle: () => {
-                    return;
-                }
             }
         ];
     }
@@ -38,6 +28,10 @@ class addCommentAudioButtons extends withAudioControls {
     showAudioControls = () => {
         this.controlGlyphs.forEach(g => {
             let button = document.getElementById(g.glyph_wrapper_id);
+            let trackBar = document.getElementById(this.trackBarWrapperId);
+            trackBar.style.display = 'flex';
+            trackBar.style.visibility = 'visible';
+            trackBar.style.borderBottom = 'solid #eee 1px';
             button.style.display = 'inline';
             button.style.visibility = 'visible';
         });

@@ -5,7 +5,8 @@ class TrackBar extends Component {
         super(props);
         this.state = {
             timeDrag: false,
-            trackBallLeft: 0
+            trackBallLeft: 0,
+            progressBarWidth: 0
         };
         this.player = null;
     }
@@ -27,7 +28,7 @@ class TrackBar extends Component {
         let { currentTime, duration } = e.target;
         let position = currentTime / duration * 100;
 
-        this.setState({ trackBallLeft: position });
+        this.setState({ trackBallLeft: position, progressBarWidth: position });
     };
 
     updateAudioCurrentTime = position => {
@@ -97,6 +98,11 @@ class TrackBar extends Component {
                     className="track_bar"
                     ref="track_bar"
                 >
+                    <div
+                        id={`${this.props.trackBarWrapperId}_progress_bar`}
+                        className="progress_bar"
+                        style={{ width: `${this.state.progressBarWidth}%` }}
+                    />
                     <div
                         className="track_ball"
                         style={{ left: `${this.state.trackBallLeft}%` }}

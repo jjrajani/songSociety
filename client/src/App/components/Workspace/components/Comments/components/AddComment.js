@@ -8,7 +8,7 @@ import { AudioPlayer } from '../../';
 import AddCommentForm from './AddCommentForm';
 import AudioControlButtons from '../../../AudioControls/AudioControlButtons';
 import UploadTrackButton from './UploadTrackButton';
-
+import TrackBar from '../../../AudioControls/TrackBar';
 // HOC
 import addCommentAudioButtons from '../../../AudioControls/addCommentAudioButtons';
 
@@ -16,6 +16,10 @@ import addCommentAudioButtons from '../../../AudioControls/addCommentAudioButton
 // and extends from audioControl functions
 // and extends Component
 class AddComment extends addCommentAudioButtons {
+    constructor(props) {
+        super(props);
+        this.trackBarWrapperId = 'add_comment_track_bar_wrapper';
+    }
     render() {
         return (
             <div className="add_comment_wrapper col-12">
@@ -43,6 +47,10 @@ class AddComment extends addCommentAudioButtons {
                             audioPlayer={'preview_audio'}
                             canvasId={'mini_canvas'}
                             canvasWrapperId={'mini_visualizer'}
+                        />
+                        <TrackBar
+                            audioPlayerId="preview_audio"
+                            trackBarWrapperId="add_comment_track_bar"
                         />
                     </div>
                 </div>

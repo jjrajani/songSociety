@@ -56,8 +56,8 @@ $red: rgb(221, 0, 0);
         height: 44px;
         width: 64%;
         .audio_nav {
-            width: 35%;
-            min-width: 108px;
+            width: 32px;
+            // border: solid pink 3px;
             #play_button {
                 padding-top: 3px;
                 margin-bottom: -3px;
@@ -96,7 +96,7 @@ $red: rgb(221, 0, 0);
         }
         #mini_visualizer {
             height: 100%;
-            width: 65%;
+            width: calc(100% - 32px);
         }
         canvas#mini_canvas {
             width: 100%;

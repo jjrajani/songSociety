@@ -12,6 +12,10 @@ $red: rgba(221, 0, 0, 0.8);
         span {
             font-size: 2.75rem;
             padding-bottom: 2px;
+            cursor: pointer;
+            &:hover {
+                color: $red !important;
+            }
         }
     }
     #loading_wrapper {
