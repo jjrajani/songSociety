@@ -56,7 +56,6 @@ export const updateNewComment = (key, value) => dispatch => {
     });
 };
 
-export const updateAudioSource = comment => dispatch => {
-    let audioSrc = `${comment.audio}`;
+export const updateAudioSource = audioSrc => dispatch => {
     dispatch({ type: t.UPDATE_COMMENTS_CURRENT_AUDIO, payload: audioSrc });
 };

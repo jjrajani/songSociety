@@ -60,7 +60,4 @@ function mapStateToProps({ comments, profile }) {
     return { currentAudio: comments.currentAudio, profile };
 }
 
-export default connect(mapStateToProps, {
-    updateNewComment: actions.commentsActions.updateNewComment,
-    updateAudioSource: actions.commentsActions.updateAudioSource
-})(withRouter(AddComment));
+export default connect(mapStateToProps)(withRouter(AddComment));
