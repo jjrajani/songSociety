@@ -48,6 +48,20 @@ export default function(
                 list: newList
             };
         }
+        case t.PROMOTE_AUDIO: {
+            let newList = state.list.reduce((a, b) => {
+                if (b.audio === action.payload.currentAudio) {
+                    a.unshift(b);
+                } else {
+                    a.push(b);
+                }
+                return a;
+            }, []);
+            return {
+                ...state,
+                list: newList
+            };
+        }
         default:
             return state;
     }
