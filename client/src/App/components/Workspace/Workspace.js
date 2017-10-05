@@ -31,6 +31,7 @@ class Workspaces extends workspaceAudioButtons {
                     <AudioControlButtons
                         buttons={this.controlGlyphs}
                         audioSrcId={'workspace_audio_player'}
+                        isPlaying={this.state.isPlaying}
                     />
                     <AudioPlayer
                         currentAudio={this.props.workspace.currentAudio}

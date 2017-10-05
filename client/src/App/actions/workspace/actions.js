@@ -45,8 +45,6 @@ export const submitTitleForm = (workspace, userId) => async dispatch => {
         );
         dispatch({ type: t.SUBMIT_TITLE_FORM, payload: res.data });
     } else {
-        console.log('workspace', workspace);
-        console.log('userId', userId);
         const res = await axios.post(
             `/api/new/workspace/${userId}`,
             workspace.project

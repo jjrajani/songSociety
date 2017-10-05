@@ -38,6 +38,7 @@ class AddComment extends addCommentAudioButtons {
                         <AudioControlButtons
                             buttons={this.controlGlyphs}
                             audioSrcId={'preview_audio'}
+                            isPlaying={this.state.isPlaying}
                         />
                         <Visualizer
                             audioPlayer={'preview_audio'}

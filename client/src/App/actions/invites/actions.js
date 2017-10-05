@@ -31,7 +31,7 @@ export const acceptInvite = (invite, userId) => async dispatch => {
 
 export const declineInvite = (invite, userId) => async dispatch => {
     const res = await axios.post(`/api/invites/decline/${userId}`, invite);
-    console.log('decline action', res.data);
+
     dispatch({ type: t.DECLINE_INVITE, payload: res.data });
 };
 //

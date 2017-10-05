@@ -27,7 +27,6 @@ export default function(
                 list: []
             };
         case t.UPDATE_COMMENTS_CURRENT_AUDIO: {
-            console.log('update audio src', action.payload);
             return {
                 ...state,
                 currentAudio: action.payload

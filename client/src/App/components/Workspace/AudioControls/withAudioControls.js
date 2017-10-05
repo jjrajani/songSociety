@@ -3,6 +3,9 @@ import { Component } from 'react';
 class withAudioControls extends Component {
     constructor(props) {
         super(props);
+
+        this.state = { isPlaying: false };
+
         this.playAudio = this.playAudio.bind(this);
         this.pauseAudio = this.pauseAudio.bind(this);
         this.restartAudio = this.restartAudio.bind(this);
@@ -18,15 +21,18 @@ class withAudioControls extends Component {
             player.src = src;
         }
         player.play();
+        this.setState({ isPlaying: true });
     }
 
     playAudio(workspace_audio_player) {
         let player = document.getElementById(workspace_audio_player);
         player.play();
+        this.setState({ isPlaying: true });
     }
     pauseAudio(workspace_audio_player) {
         let player = document.getElementById(workspace_audio_player);
         player.pause();
+        this.setState({ isPlaying: false });
     }
     restartAudio(workspace_audio_player) {
         let player = document.getElementById(workspace_audio_player);
@@ -60,6 +66,22 @@ class withAudioControls extends Component {
             player.currentTime = newTime < 0 ? 0 : newTime;
         }
     }
+
+    applyIsPlayingStyles = (isPlaying, glyph) => {
+        if (glyph.glyph === 'play') {
+            console.log('wtf', glyph, isPlaying);
+            glyph.glyph_wrapper_class = isPlaying
+                ? 'play_button hidden'
+                : 'play_button';
+        }
+        if (glyph.glyph === 'pause') {
+            console.log('wtf', glyph);
+
+            glyph.glyph_wrapper_class = isPlaying
+                ? 'pause_button'
+                : 'pause_button hidden';
+        }
+    };
 }
 
 export default withAudioControls;

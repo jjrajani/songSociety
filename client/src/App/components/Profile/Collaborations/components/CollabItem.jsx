@@ -8,7 +8,6 @@ import { Glyphicon } from 'react-bootstrap';
 // add on click to take you to project workspace
 
 const CollabItem = ({ project, toggleActiveTab }) => {
-    console.log('colab project', project);
     return (
         <Link
             onClick={() => {

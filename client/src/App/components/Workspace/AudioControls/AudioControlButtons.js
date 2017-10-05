@@ -1,9 +1,10 @@
 import React from 'react';
 import { Glyphicon } from 'react-bootstrap';
 
-const AudioControlButtons = ({ buttons, audioSrcId, src }) =>
+const AudioControlButtons = ({ buttons, audioSrcId, src, isPlaying }) =>
     <div className="audio_nav">
         {buttons.map((control, i) => {
+            control.applyIsPlayingStyle(isPlaying);
             return (
                 <div
                     key={i}

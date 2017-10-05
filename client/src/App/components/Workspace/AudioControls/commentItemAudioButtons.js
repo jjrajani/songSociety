@@ -9,21 +9,35 @@ class commentItemAudioButtons extends withAudioControls {
                 glyph: 'play',
                 title: 'Preview Track',
                 glyph_wrapper_id: 'play_button',
+                glyph_wrapper_class: 'play_button',
                 onClick: (audioPlayerId, src) => {
                     this.playWithSource(audioPlayerId, src);
+                },
+                applyIsPlayingStyle: isPlaying => {
+                    console.log('swith style');
+                    this.applyIsPlayingStyles(isPlaying, this.controlGlyphs[0]);
                 }
             },
             {
                 glyph: 'pause',
                 title: 'Pause Preview',
                 glyph_wrapper_id: 'pause_button',
-                onClick: audioPlayerId => this.pauseAudio(audioPlayerId)
+                glyph_wrapper_class: 'pause_button',
+                onClick: audioPlayerId => this.pauseAudio(audioPlayerId),
+                applyIsPlayingStyle: isPlaying => {
+                    console.log('swith style');
+                    this.applyIsPlayingStyles(isPlaying, this.controlGlyphs[1]);
+                }
             },
             {
                 glyph: 'backward',
                 title: 'Rewind Preview',
                 glyph_wrapper_id: 'rewind_button',
-                onClick: audioPlayerId => this.restartAudio(audioPlayerId)
+                glyph_wrapper_class: 'rewind_button',
+                onClick: audioPlayerId => this.restartAudio(audioPlayerId),
+                applyIsPlayingStyle: () => {
+                    return;
+                }
             }
         ];
     }

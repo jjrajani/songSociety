@@ -26,7 +26,9 @@ a {
   a:hover {
     text-decoration: none !important; }
 
-.display_none {
+.display_none,
+#hidden,
+.hidden {
   visibility: hidden;
   display: none; }
 

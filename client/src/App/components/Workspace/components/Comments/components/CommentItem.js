@@ -29,6 +29,7 @@ class CommentItem extends commentItemAudioButtons {
                         buttons={this.controlGlyphs}
                         audioSrcId={`comment_audio_player_${i}`}
                         src={comment.audio}
+                        isPlaying={this.state.isPlaying}
                     />
                 </div>
             </div>
