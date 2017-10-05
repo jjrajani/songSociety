@@ -2,6 +2,10 @@ import * as secrets from '../../../secrets';
 import t from './types';
 import axios from 'axios';
 
+export const promoteAudio = audio => dispatch => {
+    console.log('promote audio', audio);
+};
+
 export const togglePageView = page => dispatch => {
     dispatch({ type: t.TOGGLE_WORKSPACE_PAGE_VIEW, payload: page });
 };

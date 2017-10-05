@@ -10,7 +10,7 @@ module.exports = app => {
         // fetch comments for workspace
         const comments = await Comment.find({
             workspaceId: req.params.workspaceId
-        });
+        }).sort('-createdAt');
         const project = await Project.findById(req.params.workspaceId);
         const { currentAudio } = project;
         let orderedComments = comments.reduce((a, b) => {

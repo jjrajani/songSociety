@@ -1,4 +1,7 @@
 import React from 'react';
+//Tools
+import { connect } from 'react-redux';
+import * as actions from '../../../../../actions';
 // Components
 import AudioControlButtons from '../../../AudioControls/AudioControlButtons';
 import AudioPlayer from '../../AudioPlayer/AudioPlayer';
@@ -20,6 +23,8 @@ class CommentItem extends commentItemAudioButtons {
                     {comment.audio.length > 0 &&
                         <div className="utils">
                             <Glyphicon
+                                onClick={() =>
+                                    this.props.promoteAudio(comment.audio)}
                                 className={
                                     comment.audio === currentAudio &&
                                     currentAudio !== ''
@@ -59,4 +64,6 @@ class CommentItem extends commentItemAudioButtons {
     }
 }
 
-export default CommentItem;
+export default connect(null, {
+    promoteAudio: actions.workspaceActions.promoteAudio
+})(CommentItem);

@@ -32,7 +32,7 @@ module.exports = app => {
     });
     // GET All users
     app.get('/api/users', async (req, res) => {
-        const users = await User.find();
+        const users = await User.find().sort('nickname');
 
         res.send(users);
     });

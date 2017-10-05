@@ -27,9 +27,12 @@ export const addComment = (userId, workspaceId, values) => async dispatch => {
             workspaceId
         };
 
-        let posted = await axios.post(`/api/${workspaceId}/comments`, comment);
+        let postedComment = await axios.post(
+            `/api/${workspaceId}/comments`,
+            comment
+        );
 
-        dispatch({ type: t.ADD_COMMENT, payload: posted.data });
+        dispatch({ type: t.ADD_COMMENT, payload: postedComment.data });
     } else {
         const comment = {
             userId,

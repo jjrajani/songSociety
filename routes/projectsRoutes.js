@@ -8,8 +8,8 @@ module.exports = app => {
     app.get('/api/:userId/projects', async (req, res) => {
         const userProjects = await Project.find({
             user: req.params.userId
-        });
-        const projects = await Project.find();
+        }).sort('-createdAt');
+        const projects = await Project.find().sort('-createdAt');
         const collabProjects = projects.filter(p => {
             return p.collaborators.indexOf(req.params.userId) !== -1;
         });
