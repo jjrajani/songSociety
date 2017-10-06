@@ -20,7 +20,8 @@
       height: 15px;
       width: 15px;
       border-radius: 50%;
-      background-color: #eee; }
+      background-color: #eee;
+      cursor: pointer; }
   .track_bar_wrapper#add_comment_track_bar_wrapper {
     position: absolute;
     width: calc(100% - 32px);

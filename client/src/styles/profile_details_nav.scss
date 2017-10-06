@@ -1,14 +1,14 @@
 $red: rgb(221, 0, 0);
 
-.profile {
-    .details {
-    }
-}
-
 .details_nav {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    .links {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
     p {
         margin: 0;
         padding: 5px 10px;
@@ -34,7 +34,24 @@ $red: rgb(221, 0, 0);
 }
 .profile {
     .details_nav {
-        justify-content: flex-start;
+        display: flex;
+        justify-content: space-between;
+        .links {
+            justify-content: flex-start;
+        }
+        .stripe_pay {
+            span {
+                button {
+                    color: #fff;
+                    background-color: transparent;
+                    border-color: #d43f3a;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: darken(#d9534f, 13%);
+                    }
+                }
+            }
+        }
     }
 }
 @media screen and (max-width: 768px) {
@@ -43,5 +60,19 @@ $red: rgb(221, 0, 0);
         padding-top: 10px;
         justify-content: flex-end;
         margin: 0 10px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .details_nav {
+        flex-wrap: wrap;
+        .links {
+            width: 100%;
+        }
+        .stripe_pay {
+            width: 100%;
+            text-align: right;
+            margin-top: 10px;
+        }
     }
 }

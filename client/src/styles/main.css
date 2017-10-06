@@ -219,7 +219,7 @@ ul.nav button {
       display: inline-block;
       white-space: nowrap; }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .profile .bio {
     display: flex;
     flex-wrap: wrap;
@@ -267,6 +267,10 @@ ul.nav button {
   display: flex;
   align-items: center;
   justify-content: flex-end; }
+  .details_nav .links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; }
   .details_nav p {
     margin: 0;
     padding: 5px 10px;
@@ -286,7 +290,17 @@ ul.nav button {
       font-size: 1.2rem; }
 
 .profile .details_nav {
-  justify-content: flex-start; }
+  display: flex;
+  justify-content: space-between; }
+  .profile .details_nav .links {
+    justify-content: flex-start; }
+  .profile .details_nav .stripe_pay span button {
+    color: #fff;
+    background-color: transparent;
+    border-color: #d43f3a;
+    cursor: pointer; }
+    .profile .details_nav .stripe_pay span button:hover {
+      background-color: #bd2d29; }
 
 @media screen and (max-width: 768px) {
   .details_nav {
@@ -294,6 +308,16 @@ ul.nav button {
     padding-top: 10px;
     justify-content: flex-end;
     margin: 0 10px; } }
+
+@media screen and (max-width: 550px) {
+  .details_nav {
+    flex-wrap: wrap; }
+    .details_nav .links {
+      width: 100%; }
+    .details_nav .stripe_pay {
+      width: 100%;
+      text-align: right;
+      margin-top: 10px; } }
 
 .workspace .audio_wrapper {
   position: relative;
@@ -816,7 +840,8 @@ ul.nav button {
       height: 15px;
       width: 15px;
       border-radius: 50%;
-      background-color: #eee; }
+      background-color: #eee;
+      cursor: pointer; }
   .track_bar_wrapper#add_comment_track_bar_wrapper {
     position: absolute;
     width: calc(100% - 32px);
@@ -839,3 +864,13 @@ ul.nav button {
       height: 100%;
       margin-top: 5px;
       background-color: rgba(255, 255, 255, 0.3) !important; }
+
+.artist.list_item {
+  cursor: default; }
+  .artist.list_item .link {
+    cursor: pointer;
+    width: 100%; }
+  .artist.list_item .buttons {
+    height: 100%; }
+    .artist.list_item .buttons .glyph {
+      cursor: pointer; }

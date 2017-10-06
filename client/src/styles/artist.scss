@@ -1,0 +1,13 @@
+.artist.list_item {
+    cursor: default;
+    .link {
+        cursor: pointer;
+        width: 100%;
+    }
+    .buttons {
+        height: 100%;
+        .glyph {
+            cursor: pointer;
+        }
+    }
+}

@@ -15,6 +15,11 @@ export default function(state = { list: [], currentFollower: {} }, action) {
                 ...state,
                 currentFollower: action.payload
             };
+        case t.ADD_FOLLOWER:
+            return {
+                ...state,
+                list: [action.payload, ...state.list]
+            };
         default:
             return state;
     }

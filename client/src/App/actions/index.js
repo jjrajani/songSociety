@@ -9,6 +9,7 @@ import * as usersActions from './users/actions';
 import * as commentsActions from './comments/actions';
 import * as collaboratorsActions from './collaborators/actions';
 import * as inviteActions from './invites/actions';
+import * as stripeActions from './stripePay/actions';
 
 export {
     authActions,
@@ -21,5 +22,6 @@ export {
     usersActions,
     commentsActions,
     collaboratorsActions,
-    inviteActions
+    inviteActions,
+    stripeActions
 };

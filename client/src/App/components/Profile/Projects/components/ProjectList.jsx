@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 
 const ProjectList = ({ profile, projects }) =>
     <ul className="list">
-        {projects.myProjects.map((p, i) => {
-            return <ProjectItem key={i} project={p} />;
-        })}
+        {projects.myProjects &&
+            projects.myProjects.map((p, i) => {
+                return <ProjectItem key={i} project={p} />;
+            })}
     </ul>;
 
 function mapStateToProps({ profile, projects }) {
