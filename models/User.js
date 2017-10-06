@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 const userSchema = new Schema(
     {
         paid: { type: Boolean, default: false },
+        storageSize: { type: Number, default: 0 },
         description: String,
         website: String,
         // init the following from google
