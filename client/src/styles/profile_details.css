@@ -6,7 +6,7 @@
     padding: 0; }
     .profile .details .projects,
     .profile .details .followers {
-      margin: 0 15px; }
+      margin: 0 15px 50px; }
       .profile .details .projects .list .list_item,
       .profile .details .followers .list .list_item {
         flex-wrap: wrap;

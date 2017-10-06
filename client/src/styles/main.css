@@ -249,7 +249,7 @@ ul.nav button {
     padding: 0; }
     .profile .details .projects,
     .profile .details .followers {
-      margin: 0 15px; }
+      margin: 0 15px 50px; }
       .profile .details .projects .list .list_item,
       .profile .details .followers .list .list_item {
         flex-wrap: wrap;
@@ -368,6 +368,9 @@ ul.nav button {
   max-width: 800px;
   height: 11px;
   border: solid 1px #aaa; }
+
+.workspace .details {
+  margin-bottom: 50px; }
 
 .workspace .details_nav {
   margin-top: 10px;

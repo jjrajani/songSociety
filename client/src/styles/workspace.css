@@ -48,6 +48,9 @@
   height: 11px;
   border: solid 1px #aaa; }
 
+.workspace .details {
+  margin-bottom: 50px; }
+
 .workspace .details_nav {
   margin-top: 10px;
   margin-left: 0 !important;
