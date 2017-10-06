@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const FollowerItem = ({ follower }) => {
     return (
-        <Link to={`/follower/${follower._id}`}>
+        <Link to={`/artist/${follower._id}`}>
             <li className="list_item">
                 <h5 className="title">
                     <img

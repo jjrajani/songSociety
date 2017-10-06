@@ -38,9 +38,16 @@ module.exports = app => {
     });
     // GET a single user
     app.get('/api/user/:id', async (req, res) => {
-        const user = await User.find({
+        let user = await User.find({
             authId: req.params.id
         });
-        res.send(user[0]);
+        if (user.length === 0) {
+            user = await User.findById(req.params.id);
+        }
+        if (user[0]) {
+            res.send(user[0]);
+        } else {
+            res.send(user);
+        }
     });
 };

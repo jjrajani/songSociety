@@ -8,7 +8,10 @@ const User = mongoose.model('users');
 module.exports = app => {
     // GET Followers
     app.get('/api/:userId/followers', async (req, res) => {
-        const user = await User.findOne({ authId: req.params.userId });
+        let user = await User.findOne({ authId: req.params.userId });
+        if (!user) {
+            user = await User.findById(req.params.userId);
+        }
         const followers = await User.find(
             { authId: { $in: user.followers } },
             (err, docs) => {

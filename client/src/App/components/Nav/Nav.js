@@ -46,12 +46,11 @@ class MyNav extends Component {
     render() {
         const { navExpanded, activeTab } = this.props.nav;
         const { toggleNav } = this.props;
+        const isArtistRoute =
+            this.props.history.location.pathname.split('/')[1] === 'artist';
         const incoming =
             this.props.invites.incoming &&
             this.props.invites.incoming.length > 0;
-        const outgoing =
-            this.props.invites.outgoing &&
-            this.props.invites.outgoing.length > 0;
         return (
             <Navbar
                 onToggle={toggleNav}
@@ -67,7 +66,8 @@ class MyNav extends Component {
                             The Labz
                         </a>
                     </Navbar.Brand>
-                    {(incoming || outgoing) &&
+                    {incoming &&
+                        !isArtistRoute &&
                         <Glyphicon
                             onClick={() => this.goTo('/pending_invites')}
                             glyph="envelope"
@@ -77,7 +77,8 @@ class MyNav extends Component {
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav pullRight onSelect={this.props.closeNav}>
-                        {(incoming || outgoing) &&
+                        {incoming &&
+                            !isArtistRoute &&
                             <Glyphicon
                                 onClick={() => this.goTo('/pending_invites')}
                                 glyph="envelope"
