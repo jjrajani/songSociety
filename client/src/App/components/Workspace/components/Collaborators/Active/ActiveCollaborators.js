@@ -3,8 +3,10 @@ import ArtistItem from '../ArtistItem';
 import { connect } from 'react-redux';
 
 const ActiveCollaborators = ({ collaborators, users }) => {
+    console.log('active collaborators', collaborators);
+    console.log('active users', users);
     const activeCollaborators = users.filter(u => {
-        return collaborators.indexOf(u.authId) !== -1;
+        return collaborators.indexOf(u._id) !== -1;
     });
     return (
         <ul className="list col-xs-12">
