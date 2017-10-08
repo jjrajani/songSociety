@@ -10,6 +10,7 @@ export const handleAuthenticationParse = (nextState, replace) => dispatch => {
 };
 
 export const login = () => dispatch => {
+    localStorage.setItem('goingToLoginRoute', 'true');
     auth.login();
     dispatch({ type: 'LOGIN', payload: auth });
 };

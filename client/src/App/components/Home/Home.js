@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // Tools
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import { withRouter } from 'react-router-dom';
 // Components
 import LandingCarousel from '../LandingCarousel/LandingCarousel';
 
@@ -12,6 +13,11 @@ class Home extends Component {
             this.props.getProfile().then(res => {
                 const userId = res.sub;
                 this.props.fetchProfile(userId);
+                let fromLogin = localStorage.getItem('goingToLoginRoute');
+                if (fromLogin === 'true') {
+                    localStorage.removeItem('goingToLoginRoute');
+                    this.props.history.push('/my_profile');
+                }
             });
         }
     }
@@ -31,4 +37,4 @@ function mapStateToProps({ auth, profile }) {
 export default connect(mapStateToProps, {
     getProfile: actions.authActions.getProfile,
     fetchProfile: actions.profileActions.fetchProfile
-})(Home);
+})(withRouter(Home));
