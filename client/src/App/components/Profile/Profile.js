@@ -53,7 +53,6 @@ class Profile extends Component {
         });
     }
     getArtistProfile(id) {
-        console.log('getting artist profile', id);
         this.props.fetchProfile(id);
         this.props.fetchGroups(id);
         this.props.fetchFollowers(id);

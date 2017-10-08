@@ -6,27 +6,30 @@ const User = mongoose.model('users');
 module.exports = app => {
     // GET user projects
     app.get('/api/:userId/projects', async (req, res) => {
-        let userProjects = await Project.find({
-            user: req.params.userId
-        });
         const projects = await Project.find().sort('-created_at');
+        let userProjects;
         let collabProjects;
-
-        if (userProjects.length === 0) {
-            const authUser = await User.findById(req.params.userId);
+        if (req.params.userId.includes('google')) {
             userProjects = await Project.find({
-                user: authUser.authId
-            }).sort('-created_at');
-            collabProjects = projects.filter(p => {
-                return p.collaborators.indexOf(authUser._id);
+                user: req.params.userId
             });
-        } else {
-            userProjects.sort('-created_at');
             collabProjects = projects.filter(p => {
                 return p.collaborators.indexOf(req.params.userId) !== -1;
             });
+        } else {
+            const artist = await User.findById(req.params.userId);
+            const { authId } = artist;
+
+            userProjects = await Project.find({
+                user: authId
+            });
+            collabProjects = projects.filter(p => {
+                return p.collaborators.indexOf(authId) !== -1;
+            });
         }
 
-        res.send({ myProjects: userProjects, collabs: collabProjects });
+        res
+            .status(200)
+            .send({ myProjects: userProjects, collabs: collabProjects });
     });
 };

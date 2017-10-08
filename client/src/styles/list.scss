@@ -1,3 +1,5 @@
+$red: rgb(221, 0, 0);
+
 .list {
     .list_item {
         border: solid #ccc 1px;
@@ -7,6 +9,13 @@
         align-items: center;
         padding: 10px;
         margin: 10px 0;
+        &.no_link {
+            i {
+                color: $red;
+                font-size: 2rem;
+                margin-right: 10px;
+            }
+        }
         li {
             display: flex;
             width: 100%;
@@ -25,6 +34,10 @@
         &:hover {
             background-color: #eee;
             cursor: pointer;
+            &.no_link {
+                background-color: transparent !important;
+                cursor: default;
+            }
         }
         .label {
             color: #555;

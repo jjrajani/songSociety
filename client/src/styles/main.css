@@ -521,6 +521,10 @@ ul.nav button {
   align-items: center;
   padding: 10px;
   margin: 10px 0; }
+  .list .list_item.no_link i {
+    color: #dd0000;
+    font-size: 2rem;
+    margin-right: 10px; }
   .list .list_item li {
     display: flex;
     width: 100%;
@@ -536,6 +540,9 @@ ul.nav button {
   .list .list_item:hover {
     background-color: #eee;
     cursor: pointer; }
+    .list .list_item:hover.no_link {
+      background-color: transparent !important;
+      cursor: default; }
   .list .list_item .label {
     color: #555;
     font-size: 1.25rem; }
