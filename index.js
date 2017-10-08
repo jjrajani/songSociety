@@ -58,6 +58,9 @@ if (process.env.NODE_ENV === 'production') {
     app.get('/pending_invites', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
+    app.get('/login', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
 }
 
 app.get('/', (req, res) => {
@@ -82,6 +85,9 @@ app.get('/workspace/:id', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
 app.get('/pending_invites', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+});
+app.get('/login', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
 app.use(express.static('client/build'));
