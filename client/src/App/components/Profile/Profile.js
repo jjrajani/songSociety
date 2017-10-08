@@ -16,7 +16,12 @@ class Profile extends Component {
         this.pathname;
     }
     componentDidMount() {
-        this.getLoggedInProfile();
+        if (history.location.pathname.includes('artist')) {
+            let artistId = history.location.pathname.split('/')[2];
+            this.getArtistProfile(artistId);
+        } else {
+            this.getLoggedInProfile();
+        }
         this.location = history.location.pathname;
         this.unlisten = history.listen(location => {
             let currentLocation = location.pathname;
@@ -48,6 +53,7 @@ class Profile extends Component {
         });
     }
     getArtistProfile(id) {
+        console.log('getting artist profile', id);
         this.props.fetchProfile(id);
         this.props.fetchGroups(id);
         this.props.fetchFollowers(id);
