@@ -13,7 +13,6 @@ import StripeCheckout from 'react-stripe-checkout';
 class PrivatiseWorkspace extends Component {
     render() {
         const workspaceId = this.props.workspaceId;
-        console.log('workspaceId', workspaceId);
         return (
             <StripeCheckout
                 amount={100}

@@ -12,7 +12,6 @@ import StripeCheckout from 'react-stripe-checkout';
 
 class GetMoreStorage extends Component {
     render() {
-        console.log('getmore storage', this.props.profile);
         const userId = this.props.profile.profile._id;
         const { paid, storageSize } = this.props.profile.profile;
         return (
