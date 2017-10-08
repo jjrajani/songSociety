@@ -20,6 +20,11 @@ export default function(state = { list: [], currentFollower: {} }, action) {
                 ...state,
                 list: [action.payload, ...state.list]
             };
+        case t.LOGOUT:
+            return {
+                list: [],
+                currentFollower: {}
+            };
         default:
             return state;
     }

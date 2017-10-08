@@ -7,6 +7,12 @@ export default function(state = { myProjects: [], collabs: [] }, action) {
             myProjects: action.payload.myProjects,
             collabs: action.payload.collabs
         };
+    case t.LOGOUT: {
+        return {
+            myProjects: [],
+            collabs: []
+        };
+    }
     default:
         return state;
     }

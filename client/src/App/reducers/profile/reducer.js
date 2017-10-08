@@ -28,6 +28,13 @@ export default function(
                 }
             };
             return newState;
+        case t.LOGOUT: {
+            return {
+                profile: {},
+                pageView: 'projects',
+                userId: ''
+            };
+        }
         default:
             return state;
     }

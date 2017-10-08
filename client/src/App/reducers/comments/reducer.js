@@ -62,6 +62,13 @@ export default function(
                 list: newList
             };
         }
+        case t.LOGOUT:
+            return {
+                list: [],
+                newComment: { content: '', audio: '' },
+                currentComment: {},
+                currentAudio: ''
+            };
         default:
             return state;
     }

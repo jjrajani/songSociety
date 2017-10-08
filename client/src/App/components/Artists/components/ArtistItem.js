@@ -8,7 +8,10 @@ import { Link } from 'react-router-dom';
 
 const ArtistItem = ({ auth, user, profile, addFollower }) => {
     const isAuthenticated = auth.isAuthenticated();
-    const isFollowed = profile.profile.followers.indexOf(user.authId) !== -1;
+    let isFollowed = false;
+    if (profile.profile.followers) {
+        isFollowed = profile.profile.followers.indexOf(user.authId) !== -1;
+    }
     return (
         <div className="list_item artist col-xs-12 col-sm-6 col-md-4">
             <Link to={`/artist/${user._id}`} className="link">

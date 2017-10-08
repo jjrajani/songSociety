@@ -22,6 +22,7 @@ class Profile extends Component {
         } else {
             this.getLoggedInProfile();
         }
+        this.props.togglePageView('projects');
         this.location = history.location.pathname;
         this.unlisten = history.listen(location => {
             let currentLocation = location.pathname;
@@ -81,5 +82,6 @@ export default connect(mapStateToProps, {
     fetchGroups: actions.groupsActions.fetchGroups,
     fetchProjects: actions.projectsActions.fetchProjects,
     fetchFollowers: actions.followersActions.fetchFollowers,
-    toggleActiveTab: actions.navActions.toggleActiveTab
+    toggleActiveTab: actions.navActions.toggleActiveTab,
+    togglePageView: actions.profileActions.togglePageView
 })(withRouter(Profile));

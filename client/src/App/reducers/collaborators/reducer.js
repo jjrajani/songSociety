@@ -27,6 +27,11 @@ export default function(state = { list: [], pageView: 'active' }, action) {
                 ...state,
                 pageView: action.payload
             };
+        case t.LOGOUT:
+            return {
+                list: [],
+                pageView: 'active'
+            };
         default:
             return state;
     }

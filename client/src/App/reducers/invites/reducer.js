@@ -47,6 +47,13 @@ export default function(
                 incoming: newIncomingInvites
             };
         }
+        case t.LOGOUT: {
+            return {
+                incoming: [],
+                outgoing: [],
+                activeTab: 'incoming'
+            };
+        }
         default:
             return state;
     }

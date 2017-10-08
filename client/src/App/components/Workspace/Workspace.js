@@ -19,7 +19,7 @@ class Workspaces extends workspaceAudioButtons {
         if (workspaceId && workspaceId !== 'new') {
             this.props.fetchWorkspace(workspaceId);
         } else {
-            this.props.initWorkspace();
+            this.props.resetWorkspace();
         }
     }
     componentWillMount() {

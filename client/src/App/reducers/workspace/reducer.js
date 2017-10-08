@@ -55,6 +55,14 @@ export default function(
                 project: action.payload
             };
         }
+        case t.LOGOUT: {
+            return {
+                project: { name: 'Untitled', collaborators: [] },
+                editTitleMode: false,
+                pageView: 'comments',
+                isTouched: false
+            };
+        }
         default:
             return state;
     }

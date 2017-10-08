@@ -11,6 +11,9 @@ export default function(
             return { ...state, navExpanded: !state.navExpanded };
         case t.TOGGLE_ACTIVE_TAB:
             return { ...state, activeTab: action.payload };
+        case t.LOGOUT: {
+            return { navExpanded: false, activeTab: '/' };
+        }
         default:
             return state;
     }

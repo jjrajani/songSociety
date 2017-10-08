@@ -13,17 +13,6 @@ const authLinks = [
     {
         location: '/my_profile',
         text: 'Profile'
-    },
-    {
-        location: '/artists',
-        text: 'Artists'
-    }
-];
-
-const noAuthLinks = [
-    {
-        location: '/artists',
-        text: 'Artists'
     }
 ];
 
@@ -51,6 +40,7 @@ class MyNav extends Component {
         const incoming =
             this.props.invites.incoming &&
             this.props.invites.incoming.length > 0;
+        const isAuthenticated = this.props.auth.isAuthenticated();
         return (
             <Navbar
                 onToggle={toggleNav}
@@ -68,6 +58,7 @@ class MyNav extends Component {
                     </Navbar.Brand>
                     {incoming &&
                         !isArtistRoute &&
+                        isAuthenticated &&
                         <Glyphicon
                             onClick={() => this.goTo('/pending_invites')}
                             glyph="envelope"
@@ -79,6 +70,7 @@ class MyNav extends Component {
                     <Nav pullRight onSelect={this.props.closeNav}>
                         {incoming &&
                             !isArtistRoute &&
+                            isAuthenticated &&
                             <Glyphicon
                                 onClick={() => this.goTo('/pending_invites')}
                                 glyph="envelope"
@@ -94,8 +86,18 @@ class MyNav extends Component {
                         >
                             Home
                         </Button>
-                        {this.renderNoAuthLinks()}
                         {this.renderAuthLinks()}
+                        <Button
+                            className={
+                                activeTab === '/artist' ||
+                                activeTab === '/artists'
+                                    ? 'alive btn-margin btn btn-default'
+                                    : 'btn-margin btn btn-default'
+                            }
+                            onClick={() => this.goTo('/artists')}
+                        >
+                            Artists
+                        </Button>
                         {this.renderWorkspaceButton()}
                         <LoginButtons />
                     </Nav>
@@ -130,28 +132,6 @@ class MyNav extends Component {
         const { activeTab } = this.props.nav;
         return isAuthenticated
             ? authLinks.map((l, i) => {
-                  return (
-                      <Button
-                          key={i}
-                          className={
-                              activeTab === l.location
-                                  ? 'alive btn-margin btn btn-default'
-                                  : 'btn-margin btn btn-default'
-                          }
-                          onClick={() => this.goTo(l.location)}
-                      >
-                          {l.text}
-                      </Button>
-                  );
-              })
-            : null;
-    }
-
-    renderNoAuthLinks() {
-        const isAuthenticated = this.props.auth.isAuthenticated();
-        const { activeTab } = this.props.nav;
-        return !isAuthenticated
-            ? noAuthLinks.map((l, i) => {
                   return (
                       <Button
                           key={i}
