@@ -38,10 +38,18 @@ const Bio = ({ profile, history }) => {
                         {nickname}
                     </h3>
                     <h5>
-                        {email}
+                        {email === 'Add your email'
+                            ? email
+                            : <a href={`mailto:${email}`}>
+                                  {email}
+                              </a>}
                     </h5>
                     <h5>
-                        {website}
+                        {website === 'Add your website.'
+                            ? website
+                            : <a href={website}>
+                                  {website}
+                              </a>}
                     </h5>
                     <p>
                         {description}
