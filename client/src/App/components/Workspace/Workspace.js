@@ -18,6 +18,8 @@ class Workspaces extends workspaceAudioButtons {
         const { workspaceId } = this.props.match.params;
         if (workspaceId && workspaceId !== 'new') {
             this.props.fetchWorkspace(workspaceId);
+        } else {
+            this.props.initWorkspace();
         }
     }
     componentWillMount() {
@@ -61,5 +63,6 @@ function mapStateToProps({ profile, workspace }) {
 
 export default connect(mapStateToProps, {
     getProfile: actions.authActions.getProfile,
-    fetchWorkspace: actions.workspaceActions.fetchWorkspace
+    fetchWorkspace: actions.workspaceActions.fetchWorkspace,
+    resetWorkspace: actions.workspaceActions.resetWorkspace
 })(withRouter(Workspaces));

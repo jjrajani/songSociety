@@ -24,6 +24,13 @@ const Bio = ({ profile, history }) => {
                     <img className="avatar" src={img} alt="profile pic" />
                 </div>
                 <div className="row user_info">
+                    {!isArtistRoute &&
+                        isPrivate === true &&
+                        <div className="stripe_pay">
+                            <p className="btn btn-danger">
+                                Your profile is private
+                            </p>
+                        </div>}
                     <h1>
                         {name}
                     </h1>
@@ -46,9 +53,6 @@ const Bio = ({ profile, history }) => {
                 <div className="stripe_pay">
                     <PrivatiseProfile />
                 </div>}
-            {!isArtistRoute &&
-                isPrivate === true &&
-                <div className="stripe_pay">Your profile is private</div>}
         </div>
     );
 };

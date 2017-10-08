@@ -13,3 +13,11 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between; }
+
+.profile .stripe_pay span button {
+  color: #fff;
+  background-color: transparent;
+  border-color: #d43f3a;
+  cursor: pointer; }
+  .profile .stripe_pay span button:hover {
+    background-color: #bd2d29; }

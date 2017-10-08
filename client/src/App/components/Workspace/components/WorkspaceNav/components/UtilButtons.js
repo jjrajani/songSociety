@@ -18,7 +18,7 @@ const UtilButtons = ({ history, auth, workspace, isPrivate, isChanged }) => {
             {isLoggedIn &&
                 workspaceId &&
                 isPrivate === true &&
-                <i className="fa fa-lock" style={{ color: 'red' }} />}
+                <i className="fa fa-lock" title="Workspace is Private" />}
             {isLoggedIn &&
                 <button
                     type="submit"

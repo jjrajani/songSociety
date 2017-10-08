@@ -39,19 +39,6 @@ $red: rgb(221, 0, 0);
         .links {
             justify-content: flex-start;
         }
-        .stripe_pay {
-            span {
-                button {
-                    color: #fff;
-                    background-color: transparent;
-                    border-color: #d43f3a;
-                    cursor: pointer;
-                    &:hover {
-                        background-color: darken(#d9534f, 13%);
-                    }
-                }
-            }
-        }
     }
 }
 @media screen and (max-width: 768px) {

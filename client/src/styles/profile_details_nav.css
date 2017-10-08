@@ -29,13 +29,6 @@
   justify-content: space-between; }
   .profile .details_nav .links {
     justify-content: flex-start; }
-  .profile .details_nav .stripe_pay span button {
-    color: #fff;
-    background-color: transparent;
-    border-color: #d43f3a;
-    cursor: pointer; }
-    .profile .details_nav .stripe_pay span button:hover {
-      background-color: #bd2d29; }
 
 @media screen and (max-width: 768px) {
   .details_nav {

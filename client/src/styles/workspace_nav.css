@@ -27,6 +27,9 @@
         border: none; }
       .workspace_nav .container .util_buttons_wrapper button.highlight .glyphicon-cloud-upload {
         color: yellow !important; }
+      .workspace_nav .container .util_buttons_wrapper .fa-lock {
+        color: red;
+        font-size: 2rem; }
   .workspace_nav p,
   .workspace_nav input {
     color: white;

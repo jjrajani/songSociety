@@ -167,6 +167,14 @@ ul.nav button {
   align-items: baseline;
   justify-content: space-between; }
 
+.profile .stripe_pay span button {
+  color: #fff;
+  background-color: transparent;
+  border-color: #d43f3a;
+  cursor: pointer; }
+  .profile .stripe_pay span button:hover {
+    background-color: #bd2d29; }
+
 .profile .bio .avatar_wrapper {
   display: flex;
   justify-content: center;
@@ -294,13 +302,6 @@ ul.nav button {
   justify-content: space-between; }
   .profile .details_nav .links {
     justify-content: flex-start; }
-  .profile .details_nav .stripe_pay span button {
-    color: #fff;
-    background-color: transparent;
-    border-color: #d43f3a;
-    cursor: pointer; }
-    .profile .details_nav .stripe_pay span button:hover {
-      background-color: #bd2d29; }
 
 @media screen and (max-width: 768px) {
   .details_nav {
@@ -453,6 +454,9 @@ ul.nav button {
         border: none; }
       .workspace_nav .container .util_buttons_wrapper button.highlight .glyphicon-cloud-upload {
         color: yellow !important; }
+      .workspace_nav .container .util_buttons_wrapper .fa-lock {
+        color: red;
+        font-size: 2rem; }
   .workspace_nav p,
   .workspace_nav input {
     color: white;
