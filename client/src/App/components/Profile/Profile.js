@@ -11,9 +11,9 @@ import Details from './Details/Details';
 class Profile extends Component {
     constructor(props) {
         super(props);
-        this.unlisten;
-        this.artist;
-        this.pathname;
+        this.unlisten = null;
+        this.artist = null;
+        this.pathname = null;
     }
     componentDidMount() {
         if (history.location.pathname.includes('artist')) {

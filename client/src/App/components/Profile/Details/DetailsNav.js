@@ -2,16 +2,8 @@ import React from 'react';
 // Tools
 import { connect } from 'react-redux';
 import * as actions from '../../../actions';
-import { withRouter } from 'react-router-dom';
 
-const DetailsNav = ({
-    togglePageView,
-    activeTab,
-    projects,
-    followers,
-    history
-}) => {
-    const isArtistRoute = history.location.pathname.split('/')[1] === 'artist';
+const DetailsNav = ({ togglePageView, activeTab, projects, followers }) => {
     return (
         <div className="details_nav">
             <div className="links">
@@ -59,4 +51,4 @@ function mapStateToProps({ profile, projects, followers }) {
 
 export default connect(mapStateToProps, {
     togglePageView: actions.profileActions.togglePageView
-})(withRouter(DetailsNav));
+})(DetailsNav);

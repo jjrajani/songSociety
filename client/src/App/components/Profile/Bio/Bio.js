@@ -2,7 +2,6 @@ import React from 'react';
 // Tools
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import * as actions from '../../../actions';
 // Components
 import PrivatiseProfile from '../../StripePay/PrivatiseProfile';
 

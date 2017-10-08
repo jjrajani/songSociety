@@ -8,7 +8,7 @@ import ProjectList from './components/ProjectList';
 import { Link } from 'react-router-dom';
 
 const Projects = ({ profile, projects, history }) => {
-    const { paid, storageSize, isPrivate } = profile;
+    const { paid, storageSize } = profile;
     const usedStorage = 0.8 * projects.myProjects.length;
     const hasStorage = storageSize - usedStorage > 0.8;
     const isArtistRoute = history.location.pathname.split('/')[1] === 'artist';
