@@ -3,7 +3,7 @@ const stripe = require('stripe')(process.env.STRIPE_KEY);
 const mongoose = require('mongoose');
 
 const User = mongoose.model('users');
-// const Project = mongoose.model('projects');
+const Project = mongoose.model('projects');
 
 module.exports = app => {
     // POST Credits
@@ -34,4 +34,14 @@ module.exports = app => {
         user.save();
         res.status(200).send(user);
     });
+
+    app.post(
+        '/api/stripe/privatiseWorkspace/:workspaceId',
+        async (req, res) => {
+            let project = await Project.findById(req.params.workspaceId);
+            project.isPrivate = true;
+            project.save();
+            res.status(200).send(project);
+        }
+    );
 };

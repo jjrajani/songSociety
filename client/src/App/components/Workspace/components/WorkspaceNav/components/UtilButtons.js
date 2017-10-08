@@ -4,11 +4,21 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 // Components
 import { Glyphicon } from 'react-bootstrap';
+import PrivatiseWorkspace from '../../../../StripePay/PrivatiseWorkspace';
 
-const UtilButtons = ({ history, auth, workspace, isChanged }) => {
+const UtilButtons = ({ history, auth, workspace, isPrivate, isChanged }) => {
     const isLoggedIn = auth.isAuthenticated();
+    const workspaceId = workspace.project._id;
     return (
         <div className="util_buttons_wrapper">
+            {isLoggedIn &&
+                workspaceId &&
+                isPrivate === false &&
+                <PrivatiseWorkspace />}
+            {isLoggedIn &&
+                workspaceId &&
+                isPrivate === true &&
+                <i className="fa fa-lock" style={{ color: 'red' }} />}
             {isLoggedIn &&
                 <button
                     type="submit"
@@ -27,7 +37,12 @@ const UtilButtons = ({ history, auth, workspace, isChanged }) => {
 };
 
 function mapStateToProps({ auth, workspace }) {
-    return { auth, isChanged: workspace.isTouched, workspace };
+    return {
+        auth,
+        isChanged: workspace.isTouched,
+        workspace,
+        isPrivate: workspace.project.isPrivate
+    };
 }
 
 export default connect(mapStateToProps)(withRouter(UtilButtons));

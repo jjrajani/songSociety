@@ -17,7 +17,7 @@ class PrivatiseProfile extends Component {
             <StripeCheckout
                 amount={500}
                 name="The Labz"
-                description={'Privatise Profile'}
+                description={'$1 per month to Privatise your Profile'}
                 stripeKey={process.env.REACT_APP_STRIPE_KEY}
                 token={token => this.props.privatiseProfile(userId, token)}
             >

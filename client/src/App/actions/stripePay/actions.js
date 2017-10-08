@@ -15,3 +15,11 @@ export const privatiseProfile = (userId, token) => async dispatch => {
 
     dispatch({ type: t.FETCH_PROFILE, payload: res.data });
 };
+
+export const privatiseWorkspace = (workspaceId, token) => async dispatch => {
+    const res = await axios.post(
+        `/api/stripe/privatiseWorkspace/${workspaceId}`
+    );
+
+    dispatch({ type: t.FETCH_WORKSPACE, payload: res.data });
+};
