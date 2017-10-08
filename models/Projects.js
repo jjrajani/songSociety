@@ -19,6 +19,7 @@ const projectSchema = new Schema(
             type: String,
             default: ''
         } /* Update when new project is created/saved*/,
+        isPrivate: { type: Boolean, default: false },
         comments: { type: [String], default: [] } /* _id's of comment object*/
     },
     { timestamps: { createdAt: 'created_at' } }

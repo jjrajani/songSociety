@@ -3,12 +3,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 // Components
+import GetMoreStorage from '../../StripePay/GetMoreStorage';
 import ProjectList from './components/ProjectList';
 import { Link } from 'react-router-dom';
-import StripePay from '../../StripePay/StripePay';
 
 const Projects = ({ profile, projects, history }) => {
-    const { paid, storageSize } = profile;
+    const { paid, storageSize, isPrivate } = profile;
     const usedStorage = 0.8 * projects.myProjects.length;
     const hasStorage = storageSize - usedStorage > 0.8;
     const isArtistRoute = history.location.pathname.split('/')[1] === 'artist';
@@ -21,6 +21,10 @@ const Projects = ({ profile, projects, history }) => {
                     <p>
                         {usedStorage}GB / {storageSize}GB
                     </p>}
+                {!isArtistRoute &&
+                    <div className="stripe_pay">
+                        <GetMoreStorage />
+                    </div>}
                 {storageSize > 0 &&
                     hasStorage &&
                     !isArtistRoute &&

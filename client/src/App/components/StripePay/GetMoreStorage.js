@@ -10,21 +10,22 @@ import StripeCheckout from 'react-stripe-checkout';
   4242 4242 4242 4242
 */
 
-class StripePay extends Component {
+class GetMoreStorage extends Component {
     render() {
-        const { userId } = this.props.profile;
+        console.log('getmore storage', this.props.profile);
+        const userId = this.props.profile.profile._id;
         const { paid, storageSize } = this.props.profile.profile;
         return (
             <StripeCheckout
                 amount={500}
-                name="Emaily"
+                name="The Labz"
                 description={
                     storageSize > 0
                         ? `Get 5 more GB for $5 a month`
                         : '$5 a month for 5GB of storage'
                 }
                 stripeKey={process.env.REACT_APP_STRIPE_KEY}
-                token={token => this.props.handleToken(userId, token)}
+                token={token => this.props.getMoreStorage(userId, token)}
             >
                 <button className="btn">
                     {paid ? `Get More Storage` : 'Upgrade You Account'}
@@ -39,5 +40,5 @@ function mapStateToProps({ profile }) {
 }
 
 export default connect(mapStateToProps, {
-    handleToken: actions.stripeActions.handleToken
-})(StripePay);
+    getMoreStorage: actions.stripeActions.getMoreStorage
+})(GetMoreStorage);

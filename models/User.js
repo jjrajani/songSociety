@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const userSchema = new Schema(
     {
         paid: { type: Boolean, default: false },
-        storageSize: { type: Number, default: 0 },
+        storageSize: { type: Number, default: 5 },
         description: String,
         website: String,
         // init the following from google
@@ -19,7 +19,8 @@ const userSchema = new Schema(
         invites: {
             incoming: { type: [], default: [] },
             outgoing: { type: [], default: [] }
-        }
+        },
+        isPrivate: { type: Boolean, default: false }
         // facebook
         // twitter
     },

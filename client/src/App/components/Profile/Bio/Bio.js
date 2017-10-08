@@ -1,18 +1,22 @@
 import React from 'react';
 // Tools
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import * as actions from '../../../actions';
 // Components
-import GroupList from './components/GroupList';
+import PrivatiseProfile from '../../StripePay/PrivatiseProfile';
 
-const Bio = ({ profile }) => {
+const Bio = ({ profile, history }) => {
     const {
         img,
         description,
         name,
         email,
         website,
-        nickname
+        nickname,
+        isPrivate
     } = profile.profile;
+    const isArtistRoute = history.location.pathname.split('/')[1] === 'artist';
     return (
         <div className="col-xs-12 col-sm-3 bio">
             <div className="top-left">
@@ -37,7 +41,14 @@ const Bio = ({ profile }) => {
                     </p>
                 </div>
             </div>
-            <GroupList />
+            {!isArtistRoute &&
+                isPrivate === false &&
+                <div className="stripe_pay">
+                    <PrivatiseProfile />
+                </div>}
+            {!isArtistRoute &&
+                isPrivate === true &&
+                <div className="stripe_pay">Your profile is private</div>}
         </div>
     );
 };
@@ -46,4 +57,4 @@ function mapStateToProps({ profile }) {
     return { profile };
 }
 
-export default connect(mapStateToProps)(Bio);
+export default connect(mapStateToProps)(withRouter(Bio));

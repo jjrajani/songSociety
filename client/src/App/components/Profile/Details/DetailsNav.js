@@ -3,8 +3,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../../actions';
 import { withRouter } from 'react-router-dom';
-// Components
-import StripePay from '../../StripePay/StripePay';
 
 const DetailsNav = ({
     togglePageView,
@@ -47,16 +45,16 @@ const DetailsNav = ({
                     <span className="count">{followers.list.length}</span>
                 </p>
             </div>
-            {!isArtistRoute &&
-                <div className="stripe_pay">
-                    <StripePay />
-                </div>}
         </div>
     );
 };
 
 function mapStateToProps({ profile, projects, followers }) {
-    return { activeTab: profile.pageView, projects, followers };
+    return {
+        activeTab: profile.pageView,
+        projects,
+        followers
+    };
 }
 
 export default connect(mapStateToProps, {
