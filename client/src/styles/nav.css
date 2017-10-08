@@ -6,10 +6,12 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  color: white !important; }
+  color: white !important;
+  font-size: 2.5rem;
+  letter-spacing: 0.08rem; }
   .logo.navbar-brand img {
     width: 38px;
-    margin: 0 10px 0 5px; }
+    margin: 0 10px 7px 5px; }
 
 .nav .glyphicon {
   height: 100%;
