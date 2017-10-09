@@ -41,7 +41,7 @@ export default function(
             return {
                 ...state,
                 isTouched: false,
-                project: action.paylaod
+                project: action.payload
             };
         case t.CHANGE_TITLE_FORM:
             return {
