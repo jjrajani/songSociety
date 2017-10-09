@@ -34,7 +34,7 @@ class CommentItem extends commentItemAudioButtons {
                                         ? 'promoted'
                                         : ''
                                 }
-                                title="Download Track"
+                                title="Promote Track"
                                 glyph="pushpin"
                             />
                             <a href={comment.audio}>
