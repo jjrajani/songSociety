@@ -42,7 +42,8 @@ export default function(
             };
         }
         case t.ADD_COMMENT: {
-            let newList = state.list.splice(1, 0, action.payload);
+            let newList = state.list;
+            newList.splice(1, 0, action.payload);
             return {
                 ...state,
                 list: newList
