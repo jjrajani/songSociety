@@ -7,8 +7,6 @@ import * as actions from '../../actions';
 
 class Login extends Component {
     componentDidMount() {
-        // init get profile to store auth profile info on
-        // redux profile object
         this.props.getProfile();
     }
     render() {
