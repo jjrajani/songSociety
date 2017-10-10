@@ -2,8 +2,6 @@ import t from '../../actions/collaborators/types';
 
 export default function(state = { list: [], pageView: 'active' }, action) {
     switch (action.type) {
-        // case t.FETCH_COLLABORATORS:
-        //     return action.payload;
         case t.ADD_COLLABORATOR:
             return {
                 ...state,
