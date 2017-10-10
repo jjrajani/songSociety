@@ -581,15 +581,15 @@ ul.nav button {
     background-color: transparent !important; }
   .comments_list_wrapper .list .list_item .text_wrapper {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
     width: 100%; }
     .comments_list_wrapper .list .list_item .text_wrapper img {
       width: 60px;
-      border-radius: 20%; }
+      border-radius: 20%;
+      margin-right: 10px; }
     .comments_list_wrapper .list .list_item .text_wrapper p {
       padding-top: 0 !important;
-      width: calc(100% - 140px); }
+      width: calc(100% - 130px); }
     .comments_list_wrapper .list .list_item .text_wrapper .utils {
       width: 50px;
       display: flex;

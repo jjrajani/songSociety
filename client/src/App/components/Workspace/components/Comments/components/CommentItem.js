@@ -26,6 +26,7 @@ class CommentItem extends commentItemAudioButtons {
                                 onClick={() =>
                                     this.props.promoteAudio(
                                         workspace.project._id,
+                                        comment._id,
                                         comment.audio
                                     )}
                                 className={

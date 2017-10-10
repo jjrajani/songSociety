@@ -7,7 +7,8 @@ const commentSchema = new Schema(
         userImg: { type: String, default: '' },
         content: { type: String, default: '' },
         audio: { type: String, default: '' },
-        workspaceId: { type: String, default: '' }
+        workspaceId: { type: String, default: '' },
+        isPromoted: { type: Boolean, default: false }
     },
     { timestamps: { createdAt: 'created_at' } }
 );

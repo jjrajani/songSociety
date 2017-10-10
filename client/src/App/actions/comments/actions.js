@@ -40,8 +40,11 @@ export const addComment = (userId, workspaceId, values) => async dispatch => {
             audio: '',
             workspaceId
         };
-        let posted = await axios.post(`/api/${workspaceId}/comments`, comment);
-        dispatch({ type: t.ADD_COMMENT, payload: posted.data });
+        let comments = await axios.post(
+            `/api/${workspaceId}/comments`,
+            comment
+        );
+        dispatch({ type: t.ADD_COMMENT, payload: comments.data });
     }
 };
 

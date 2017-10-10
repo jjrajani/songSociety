@@ -52,7 +52,7 @@ export default function(
         case t.PROMOTE_AUDIO: {
             return {
                 ...state,
-                project: action.payload
+                project: action.payload.workspace
             };
         }
         case t.LOGOUT: {

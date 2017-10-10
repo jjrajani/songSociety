@@ -1,13 +1,17 @@
 import t from './types';
 import axios from 'axios';
 
-export const promoteAudio = (workspaceId, audio) => async dispatch => {
-    const workspace = await axios.post(
-        `/api/comments/promote/${workspaceId}/audio`,
+export const promoteAudio = (
+    workspaceId,
+    commentId,
+    audio
+) => async dispatch => {
+    const res = await axios.post(
+        `/api/comments/promote/${workspaceId}/${commentId}/audio`,
         { audio }
     );
 
-    dispatch({ type: t.PROMOTE_AUDIO, payload: workspace.data });
+    dispatch({ type: t.PROMOTE_AUDIO, payload: res.data });
 };
 
 export const togglePageView = page => dispatch => {

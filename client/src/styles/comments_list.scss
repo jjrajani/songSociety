@@ -11,16 +11,17 @@ $blue: rgb(51, 113, 214);
             }
             .text_wrapper {
                 display: flex;
-                justify-content: space-between;
+                // justify-content: space-between;
                 align-items: flex-start;
                 width: 100%;
                 img {
                     width: 60px;
                     border-radius: 20%;
+                    margin-right: 10px;
                 }
                 p {
                     padding-top: 0 !important;
-                    width: calc(100% - 140px);
+                    width: calc(100% - 130px);
                 }
                 .utils {
                     width: 50px;

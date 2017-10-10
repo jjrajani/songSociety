@@ -42,25 +42,15 @@ export default function(
             };
         }
         case t.ADD_COMMENT: {
-            let newList = state.list;
-            newList.splice(1, 0, action.payload);
             return {
                 ...state,
-                list: newList
+                list: action.payload
             };
         }
         case t.PROMOTE_AUDIO: {
-            let newList = state.list.reduce((a, b) => {
-                if (b.audio === action.payload.currentAudio) {
-                    a.unshift(b);
-                } else {
-                    a.push(b);
-                }
-                return a;
-            }, []);
             return {
                 ...state,
-                list: newList
+                list: action.payload.comments
             };
         }
         case t.LOGOUT:
