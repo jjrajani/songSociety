@@ -381,6 +381,11 @@ ul.nav button {
   margin-right: 0 !important;
   border-top: solid 1px #ccc; }
 
+.details_no_auth {
+  padding-top: 60px !important; }
+  .details_no_auth p {
+    margin-left: 5%; }
+
 .dark_theme {
   background-color: #444; }
 

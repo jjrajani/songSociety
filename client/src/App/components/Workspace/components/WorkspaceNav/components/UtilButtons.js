@@ -9,15 +9,11 @@ import PrivatiseWorkspace from '../../../../StripePay/PrivatiseWorkspace';
 const UtilButtons = ({ history, auth, workspace, isPrivate, isChanged }) => {
     const isLoggedIn = auth.isAuthenticated();
     const workspaceId = workspace.project._id;
+    const canPrivatise = isLoggedIn && workspaceId && isPrivate === false;
     return (
         <div className="util_buttons_wrapper">
-            {isLoggedIn &&
-                workspaceId &&
-                isPrivate === false &&
-                <PrivatiseWorkspace />}
-            {isLoggedIn &&
-                workspaceId &&
-                isPrivate === true &&
+            {canPrivatise && <PrivatiseWorkspace />}
+            {isPrivate === true &&
                 <i className="fa fa-lock" title="Workspace is Private" />}
             {isLoggedIn &&
                 <button

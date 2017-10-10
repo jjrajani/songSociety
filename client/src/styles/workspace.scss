@@ -66,6 +66,12 @@ $red: rgba(221, 0, 0, .8);
         border-top: solid 1px #ccc;
     }
 }
+.details_no_auth {
+    padding-top: 60px !important;
+    p {
+        margin-left: 5%;
+    }
+}
 
 .dark_theme {
     background-color: #444;

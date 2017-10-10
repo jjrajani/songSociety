@@ -1,19 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 // Tools
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { withRouter } from 'react-router-dom';
 // Components
-import { WorkspaceNav, AudioPlayer, Details, Visualizer } from './components';
-import AudioControlButtons from './AudioControls/AudioControlButtons';
-import TrackBar from './AudioControls/TrackBar';
-// HOC
-import workspaceAudioButtons from './AudioControls/workspaceAudioButtons';
+import { WorkspaceNav, Details, MainVisualizer } from './components';
 
-// With audioButtons carries glyph buttons
-// and extends from audioControl functions
-// and extends Component
-class Workspaces extends workspaceAudioButtons {
+class Workspaces extends Component {
     componentDidMount() {
         const { workspaceId } = this.props.match.params;
         if (workspaceId && workspaceId !== 'new') {
@@ -27,38 +20,22 @@ class Workspaces extends workspaceAudioButtons {
     }
 
     render() {
-        return (
-            <div className="container main_content workspace">
-                <WorkspaceNav />
-                <div className="audio_wrapper">
-                    <AudioControlButtons
-                        buttons={this.controlGlyphs}
-                        audioSrcId={'workspace_audio_player'}
-                        isPlaying={this.state.isPlaying}
-                    />
-                    <AudioPlayer
-                        currentAudio={this.props.workspace.project.currentAudio}
-                        audioWrapperClassName="player"
-                        audioPlayerId="workspace_audio_player"
-                    />
-                    <Visualizer
-                        audioPlayer="workspace_audio_player"
-                        canvasId="analyzer"
-                        canvasWrapperId="mp3_player"
-                    />
-                    <TrackBar
-                        audioPlayerId="workspace_audio_player"
-                        trackBarWrapperId="workspace_track_bar"
-                    />
-                </div>
-                <Details />
-            </div>
-        );
+        return this.props.auth.isAuthenticated()
+            ? <div className="container main_content workspace">
+                  <WorkspaceNav />
+                  <MainVisualizer />
+                  <Details />
+              </div>
+            : <div className="container main_content">
+                  <div className="col-xs-12 details_no_auth">
+                      <p>Login to Collaborate</p>
+                  </div>
+              </div>;
     }
 }
 
-function mapStateToProps({ profile, workspace }) {
-    return { profile, workspace };
+function mapStateToProps({ profile, workspace, auth }) {
+    return { profile, workspace, auth };
 }
 
 export default connect(mapStateToProps, {
