@@ -26,17 +26,16 @@ class Profile extends Component {
         this.location = history.location.pathname;
         this.unlisten = history.listen(location => {
             let currentLocation = location.pathname;
-            let pathNames = location.pathname.split('/');
             if (
-                this.pathname !== currentLocation &&
-                (pathNames[1] === 'artist' || pathNames[1] === 'my_profile')
+                history.location.pathname.includes('artist') &&
+                this.pathname !== currentLocation
             ) {
+                let artistId = history.location.pathname.split('/')[2];
                 this.pathname = currentLocation;
-                if (pathNames[1] === 'artist') {
-                    this.getArtistProfile(pathNames[2]);
-                } else {
-                    this.getLoggedInProfile();
-                }
+                this.getArtistProfile(artistId);
+            } else if (this.pathname !== currentLocation) {
+                this.pathname = currentLocation;
+                this.getLoggedInProfile();
             }
         });
     }

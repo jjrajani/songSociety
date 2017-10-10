@@ -46,8 +46,9 @@ const Bio = ({ profile, history }) => {
                     <h5>
                         {website === 'Add your website.'
                             ? website
-                            : <a href={website}>
-                                  {website}
+                            : <a href={website} target="blank">
+                                  {website &&
+                                      website.replace(/(^\w+:|^)\/\//, '')}
                               </a>}
                     </h5>
                     <p>

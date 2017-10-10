@@ -63,5 +63,4 @@ export const filterCollaborators = (
             return users;
         }
     }
-    return {};
 };

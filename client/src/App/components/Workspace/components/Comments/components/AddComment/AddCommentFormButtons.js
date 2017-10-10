@@ -1,8 +1,6 @@
 import React from 'react';
 // Components
 import { Glyphicon } from 'react-bootstrap';
-// HOC
-import addCommentAudioButtons from '../../../../AudioControls/addCommentAudioButtons';
 
 const AddCommentFormButtons = () =>
     <div className="submit_form_button">
