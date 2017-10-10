@@ -5,7 +5,7 @@ import * as actions from '../../../../actions';
 import { withRouter } from 'react-router-dom';
 // Components
 import CommentList from './components/CommentList';
-import AddComment from './components/AddComment';
+import AddComment from './components/AddComment/AddComment';
 
 class Comments extends Component {
     componentDidMount() {
