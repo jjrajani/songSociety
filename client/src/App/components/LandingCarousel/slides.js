@@ -18,13 +18,13 @@ export default [
     },
     {
         img: 'violin',
-        captionHeader: 'The Creative Process is Individual',
+        captionHeader: 'Create Individualy',
         captionBlurb:
             'No matter your style, The Labz frees you to create in your own way.'
     },
     {
         img: 'jam_session',
-        captionHeader: 'A Finished Song is Collaborative.',
+        captionHeader: 'Finish Collaboratively',
         captionBlurb:
             'Create together in your garage, or from opposite sides of the world.'
     }
