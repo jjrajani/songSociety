@@ -13,11 +13,7 @@ module.exports = app => {
         const comments = await Comment.find({
             workspaceId: req.params.workspaceId
         }).sort('-created_at');
-        const project = await Project.findById(req.params.workspaceId);
-        const { currentAudio } = project;
-        const sortedComments = commentServices.sortByPromoted(comments);
-
-        res.send(sortedComments);
+        res.send(comments);
     });
     // POST new comment to workspace
     app.post('/api/:workspaceId/comments', async (req, res) => {
@@ -33,9 +29,8 @@ module.exports = app => {
         const comments = await Comment.find({
             workspaceId: req.params.workspaceId
         }).sort('-created_at');
-        const sortedComments = commentServices.sortByPromoted(comments);
 
-        res.status(200).send(sortedComments);
+        res.status(200).send(comments);
     });
     // POST Promote Comment
     app.post(
@@ -45,9 +40,7 @@ module.exports = app => {
             let comments = await Comment.find({
                 workspaceId: req.params.workspaceId
             }).sort('-created_at');
-            comments = commentServices.sortByPromoted(
-                commentServices.togglePromoted(comments, req.params.commentId)
-            );
+            comments = commentServices.togglePromoted(comments, req.params.commentId);
             project.currentAudio = req.body.audio;
             project.save();
 
