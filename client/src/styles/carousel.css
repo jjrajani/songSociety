@@ -27,7 +27,7 @@
     background-position: center; }
 
 .carousel-caption {
-  bottom: 38% !important;
+  bottom: 35% !important;
   background-color: rgba(110, 110, 110, 0.4);
   width: 100%;
   left: 0% !important;
@@ -38,7 +38,7 @@
     font-size: 4rem; }
   .carousel-caption p {
     color: #fff !important;
-    font-size: 1.9rem; }
+    font-size: 1.95rem; }
 
 .carousel-control {
   display: none;
