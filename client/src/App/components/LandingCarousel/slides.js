@@ -34,4 +34,5 @@ export default [
 // Music creators can now Connect, Collaborate and Complete songs all in one place.
 // The Creative process is individual.
 // A finished, produced song is collaborative.
-// Both ways, its messy and laborious but The Labz frees them up to do what they are meant to do - create, collaborate and produce great music while we take care of the housekeeping.
+// Both ways, its messy and laborious but The Labz frees them up to do what they are meant to do
+// // - create, collaborate and produce great music while we take care of the housekeeping.

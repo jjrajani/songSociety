@@ -9,7 +9,8 @@
     background-image: url("../assets/jungle_mixer.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center; }
+    background-position: center;
+    filter: contrast(90%); }
   .carousel_img.jam_session {
     background-image: url("../assets/jam_session.jpg");
     background-size: cover;
@@ -28,7 +29,7 @@
 
 .carousel-caption {
   bottom: 35% !important;
-  background-color: rgba(110, 110, 110, 0.4);
+  background-color: rgba(110, 110, 120, 0.4);
   width: 100%;
   left: 0% !important;
   right: 0% !important;
