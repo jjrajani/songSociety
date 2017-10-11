@@ -4,7 +4,7 @@ import { Carousel } from 'react-bootstrap';
 import slides from './slides';
 
 const LandingCarousel = () =>
-    <Carousel pauseOnHover={false}>
+    <Carousel pauseOnHover={false} interval={5500}>
         {slides.map((s, i) => {
             return (
                 <Carousel.Item animateIn={true} key={i}>

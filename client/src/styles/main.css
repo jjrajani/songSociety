@@ -122,37 +122,6 @@ ul.nav button {
   right: 0;
   background-color: white; }
 
-.carousel_img {
-  height: 100vh; }
-  .carousel_img.guitar {
-    background-image: url("../assets/guitar.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center; }
-  .carousel_img.jungle_mixer {
-    background-image: url("../assets/jungle_mixer.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center; }
-  .carousel_img.jam_session {
-    background-image: url("../assets/jam_session.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center; }
-  .carousel_img.violin {
-    background-image: url("../assets/violin.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center; }
-  .carousel_img.kid_song {
-    background-image: url("../assets/kid_song.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center; }
-
-.carousel-caption {
-  bottom: 50% !important; }
-
 .profile .avatar {
   border-radius: 20%;
   height: 90px;
@@ -895,3 +864,49 @@ ul.nav button {
     height: 100%; }
     .artist.list_item .buttons .glyph {
       cursor: pointer; }
+
+.carousel_img {
+  height: 100vh; }
+  .carousel_img.guitar {
+    background-image: url("../assets/guitar.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; }
+  .carousel_img.jungle_mixer {
+    background-image: url("../assets/jungle_mixer.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; }
+  .carousel_img.jam_session {
+    background-image: url("../assets/jam_session.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; }
+  .carousel_img.violin {
+    background-image: url("../assets/violin.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; }
+  .carousel_img.kid_song {
+    background-image: url("../assets/kid_song.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; }
+
+.carousel-caption {
+  bottom: 40% !important;
+  background-color: rgba(110, 110, 110, 0.4);
+  width: 100%;
+  left: 0% !important;
+  right: 0% !important;
+  padding: 50px 0 60px !important; }
+  .carousel-caption h3 {
+    color: #fff !important;
+    font-size: 4rem; }
+  .carousel-caption p {
+    color: #fff !important;
+    font-size: 1.75rem; }
+
+.carousel-control {
+  display: none;
+  visibility: hidden; }

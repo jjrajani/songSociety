@@ -27,4 +27,19 @@
     background-position: center; }
 
 .carousel-caption {
-  bottom: 50% !important; }
+  bottom: 40% !important;
+  background-color: rgba(110, 110, 110, 0.4);
+  width: 100%;
+  left: 0% !important;
+  right: 0% !important;
+  padding: 50px 0 60px !important; }
+  .carousel-caption h3 {
+    color: #fff !important;
+    font-size: 4rem; }
+  .carousel-caption p {
+    color: #fff !important;
+    font-size: 1.75rem; }
+
+.carousel-control {
+  display: none;
+  visibility: hidden; }

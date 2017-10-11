@@ -32,5 +32,23 @@
     }
 }
 .carousel-caption {
-    bottom: 50% !important;
+    bottom: 40% !important;
+    // border: solid white 1px;
+    background-color: rgba(110, 110, 110, 0.4);
+    width: 100%;
+    left: 0% !important;
+    right: 0% !important;
+    padding: 50px 0 60px !important;
+    h3 {
+        color: #fff !important;
+        font-size: 4rem;
+    }
+    p {
+        color: #fff !important;
+        font-size: 1.75rem;
+    }
+}
+.carousel-control {
+    display: none;
+    visibility: hidden;
 }
