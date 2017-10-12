@@ -10,7 +10,7 @@ export const promoteAudio = (
         `/api/comments/promote/${workspaceId}/${commentId}/audio`,
         { audio }
     );
-
+    console.log('workspace action', res.data);
     dispatch({ type: t.PROMOTE_AUDIO, payload: res.data });
 };
 
