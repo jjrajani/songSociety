@@ -50,7 +50,6 @@ export default function(
                 project: { ...state.project, name: action.payload }
             };
         case t.PROMOTE_AUDIO: {
-            console.log('reducer', action.payload.workspace);
             return {
                 ...state,
                 project: action.payload.workspace
