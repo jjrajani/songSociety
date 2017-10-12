@@ -5,6 +5,7 @@ import withClickEvent from '../hoc/withClickEvent';
 import { connect } from 'react-redux';
 import * as actions from '../../../../../actions';
 import { reduxForm } from 'redux-form';
+import { withRouter } from 'react-router-dom';
 // Components
 import { Field } from 'redux-form';
 
@@ -30,7 +31,8 @@ const TitleInput = ({
     handleSubmit,
     submitTitleForm,
     changeTitleForm,
-    initialValues
+    initialValues,
+    history
 }) => {
     const { name } = workspace.project;
     return (
@@ -45,7 +47,7 @@ const TitleInput = ({
                 <form
                     id="title_input_form"
                     onSubmit={handleSubmit(
-                        submitTitleForm.bind(this, workspace, userId)
+                        submitTitleForm.bind(this, workspace, userId, history)
                     )}
                 >
                     <Field
@@ -82,7 +84,9 @@ function mapStateToProps({ profile, workspace }) {
     };
 }
 
-export default connect(mapStateToProps, {
-    changeTitleForm: actions.workspaceActions.changeTitleForm,
-    submitTitleForm: actions.workspaceActions.submitTitleForm
-})(reduxForm({ form: 'workspaceTitleForm' })(withClickEvent(TitleInput)));
+export default withRouter(
+    connect(mapStateToProps, {
+        changeTitleForm: actions.workspaceActions.changeTitleForm,
+        submitTitleForm: actions.workspaceActions.submitTitleForm
+    })(reduxForm({ form: 'workspaceTitleForm' })(withClickEvent(TitleInput)))
+);

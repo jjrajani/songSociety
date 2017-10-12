@@ -22,7 +22,7 @@ class AddCommentForm extends addCommentAudioButtons {
         this.showAudioControls(); // extends from addCommentAudioButtons
     };
     myHandleSubmit = values => {
-        const { workspaceId } = this.props.match.params;
+        const workspaceId = this.props.workspace.project._id;
         const profileId = this.props.profile.profile._id;
         this.props.addComment(profileId, workspaceId, values);
         this.props.reset(); // extends from redux-form
@@ -50,8 +50,8 @@ class AddCommentForm extends addCommentAudioButtons {
     }
 }
 
-function mapStateToProps({ profile }) {
-    return { profile };
+function mapStateToProps({ profile, workspace }) {
+    return { profile, workspace };
 }
 
 export default reduxForm({ form: 'commentForm', validate })(
