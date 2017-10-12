@@ -13,7 +13,6 @@ module.exports = app => {
         let comments = await Comment.find({
             workspaceId: req.params.workspaceId
         }).sort('-created_at');
-        comments = commentServices.sortByPromoted(comments);
         res.send(comments);
     });
     // POST new comment to workspace
@@ -30,7 +29,6 @@ module.exports = app => {
         let comments = await Comment.find({
             workspaceId: req.params.workspaceId
         }).sort('-created_at');
-        comments = commentServices.sortByPromoted(comments);
         res.status(200).send(comments);
     });
     // POST Promote Comment
@@ -45,7 +43,6 @@ module.exports = app => {
                 comments,
                 req.params.commentId
             );
-            comments = commentServices.sortByPromoted(comments);
             project.currentAudio = req.body.audio;
             project.save();
 
